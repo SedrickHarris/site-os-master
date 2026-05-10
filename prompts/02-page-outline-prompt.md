@@ -369,3 +369,143 @@ Include:
 - How the page supports rich snippets
 - How the page supports topical authority
 - How the page supports lead generation
+
+## Prompt Revision: Page Outline Refinements for 100-Point Standard
+
+## Image Alt Text Requirement
+
+For any section that includes an image, icon grid, visual card, team photo, process image, location image, or hero image, include:
+
+- Recommended image type
+- Recommended file/folder note if useful
+- SEO-friendly image alt text
+- Image purpose
+- Whether the image supports SEO, GEO, AEO, trust, or conversion
+
+Do not require image alt text for sections that do not use images.
+
+## Local Behavioral Context Requirement
+
+For local pages, include at least one audience behavior, market condition, property type, or local customer scenario specific to the target city or service area.
+
+Examples:
+
+- Apartment turnover
+- Move-out deadlines
+- Rental property cleanouts
+- HOA or community restrictions
+- Seasonal moving patterns
+- Local business corridors
+- Common property types
+- Local service-area challenges
+
+Do not use generic city-name swapping.
+
+The local context should make the page harder for national competitors to copy.
+
+## Claude Code Component Naming Requirement
+
+In the final build brief, include recommended component names for each major section.
+
+Example component names:
+
+- HeroSection
+- QuickAnswerBlock
+- ItemGrid
+- ProcessSteps
+- AudienceCards
+- ServiceAreaBadges
+- TrustBlock
+- FaqAccordion
+- QuoteForm
+- StickyMobileCTA
+- Breadcrumbs
+- SchemaJsonLd
+
+Use names that match the project’s existing component conventions if known.
+
+If the project’s component naming convention is unknown, state:
+
+"Confirm existing component naming conventions before creating new components."
+
+## Route Type Requirement
+
+In the final build brief, state the route type:
+
+- Static route
+- Dynamic route
+- CMS-managed page
+- Framework-specific route
+- Unknown — inspect project before implementation
+
+If unknown, instruct Claude Code to inspect the project structure before creating files.
+
+## Thank-You / Confirmation Page Requirement
+
+If the page includes a form, booking flow, quote request, or lead capture action, include:
+
+- Recommended confirmation behavior
+- Thank-you page route if known
+- Conversion tracking note
+- Fallback behavior if form integration is not available
+
+Example:
+
+"After form submission, redirect to /thank-you or display an on-page confirmation message. If analytics is installed, mark the form submission or click-to-call as a conversion event."
+
+## Sticky Mobile CTA Requirement
+
+If the page is conversion-focused, include a mobile CTA recommendation.
+
+State whether the page should use:
+
+- StickyMobileCTA
+- FloatingCallButton
+- StickyQuoteButton
+- No sticky CTA needed
+
+Include:
+
+- CTA label
+- Destination or action
+- Mobile behavior
+- When to hide or show it
+
+## Next Pages to Build Requirement
+
+In the competitive advantage or topical authority section, include a short "Next Pages to Build" note.
+
+List 2 to 3 supporting pages that should be created next.
+
+For each page, include:
+
+- Page name
+- Why it should be built next
+- Keyword or entity supported
+- Internal link relationship
+- Priority
+
+Prioritize pages that improve topical authority, local visibility, AEO, or conversion velocity.
+
+## Bing-Specific Implementation Note
+
+When a multi-platform alignment summary includes Bing, add one implementation-specific note.
+
+Examples:
+
+- Ensure page is included in sitemap submitted to Bing Webmaster Tools.
+- Use the same structured data validation discipline for Bing as Google.
+- Align local business information with Bing Places if local intent applies.
+- Monitor Bing query impressions after indexing.
+
+## Final Build Brief Additions
+
+The final build brief summary must include:
+
+- Route type
+- Recommended components
+- Image alt text for image-bearing sections
+- Sticky mobile CTA recommendation if conversion-focused
+- Thank-you or confirmation behavior if a form exists
+- Next pages to build
+- Bing-specific implementation note

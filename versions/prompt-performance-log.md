@@ -110,3 +110,33 @@ Keep as master
 
 Notes:
 Prompt 01 now produces a complete keyword intelligence map with keyword categories, search intent mapping, AEO/voice search opportunities, competitive gap analysis, AI/LLM citation-ready statements, fastest-visibility keyword opportunities, inbound and outbound internal linking recommendations, schema keyword fields, guardrails, QA checklist, and acceptance criteria. 
+
+## 2026-05-10 — Prompt 01 Keyword Strategy v5 Benchmark
+
+Prompt:
+prompts/01-keyword-strategy-prompt.md
+
+Benchmark:
+Benchmark 1 — Pit Stop Junk Removal Furniture & Appliance Removal, Las Vegas, NV
+
+Mode:
+Core Mode
+
+Effort:
+Medium
+
+Output Depth:
+Standard
+
+Scores:
+- v1: 84/100
+- v2: 95/100
+- v3: 100/100
+- v4-commercial: 79/100
+- v5: 97/100
+
+Final Decision:
+Keep as master
+
+Notes:
+v5 preserved the v3 master structure and added the v4 commercial/transactional priority layer. No regressions were found. Commercial and transactional targeting improved. Remaining polish items were item-specific keyword duplication risk and combined LocalBusiness + FAQPage schema guidance. 
