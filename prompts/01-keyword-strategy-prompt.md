@@ -832,3 +832,51 @@ Before finalizing the output, check:
 - Is the final summary scannable for Prompt 02?
 
 If any answer is no, revise before returning the output.
+
+## Prompt Revision: v5 Final Polish for 100-Point Keyword Strategy Standard
+
+## Item-Specific Keyword Duplication Risk
+
+When recommending item-specific keywords such as:
+
+- refrigerator removal
+- washer removal
+- dryer removal
+- couch removal
+- mattress removal
+- appliance removal
+- furniture removal
+
+Include a risk warning if these keywords may be used across multiple service pages.
+
+Warn against:
+
+- Using the same item-specific keyword as an exact-match H2 on multiple pages
+- Creating thin pages for each item without unique search intent
+- Repeating the same accepted-item list across multiple pages
+- Creating near-duplicate pages for refrigerator, washer, dryer, couch, sofa, and mattress removal
+- Overusing item-specific keywords in headings instead of using them naturally in body copy, FAQs, image alt text, and schema fields
+
+Recommended prevention:
+
+- Use the main service page for the broad combined topic
+- Use item-specific pages only when there is enough unique search intent and content depth
+- Differentiate each item-specific page by use case, process, disposal requirements, FAQs, and conversion angle
+- Use internal links to connect item-specific pages back to the parent service page
+- Keep item-specific keyword usage natural and helpful
+
+## Combined Schema Implementation Note
+
+When the page is a local service page with visible FAQs, include this schema note in the implementation readiness section:
+
+Use LocalBusiness schema to clarify the business entity, service area, and local relevance.
+
+Use Service schema to clarify the specific service being offered.
+
+Use FAQPage schema only for FAQs that are visible on the page.
+
+Use BreadcrumbList schema if the page belongs to a clear site hierarchy.
+
+LocalBusiness, Service, FAQPage, and BreadcrumbList schema can work together when each schema type matches visible page content and uses accurate business information.
+
+Do not add fake reviews, fake ratings, fake prices, fake hours, fake addresses, unsupported guarantees, or credentials that are not verified.
