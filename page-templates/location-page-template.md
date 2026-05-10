@@ -1,0 +1,142 @@
+# Beyond Elite Location Page Template
+
+Use this template for location pages designed to build local relevance, GEO visibility, local SERP performance, AI search clarity, and lead generation.
+
+## Page Strategy
+
+Business Name:
+[BUSINESS NAME]
+
+Location Name:
+[LOCATION NAME]
+
+Page Type:
+Location Page
+
+Primary Keyword:
+[PRIMARY KEYWORD]
+
+Secondary Keywords:
+[SECONDARY KEYWORDS]
+
+Target Audience:
+[TARGET AUDIENCE]
+
+Primary CTA:
+[PRIMARY CTA]
+
+Secondary CTA:
+[SECONDARY CTA]
+
+Recommended URL Slug:
+[URL SLUG]
+
+Meta Title:
+[META TITLE]
+
+Meta Description:
+[META DESCRIPTION]
+
+Recommended Schema:
+- WebPage
+- BreadcrumbList
+- FAQPage
+- LocalBusiness if applicable
+- Service if services are listed
+- Organization if applicable
+
+## Required Page Sections
+
+1. Hero Section
+   - Clear location-based H1
+   - Short local intro
+   - Primary CTA
+   - Local trust signal
+
+2. Quick Local Answer
+   - Explain who the page serves in this location
+   - Mention the business, service/topic, and location clearly
+   - Make the answer useful for AEO and AI search
+
+3. Local Overview
+   - Explain the local market, customer need, or service relevance
+   - Avoid generic city-name swapping
+   - Include real local context when available
+
+4. Services or Categories Available in This Location
+   - List relevant services or categories
+   - Link to service pages where appropriate
+   - Explain how each service supports local customers
+
+5. Local Problems / Local Search Intent
+   - Identify what people in this area commonly need
+   - Address local pain points
+   - Support near-me and local intent searches
+
+6. How the Business Helps Customers in This Area
+   - Explain the value proposition locally
+   - Include process, convenience, service area, and trust details
+
+7. Nearby Areas
+   - Mention nearby areas only when useful
+   - Link to nearby location pages if they exist
+   - Avoid overloading the page with unrelated locations
+
+8. Local Trust Signals
+   - Use verified trust signals only
+   - Include service area clarity, local experience, process, or real proof if available
+
+9. Related Services / Internal Links
+   - Link to services available in this location
+   - Link to nearby locations
+   - Link to contact or quote page
+
+10. Location-Based AEO FAQs
+   - Include 5 to 8 local FAQs
+   - Use natural local phrasing
+   - Support People Also Ask, voice search, and FAQ schema
+
+11. Final Local CTA
+   - Restate location relevance
+   - Make next step clear
+   - Include phone, form, booking, quote, or listing path
+
+## Multi-Platform Requirements
+
+The page should support:
+- Google Search
+- Bing
+- Apple Maps / Apple Search
+- Google Business Profile
+- Bing Places
+- Local intent SERP
+- AI assistants
+- ChatGPT
+- Perplexity
+- Featured snippets
+- People Also Ask
+- Rich snippets
+- Topical authority
+- Lead generation
+
+## Guardrails
+
+Do not include:
+- Generic city-name swapping
+- Fake local claims
+- Fake address
+- Fake service areas
+- Unsupported reviews
+- Repetitive local keywords
+- Thin location content
+
+## Claude Code Notes
+
+Claude Code should:
+- Follow existing location page patterns
+- Add metadata
+- Add local internal links
+- Add schema where supported
+- Preserve design system
+- Avoid duplicate routes
+- Confirm mobile layout

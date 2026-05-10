@@ -1,0 +1,103 @@
+# Beyond Elite Landing Page Template
+
+Use this template for landing pages designed to convert traffic from ads, email, social, local campaigns, or targeted offers.
+
+## Page Strategy
+
+Landing Page Name:
+[LANDING PAGE NAME]
+
+Business Name:
+[BUSINESS NAME]
+
+Offer:
+[OFFER]
+
+Target Audience:
+[TARGET AUDIENCE]
+
+Traffic Source:
+[TRAFFIC SOURCE]
+
+Primary CTA:
+[PRIMARY CTA]
+
+Secondary CTA:
+[SECONDARY CTA]
+
+Recommended Schema:
+- WebPage
+- Organization
+- LocalBusiness if applicable
+- Service if service-based
+- FAQPage if FAQs exist
+
+## Required Page Sections
+
+1. Hero Section
+   - Clear offer
+   - Strong value statement
+   - Primary CTA
+   - Trust signal
+
+2. Quick Answer / Offer Summary
+   - Explain what the offer is
+   - Explain who it is for
+   - Explain why it matters
+
+3. Problem and Desired Outcome
+   - State the customer problem
+   - Show the outcome the offer helps create
+
+4. Benefits Section
+   - Focus on benefits, not just features
+   - Make value easy to scan
+
+5. What Is Included
+   - Clarify deliverables
+   - Reduce uncertainty
+
+6. Why Choose This Offer
+   - Add trust and proof where verified
+   - Address why this business is the right choice
+
+7. Objection Handling
+   - Address cost, trust, time, complexity, and next-step concerns
+
+8. FAQ Section
+   - Include buying-intent FAQs
+   - Support conversion and AEO
+
+9. Final CTA
+   - Repeat offer
+   - Make action clear
+   - Reduce friction
+
+## Conversion Rules
+
+Landing pages should:
+- Keep the CTA path focused
+- Avoid too many distracting links
+- Use strong trust signals
+- Support mobile conversion
+- Make the next step obvious
+
+## Guardrails
+
+Do not include:
+- Too many outbound links
+- Fake urgency
+- Fake guarantees
+- Fake testimonials
+- Unsupported claims
+- Unclear offer language
+
+## Claude Code Notes
+
+Claude Code should:
+- Preserve landing page focus
+- Add metadata
+- Add schema if supported
+- Keep CTA visible
+- Confirm mobile layout
+- Avoid unnecessary navigation changes
