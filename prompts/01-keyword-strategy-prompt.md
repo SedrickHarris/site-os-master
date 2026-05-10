@@ -247,3 +247,139 @@ Include:
 Before finalizing the keyword map, answer:
 
 How can this keyword strategy help the page become more useful, more specific, better structured, easier to cite, and more conversion-focused than competing pages?
+
+## Prompt Revision: Competitive Gap, AEO Answers, AI Citation, and Fast-Visibility Keywords
+
+Add this section before the final keyword strategy summary.
+
+## Part 9A: Competitive Gap Analysis
+
+Create a dedicated competitive keyword gap analysis.
+
+Do not summarize this in one paragraph.
+
+Include:
+
+1. Keywords competitors likely target heavily
+2. Keywords competitors likely ignore or underuse
+3. 3 to 5 long-tail keywords that can create faster visibility
+4. 3 to 5 AEO or People Also Ask questions competitors likely answer poorly
+5. 3 to 5 local keyword modifiers competitors likely underuse
+6. 3 to 5 content moat keyword opportunities
+7. Google Business Profile keyword alignment opportunities
+8. Keywords to avoid because they are too broad, too competitive, or not aligned with the page goal
+
+For each opportunity, include:
+
+- Keyword or question
+- Search intent
+- Why competitors may miss it
+- Why it matters
+- Best page section
+- Priority: Critical, High, Medium, or Low
+
+## Part 9B: Short-Answer AEO Statements
+
+For the top 3 AEO questions, write a 1 to 2 sentence direct answer that is ready to embed near the top or middle of the page.
+
+Each answer should be:
+
+- Clear
+- Concise
+- Plain-language
+- Useful for featured snippets
+- Useful for People Also Ask
+- Useful for voice search
+- Useful for ChatGPT and Perplexity summaries
+
+Output format:
+
+Question:
+[Question]
+
+Short Answer:
+[1 to 2 sentence answer]
+
+Best Page Placement:
+[Recommended section]
+
+## Part 9C: AI and LLM Citation-Ready Statements
+
+Write 3 citation-ready statements that AI assistants could quote or summarize.
+
+Each statement should be:
+
+- Specific
+- Factual
+- Low-hype
+- Entity-rich
+- Connected to the business, service, location, and user need
+- Supported by visible page content
+
+Do not invent claims, reviews, awards, statistics, prices, or guarantees.
+
+Output format:
+
+Citation-Ready Statement:
+[Statement]
+
+Entity Supported:
+[Business, service, location, customer problem, process, trust signal]
+
+Why It Is Citation-Worthy:
+[Reason]
+
+Best Page Placement:
+[Recommended section]
+
+## Part 9D: Fastest-Visibility Keyword Opportunities
+
+Identify the top 3 fastest-visibility keyword opportunities.
+
+Prioritize keywords or questions that may have:
+
+- Lower competition
+- Strong long-tail intent
+- Local specificity
+- Featured snippet potential
+- People Also Ask potential
+- High conversion relevance
+- Content moat potential
+
+For each opportunity, include:
+
+- Keyword or question
+- Why it is a fast-visibility opportunity
+- SERP/AEO opportunity
+- Best page section
+- Suggested content format
+- Priority
+
+## Mode-Based Token Control
+
+If using Fast Mode or Core Mode:
+
+- Keep the keyword intelligence table concise.
+- Use no more than 10 columns in the main keyword table.
+- Focus on the most actionable keyword categories.
+- Do not repeat the same keywords across multiple sections unless needed.
+
+If using Beyond-Elite Mode or Full Competitive Build Mode:
+
+- Use the full keyword intelligence table.
+- Include deeper competitive, entity, AEO, LLM, and conversion notes.
+
+## Implementation Readiness Requirement
+
+End with a Claude Code readiness note that includes:
+
+- Keyword placement summary
+- Internal link assumptions
+- Schema keyword fields
+- Guardrails
+- QA checks
+- Acceptance criteria
+
+Include this warning when internal links are recommended:
+
+"The following internal links are assumed to exist. Confirm routes before adding them in Claude Code."
