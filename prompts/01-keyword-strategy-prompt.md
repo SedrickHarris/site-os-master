@@ -383,3 +383,92 @@ End with a Claude Code readiness note that includes:
 Include this warning when internal links are recommended:
 
 "The following internal links are assumed to exist. Confirm routes before adding them in Claude Code."
+
+## Prompt Revision: Core Mode Required Completion Rules
+
+For Core Mode and above, the following sections are required and must not be skipped:
+
+- Part 9A: Competitive Gap Analysis
+- Part 9B: Short-Answer AEO Statements
+- Part 9C: AI and LLM Citation-Ready Statements
+- Part 9D: Fastest-Visibility Keyword Opportunities
+- Implementation Readiness Requirement
+- QA Checklist
+- Acceptance Criteria
+
+Do not treat Part 9C or Part 9D as optional in Core Mode.
+
+## Core Mode Keyword Table Limit
+
+For Core Mode, limit the main keyword intelligence table to no more than 10 columns.
+
+Recommended Core Mode columns:
+
+1. Keyword
+2. Type
+3. Intent
+4. Funnel stage
+5. Pain point
+6. Best page section
+7. AEO opportunity
+8. Conversion value
+9. Difficulty
+10. Priority
+
+For Beyond-Elite Mode or Full Competitive Build Mode, the table may include expanded columns.
+
+## Inbound Internal Linking Requirement
+
+In the internal linking section, include both outbound and inbound internal linking recommendations.
+
+For inbound links, identify:
+
+- Which existing or planned pages should link to this page
+- Recommended anchor text
+- Why the link supports topical authority
+- Why the link supports conversion or user journey
+- Whether the source page is confirmed or assumed
+
+Include this warning:
+
+"The following inbound and outbound internal links are assumed unless confirmed. Verify routes before adding links in Claude Code."
+
+## Required QA Checklist
+
+End the implementation readiness section with a QA checklist.
+
+Include at minimum:
+
+- [ ] Primary keyword appears naturally in the H1
+- [ ] Meta title is written and under 60 characters when possible
+- [ ] Meta description is written and conversion-focused
+- [ ] Top AEO questions are included as FAQ or direct-answer opportunities
+- [ ] Internal links are confirmed or clearly flagged as assumed
+- [ ] Recommended schema types are identified
+- [ ] Keyword stuffing risk is low
+- [ ] URL slug is clean and unique
+- [ ] Local modifiers are used naturally
+- [ ] No unsupported claims, fake pricing, fake reviews, or fake guarantees are included
+
+## Required Acceptance Criteria
+
+End with an acceptance criteria block.
+
+Use this format:
+
+### Acceptance Criteria
+
+This keyword strategy is ready for the page outline prompt when:
+
+- The primary keyword is selected
+- Secondary and long-tail keywords are mapped
+- Search intent is clear
+- AEO questions and short answers are included
+- AI/LLM citation-ready statements are included
+- Fastest-visibility keyword opportunities are identified
+- Internal link opportunities are confirmed or flagged as assumed
+- Schema keyword fields are identified
+- Keyword risks are documented
+- QA checklist is complete
+
+If any of these are missing, revise before moving to the page outline prompt.
