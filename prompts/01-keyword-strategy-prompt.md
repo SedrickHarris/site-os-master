@@ -472,3 +472,271 @@ This keyword strategy is ready for the page outline prompt when:
 - QA checklist is complete
 
 If any of these are missing, revise before moving to the page outline prompt.
+
+## Prompt Revision: v4 Polish — Comparison Keywords and Final Summary Block
+
+## Explicit Comparison Keyword Category Requirement
+
+In Part 1: Keyword Categories, always include a clearly labeled section titled:
+
+Comparison Keywords
+
+Use this section for keywords that compare options, providers, methods, or alternatives.
+
+Examples:
+
+- junk removal vs bulk trash pickup [LOCATION]
+- furniture donation vs junk removal [LOCATION]
+- appliance removal vs city pickup [LOCATION]
+- local junk removal vs national junk removal company
+- same day junk removal vs scheduled pickup
+
+For each page, include comparison keywords only when they match the page intent.
+
+Do not force comparison keywords if comparison intent is not relevant.
+
+## Required Final Keyword Strategy Summary Block
+
+At the end of the keyword strategy output, include a consolidated section titled:
+
+## Final Keyword Strategy Summary
+
+This section should aggregate the most important handoff items in one scannable block.
+
+Include:
+
+1. Recommended primary keyword
+2. Top 10 priority keywords
+3. Top 5 AEO questions
+4. Top 5 voice search phrases
+5. Top 5 internal anchor text suggestions
+6. Top 5 entities to include
+7. Keywords to avoid overusing
+8. Google Business Profile keyword alignment if local
+9. Claude Code keyword strategy note
+10. Next recommended prompt
+
+## Final Summary Format
+
+Use this structure:
+
+### Recommended Primary Keyword
+[Primary keyword]
+
+### Top 10 Priority Keywords
+1. [Keyword]
+2. [Keyword]
+3. [Keyword]
+4. [Keyword]
+5. [Keyword]
+6. [Keyword]
+7. [Keyword]
+8. [Keyword]
+9. [Keyword]
+10. [Keyword]
+
+### Top 5 AEO Questions
+1. [Question]
+2. [Question]
+3. [Question]
+4. [Question]
+5. [Question]
+
+### Top 5 Voice Search Phrases
+1. [Phrase]
+2. [Phrase]
+3. [Phrase]
+4. [Phrase]
+5. [Phrase]
+
+### Top 5 Internal Anchor Text Suggestions
+1. [Anchor text]
+2. [Anchor text]
+3. [Anchor text]
+4. [Anchor text]
+5. [Anchor text]
+
+### Top 5 Entities to Include
+1. [Entity]
+2. [Entity]
+3. [Entity]
+4. [Entity]
+5. [Entity]
+
+### Keywords to Avoid Overusing
+- [Keyword or phrase] — [reason]
+- [Keyword or phrase] — [reason]
+- [Keyword or phrase] — [reason]
+
+### Google Business Profile Keyword Alignment
+If local intent applies, list the keywords that should align with GBP services, description, posts, and Q&A.
+
+If local intent does not apply, state:
+Not applicable.
+
+### Claude Code Keyword Strategy Note
+Provide a compact implementation note that includes:
+
+- Primary keyword placement
+- Metadata keyword usage
+- H1 keyword usage
+- FAQ/AEO keyword usage
+- Internal link keyword usage
+- Schema keyword fields
+- Guardrails
+
+### Next Recommended Prompt
+State the next prompt to run.
+
+Usually:
+
+prompts/02-page-outline-prompt.md
+
+## Token Efficiency Rule
+
+Keep the Final Keyword Strategy Summary concise.
+
+Do not repeat full tables.
+
+Use this final section as a handoff summary for the next prompt.
+
+## Prompt Revision: Commercial and Transactional Keyword Priority Layer
+
+For service pages, location pages, landing pages, and any page where the goal is lead generation, commercial and transactional keywords must receive priority.
+
+Do not treat informational keywords as equal to buying-intent keywords unless the page type is a blog post or educational article.
+
+## Commercial and Transactional Priority Rules
+
+When the page goal is customer conversion, lead generation, quote requests, calls, bookings, purchases, or form submissions:
+
+1. Prioritize transactional keywords first.
+2. Prioritize commercial investigation keywords second.
+3. Use informational keywords only when they support the buyer journey.
+4. Map high-intent keywords to CTAs.
+5. Map price-related keywords to trust and quote language.
+6. Map urgency keywords to fast-action CTAs.
+7. Map comparison keywords to trust-building sections.
+8. Map local commercial keywords to GEO and GBP support.
+9. Map objection-driven keywords to FAQ and trust sections.
+10. Identify which keywords should appear above the fold.
+
+## Required Commercial and Transactional Keyword Section
+
+Add a section titled:
+
+## Commercial and Transactional Keyword Priority Map
+
+Include a table with these columns:
+
+- Keyword
+- Intent type: Transactional, Commercial Investigation, Local Transactional, Urgency, Price, Trust, Comparison, or Objection-Driven
+- Buyer readiness: High, Medium, or Low
+- Funnel stage
+- User motivation
+- Objection or concern
+- Best page section
+- CTA alignment
+- Trust signal needed
+- Priority score from 1 to 10
+
+## Required Buying-Intent Keyword Groups
+
+Identify keywords in these groups:
+
+### Quote and Estimate Keywords
+Examples:
+- [service] quote [location]
+- free [service] quote [location]
+- request [service] quote
+- [service] estimate [location]
+
+### Booking and Scheduling Keywords
+Examples:
+- book [service] [location]
+- schedule [service] [location]
+- same day [service] [location]
+- emergency [service] [location]
+
+### Near-Me and Local Transactional Keywords
+Examples:
+- [service] near me
+- [service] company near me
+- [service] in [city]
+- [service] [neighborhood]
+
+### Price and Cost Keywords
+Examples:
+- [service] cost [location]
+- [service] prices [location]
+- affordable [service] [location]
+- how much does [service] cost
+
+### Trust and Validation Keywords
+Examples:
+- best [service] [location]
+- top rated [service] [location]
+- licensed [service] [location]
+- reliable [service] [location]
+- [service] reviews [location]
+
+### Comparison Keywords
+Examples:
+- [service] vs [alternative]
+- local [service] vs national company
+- [service] vs DIY
+- [service] vs city pickup
+- same day vs scheduled [service]
+
+### Objection-Driven Keywords
+Examples:
+- do you take [item]
+- can you remove [item]
+- is [service] worth it
+- what is included in [service]
+- what items are not accepted
+
+## Above-the-Fold Keyword Guidance
+
+For lead-generation pages, identify:
+
+1. Primary commercial keyword for H1
+2. Secondary transactional keyword for hero subtext
+3. Urgency keyword for CTA support
+4. Trust keyword for proof statement
+5. Local modifier for GEO support
+
+Output format:
+
+- H1 keyword:
+- Hero support keyword:
+- CTA support keyword:
+- Trust support keyword:
+- Local modifier:
+
+## Commercial Keyword Weighting Rule
+
+For service pages, location pages, and landing pages, the final top 10 priority keyword list should include:
+
+- At least 4 transactional keywords
+- At least 2 commercial investigation keywords
+- At least 2 local transactional keywords
+- At least 1 urgency keyword
+- At least 1 price, trust, comparison, or objection-driven keyword
+
+If the page is a blog post, this weighting can be reduced.
+
+## Final Commercial Intent Check
+
+Before finalizing the keyword strategy, answer:
+
+1. Are the highest-intent keywords prioritized above informational keywords?
+2. Are quote, booking, and scheduling keywords included?
+3. Are price and cost keywords addressed without making unsupported pricing claims?
+4. Are trust-validation keywords included without using fake claims or unverifiable superlatives?
+5. Are local transactional keywords included?
+6. Are commercial keywords mapped to CTAs?
+7. Are objections mapped to FAQ or trust sections?
+8. Does the keyword strategy support lead generation?
+
+If any answer is no, revise the keyword map before moving to the page outline prompt.

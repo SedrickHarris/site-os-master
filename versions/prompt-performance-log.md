@@ -80,3 +80,33 @@ Choose one:
 ## Prompt Performance Entries
 
 Add entries below this line.
+## 2026-05-10 — Prompt 01 Keyword Strategy Benchmark
+
+Prompt:
+prompts/01-keyword-strategy-prompt.md
+
+Benchmark:
+Benchmark 1 — Pit Stop Junk Removal Furniture & Appliance Junk Removal, Las Vegas, NV
+
+Mode:
+Core Mode
+
+Effort:
+Medium
+
+Output Depth:
+Standard
+
+Scores:
+- Original v1: 84/100
+- Revised v2: 95/100
+- Final v3: 100/100
+
+Score Improvement:
++16 points from original
+
+Final Decision:
+Keep as master
+
+Notes:
+Prompt 01 now produces a complete keyword intelligence map with keyword categories, search intent mapping, AEO/voice search opportunities, competitive gap analysis, AI/LLM citation-ready statements, fastest-visibility keyword opportunities, inbound and outbound internal linking recommendations, schema keyword fields, guardrails, QA checklist, and acceptance criteria. 
