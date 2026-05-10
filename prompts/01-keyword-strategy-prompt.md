@@ -740,3 +740,95 @@ Before finalizing the keyword strategy, answer:
 8. Does the keyword strategy support lead generation?
 
 If any answer is no, revise the keyword map before moving to the page outline prompt.
+
+## Prompt Revision: v5 Non-Regression Commercial Integration Rule
+
+Commercial and transactional keyword targeting must be integrated into the full master output structure.
+
+Do not replace or remove any required master sections when adding commercial and transactional keyword sections.
+
+## Required Master Sections That Must Always Remain
+
+For Core Mode and above, the output must include:
+
+1. Keyword Categories
+2. Keyword Intelligence Table
+3. Search Intent Map
+4. AEO and Voice Search Opportunities
+5. Entity and Topical Authority Signals
+6. Keyword Placement Plan
+7. Conversion Keyword Strategy
+8. Keyword Risk Check
+9. Competitive Gap Analysis
+10. Short-Answer AEO Statements
+11. AI and LLM Citation-Ready Statements
+12. Fastest-Visibility Keyword Opportunities
+13. Commercial and Transactional Keyword Priority Map
+14. Above-the-Fold Keyword Guidance
+15. Outbound and Inbound Internal Linking Recommendations
+16. Internal Link Assumption Warnings
+17. Implementation Readiness Notes
+18. QA Checklist
+19. Acceptance Criteria
+20. Final Keyword Strategy Summary
+
+## Commercial Integration Requirement
+
+When the page is a service page, location page, landing page, homepage, or lead-generation page, include a dedicated section titled:
+
+## Commercial and Transactional Keyword Priority Layer
+
+This section must include:
+
+- Quote and estimate keywords
+- Booking and scheduling keywords
+- Near-me and local transactional keywords
+- Price and cost keywords
+- Trust and validation keywords
+- Comparison keywords
+- Objection-driven keywords
+- Urgency keywords
+- CTA-aligned keywords
+- Above-the-fold keyword recommendations
+
+## Non-Regression Rule
+
+Do not allow the commercial/transactional section to replace:
+
+- Competitive Gap Analysis
+- Short-Answer AEO Statements
+- AI/LLM Citation-Ready Statements
+- Fastest-Visibility Keyword Opportunities
+- QA Checklist
+- Acceptance Criteria
+- Internal link assumption warnings
+- Final Keyword Strategy Summary
+
+If output length becomes too long, compress tables rather than removing required sections.
+
+## Token Efficiency Rule for v5
+
+For Core Mode:
+
+- Keep the main keyword intelligence table to 10 columns.
+- Use compact tables for commercial keyword groups.
+- Use concise bullets for final summary.
+- Do not repeat the same keyword in multiple sections unless it serves a different strategic purpose.
+- Keep required sections, but reduce explanation length where possible.
+
+## Final v5 Quality Gate
+
+Before finalizing the output, check:
+
+- Are commercial and transactional keywords prioritized?
+- Are all v3 master sections still included?
+- Are quote, booking, price, trust, comparison, and objection keywords included?
+- Are AEO short answers written?
+- Are AI/LLM citation-ready statements written?
+- Are fastest-visibility opportunities identified?
+- Are inbound and outbound links included?
+- Are assumption warnings included?
+- Are QA checklist and acceptance criteria included?
+- Is the final summary scannable for Prompt 02?
+
+If any answer is no, revise before returning the output.
