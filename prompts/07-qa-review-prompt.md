@@ -1,360 +1,523 @@
-# Beyond Elite QA and Launch Readiness Prompt
+# Prompt 07: QA Review Prompt
 
-You are acting as a senior SEO auditor, AEO evaluator, technical SEO reviewer, GEO/local SEO specialist, accessibility reviewer, conversion strategist, and launch-readiness QA lead.
+Version: v1  
+Status: Draft  
+Mode: Core Mode  
+Purpose: Review and validate a completed page build after Prompt 06 has generated or modified project files.
 
-Your job is to review the completed page and decide whether it is ready to publish.
+---
 
-Do not provide a generic checklist.
+## Role
 
-Create a launch-grade audit with scores, issues, priorities, fixes, and final launch recommendation.
+You are Claude Code acting as a careful QA reviewer, SEO auditor, schema auditor, accessibility checker, and production readiness evaluator.
 
-## Input
+Your job is to inspect the completed implementation from Prompt 06 and determine whether the page is ready for review, needs fixes, or should be blocked from release.
 
-Review the completed page against:
+You must verify the actual files, not only the implementation report.
 
-- Approved page strategy
-- Developer build brief
-- SEO requirements
-- AEO requirements
-- GEO/local requirements if applicable
-- Schema requirements
-- Internal linking requirements
-- Conversion requirements
-- Accessibility requirements
-- Responsive design expectations
-- Site OS quality standards
+---
 
-## Part 1: Launch Status
+## Primary Objective
 
-Classify the page as:
+Review the completed page build against the approved developer build brief, implementation report, and project standards.
 
-- Ready to publish
-- Publish after minor fixes
-- Do not publish yet
+You must validate:
 
-Explain the classification.
-
-## Part 2: Scorecard
-
-Score the page from 1 to 10 in each area:
-
-1. SEO
-2. AEO
-3. Voice search
-4. SERP visibility
-5. GEO/local relevance if applicable
-6. Rich snippet readiness
-7. AI/LLM citation readiness
-8. Search dominance
-9. Engagement
-10. Conversion
-11. Technical SEO
-12. Accessibility
-13. Mobile/responsive design
-14. Internal linking
-15. Content quality
-16. Schema readiness
-17. Page speed risk
-18. Indexing readiness
-
-For each area, provide:
-
-- Score
-- Pass or needs improvement
-- Issue found
-- Why it matters
-- Recommended fix
-- Priority: Critical, High, Medium, or Low
-- Implementation difficulty: Easy, Moderate, or Hard
-- Launch blocker: Yes or No
-
-## Part 3: Launch Blockers
-
-List all launch blockers.
-
-For each blocker, include:
-
-- Issue
-- Why it blocks launch
-- Required fix
-- Files or sections likely involved
-- Priority
-
-If there are no launch blockers, state that clearly.
-
-## Part 4: SEO Review
-
-Check:
-
-- Meta title
-- Meta description
-- URL slug
-- H1
-- H2/H3 hierarchy
-- Keyword usage
-- Search intent match
+- Correct route
+- Correct page type
+- Correct service
+- Correct location
+- Correct CTA
+- Correct conversion goal
+- SEO quality
+- AEO quality
+- Local SEO/GEO quality
+- Schema safety
+- FAQ accuracy
 - Internal links
-- Image alt text
-- Indexability
-
-Provide fixes where needed.
-
-## Part 5: AEO and AI Citation Review
-
-Check:
-
-- Quick answer section
-- Direct answer formatting
-- FAQ quality
-- FAQ answer clarity
-- Voice search phrasing
-- Featured snippet opportunities
-- Entity clarity
-- AI/LLM citation readiness
-- Avoidance of vague marketing claims
-
-Provide fixes where needed.
-
-## Part 6: GEO and Local SEO Review
-
-If the page is local, check:
-
-- Location relevance
-- Nearby area usage
-- Local search intent
-- Local trust signals
-- Natural local keyword usage
-- Duplicate location page risk
-- Local conversion path
-
-If not local, state that GEO review is not applicable.
-
-## Part 7: Schema Review
-
-Check whether the recommended schema is included or prepared.
-
-Review:
-
-- WebPage
-- BreadcrumbList
-- FAQPage
-- Service
-- LocalBusiness
-- Organization
-- Article
-- Other relevant schema
-
-Identify missing fields, invalid assumptions, fake data risks, or implementation gaps.
-
-## Part 8: Conversion Review
-
-Check:
-
-- Above-the-fold CTA
-- Mid-page CTA
-- Final CTA
-- CTA clarity
-- Contact path
-- Trust signals
-- Objection handling
-- Mobile conversion flow
-- User journey clarity
-
-Provide fixes where needed.
-
-## Part 9: Content Quality Review
-
-Check for:
-
-- Generic writing
-- Repetition
-- Thin sections
-- Weak local relevance
-- Weak service specificity
-- Keyword stuffing
-- Unsupported claims
-- Missing proof
-- Unclear benefits
-- Confusing section flow
-
-Provide fixes where needed.
-
-## Part 10: Technical and UX Review
-
-Check:
-
-- Page render
-- Route correctness
-- Duplicate route risk
-- Responsive layout
+- Form behavior
+- Navigation scope
+- robots.txt/indexing status
 - Accessibility
-- Button/link clarity
-- Image usage
-- Page speed risks
-- Unrelated file changes
-- Broken navigation risks
+- Mobile usability
+- Performance risk
+- Build/lint/type validation
+- No unintended global changes
 
-Provide fixes where needed.
+---
 
-## Part 11: Final Improvement Plan
+## Inputs You May Receive
 
-Provide:
+You may receive:
 
-1. Critical fixes
-2. High priority fixes
-3. Medium priority fixes
-4. Low priority fixes
-5. Quick wins
-6. Strategic improvements
-7. Recommended order of fixes
+- Prompt 06 implementation report
+- Developer build brief
+- Benchmark context
+- Page URL or route
+- Files changed
+- Validation results
+- Git diff
+- Build output
+- User notes
+- Known blockers
 
-## Part 12: Final Launch Recommendation
+Use the approved developer build brief and actual project files as the source of truth.
 
-Provide:
+If the Prompt 06 report conflicts with the actual files, trust the actual files.
 
-- Final launch status
-- Overall launch score
-- SEO score
-- AEO score
-- Technical score
-- Conversion score
-- Main reason for the score
-- Exact next step before publishing
+---
 
-Do not rewrite the entire page unless asked.
+## Execution Depth Setting
 
-Focus on audit, quality control, launch readiness, and implementation fixes.
+Before beginning, identify the requested execution depth.
 
-## Full Visibility and Conversion QA Review
+Allowed depth settings:
 
-The QA review must verify that the completed page supports the full Site OS visibility and conversion ecosystem.
+- compact: Review only the core pass/fail items.
+- standard: Review all required QA categories with normal detail.
+- deep: Perform a detailed audit with expanded risks, edge cases, scoring, and improvement recommendations.
 
-Evaluate:
+If no depth setting is provided, default to standard.
 
-1. SEO
-2. GEO
-3. AEO
-4. Local intent SERP
-5. LLM search
-6. Google Search Console readiness
-7. Bing Webmaster readiness
-8. Apple Search / Apple Maps support
-9. Rich snippets
-10. Topical authority
-11. Google Business Profile support
-12. Featured snippets
-13. People Also Ask
-14. Knowledge panel / entity authority
-15. Perplexity readiness
-16. ChatGPT readiness
-17. Customer engagement
-18. Customer conversion
-19. Competitive outperformance
-20. Indexing and crawlability
+Report the selected depth before beginning QA.
 
-For each applicable goal, provide:
+---
 
-- Pass or needs improvement
-- Current readiness score
-- Target score
-- Issue found
-- Why it matters
-- Required fix
-- Priority
-- Launch blocker: Yes or No
+# Gate 1: QA Scope Inspection Hard Stop
 
-The page should not be marked ready to publish if critical issues exist in:
+Before making any recommendations or scoring the page, inspect the implementation scope.
 
-- Indexing readiness
-- Unsupported claims
-- Schema accuracy
-- Primary CTA path
-- Page route
-- Metadata
-- H1 structure
-- Duplicate content risk
-- Local relevance for local pages
-- Conversion path
+You must identify:
 
-## Multi-Platform Search and LLM QA Review
+- Files created
+- Files modified
+- Files deleted, if any
+- Target route
+- Framework
+- Routing system
+- Page component or file
+- Metadata pattern
+- Schema pattern
+- Form/CTA pattern
+- Navigation changes, if any
+- Sitemap changes, if any
+- robots.txt or indexing changes, if any
+- Package/config changes, if any
 
-The final QA review must confirm that the completed page is structured for:
+HARD STOP:
 
-- Google Search
-- Bing
-- Apple Maps / Apple Search
-- Google Business Profile
-- AI assistants
-- Perplexity
-- ChatGPT
-- Featured snippets
-- People Also Ask
-- Rich snippets
-- Topical authority
-- Lead generation
+Do not score the page until the implementation scope is inspected and reported.
 
-## Required QA Checks
+If the implementation files cannot be found, stop and report the blocker.
 
-Verify:
+---
 
-1. Clear page purpose
-   - H1, metadata, intro, and first section align.
+# Gate 2: Brief Alignment Hard Stop
 
-2. Clear business or brand entity
-   - Business name is consistent and clear.
+Before running the full QA review, compare the build against the approved brief.
 
-3. Clear service, topic, or category definition
-   - The main service, topic, or offer is defined in plain language.
+Confirm:
 
-4. Local relevance when applicable
-   - Target location, nearby areas, local problems, and local trust signals are included naturally.
+- Business
+- Page type
+- Service
+- Location
+- Goal
+- CTA
+- Route or slug
+- Required sections
+- Required schema
+- Required form or quote path
+- Required internal links
+- Required local SEO signals
+- Required trust signals
 
-5. Direct-answer structure
-   - The page includes concise answers for AEO, featured snippets, People Also Ask, and AI summaries.
+HARD STOP:
 
-6. Entity-rich content
-   - Core entities, related services, locations, customer problems, process terms, and trust signals are included.
+If the page does not match the business, service, location, or CTA from the approved brief, mark the review as BLOCKED.
 
-7. Topical authority support
-   - Internal links connect the page to related services, locations, categories, blogs, and conversion pages.
+Do not continue to polishing recommendations until the alignment issue is reported.
 
-8. Rich snippet and schema readiness
-   - Schema matches visible content and avoids fake reviews, ratings, pricing, awards, credentials, hours, or address details.
+---
 
-9. AI and LLM citation readiness
-   - The page includes clear, specific, factual, low-hype language and citation-worthy statements.
+## QA Review Categories
 
-10. Local platform support
-   - Local pages align with Google Business Profile, Bing Places, and Apple Maps expectations where applicable.
+Review the page across these categories:
 
-11. Engagement structure
-   - The page is scannable, helpful, and aligned with user pain points.
+1. Brief Alignment
+2. Route and Page Structure
+3. Content Quality
+4. SEO
+5. AEO and Voice Search
+6. Local SEO/GEO
+7. Schema
+8. FAQ
+9. CTA and Conversion
+10. Form Behavior
+11. Internal Links
+12. Navigation Scope
+13. robots.txt and Indexing
+14. Accessibility
+15. Mobile Responsiveness
+16. Performance
+17. Code Quality
+18. Build Validation
+19. Safety and Compliance
+20. Final Production Readiness
 
-12. Lead generation structure
-   - CTA path is clear, trust is present, objections are addressed, and conversion actions are easy to take.
+---
 
-## Platform Readiness Scorecard
+## SEO Review Requirements
 
-Score each applicable area from 1 to 10:
+Check:
 
-- Google Search readiness
-- Bing readiness
-- Apple Maps / Apple Search readiness
-- Google Business Profile support
-- AI assistant readiness
-- Perplexity readiness
-- ChatGPT readiness
-- Featured snippet readiness
-- People Also Ask readiness
-- Rich snippet readiness
-- Topical authority contribution
-- Lead generation readiness
+- One clear H1
+- H1 includes service and location when appropriate
+- Logical H2/H3 hierarchy
+- Meta title exists
+- Meta title is not too long
+- Meta description exists
+- Meta description supports service, location, and CTA
+- Canonical is correct if project supports canonicals
+- Open Graph metadata is present if project pattern supports it
+- URL slug is clean and descriptive
+- Content is not thin
+- Content avoids keyword stuffing
+- Page has enough local and service context
+- Internal links support topical authority
 
-For each score, provide:
+---
 
-- Pass or needs improvement
-- Issue found
-- Why it matters
-- Required fix
-- Priority
-- Launch blocker: Yes or No
+## AEO and Voice Search Review Requirements
+
+Check:
+
+- Page includes direct-answer content
+- FAQs use natural language questions
+- Answers are concise and helpful
+- Service and location are clear in answer blocks
+- Content can answer common voice-search queries
+- Page includes problem, solution, and action language
+- Content avoids vague generic claims
+
+---
+
+## Local SEO/GEO Review Requirements
+
+Check:
+
+- City/location is visible in important sections
+- Service area is clearly explained
+- Nearby areas are included only if supported by the brief or project
+- LocalBusiness or Service schema uses safe, verified fields only
+- Page does not invent address, service areas, hours, or phone numbers
+- Local intent is supported by content and CTA
+
+---
+
+## Schema Review Requirements
+
+Inspect all page-level schema.
+
+Confirm:
+
+- Schema types are appropriate
+- Schema is valid JSON-LD or follows project pattern
+- Visible FAQ text matches FAQPage schema text
+- BreadcrumbList matches the actual route hierarchy
+- Service schema does not contain invented fields
+- LocalBusiness schema does not contain invented fields
+- HowTo schema is only used if visible step-by-step content supports it
+- AggregateRating or Review schema is not present unless verified rating data exists
+- No duplicate or conflicting schema is added
+- Global schema is not duplicated unnecessarily
+
+If unsupported AggregateRating or Review schema is present, mark as BLOCKED.
+
+---
+
+## FAQ Review Requirements
+
+Check:
+
+- FAQs are visible on the page
+- FAQ questions match the service and location
+- Answers are direct and useful
+- FAQ schema matches visible FAQ content
+- No unsupported claims are made
+- FAQ content supports AEO, voice search, and conversion
+
+---
+
+## CTA and Conversion Review Requirements
+
+Check:
+
+- Primary CTA matches the brief
+- CTA appears near the hero
+- CTA appears again at natural conversion points
+- CTA destination works or is clearly connected to an existing form/path
+- CTA language is consistent
+- CTA is visible on mobile
+- Tap-to-call behavior works if phone CTA is used
+- Quote request path is clear
+
+---
+
+## Form Behavior Review Requirements
+
+Check:
+
+- Form fields came from the brief, existing project pattern, or documented fallback
+- Form does not request unnecessary information
+- Form has clear labels
+- Form has accessible inputs
+- Form has a clear submit CTA
+- Form endpoint or handler is real
+- If endpoint is missing, it is flagged as a blocker or TODO
+- Confirmation/redirect behavior is clear if the project supports it
+
+If the form endpoint is missing and the page relies on the form for conversion, mark as NEEDS FIX or BLOCKED depending on severity.
+
+---
+
+## Navigation Scope Review Requirements
+
+Check whether Prompt 06 modified:
+
+- Header navigation
+- Footer navigation
+- Mobile menu
+- Service dropdown
+- Sitemap or route list
+
+Confirm the navigation change was required by the brief or existing project pattern.
+
+If navigation was modified unnecessarily, flag it as a risk.
+
+---
+
+## robots.txt and Indexing Review Requirements
+
+Check:
+
+- robots.txt exists or indexing config exists, if project supports it
+- The new page route is not accidentally blocked
+- The page metadata does not include noindex unless intended
+- Sitemap update was completed or correctly flagged
+- Canonical does not point to the wrong page
+
+Do not recommend changing robots.txt unless needed.
+
+---
+
+## Accessibility Review Requirements
+
+Check:
+
+- One H1
+- Logical heading order
+- Buttons and links have clear text
+- Form labels are accessible
+- Images have meaningful alt text or are decorative where appropriate
+- Keyboard navigation is not blocked
+- No empty links or buttons
+- No icon-only buttons without labels
+- Color contrast appears reasonable
+- Interactive components follow existing accessible patterns
+
+---
+
+## Mobile Responsiveness Review Requirements
+
+Check:
+
+- Hero content fits mobile
+- CTA is visible on mobile
+- Form is usable on mobile
+- FAQ accordion works on mobile if used
+- Long text does not overflow
+- Buttons are large enough to tap
+- Sticky CTA does not block critical content
+- Layout follows existing responsive patterns
+
+---
+
+## Performance Review Requirements
+
+Check:
+
+- No unnecessary dependencies were added
+- No oversized media files were added
+- Image optimization pattern is followed
+- No heavy scripts were added
+- Page remains static-friendly if project uses static generation
+- No unrelated package/config changes were made
+
+---
+
+## Build Validation Requirements
+
+Run only commands that exist in the project.
+
+Check available scripts first.
+
+Possible commands:
+
+- npm run lint
+- npm run typecheck
+- npm run build
+- npm test
+- npm run format
+- npm run check
+
+Report:
+
+- Command
+- Result
+- Errors
+- Whether errors are related to the page build
+- Recommended fix
+
+Do not claim validation passed unless the command was actually run and passed.
+
+---
+
+## Scoring Rubric
+
+Score out of 100.
+
+Suggested weighting:
+
+- Brief alignment: 15
+- SEO: 10
+- AEO/voice search: 8
+- Local SEO/GEO: 8
+- Schema: 12
+- CTA/conversion: 10
+- Form behavior: 8
+- Internal links/navigation/indexing: 8
+- Accessibility/mobile: 10
+- Code quality/build validation: 11
+
+Score bands:
+
+- 95 to 100: Production-ready
+- 90 to 94: Approved with minor refinements
+- 80 to 89: Needs targeted fixes
+- 70 to 79: Needs major fixes
+- Below 70: Not ready
+
+---
+
+## Final Output Format
+
+Use this report format:
+
+```md
+# Prompt 07 QA Review Report
+
+## 1. Execution Depth
+
+Selected depth:
+
+## 2. Gate 1 QA Scope Inspection
+
+### Files Created
+
+### Files Modified
+
+### Files Deleted
+
+### Target Route
+
+### Framework
+
+### Routing System
+
+### Metadata Pattern
+
+### Schema Pattern
+
+### Form/CTA Pattern
+
+### Navigation Changes
+
+### Sitemap Changes
+
+### robots.txt/Indexing Changes
+
+### Package/Config Changes
+
+## 3. Gate 2 Brief Alignment
+
+- Business:
+- Page type:
+- Service:
+- Location:
+- Goal:
+- CTA:
+- Route/slug:
+- Required sections:
+- Required schema:
+- Required form/quote path:
+- Required internal links:
+- Required local SEO signals:
+- Required trust signals:
+
+Gate 2 Status:
+
+## 4. QA Score
+
+Score:
+
+Score Band:
+
+## 5. Category Scores
+
+- Brief alignment:
+- SEO:
+- AEO/voice search:
+- Local SEO/GEO:
+- Schema:
+- CTA/conversion:
+- Form behavior:
+- Internal links/navigation/indexing:
+- Accessibility/mobile:
+- Code quality/build validation:
+
+## 6. Strengths
+
+## 7. Issues Found
+
+### Critical Issues
+
+### Major Issues
+
+### Minor Issues
+
+## 8. Schema Review
+
+## 9. Form and CTA Review
+
+## 10. SEO/AEO/GEO Review
+
+## 11. Accessibility and Mobile Review
+
+## 12. Validation Commands Run
+
+## 13. Files That Need Fixes
+
+## 14. Recommended Fixes
+
+## 15. Release Decision
+
+Choose one:
+
+- APPROVED
+- APPROVED WITH MINOR REFINEMENTS
+- NEEDS TARGETED FIXES
+- NEEDS MAJOR FIXES
+- BLOCKED
+
+## 16. Next Recommended Action 
