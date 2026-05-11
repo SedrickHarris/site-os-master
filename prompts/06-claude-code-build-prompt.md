@@ -668,3 +668,231 @@ If the strategy has already been approved, compress strategy context and focus o
 Do not regenerate the full strategy.
 
 Keep the final Claude Code prompt complete, but remove repeated explanations that do not affect implementation.
+
+## Prompt Revision: Prompt 06 Master Hard Gates and AEO/LLM Implementation Requirements
+
+## Pre-Build Stop Checklist
+
+Every Claude Code build prompt must include this checklist before any file edits begin.
+
+Claude Code must stop and ask for clarification if any required item is missing.
+
+Required before build:
+
+- Approved route is confirmed
+- Route conflict check is complete
+- Framework and routing pattern are identified
+- Metadata is confirmed
+- Approved section structure is confirmed
+- Primary CTA is confirmed
+- Form behavior is confirmed or flagged
+- Schema types and required fields are confirmed
+- Client-confirmation values are flagged
+- Internal links are verified or marked as skipped
+- File scope declaration is complete
+- Gate 2 plan is approved by the user
+
+Hard stop rule:
+
+Do not proceed to file creation or file editing until Gate 1 inspection is complete, Gate 2 plan is complete, file scope is declared, and the user explicitly approves moving to Gate 3.
+
+## Required AEO Answer Format
+
+For any page with FAQ, People Also Ask, voice search, or answer-engine intent, FAQ answers must use direct-answer format.
+
+Each FAQ answer must follow this structure:
+
+1. First sentence: direct answer
+2. Second sentence: short clarification or trust-building detail
+3. Optional third sentence: CTA, local detail, or process note
+
+Do not write vague answers.
+
+Do not bury the answer after a long introduction.
+
+Do not include FAQPage schema unless the visible FAQ text exactly matches the schema text.
+
+## Required LLM and AI Citation Notes
+
+Every Claude Code build prompt must include instructions to make key page sections AI-readable.
+
+For service pages, include:
+
+- A visible entity authority block near the top of the page
+- A clear sentence naming the business, service, and location
+- Service scope stated in plain language
+- Local service area stated clearly
+- FAQ answers written in direct-answer format
+- No hidden text
+- No schema-only claims
+- No unsupported claims
+
+Example:
+
+"[Business Name] provides [service] in [location] for [target audience]. The company helps customers with [specific problems or use cases]."
+
+This block must be visible body content, not hidden metadata.
+
+## Schema Field-Level Requirement
+
+Every Claude Code build prompt must include schema field instructions, not just schema type names.
+
+For each schema type, include:
+
+- Schema type
+- Purpose
+- Required fields
+- Conditional fields
+- Values to confirm
+- Values that must not be invented
+- Whether schema must match visible content
+- Where schema should be injected based on the project pattern
+
+For local service pages, include at minimum:
+
+LocalBusiness:
+- name
+- url
+- telephone
+- address if available
+- areaServed
+- openingHours if available
+- description
+- sameAs if available
+
+Service:
+- name
+- serviceType
+- provider
+- areaServed
+- description
+
+FAQPage:
+- visible questions only
+- visible answers only
+- exact text match required
+
+BreadcrumbList:
+- visible breadcrumb must also exist
+- JSON-LD must match visible breadcrumb
+
+AggregateRating:
+- conditional only
+- use only real verified ratingValue and reviewCount
+- omit if values are not verified
+
+HowTo:
+- conditional only
+- use only when visible process steps exist and match schema
+
+## Fake Data Hard Stop
+
+Claude Code must not invent:
+
+- Reviews
+- Ratings
+- Review counts
+- Pricing
+- Discounts
+- Financing claims
+- Hours
+- Address
+- Phone number
+- Licenses
+- Certifications
+- Years in business
+- Job counts
+- Guarantees
+- Awards
+- Service availability claims
+
+If a required value is missing, Claude Code must:
+
+1. Use a clearly labeled placeholder
+2. Add a TODO or FLAG comment
+3. Include the missing value in the final report
+4. Avoid adding schema fields that require unverified data
+
+## Competitive Differentiation Requirement
+
+Every service page Claude Code prompt must include implementation instructions for at least 2 to 4 differentiation elements.
+
+Possible differentiation elements:
+
+- Same-day or next-day availability if confirmed
+- Local service area specificity
+- Transparent quote process
+- Direct-answer FAQ section
+- Item-specific service coverage
+- Local trust block
+- Objection-handling section
+- Process section that reduces friction
+- Mobile tap-to-call CTA
+- Review or proof block if verified
+- Local customer scenario competitors may ignore
+
+Do not add fake differentiators.
+
+Only use differentiators supported by the approved strategy or client-confirmed facts.
+
+## Internal Link Safety Requirement
+
+Claude Code must verify internal link targets before adding links.
+
+If a target route does not exist:
+
+- Do not add the link
+- Report it as skipped
+- Recommend it as a future page if useful
+
+Do not create broken links.
+
+## File Scope Declaration Requirement
+
+Before build begins, Claude Code must declare:
+
+Files I will create:
+- [path]
+
+Files I will edit:
+- [path]
+
+Files I will not touch:
+- [path or category]
+
+If a global file must be edited, explain why before proceeding.
+
+Global navigation may only be updated if the brief explicitly requires it.
+
+Global styles, layout, shared components, and unrelated pages must not be modified unless approved.
+
+## Final Report-Back Requirement
+
+Every Claude Code prompt must end with a required final report.
+
+The report must include:
+
+1. Summary of what was built
+2. Files created
+3. Files edited
+4. Files intentionally not touched
+5. Route created
+6. Metadata added
+7. Schema added
+8. Schema skipped and why
+9. Internal links added
+10. Internal links skipped and why
+11. CTA placements added
+12. Form behavior and remaining TODOs
+13. Client-confirmation flags
+14. Validation results
+15. Remaining blockers
+16. Recommended next step
+
+## Final Master Rule
+
+The final Claude Code prompt must be self-contained.
+
+Do not rely on Claude Code remembering prior strategy prompts.
+
+Include the route, sections, metadata, schema, CTA requirements, form requirements, internal link rules, guardrails, validation checklist, and report format inside the final prompt.
