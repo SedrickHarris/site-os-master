@@ -1,7 +1,7 @@
 # Prompt 10: Client Data Collection and Production Values Prompt
 
 Version: v1  
-Status: Draft  
+Status: Core Mode Candidate  
 Mode: Core Mode  
 Purpose: Collect, organize, validate, and flag all client data required to build, optimize, schema-mark, QA, and launch a website or page safely.
 
@@ -49,6 +49,7 @@ The final output should identify:
 - Missing values
 - Values needing client confirmation
 - Values that should not be used until verified
+- Minimum viable data required before production work
 - Launch blockers
 - Recommended next action
 
@@ -155,6 +156,7 @@ The confirmation plan must identify:
 - Data that needs client confirmation
 - Data that should not be used yet
 - Data that creates launch blockers
+- Minimum viable data required before production work can continue
 - Data that is optional but recommended
 - Questions to ask the client
 
@@ -776,6 +778,23 @@ Selected depth:
 
 ### Optional Recommended Data
 
+### Minimum Viable Data Set
+
+List the minimum required client data needed before production work can safely continue.
+
+Include:
+
+- Business phone number
+- Business address or approved service-area-only status
+- ZIP code
+- Business hours
+- Production domain
+- Form endpoint or confirmed lead capture path
+- Privacy policy URL or requirement to create one
+- Service list confirmation
+- Service area confirmation
+- Primary CTA confirmation
+
 ### Launch Blockers
 
 ## 4. Business Identity
@@ -819,6 +838,23 @@ Selected depth:
 ### Safe to Use Now
 
 ### Do Not Use Until Confirmed
+
+### Minimum Viable Data Set
+
+List the minimum required client data needed before production work can safely continue.
+
+Include:
+
+- Business phone number
+- Business address or approved service-area-only status
+- ZIP code
+- Business hours
+- Production domain
+- Form endpoint or confirmed lead capture path
+- Privacy policy URL or requirement to create one
+- Service list confirmation
+- Service area confirmation
+- Primary CTA confirmation
 
 ### Required Before Prompt 06
 
