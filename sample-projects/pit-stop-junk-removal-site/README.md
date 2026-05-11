@@ -1,111 +1,36 @@
-# Pit Stop Junk Removal — Sample Website Scaffold
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-**Project:** Site OS Master — Benchmark 1  
-**Business:** Pit Stop Junk Removal | Las Vegas, NV  
-**Framework:** Next.js 14 App Router + TypeScript + Tailwind CSS  
-**Scaffold status:** Complete — ready for Prompt 06 v2.1 build  
+## Getting Started
 
----
+First, run the development server:
 
-## Purpose
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-This sample project exists to live-test the Site OS Master Core Mode workflow in a real, buildable website environment.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-It gives Prompt 06 v2.1 and Prompt 07 v1.1 an actual website structure to inspect, build inside, and QA.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
----
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Benchmark
+## Learn More
 
-| Field | Value |
-|---|---|
-| Benchmark | Benchmark 1 |
-| Business | Pit Stop Junk Removal |
-| Page Type | Service Page |
-| Service | Furniture and Appliance Removal |
-| Location | Las Vegas, NV |
-| Goal | Generate quote requests |
-| CTA | Request a Free Quote |
+To learn more about Next.js, take a look at the following resources:
 
----
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## Prompts Tested
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-- Prompt 06 v2.1: Claude Code Build Prompt
-- Prompt 07 v1.1: QA Review Prompt
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-## Stack
-
-- Next.js 14
-- App Router
-- TypeScript
-- Tailwind CSS
-- Static-friendly structure
-- Reusable components
-- Safe JSON-LD support
-- Basic sitemap support
-- Basic robots support
-
----
-
-## Brand Direction
-
-| Token | Value |
-|---|---|
-| Red | `#B82429` |
-| Red Dark | `#8E1A1E` |
-| Black | `#111111` |
-| White | `#FFFFFF` |
-
-Checkered racing flag inspiration is handled as a CSS-only accent. No image or logo dependency is required.
-
----
-
-## Project Structure
-
-```text
-pit-stop-junk-removal-site/
-├── app/
-│   ├── layout.tsx
-│   ├── page.tsx
-│   ├── sitemap.ts
-│   ├── globals.css
-│   ├── services/
-│   │   ├── page.tsx
-│   │   ├── junk-removal-las-vegas/
-│   │   │   └── page.tsx
-│   │   └── furniture-appliance-removal-las-vegas/
-│   │       └── page.tsx
-│   ├── contact/
-│   │   └── page.tsx
-│   └── free-quote/
-│       └── page.tsx
-├── components/
-│   ├── forms/
-│   │   └── QuoteForm.tsx
-│   ├── ui/
-│   │   ├── CTABlock.tsx
-│   │   ├── FAQSection.tsx
-│   │   └── MobileStickyCallBar.tsx
-│   ├── layout/
-│   │   ├── SiteHeader.tsx
-│   │   └── SiteFooter.tsx
-│   └── schema/
-│       ├── JsonLd.tsx
-│       └── schemas.ts
-├── lib/
-│   └── site-config.ts
-├── types/
-│   └── index.ts
-├── public/
-│   ├── robots.txt
-│   └── images/
-│       └── services/
-├── package.json
-├── next.config.mjs
-├── tsconfig.json
-├── tailwind.config.ts
-├── postcss.config.mjs
-└── .eslintrc.json
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
