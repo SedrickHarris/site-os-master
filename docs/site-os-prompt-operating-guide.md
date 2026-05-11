@@ -6,6 +6,8 @@ The goal of Site OS is not to create standard SEO content.
 
 The goal is to create website pages, content strategies, and Claude Code build prompts that outperform and outpace competitors.
 
+---
+
 ## Core Principle
 
 Do not use every prompt for every page.
@@ -13,6 +15,24 @@ Do not use every prompt for every page.
 Use the right workflow mode based on the page value, competition level, project timeline, and desired depth.
 
 Site OS should help you move faster without creating generic content.
+
+---
+
+## Workflow Continuity Principle
+
+Unresolved client data does not stop the Site OS workflow.
+
+When client data, form endpoints, production domain, infrastructure items, or other confirmations are not yet available:
+
+- Flag each unresolved item clearly in the prompt output.
+- Carry each unresolved item forward to the next prompt in the sequence.
+- Document each item as AWAITING CLIENT CONFIRMATION, AWAITING INFRASTRUCTURE, or AWAITING APPROVAL.
+- Continue the workflow for planning, drafting, benchmark testing, QA, and controlled development.
+- Resolve all flagged items before issuing production launch approval at Prompt 09.
+
+Benchmark readiness, development QA, and pre-launch structural validation do not require all client data to be resolved. Production launch approval does.
+
+---
 
 ## Prompt Modes
 
@@ -97,10 +117,11 @@ Use Core Mode for most normal website pages.
 1. 01-keyword-strategy-prompt.md
 2. 02-page-outline-prompt.md
 3. 03-ten-metric-analysis-prompt.md
-4. 04-gap-fix-prompt.md
-5. 05-developer-build-brief-prompt.md
-6. 06-claude-code-build-prompt.md
-7. 07-qa-review-prompt.md
+4. 20-visibility-conversion-alignment-prompt.md if important
+5. 04-gap-fix-prompt.md
+6. 05-developer-build-brief-prompt.md
+7. 06-claude-code-build-prompt.md
+8. 07-qa-review-prompt.md
 
 ## Optional Add-Ons
 
@@ -157,13 +178,14 @@ Use Beyond-Elite Mode for high-value pages where stronger strategy is needed.
 3. 09-entity-topical-authority-prompt.md
 4. 02-page-outline-prompt.md
 5. 03-ten-metric-analysis-prompt.md
-6. 04-gap-fix-prompt.md
-7. 10-internal-linking-strategy-prompt.md
-8. 11-schema-strategy-prompt.md
-9. 12-conversion-optimization-prompt.md
-10. 05-developer-build-brief-prompt.md
-11. 06-claude-code-build-prompt.md
-12. 07-qa-review-prompt.md
+6. 20-visibility-conversion-alignment-prompt.md
+7. 04-gap-fix-prompt.md
+8. 10-internal-linking-strategy-prompt.md
+9. 11-schema-strategy-prompt.md
+10. 12-conversion-optimization-prompt.md
+11. 05-developer-build-brief-prompt.md
+12. 06-claude-code-build-prompt.md
+13. 07-qa-review-prompt.md
 
 ## Optional Add-Ons
 
@@ -222,40 +244,87 @@ Use Full Competitive Build Mode when the goal is to aggressively outperform comp
 6. 18-page-moat-prompt.md
 7. 02-page-outline-prompt.md
 8. 03-ten-metric-analysis-prompt.md
-9. 04-gap-fix-prompt.md
-10. 10-internal-linking-strategy-prompt.md
-11. 11-schema-strategy-prompt.md
-12. 12-conversion-optimization-prompt.md
-13. 17-ai-citation-readiness-prompt.md
-14. 13-content-quality-editor-prompt.md
-15. 05-developer-build-brief-prompt.md
-16. 06-claude-code-build-prompt.md
-17. 07-qa-review-prompt.md
-18. 14-page-template-evaluation-prompt.md
-19. 19-template-eval-rubric-prompt.md
+9. 20-visibility-conversion-alignment-prompt.md
+10. 04-gap-fix-prompt.md
+11. 10-internal-linking-strategy-prompt.md
+12. 11-schema-strategy-prompt.md
+13. 12-conversion-optimization-prompt.md
+14. 17-ai-citation-readiness-prompt.md
+15. 13-content-quality-editor-prompt.md
+16. 05-developer-build-brief-prompt.md
+17. 06-claude-code-build-prompt.md
+18. 07-qa-review-prompt.md
+19. 14-page-template-evaluation-prompt.md
+20. 19-template-eval-rubric-prompt.md
 
 ## Success Standard
 
-Full Competitive Build Mode is successful when the page has:
+Full Competitive Build Mode is successful when the page strategy:
 
-- Strong competitive differentiation
-- Clear search intent defense
-- Strong page moat
-- Better direct answers than competitors
-- Better local specificity than competitors
-- Stronger FAQs than competitors
-- Stronger trust signals than competitors
-- Stronger internal linking than competitors
-- Stronger conversion flow than competitors
-- Clear implementation brief
-- Launch-grade QA
-- Prompt or template feedback for future improvement
+- Identifies and exploits competitor weaknesses
+- Builds a content moat that is hard to replicate
+- Defends multiple search intent variants
+- Is fully AEO, GEO, LLM, and rich-snippet-ready
+- Is AI citation-ready
+- Drives conversion from every major traffic source
 
 ## Risk
 
-This mode is the most powerful, but it is also the most expensive and time-consuming.
+Use it only for pages where competitive advantage matters and the investment is justified.
 
-Use it only for pages where competitive advantage matters.
+---
+
+# Unresolved Client Data in the Workflow
+
+When client data is not yet confirmed at any point in the workflow, follow this process:
+
+## During Strategy Prompts (01–05)
+
+Flag any strategy decisions that depend on unconfirmed data.
+
+Use bracketed notes such as:
+
+- [AWAITING CLIENT CONFIRMATION: phone number]
+- [AWAITING CLIENT CONFIRMATION: service area cities]
+- [AWAITING CLIENT CONFIRMATION: pricing range]
+
+Continue the strategy. Unconfirmed data does not block strategy development.
+
+## During Build Prompt 06
+
+Flag unresolved fields as TODO or FLAG comments in project files.
+
+Include a flagged items section in the implementation report listing every unresolved item with its status and next required action.
+
+Do not invent client data to fill a TODO. Do not skip building the page because data is missing.
+
+## During QA Review Prompt 07
+
+Review all sections of the build.
+
+Flag each unresolved item in the Flagged Items Carry-Forward section.
+
+Issue CONDITIONALLY APPROVED when the implementation is structurally sound but carry-forward items remain.
+
+Do not issue APPROVED when unresolved production-facing TODOs exist.
+
+## During Production Fix Prompt 08
+
+Complete all safe fixes that do not require missing client data.
+
+Defer fixes that require confirmed client data until that data is provided.
+
+Document all deferred items in the Carry-Forward Items section.
+
+Issue CONDITIONALLY READY when structural fixes are complete and carry-forward items are documented.
+
+## During Final Launch QA Prompt 09
+
+Resolve all carry-forward items before issuing launch approval.
+
+If any critical item remains unresolved, issue BLOCKED BY CLIENT DATA or BLOCKED BY LAUNCH TODOs.
+
+Do not approve production launch with unresolved phone, address, hours, form endpoint, production domain, or infrastructure gaps.
 
 ---
 
@@ -418,11 +487,7 @@ Avoid outputs that are:
 
 ---
 
-# Evaluation Workflow
-
-Use the evaluation layer to improve prompts over time.
-
-## Standard Improvement Cycle
+# Standard Improvement Cycle
 
 1. Run the prompt on a benchmark page.
 2. Evaluate the output using the matching eval file.
@@ -586,28 +651,6 @@ Recommended core upload:
 
 ---
 
-# Final Operating Standard
-
-The Site OS should help create pages that are:
-
-- Faster to plan
-- Faster to build
-- Better structured
-- More competitor-aware
-- More locally specific
-- More useful
-- More trustworthy
-- More AEO-ready
-- More conversion-focused
-- Easier for Claude Code to implement
-- Easier to evaluate and improve over time
-
-The goal is not to create more content.
-
-The goal is to create better content faster than competitors.
-
----
-
 # Full Visibility and Conversion Alignment Review
 
 Use this review to make sure important pages support the full Site OS visibility and conversion ecosystem.
@@ -664,204 +707,32 @@ Skip or simplify this prompt for:
 - Pages that are not intended to rank
 - Pages where speed matters more than depth
 
-## Updated Core Mode
+---
 
-For stronger Core Mode, use:
+# Final Operating Standard
 
-1. 01-keyword-strategy-prompt.md
-2. 02-page-outline-prompt.md
-3. 03-ten-metric-analysis-prompt.md
-4. 20-visibility-conversion-alignment-prompt.md
-5. 04-gap-fix-prompt.md
-6. 05-developer-build-brief-prompt.md
-7. 06-claude-code-build-prompt.md
-8. 07-qa-review-prompt.md
+The Site OS should help create pages that are:
 
-## Updated Beyond-Elite Mode
+- Faster to plan
+- Faster to build
+- Better structured
+- More competitor-aware
+- More locally specific
+- More useful
+- More trustworthy
+- More AEO-ready
+- More conversion-focused
+- Easier for Claude Code to implement
+- Easier to evaluate and improve over time
 
-For Beyond-Elite Mode, use:
+The goal is not to create more content.
 
-1. 01-keyword-strategy-prompt.md
-2. 08-serp-competitive-analysis-prompt.md
-3. 09-entity-topical-authority-prompt.md
-4. 02-page-outline-prompt.md
-5. 03-ten-metric-analysis-prompt.md
-6. 20-visibility-conversion-alignment-prompt.md
-7. 04-gap-fix-prompt.md
-8. 10-internal-linking-strategy-prompt.md
-9. 11-schema-strategy-prompt.md
-10. 12-conversion-optimization-prompt.md
-11. 05-developer-build-brief-prompt.md
-12. 06-claude-code-build-prompt.md
-13. 07-qa-review-prompt.md
+The goal is to create better content faster than competitors.
 
-## Success Standard
-
-The page should not move to the developer build brief until the alignment review identifies:
-
-- Readiness scores
-- Missing elements
-- High-priority fixes
-- Schema needs
-- Internal link needs
-- CTA needs
-- QA checks
-- Claude Code implementation notes
-
-## Measurement Rule
-
-The alignment review should produce measurable readiness, not vague approval.
-
-For important pages, target:
-
-- SEO readiness: 8/10 or higher
-- AEO readiness: 8/10 or higher
-- GEO/local readiness: 8/10 or higher when applicable
-- LLM search readiness: 8/10 or higher
-- Rich snippet readiness: 8/10 or higher
-- Topical authority contribution: 8/10 or higher
-- Conversion readiness: 8/10 or higher
-- Competitive outperformance: 8/10 or higher
-- Indexing readiness: 9/10 or higher
+Unresolved client data is part of every real project. Flag it, carry it forward, and resolve it before launch. It does not stop the work.
 
 ---
 
-# Multi-Platform Search and LLM Content Structure Standard
-
-Every important page must be structured so it can be understood by search engines, local platforms, answer engines, AI assistants, and real customers.
-
-The content should support visibility across:
-
-- Google Search
-- Bing
-- Apple Maps / Apple Search
-- Google Business Profile
-- AI assistants
-- Perplexity
-- ChatGPT
-- Featured snippets
-- People Also Ask
-- Rich snippets
-- Topical authority
-- Lead generation
-
-## Required Content Signals
-
-Every important page should include:
-
-1. Clear page purpose
-   - The page should immediately explain what it is about.
-   - The H1, intro, metadata, and first section should align.
-
-2. Clear business or brand entity
-   - The business name should be consistent.
-   - The page should make it clear who provides the service, information, or offer.
-
-3. Clear service, topic, or category definition
-   - The page should define the main service, topic, category, or offer in plain language.
-   - Include a short direct-answer explanation near the top of the page.
-
-4. Clear local relevance when applicable
-   - Include the target location naturally.
-   - Include nearby areas when useful.
-   - Include local customer problems, local service needs, and local trust signals.
-   - Avoid generic city-name swapping.
-
-5. Direct-answer structure
-   - Include concise answers that can support featured snippets, People Also Ask, voice search, and AI summaries.
-   - Use question-based headings when natural.
-
-6. Entity-rich content
-   - Include core entities, related services, locations, customer problems, process terms, trust signals, and supporting subtopics.
-   - Make relationships between the business, service, location, and customer need clear.
-
-7. Topical authority support
-   - Link to related service pages, location pages, category pages, supporting blog posts, and conversion pages.
-   - The page should support the larger site content map.
-
-8. Rich snippet and schema readiness
-   - Plan schema that matches visible page content.
-   - Use WebPage, Service, FAQPage, BreadcrumbList, LocalBusiness, Organization, or Article schema when applicable.
-   - Do not invent reviews, ratings, pricing, awards, credentials, hours, or address details.
-
-9. AI and LLM citation readiness
-   - Use clear, specific, factual, low-hype language.
-   - Include citation-worthy statements.
-   - Define important services, topics, and locations clearly.
-   - Avoid vague marketing claims.
-
-10. Local platform support
-   - For local pages, align page language with Google Business Profile, Bing Places, and Apple Maps expectations.
-   - Include service area, local relevance, contact path, and business details when accurate.
-
-11. Engagement structure
-   - Make sections easy to scan.
-   - Address user pain points.
-   - Include helpful explanations, process details, FAQs, visuals, and related links.
-
-12. Lead generation structure
-   - Include a clear above-the-fold CTA.
-   - Include a mid-page CTA when appropriate.
-   - Include a final CTA.
-   - Address objections before the final CTA.
-   - Make the contact, quote, booking, or next-step path clear.
-
-## Four-Layer Review
-
-For every important page, review four layers:
-
-1. Search layer
-   - Google Search
-   - Bing
-   - Indexing
-   - Metadata
-   - Headings
-   - Internal links
-
-2. Local platform layer
-   - Apple Maps / Apple Search
-   - Google Business Profile
-   - Bing Places
-   - Local SERP
-   - Nearby areas
-   - Local trust signals
-
-3. AI and answer engine layer
-   - ChatGPT
-   - Perplexity
-   - AI assistants
-   - Direct answers
-   - Entities
-   - Citation-worthy statements
-
-4. Conversion layer
-   - Engagement
-   - Trust
-   - Objections
-   - CTAs
-   - Contact path
-   - Lead generation
-
-## Required Page Checks
-
-Before a page is considered ready, verify:
-
-- Does the page clearly identify the business, service/topic, and location if applicable?
-- Does the page answer the main search intent quickly?
-- Does the page include direct-answer sections?
-- Does the page include AEO and People Also Ask style questions?
-- Does the page have internal links that support topical authority?
-- Does the page include accurate schema planning?
-- Does the page support Google Search and Bing indexing readiness?
-- Does the page support Apple Maps or Apple Search when local intent applies?
-- Does the page support Google Business Profile relevance when local intent applies?
-- Does the page include citation-worthy statements for ChatGPT, Perplexity, and AI assistants?
-- Does the page avoid unsupported claims?
-- Does the page have a clear conversion path?
-- Does the page have enough trust signals to support lead generation?
-
-## Final Rule
-
-Do not create content only for one platform.
-
-Create content that is structured for search engines, local platforms, answer engines, AI assistants, and real customers.
+Site OS Master — Site OS Prompt Operating Guide
+Version: Updated with Workflow Continuity Principle
+Change: Added Workflow Continuity Principle section, added Unresolved Client Data in the Workflow section covering all prompt stages from 01 through 09. 
