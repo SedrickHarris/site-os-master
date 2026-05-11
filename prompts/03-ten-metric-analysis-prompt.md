@@ -1,16 +1,86 @@
-# Beyond Elite 10 Metric Strategic Analysis Prompt
+# Prompt 03 — Ten-Metric Analysis
 
 You are acting as a senior SEO auditor, AEO strategist, GEO/local SEO specialist, SERP analyst, conversion strategist, technical SEO reviewer, and launch-readiness evaluator.
 
-Your job is to analyze the outlined on-page content, AEO FAQ plan, technical SEO plan, internal linking plan, schema plan, and conversion strategy.
+Your job is to evaluate the page, outline, strategy, or draft against ten performance metrics using whatever source material exists.
 
-Do not give a generic review.
+---
 
-Create a weighted, prioritized, implementation-ready analysis that identifies what should be improved, what should not be changed, and what must be fixed before the page is built or published.
+## Core Operating Rule
+
+**Unresolved client data does not stop ten-metric analysis when enough page, keyword, outline, or strategy context exists.**
+
+- Score what can be evaluated.
+- Flag what cannot be evaluated due to missing data.
+- Carry unresolved items forward to Prompt 04.
+- Never invent missing data.
+- Never treat unconfirmed data as confirmed.
+
+---
+
+## Do Not Invent
+
+Do not invent, assume, or treat as confirmed any of the following unless explicitly verified by the client:
+
+- Phone number
+- Address
+- ZIP code
+- Business hours
+- Service areas
+- Pricing
+- Guarantees
+- Reviews
+- Ratings
+- Reviewer names
+- Licenses
+- Certifications
+- Insurance
+- Awards
+- Years in business
+- Emergency availability
+- Same-day availability
+- Form endpoint
+- Production domain
+- Google Business Profile details
+- Testimonials
+- Case studies
+- Before/after results
+- Financing options
+- Warranty details
+
+If any of these would affect a metric score but are not confirmed, flag them using one of these labels:
+
+- `NEEDS CLIENT CONFIRMATION`
+- `CARRY FORWARD`
+- `FLAGGED`
+- `UNRESOLVED`
+- `REQUIRES CLIENT CONFIRMATION`
+- `NOT VERIFIABLE`
+- `PARTIALLY VERIFIABLE`
+
+Do not use `BLOCKED`, `cannot proceed`, or `workflow stops` unless there is genuinely not enough source material to evaluate anything at all.
+
+---
+
+## Safety Rule
+
+Do not reward or recommend:
+
+- Fake ratings or fake review counts
+- Fake testimonials
+- Fake certifications or licenses
+- Fake pricing
+- Fake service areas
+- Fake guarantees
+- Fake availability claims
+
+If these items would improve a metric score but are not verified, list them as **opportunities that require client confirmation**.
+
+---
 
 ## Input
 
-Analyze the current page strategy, including:
+Analyze the available source material, which may include any combination of:
 
 - Page type
 - Page goal
@@ -25,11 +95,260 @@ Analyze the current page strategy, including:
 - Schema plan
 - CTA strategy
 - Image recommendations
-- Local/GEO relevance if applicable
+- Local/GEO relevance notes
+- Client-confirmed business data
 
-## Part 1: Page Type Weighting
+Use whatever is available. Score what can be scored. Flag what cannot.
 
-First identify the page type:
+---
+
+## Execution Depth
+
+Select the appropriate depth based on available source material and page priority:
+
+- **Standard** — Outline or strategy exists, page is normal priority
+- **Deep** — Full strategy exists, page is high value or competitive
+- **Compact** — Source material is limited; score what exists, flag the rest
+
+State the selected depth at the top of the output.
+
+---
+
+## Output Format
+
+Produce the following structured report:
+
+---
+
+# Prompt 03 Ten-Metric Analysis Report
+
+## 1. Execution Depth
+
+Selected depth:
+
+---
+
+## 2. Source Context Review
+
+### Sources Reviewed
+
+### Page or Strategy Context
+
+### Keyword Context
+
+### Outline Context
+
+### Missing Context
+
+---
+
+## 3. Confirmed Inputs
+
+List all client-confirmed or verifiable inputs used in this analysis.
+
+---
+
+## 4. Missing or Unconfirmed Inputs
+
+List all inputs that are missing, unconfirmed, or not verifiable. For each:
+
+- Item:
+- Why it matters to scoring:
+- Status: [FLAGGED / NEEDS CLIENT CONFIRMATION / NOT VERIFIABLE / PARTIALLY VERIFIABLE]
+- Carry forward to Prompt 04: Yes / No
+
+---
+
+## 5. Overall Ten-Metric Score
+
+Score: [X / 100]
+
+Summary:
+
+---
+
+## 6. Category Scores
+
+For each category, provide:
+- Raw score (1–10)
+- Weighted score
+- Status
+- Analysis
+- Recommended fixes
+- Flagged items (if any)
+
+---
+
+### 1. SEO
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 2. AEO
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 3. Voice Search
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 4. SERP
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 5. GEO / Local SEO
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 6. Rich Snippets
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 7. AI / LLM Citation Readiness
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 8. Search Dominance
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 9. Engagement
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+### 10. Conversion
+
+Score:
+Status:
+Analysis:
+Recommended fixes:
+Flagged items:
+
+---
+
+## 7. Strengths
+
+List what is already working well and should be preserved.
+
+---
+
+## 8. Weaknesses
+
+List what is underperforming or missing.
+
+---
+
+## 9. Missing Data Impact
+
+Describe how unconfirmed or missing client data is affecting scores. Be specific about which metrics are impacted and by how much.
+
+---
+
+## 10. Recommended Fixes for Prompt 04
+
+List fixes that Prompt 04 should address, grouped by:
+
+- Fixes that can be made now
+- Fixes that require client confirmation first
+
+---
+
+## 11. Flagged Unresolved Data
+
+For each flagged item:
+
+- Item:
+- Why it matters:
+- Status:
+- Required confirmation:
+- Carry-forward destination: Prompt 04
+
+---
+
+## 12. Items to Carry Forward to Prompt 04
+
+List all unresolved items that must be passed to Prompt 04 for resolution or conditional implementation.
+
+---
+
+## 13. Recommended Next Action
+
+Choose one:
+
+- **READY FOR PROMPT 04**
+- **READY FOR PROMPT 04 WITH FLAGGED ITEMS**
+- **NEEDS MORE SOURCE CONTEXT BEFORE PROMPT 04**
+
+---
+
+## Completion Rule
+
+Do not mark the analysis as production-ready if launch-critical or claim-sensitive data is missing.
+
+The analysis may still be marked **READY FOR PROMPT 04 WITH FLAGGED ITEMS** if:
+
+- Enough source material exists to evaluate the ten metrics
+- All unresolved items are flagged
+- All unresolved items are carried forward to Prompt 04
+
+---
+
+## Page Type Weighting
+
+After reviewing source material, identify the page type:
 
 - Homepage
 - Service page
@@ -39,225 +358,80 @@ First identify the page type:
 - Landing page
 - Other
 
-Then assign weighted importance to these 10 metrics based on the page type:
+Assign weighted importance to the ten metrics based on the page type. Total weight must equal 100%. Explain each weight briefly.
 
-1. SEO
-2. AEO
-3. Voice search
-4. SERP visibility
-5. GEO/local relevance
-6. Rich snippets
-7. AI/LLM citation readiness
-8. Search dominance
-9. Engagement
-10. Conversion
+---
 
-The total weight must equal 100%.
+## Gap Priority Matrix
 
-Explain why each metric receives its weight.
+After scoring, produce a priority matrix with these columns:
 
-## Part 2: 10 Metric Scorecard
+| Issue | Related Metric | Priority | Expected Impact | Difficulty | Fix Type | Recommended Action | Fix Before Build? | Launch Blocker? |
+|-------|---------------|----------|-----------------|------------|----------|--------------------|-------------------|-----------------|
 
-Analyze the page strategy against these 10 metrics:
+Priority levels: Critical / High / Medium / Low
+Fix types: Quick win / Strategic improvement
 
-1. SEO
-2. AEO
-3. Voice search
-4. SERP visibility
-5. GEO/local relevance
-6. Rich snippets
-7. AI/LLM citation readiness
-8. Search dominance
-9. Engagement
-10. Conversion
+---
 
-For each metric, provide:
+## Over-Optimization Risk Check
 
-- Raw score from 1 to 10
-- Weighted score
-- Reason for score
-- What is working
-- What is missing
-- Risk if not fixed
-- Recommended fix
-- Priority level: Critical, High, Medium, or Low
-- Expected impact: High, Medium, or Low
-- Implementation difficulty: Easy, Moderate, or Hard
-- Fix type: Quick win or Strategic improvement
-- Notes for Claude Code implementation if applicable
-
-## Part 3: Gap Priority Matrix
-
-Create a priority matrix with these columns:
-
-- Issue
-- Related metric
-- Priority
-- Expected impact
-- Implementation difficulty
-- Fix type
-- Recommended action
-- Should fix before build? Yes or No
-- Launch blocker? Yes or No
-
-## Part 4: Top Improvements
-
-Provide:
-
-1. Top 10 highest impact improvements
-2. Top 5 quick wins
-3. Top 5 strategic improvements
-4. Top 5 conversion improvements
-5. Top 5 AEO/AI citation improvements
-6. Top 5 technical SEO improvements
-7. Top 5 local/GEO improvements if applicable
-
-## Part 5: What Should Not Be Changed
-
-Identify what is already strong and should be preserved.
-
-Include:
-
-- Strong sections
-- Strong keyword placements
-- Strong CTA elements
-- Strong FAQ ideas
-- Strong schema opportunities
-- Strong internal linking ideas
-- Strong local relevance elements if applicable
-
-## Part 6: Over-Optimization Risk Check
-
-Analyze whether the page strategy risks:
+Flag any risks including:
 
 - Keyword stuffing
 - Repetitive headings
-- Duplicate location content
 - Thin content
-- Too many FAQs
-- Weak or generic FAQs
 - Too many CTAs
-- Unnatural local keyword usage
+- Weak or generic FAQs
 - Unsupported claims
-- Overly long page flow
 - Confusing user journey
 
-For each risk, provide:
+For each risk: state risk level, why it matters, and how to prevent it.
 
-- Risk level
-- Why it matters
-- How to prevent it
+---
 
-## Part 7: Revised Strategic Recommendations
+## Competitive Outperformance Scorecard
 
-Provide revised recommendations for:
-
-1. Page structure
-2. Section order
-3. Keyword placement
-4. AEO summary placement
-5. FAQ strategy
-6. Internal linking strategy
-7. Schema strategy
-8. CTA strategy
-9. Trust signals
-10. Image usage
-11. Local relevance if applicable
-12. Claude Code implementation notes
-
-## Part 8: Final Page Readiness Score
-
-Provide:
-
-- SEO readiness score
-- AEO readiness score
-- GEO/local readiness score if applicable
-- Technical SEO readiness score
-- Conversion readiness score
-- Overall strategy score
-
-Then classify the page strategy as:
-
-- Ready for build
-- Ready after minor fixes
-- Needs major revision
-- Not ready
-
-Explain the classification.
-
-Do not write the full page content.
-
-Focus on strategic evaluation, prioritization, gap fixing, and implementation readiness.
-
-## Competitive Outperformance Analysis
-
-In addition to the 10 metric scorecard, analyze whether this page strategy can outperform competing pages.
-
-Add a section titled:
-
-### Competitive Outperformance Scorecard
-
-Score from 1 to 10:
+Score from 1–10:
 
 1. Competitor content gap coverage
-2. Search intent satisfaction compared to competitors
-3. Direct-answer strength compared to competitors
-4. AEO and voice search strength compared to competitors
-5. Local specificity compared to competitors
-6. Trust signal strength compared to competitors
-7. Internal linking strength compared to competitors
-8. Schema opportunity strength compared to competitors
-9. Conversion path strength compared to competitors
-10. Content moat strength compared to competitors
+2. Search intent satisfaction vs. competitors
+3. Direct-answer strength vs. competitors
+4. AEO and voice search strength vs. competitors
+5. Local specificity vs. competitors
+6. Trust signal strength vs. competitors
+7. Internal linking strength vs. competitors
+8. Schema opportunity vs. competitors
+9. Conversion path strength vs. competitors
+10. Content moat strength vs. competitors
 
-For each item, provide:
-
-- Score
-- Why it matters
-- What competitors likely do
-- How this page can do better
-- Recommended fix
-- Priority level
-
-## Outperformance Readiness
-
-Classify the page as:
+Classify the page as one of:
 
 - Likely to outperform competitors
 - Could outperform after improvements
 - Currently matches competitors
 - Currently weaker than competitors
 
-Explain the classification.
-
-## Required Improvement Plan
-
-Provide:
-
-1. Top 5 ways to make the page more useful than competitors
-2. Top 5 ways to make the page more specific than competitors
-3. Top 5 ways to make the page stronger for AEO and AI citation
-4. Top 5 ways to make the page convert better than competitors
-5. Top 5 ways to create a content moat
+---
 
 ## Full Visibility and Conversion Ecosystem Check
 
-In addition to the 10 metric scorecard, check whether the page supports the full Site OS visibility and conversion ecosystem:
+Check whether the page strategy supports:
 
 1. SEO
-2. GEO
+2. GEO / local SEO
 3. AEO
 4. Local intent SERP visibility
 5. LLM search visibility
 6. Google Search Console readiness
 7. Bing Webmaster readiness
-8. Apple Search and Apple Maps support where applicable
+8. Apple Search / Apple Maps support
 9. Rich snippets
 10. Topical authority
-11. Google Business Profile support where applicable
+11. Google Business Profile support
 12. Featured snippets
 13. People Also Ask
-14. Knowledge panel and entity authority support
+14. Knowledge panel and entity authority
 15. Perplexity readiness
 16. ChatGPT readiness
 17. Customer engagement
@@ -268,17 +442,37 @@ In addition to the 10 metric scorecard, check whether the page supports the full
 For each applicable goal, identify:
 
 - Current readiness score
-- Target score
 - What is working
 - What is missing
-- Required page element
-- Schema or technical requirement
-- Internal linking requirement
-- Conversion impact
+- Required page element or schema
 - Priority
 - Claude Code implementation notes
 - QA check before publishing
 
-For high-value pages, recommend running:
+For high-value pages, recommend running Prompt 20 (Visibility and Conversion Alignment) after Prompt 04.
 
-prompts/20-visibility-conversion-alignment-prompt.md
+---
+
+## Final Page Readiness Score
+
+Provide:
+
+- SEO readiness score
+- AEO readiness score
+- GEO/local readiness score (if applicable)
+- Technical SEO readiness score
+- Conversion readiness score
+- Overall strategy score
+
+Classify the page strategy as one of:
+
+- Ready for build
+- Ready after minor fixes
+- Needs major revision
+- Not ready
+
+Explain the classification. Note any items that require client confirmation before the classification can be upgraded.
+
+---
+
+*Do not write full page content. Focus on strategic evaluation, prioritization, gap identification, and implementation readiness.* 
