@@ -1,36 +1,31 @@
-# Prompt 02: Page Outline Prompt
-
-## Version
-
-Prompt 02 v2
-Updated to include unresolved issue flagging language, safety rules, and structured carry-forward behavior.
-
----
+# Prompt 01: Keyword Strategy
 
 ## Purpose
 
-Create the page structure and content outline when enough business, service, location, keyword, and page goal context exists.
+Create the keyword and intent strategy for the target page or website section.
 
-Missing client data must be flagged, labeled as needing confirmation, and carried forward to Prompt 03. It must never be invented, assumed, or treated as confirmed unless verified.
+This prompt runs after enough business, service, and location context exists to begin keyword planning.
+
+Missing client data does not stop this prompt. Flag missing items, continue keyword strategy where possible, and carry all unresolved items forward to Prompt 02.
 
 ---
 
-## Core Workflow Rule
+## Core Principle
 
-Unresolved client data does not stop page outline work when enough business, service, location, keyword, and page goal context exists.
+Unresolved client data does not stop keyword strategy work when enough business, service, and location context exists.
 
 If data is missing:
-
 - Do not invent it.
-- Flag the missing item clearly.
-- Continue the outline where possible.
-- Carry all unresolved items forward to Prompt 03.
+- Do not treat it as confirmed.
+- Flag it clearly.
+- Continue keyword strategy using available context.
+- Carry unresolved items forward to Prompt 02.
 
 ---
 
 ## Do Not Invent
 
-Prompt 02 must not invent or treat as confirmed:
+Prompt 01 must never invent or treat as confirmed:
 
 - Phone number
 - Address
@@ -52,25 +47,14 @@ Prompt 02 must not invent or treat as confirmed:
 - Form endpoint
 - Production domain
 - Google Business Profile details
-- Testimonials
-- Case studies
-- Before/after results
-- Financing options
-- Warranty details
 
-If any of these would improve the page outline but are not confirmed, flag them as:
-
-**NEEDS CLIENT CONFIRMATION**
-
-or:
-
-**CARRY FORWARD**
+If any of these items would support keyword confidence or local SEO strategy but are not confirmed, list them as opportunities that require client confirmation. Do not use them as facts.
 
 ---
 
-## Recommended Labels
+## Required Labels for Unresolved Items
 
-Use these labels for missing or unresolved data:
+Use these labels for missing or unconfirmed data:
 
 - FLAGGED
 - NEEDS CONFIRMATION
@@ -78,169 +62,167 @@ Use these labels for missing or unresolved data:
 - CARRY FORWARD
 - REQUIRES CLIENT CONFIRMATION
 
-Avoid:
-
+Avoid using:
 - BLOCKED
 - cannot proceed
 - workflow stops
 
-Unless there is genuinely not enough core context to create any useful outline.
+unless there is genuinely not enough core context to form any keyword strategy.
+
+---
+
+## What This Prompt Covers
+
+Focus on:
+
+- Primary keyword
+- Secondary keywords
+- Long-tail keywords
+- Local and GEO keywords
+- AEO questions
+- Voice search phrases
+- Search intent
+- Entity and topical relevance
+- Keyword-to-page recommendations
+- Internal linking opportunities
+- Keyword risks
+- Missing client data that affects keyword confidence
+- Items to carry forward to Prompt 02
 
 ---
 
 ## Step 1: Select Execution Depth
 
-Choose one:
+Choose one based on page value, competition level, and available context:
 
-- **Standard** — Normal service, location, or category page. Adequate context exists. Full outline produced.
-- **Reduced** — Some context is missing. Outline produced with flagged gaps and carry-forward items.
-- **Minimal** — Core context only. Basic outline produced. High number of carry-forward items expected.
+**Compact** — Use for simple pages, quick tasks, or low-priority pages.
+**Standard** — Use for normal service pages, location pages, and blog posts.
+**Deep** — Use for high-value pages, competitive keywords, or final QA passes.
 
-Select the depth that matches available context. Do not over-engineer for a simple page.
+State the selected depth at the top of the report.
 
 ---
 
-## Step 2: Review Source Context
+## Step 2: Review Available Context
 
-Review all available inputs before building the outline:
+Review all available sources before beginning:
 
+- Project knowledge base
+- Uploaded documents
+- Prior conversation context
+- Confirmed client data from Prompt 10 if available
+
+Identify:
 - Business name and type
-- Service or product offered
-- Target location or service area
-- Primary keyword and keyword strategy from Prompt 01
-- Page goal (lead generation, sales, information, local visibility)
+- Services offered
+- Service locations
 - Target audience
-- Competitive context if available
-- Site structure if available
-- Any carry-forward items from Prompt 01
-
-Identify what is confirmed and what is missing.
+- Confirmed differentiators
+- Any items marked CARRY FORWARD from Prompt 10
 
 ---
 
-## Step 3: Identify Confirmed and Missing Inputs
+## Step 3: Identify Missing Context
 
-### Confirmed Inputs
+For each missing item that affects keyword confidence, flag it using the labels above.
 
-List all verified inputs available for outline work.
+Do not wait for missing items to be resolved before proceeding.
 
-### Missing or Unconfirmed Inputs
-
-List all inputs that are missing, unverified, or require client confirmation.
-
-For each missing input, note:
-
-- What is missing
-- Why it matters for the outline
-- Whether the outline can proceed without it
-- Whether it should be flagged or blocks a specific section
+Continue keyword strategy using what is confirmed.
 
 ---
 
-## Step 4: Build the Page Outline
+## Step 4: Execute Keyword Strategy
 
-Use confirmed inputs to build the page outline. Where client data is missing, note the gap and flag the section rather than inventing content.
+### Primary Keyword
 
-### Page Strategy Summary
+Identify the single best primary keyword for the target page.
 
-Define:
+Consider:
+- Search volume
+- Commercial or transactional intent
+- Local modifier if applicable
+- Alignment with the page goal
 
-- Page type
-- Page goal
-- Target audience
-- Primary search intent
-- Secondary search intent
-- Primary CTA
-- Secondary CTA
-- Conversion path
-- Recommended URL slug
+### Secondary Keywords
 
-### H1 Recommendation
+Identify 3 to 8 secondary keywords that support the primary keyword.
 
-Provide the recommended H1 for the page. If location data is unconfirmed, flag the location placeholder with NEEDS CLIENT CONFIRMATION.
+Include:
+- Synonyms
+- Related service terms
+- Intent variations
+- Location variations if applicable
 
-### Page Section Outline
+### Long-Tail Keywords
 
-For each section provide:
+Identify 5 to 12 long-tail keywords.
 
-- Section number
-- Section name
-- Recommended heading
-- Purpose
-- Content notes
-- CTA or conversion role
-- SEO/AEO/GEO role
-- Required confirmation, if any
+Focus on:
+- Specific service + location combinations
+- Problem-aware phrases
+- Solution-aware phrases
+- Comparison phrases
+- Urgency phrases
 
-Recommended sections for a standard service page:
+### Local and GEO Keywords
 
-1. Hero / Above-the-Fold
-2. Direct Answer / Problem Statement
-3. Service Overview
-4. Service Features or Benefits
-5. Local/GEO Context
-6. Trust and Proof Section
-7. FAQ / AEO Section
-8. Final CTA Section
+If the business serves a local area, identify:
 
-Add, remove, or reorder sections based on page goal and available context. Flag any section that requires unconfirmed client data.
+- City + service keywords
+- Neighborhood + service keywords
+- Near-me keyword opportunities
+- County or region keywords if applicable
+- Apple Maps and Google Maps keyword signals
 
----
+If service areas are unconfirmed, flag each with REQUIRES CLIENT CONFIRMATION and include placeholder examples based on available context.
 
-## Step 5: Plan Direct-Answer and AEO Placement
+### AEO and Voice Search Strategy
 
 Identify:
 
-- Where the page delivers a direct answer to the primary keyword question
-- What the direct-answer statement is or should be
-- Where AEO content appears
-- Which People Also Ask questions the page targets
-- Where voice search and AI citation content is supported
+- Direct-answer questions the page could answer
+- Featured snippet opportunities
+- People Also Ask style questions
+- Voice search phrases
+- Near-me voice phrases if applicable
+- Short answer statements for AI and LLM citation readiness
 
----
+### Search Intent Analysis
 
-## Step 6: Plan FAQ Placement and Themes
+Map each keyword group to:
 
-Identify:
+- Informational intent
+- Commercial intent
+- Transactional intent
+- Local intent
+- Comparison intent
+- Problem-aware intent
+- Solution-aware intent
+- Funnel stage
 
-- Where the FAQ section appears in the page
-- Recommended FAQ themes based on keyword strategy and search intent
-- Whether any FAQ content requires unconfirmed client data
-
-Flag any FAQ item that requires client confirmation before it can be included.
-
----
-
-## Step 7: Plan Local and GEO Content Placement
-
-If the page serves a local area:
-
-- Identify where local context appears in the outline
-- Identify city, neighborhood, or region references to include
-- Identify local pain points, urgency signals, or proximity language
-- Flag any location-specific claim that is not yet confirmed
-
-If the page is not local, state that GEO content is not applicable for this outline.
-
----
-
-## Step 8: Plan CTA and Conversion Flow
+### Entity and Topical Authority Notes
 
 Identify:
 
-- Above-the-fold CTA placement
-- Mid-page CTA placement
-- Final CTA placement
-- Lead capture section placement
-- Objection-handling placement
-- Trust signal placement
-- Mobile conversion considerations
+- Core entities for the page
+- Related entities
+- Service or topic entities
+- Location entities if applicable
+- Trust and credential entities
+- Supporting subtopics that build topical authority
 
-Flag any CTA element that depends on unconfirmed data such as phone number, form endpoint, or production domain.
+### Keyword-to-Page Recommendations
 
----
+For each primary and secondary keyword, recommend:
 
-## Step 9: Identify Internal Linking Opportunities
+- Target page type (service page, location page, blog post, FAQ page, landing page)
+- URL slug recommendation
+- Suggested meta title structure
+- Suggested H1 structure
+- Internal linking opportunity
+
+### Internal Linking Opportunities
 
 Identify:
 
@@ -249,74 +231,54 @@ Identify:
 - Anchor text suggestions
 - Topical authority linking opportunities
 
-Flag if site structure is not yet available.
-
----
-
-## Step 10: Identify Schema Opportunities
+### Conversion Keyword Strategy
 
 Identify:
 
-- Schema types appropriate for this page
-- Key schema fields needed
-- Schema fields that require client confirmation
-- Schema risks to avoid
+- High-intent buying keywords
+- Urgency keywords
+- Lead-readiness signals
+- CTA alignment keywords
+- Objection-related keywords
 
 ---
 
-## Step 11: Plan Trust and Proof Placement
+## Step 5: Identify Keyword Risks
 
-Identify:
+Flag any risks including:
 
-- Where trust signals appear in the outline
-- What trust content is confirmed and can be included
-- What trust content is unconfirmed and must be flagged
-
-Do not add fake ratings, fake reviews, fake certifications, fake licenses, fake guarantees, or any unverified trust claim to the outline.
-
-If trust content would strengthen the outline but is not confirmed, flag it as:
-
-**REQUIRES CLIENT CONFIRMATION**
+- Keyword stuffing potential
+- Overuse of exact-match phrases
+- Repetitive local modifiers
+- Weak or broad keywords not aligned with the page goal
+- Duplicate content risk with existing pages
+- Keywords where missing client data reduces confidence
 
 ---
 
-## Step 12: Flag All Unresolved Data
+## Step 6: Flag Unresolved Data
 
-For each unresolved item that affects the outline, create an entry using this format:
+For each unresolved item that affects keyword confidence or strategy, create an entry using this format:
 
 - Item:
-- Why it matters:
+- Why it matters for keyword strategy:
 - Status:
 - Required confirmation:
 - Carry-forward destination:
 
 ---
 
-## Step 13: Determine Readiness for Prompt 03
+## Step 7: Determine Readiness for Prompt 02
 
 Choose one:
 
-- **READY FOR PROMPT 03** — Page outline is complete. No unresolved items affect outline confidence.
-- **READY FOR PROMPT 03 WITH FLAGGED ITEMS** — Page outline is complete. Unresolved items are flagged and carried forward. Prompt 03 may proceed.
-- **NEEDS MORE CORE CONTEXT BEFORE PROMPT 03** — Not enough business, service, or location context to form a usable page outline. List what is needed.
+- **READY FOR PROMPT 02** — Keyword strategy is complete. No unresolved items affect the outline.
+- **READY FOR PROMPT 02 WITH FLAGGED ITEMS** — Keyword strategy is complete. Unresolved items are flagged and carried forward. Prompt 02 may proceed.
+- **NEEDS MORE CORE CONTEXT BEFORE PROMPT 02** — Not enough business, service, or location context to form a usable keyword strategy. List what is needed.
 
-Do not mark the outline as production-ready if launch-critical or claim-sensitive data is missing.
+Do not mark the strategy as production-ready if launch-critical or claim-sensitive data is unconfirmed.
 
-The outline may still be marked ready for Prompt 03 if enough core context exists and all unresolved items are flagged and carried forward.
-
----
-
-## Safety Rules
-
-1. Do not add fake ratings, fake review counts, fake testimonials, fake certifications, fake licenses, fake pricing, fake service areas, fake guarantees, or fake availability claims to the page outline.
-
-2. If these items would improve the outline but are not verified, list them as opportunities that require client confirmation.
-
-3. Do not use BLOCKED or cannot proceed unless there is genuinely not enough core context to create any page outline.
-
-4. Do not invent or assume any business claim not confirmed by the client.
-
-5. Do not mark the page outline as production-ready if launch-critical or claim-sensitive data is missing.
+The strategy may still be marked ready for Prompt 02 when enough core context exists and all unresolved items are flagged and carried forward.
 
 ---
 
@@ -326,7 +288,7 @@ Return this complete report:
 
 ---
 
-# Prompt 02 Page Outline Report
+# Prompt 01 Keyword Strategy Report
 
 ## 1. Execution Depth
 
@@ -342,52 +304,33 @@ Selected depth:
 
 ### Location Context
 
-### Keyword Context
-
-### Page Goal Context
-
 ### Missing Context
 
 ## 3. Confirmed Inputs
 
 ## 4. Missing or Unconfirmed Inputs
 
-## 5. Page Strategy Summary
+## 5. Primary Keyword Strategy
 
-## 6. Recommended URL Slug
+## 6. Secondary Keyword Strategy
 
-## 7. H1 Recommendation
+## 7. Long-Tail Keyword Strategy
 
-## 8. Page Section Outline
+## 8. Local / GEO Keyword Strategy
 
-For each section:
+## 9. AEO and Voice Search Strategy
 
-- Section number:
-- Section name:
-- Recommended heading:
-- Purpose:
-- Content notes:
-- CTA or conversion role:
-- SEO/AEO/GEO role:
-- Required confirmation, if any:
+## 10. Search Intent Analysis
 
-## 9. Direct-Answer and AEO Placement
+## 11. Entity and Topical Authority Notes
 
-## 10. FAQ Placement and Suggested FAQ Themes
+## 12. Keyword-to-Page Recommendations
 
-## 11. Local/GEO Content Placement
+## 13. Conversion Keyword Strategy
 
-## 12. CTA and Conversion Flow
+## 14. Keyword Risks and Constraints
 
-## 13. Internal Linking Opportunities
-
-## 14. Schema Opportunities
-
-## 15. Trust and Proof Placement
-
-## 16. Outline Risks and Constraints
-
-## 17. Flagged Unresolved Data
+## 15. Flagged Unresolved Data
 
 For each flagged item:
 
@@ -397,17 +340,33 @@ For each flagged item:
 - Required confirmation:
 - Carry-forward destination:
 
-## 18. Items to Carry Forward to Prompt 03
+## 16. Items to Carry Forward to Prompt 02
 
-## 19. Recommended Next Action
+## 17. Recommended Next Action
 
 Choose one:
 
-- READY FOR PROMPT 03
-- READY FOR PROMPT 03 WITH FLAGGED ITEMS
-- NEEDS MORE CORE CONTEXT BEFORE PROMPT 03
+- READY FOR PROMPT 02
+- READY FOR PROMPT 02 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 02
 
 ---
 
-Site OS Master — Prompt 02 v2
-Updated to include unresolved issue flagging language, safety rules, structured carry-forward behavior, and complete output format. 
+## Safety Rules
+
+1. Do not add fake ratings, fake review counts, fake testimonials, fake certifications, fake licenses, fake pricing, fake service areas, or fake availability claims.
+
+2. If these items would help SEO but are not verified, list them as opportunities that require client confirmation.
+
+3. Do not use BLOCKED or cannot proceed unless there is genuinely not enough core context to form any keyword strategy.
+
+4. Do not invent or assume any business claim not confirmed by the client.
+
+5. Do not mark the keyword strategy as production-ready if launch-critical or claim-sensitive data is missing.
+
+---
+
+## Version
+
+Prompt 01 v2
+Updated to include unresolved issue flagging language, safety rules, and structured carry-forward behavior. 
