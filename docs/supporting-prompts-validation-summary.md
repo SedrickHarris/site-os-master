@@ -180,3 +180,47 @@ The confirmation pass verified that Prompt 16 does not replace:
 - Prompt 15 Page Variant Battle
 
 Prompt 16 v1.1 is now locked as the Supporting Search Intent Defense Master. 
+
+## Prompt 17 v1.1: AI Citation Readiness Prompt
+
+File: prompts/17-ai-citation-readiness-prompt.md  
+Status: LOCKED  
+Role: Supporting AI Citation Readiness Master  
+Validation Result: PASS  
+Validation Type: Initial validation pass + lightweight confirmation test  
+Initial Score: 74 / 100  
+
+Prompt 17 v1.1 is locked as the Supporting AI Citation Readiness Master for the Site OS Master prompt system.
+
+Prompt 17 supports AI citation-readiness review, AEO clarity, entity clarity, LLM answer-readiness, direct answer improvement, citation-worthy statement development, source-like wording, factual specificity, summarization readiness, multi-platform AI readiness, and trust signal clarity.
+
+Prompt 17 v1 initially received a patch decision. The required patches were:
+
+- Add canonical identity header
+- Expand Page Details input block
+- Add Execution Depth selector
+- Add Routing Rule section
+- Add workflow position declaration
+- Add Required Rules — Do Not Invent section
+- Add AI Citation Readiness Rules section
+- Add Carry-Forward Items section
+- Add Required Output Format section
+- Add no guaranteed AI citation claim rule
+- Reinforce fabrication prevention
+
+Prompt 17 v1.1 passed lightweight confirmation testing.
+
+The confirmation pass verified that Prompt 17 does not replace:
+
+- Prompt 04 Gap Fix
+- Prompt 06 Claude Code Build
+- Prompt 07 QA Review
+- Prompt 08 Production Fix and TODO Resolution
+- Prompt 11 SERP Competitive Analysis
+- Prompt 12 Analytics and Measurement
+- Prompt 13 Content Quality Editor
+- Prompt 14 Page Template Evaluation
+- Prompt 15 Page Variant Battle
+- Prompt 16 Search Intent Defense
+
+Prompt 17 v1.1 is now locked as the Supporting AI Citation Readiness Master.

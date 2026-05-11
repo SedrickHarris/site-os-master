@@ -127,3 +127,52 @@ Prompt 16 v1 initially received a patch decision and an initial score of 74 / 10
 Prompt 16 was patched to v1.1 and passed lightweight confirmation testing with a confirmation score of 100 / 100.
 
 Prompt 16 v1.1 is locked as the Supporting Search Intent Defense Master. 
+
+## Prompt 17: AI Citation Readiness Prompt
+
+File: prompts/17-ai-citation-readiness-prompt.md  
+Version: v1.1  
+Status: LOCKED  
+Role: Supporting AI Citation Readiness Master  
+Validation: PASS  
+Confirmation: Lightweight v1.1 confirmation PASS  
+
+### Summary
+
+Prompt 17 v1.1 is locked as the Supporting AI Citation Readiness Master for the Site OS Master prompt system.
+
+Prompt 17 supports AI citation-readiness review, AEO clarity, entity clarity, LLM answer-readiness, direct answer improvement, citation-worthy statement development, source-like wording, factual specificity, summarization readiness, multi-platform AI readiness, and trust signal clarity.
+
+Prompt 17 improves AI citation readiness, but it does not guarantee that AI systems will cite the page.
+
+### v1.1 Patch Notes
+
+Prompt 17 v1.1 includes the required Site OS supporting prompt standards:
+
+- Canonical identity header
+- Expanded Page Details input block
+- Execution Depth selector
+- Routing Rule section
+- Workflow position declaration
+- Required Rules — Do Not Invent section
+- AI Citation Readiness Rules section
+- Carry-Forward Items section
+- Required Output Format section
+- No guaranteed AI citation claim rule
+- Reinforced fabrication prevention
+
+The Execution Depth selector allows Prompt 17 to run in Compact, Standard, or Deep mode depending on the complexity, competitiveness, and AI-search priority of the page review.
+
+The Routing Rule clarifies that Prompt 17 does not replace Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, or Prompt 16 Search Intent Defense.
+
+The Required Rules — Do Not Invent section prevents Prompt 17 from inventing facts, source references, citations, credentials, statistics, rankings, studies, testimonials, reviews, guarantees, pricing, analytics results, conversion results, competitor findings, local claims, or performance claims.
+
+The Carry-Forward Items section requires unresolved client-confirmation items, source-confirmation items, proof-confirmation items, SERP-research needs, competitor-research needs, and verified business-information gaps to be flagged instead of invented.
+
+### Locked Decision
+
+Prompt 17 v1 initially received a patch decision and an initial score of 74 / 100.
+
+Prompt 17 was patched to v1.1 and passed lightweight confirmation testing.
+
+Prompt 17 v1.1 is locked as the Supporting AI Citation Readiness Master.
