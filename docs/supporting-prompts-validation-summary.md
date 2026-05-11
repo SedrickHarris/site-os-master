@@ -270,3 +270,105 @@ The confirmation pass verified that Prompt 18 does not replace:
 - Prompt 17 AI Citation Readiness
 
 Prompt 18 v1.1 is now locked as the Supporting Page Moat Master.
+
+## Prompt 19 v1.2: Template Eval Rubric Prompt
+
+File: prompts/19-template-eval-rubric-prompt.md  
+Status: LOCKED  
+Role: Supporting Template Eval Rubric Master  
+Validation Result: PASS  
+Validation Type: Initial validation pass + v1.1 conditional pass + lightweight v1.2 confirmation test  
+Initial Score: 63 / 100  
+
+Prompt 19 v1.2 is locked as the Supporting Template Eval Rubric Master for the Site OS Master prompt system.
+
+Prompt 19 supports Site OS prompt evaluation, workflow file evaluation, checklist evaluation, rubric evaluation, reusable template evaluation, benchmark output review, version comparison, scoring consistency review, lock-readiness review, system-standard compliance review, and PASS/PATCH/FAIL decision support.
+
+Prompt 19 v1 initially received a patch decision. The required patches were:
+
+- Add canonical identity header
+- Expand Item to Evaluate input block
+- Add Execution Depth selector
+- Add Routing Rule section
+- Add Prompt 19 vs Prompt 14 distinction
+- Add Required Rules — Do Not Invent section
+- Add conditional scoring logic
+- Add PASS/PATCH/FAIL decision structure
+- Add Carry-Forward Items section
+- Add Required Output Format section
+- Reinforce fabrication prevention
+
+Prompt 19 v1.1 received a conditional pass with minor patch required.
+
+Prompt 19 v1.2 added:
+
+- NEEDS FILE CONTENTS instruction
+- Part 1 scorecard table format
+
+Prompt 19 v1.2 passed lightweight confirmation testing.
+
+The confirmation pass verified that Prompt 19 does not replace:
+
+- Prompt 04 Gap Fix
+- Prompt 06 Claude Code Build
+- Prompt 07 QA Review
+- Prompt 08 Production Fix and TODO Resolution
+- Prompt 11 SERP Competitive Analysis
+- Prompt 12 Analytics and Measurement
+- Prompt 13 Content Quality Editor
+- Prompt 14 Page Template Evaluation
+- Prompt 15 Page Variant Battle
+- Prompt 16 Search Intent Defense
+- Prompt 17 AI Citation Readiness
+- Prompt 18 Page Moat
+
+Prompt 19 v1.2 is now locked as the Supporting Template Eval Rubric Master.
+
+## Prompt 20 v1.1: Visibility and Conversion Alignment Prompt
+
+File: prompts/20-visibility-conversion-alignment-prompt.md  
+Status: LOCKED  
+Role: Supporting Visibility and Conversion Alignment Master  
+Validation Result: PASS  
+Validation Type: Initial validation pass + lightweight confirmation test  
+Initial Score: 61 / 100  
+
+Prompt 20 v1.1 is locked as the Supporting Visibility and Conversion Alignment Master for the Site OS Master prompt system.
+
+Prompt 20 supports visibility and conversion alignment review, SEO visibility review, GEO and local visibility review, AEO readiness review, SERP visibility review, LLM search readiness review, AI citation-readiness alignment, technical SEO visibility review, indexing and crawlability review, internal linking alignment, trust and proof placement, CTA flow review, conversion path review, competitive outperformance alignment, multi-platform readiness review, and final alignment decision routing.
+
+Prompt 20 v1 initially received a patch decision. The required patches were:
+
+- Add canonical identity header
+- Add expanded Page Details input block
+- Add Execution Depth selector
+- Add Routing Rule section
+- Add Unavailable Data Handling section
+- Add Analytics Unavailability Rule reference
+- Add Do Not Invent section
+- Add Final Alignment Decision section
+- Add Carry-Forward Items section
+- Add Required Output Format section
+- Add no guaranteed outcome claim rule
+- Reinforce fabrication prevention
+
+Prompt 20 v1.1 passed lightweight confirmation testing.
+
+The confirmation pass verified that Prompt 20 does not replace:
+
+- Prompt 03 Ten-Metric Analysis
+- Prompt 04 Gap Fix
+- Prompt 06 Claude Code Build
+- Prompt 07 QA Review
+- Prompt 08 Production Fix and TODO Resolution
+- Prompt 11 SERP Competitive Analysis
+- Prompt 12 Analytics and Measurement
+- Prompt 13 Content Quality Editor
+- Prompt 14 Page Template Evaluation
+- Prompt 15 Page Variant Battle
+- Prompt 16 Search Intent Defense
+- Prompt 17 AI Citation Readiness
+- Prompt 18 Page Moat
+- Prompt 19 Template Eval Rubric
+
+Prompt 20 v1.1 is now locked as the Supporting Visibility and Conversion Alignment Master.

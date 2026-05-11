@@ -277,3 +277,58 @@ Prompt 19 was patched to v1.1, received a conditional pass with minor patch requ
 Prompt 19 v1.2 passed lightweight confirmation testing.
 
 Prompt 19 v1.2 is locked as the Supporting Template Eval Rubric Master.
+
+## Prompt 20: Visibility and Conversion Alignment Prompt
+
+File: prompts/20-visibility-conversion-alignment-prompt.md  
+Version: v1.1  
+Status: LOCKED  
+Role: Supporting Visibility and Conversion Alignment Master  
+Validation: PASS  
+Confirmation: Lightweight v1.1 confirmation PASS  
+
+### Summary
+
+Prompt 20 v1.1 is locked as the Supporting Visibility and Conversion Alignment Master for the Site OS Master prompt system.
+
+Prompt 20 supports visibility and conversion alignment review, SEO visibility review, GEO and local visibility review, AEO readiness review, SERP visibility review, LLM search readiness review, AI citation-readiness alignment, technical SEO visibility review, indexing and crawlability review, internal linking alignment, trust and proof placement, CTA flow review, conversion path review, competitive outperformance alignment, multi-platform readiness review, and final alignment decision routing.
+
+Prompt 20 helps confirm that a page strategy is not only built for visibility, but also built to convert.
+
+### v1.1 Patch Notes
+
+Prompt 20 v1.1 includes the required Site OS supporting prompt standards:
+
+- Canonical identity header
+- Expanded Page Details input block
+- Analytics Context field
+- Known SERP or Competitor Context field
+- Proof, Trust, or Business Context field
+- Execution Depth selector
+- Routing Rule section
+- Unavailable Data Handling section
+- Analytics Unavailability Rule reference
+- Do Not Invent section
+- Final Alignment Decision section
+- Carry-Forward Items section
+- Required Output Format section
+- No guaranteed outcome claim rule
+- Reinforced fabrication prevention
+
+The Execution Depth selector allows Prompt 20 to run in Compact, Standard, or Deep mode depending on the complexity, competitiveness, and alignment-risk level of the page review.
+
+The Routing Rule clarifies that Prompt 20 does not replace Prompt 03 Ten-Metric Analysis, Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, Prompt 16 Search Intent Defense, Prompt 17 AI Citation Readiness, Prompt 18 Page Moat, or Prompt 19 Template Eval Rubric.
+
+The Unavailable Data Handling section requires missing schema, internal linking, conversion, analytics, competitor, proof, or trust data to be disclosed instead of assumed.
+
+The Analytics Unavailability Rule prevents Prompt 20 from inventing conversion rates, lead counts, traffic estimates, ranking positions, phone call volume, form submissions, revenue data, CRM data, GBP performance, Google Search Console data, or Bing Webmaster data.
+
+The Final Alignment Decision section provides routing options to Prompt 04, Prompt 06, Prompt 12, Prompt 11, Prompt 16, Prompt 17, Prompt 18, or another prompt when needed.
+
+### Locked Decision
+
+Prompt 20 v1 initially received a patch decision and an initial score of 61 / 100.
+
+Prompt 20 was patched to v1.1 and passed lightweight confirmation testing.
+
+Prompt 20 v1.1 is locked as the Supporting Visibility and Conversion Alignment Master.
