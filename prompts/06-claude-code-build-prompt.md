@@ -276,3 +276,107 @@ Build third.
 Validate fourth.
 
 Report fifth.
+
+## Prompt Revision: Prompt 06 Priority Safety Fixes
+
+## Gate 2 Formal Approval Pause
+
+After Gate 2, Claude Code must stop completely.
+
+Add this rule to every Claude Code build prompt:
+
+After presenting the Gate 2 implementation plan, stop completely. Do not proceed to Gate 3 until explicit user confirmation is received.
+
+If there are unresolved blockers, unknown framework issues, missing route conventions, missing form handlers, missing schema patterns, or unclear client-confirmation values, ask for guidance before building anything.
+
+Do not edit, create, rename, delete, or move files until Gate 2 is approved.
+
+## Pricing Claim Confirmation Requirement
+
+Any specific pricing claim, price range, average cost, starting price, discount, special offer, financing claim, or cost estimate must be flagged for client confirmation before launch.
+
+If FAQ content includes a price range, add this warning directly beside the FAQ answer and in the QA checklist:
+
+FLAG: CLIENT MUST CONFIRM PRICING BEFORE LAUNCH. Replace with verified pricing, an approved general range, or a non-specific quote-based answer. Do not ship unconfirmed pricing claims.
+
+For example, if a FAQ says:
+
+"Furniture removal in Las Vegas typically costs between $75 and $300 depending on the number of items and accessibility."
+
+Add:
+
+FLAG: CLIENT MUST CONFIRM: The $75–$300 price range is an approximation. Replace with actual pricing or an accurate approved range before launch. Do not ship this copy unconfirmed.
+
+If pricing is not confirmed, use a safer fallback answer:
+
+"Furniture removal pricing in Las Vegas depends on the number of items, accessibility, and job size. Pit Stop Junk Removal provides a free quote before any work begins."
+
+## Unknown Framework Fallback
+
+If Claude Code cannot identify the framework from the named options, it must inspect:
+
+- package.json
+- config files
+- project root structure
+- routing folders
+- build scripts
+
+Then it must report the findings and ask for confirmation before continuing.
+
+Do not guess the routing pattern.
+
+## No Existing Service Page Fallback
+
+If no existing service page exists, Claude Code must use the most structurally similar page available as the reference pattern.
+
+Acceptable fallback references:
+
+- Homepage
+- About page
+- Blog post
+- Landing page
+- Existing location page
+- Existing category page
+
+Claude Code must state this assumption in the Gate 1 report.
+
+## Navigation Update Scope Limit
+
+When updating navigation, make only the single required link addition.
+
+Do not:
+
+- Restructure navigation
+- Reorder existing links
+- Change styling
+- Modify header/footer layout
+- Rename existing navigation files
+- Alter unrelated menu behavior
+
+Add only:
+
+Link text:
+Furniture and Appliance Removal
+
+Destination:
+/services/furniture-appliance-removal-las-vegas
+
+Follow the existing navigation pattern exactly.
+
+## Sitemap Conditional Logic
+
+If the project uses a static sitemap.xml, add the new page URL as a new URL entry.
+
+If the sitemap is dynamically generated, check whether the new route will be automatically included.
+
+If Claude Code cannot determine sitemap behavior, add this TODO:
+
+TODO: Confirm new page URL is included in sitemap before launch.
+
+Do not invent sitemap logic or refactor the sitemap system unless required.
+
+## Prompt Length Reminder for Claude Code
+
+At the top of every long Claude Code build prompt, include:
+
+This is a long implementation prompt. Read the full prompt before starting Gate 1. Do not modify files until Gate 1 inspection is complete, Gate 2 plan is complete, and the user explicitly approves proceeding to Gate 3.
