@@ -380,3 +380,291 @@ Do not invent sitemap logic or refactor the sitemap system unless required.
 At the top of every long Claude Code build prompt, include:
 
 This is a long implementation prompt. Read the full prompt before starting Gate 1. Do not modify files until Gate 1 inspection is complete, Gate 2 plan is complete, and the user explicitly approves proceeding to Gate 3.
+
+## Prompt Revision: Production-Safe Claude Code Build Template Requirements
+
+This prompt must generate Claude Code build prompts that are safe to paste into VS Code for real website projects.
+
+The final Claude Code prompt must be self-contained and must not rely on earlier strategy context being remembered.
+
+## Required Gate Structure
+
+Every Claude Code build prompt must use this gate structure:
+
+1. Gate 1 — Inspect
+2. Gate 2 — Plan
+3. Gate 3 — Build
+4. Gate 4 — Validate
+5. Gate 5 — Report
+
+## Gate 1 — Inspection-Only Pass
+
+Before creating, editing, moving, deleting, or renaming any files, Claude Code must inspect the project.
+
+Claude Code must inspect:
+
+- package.json
+- project root structure
+- routing folders
+- app, pages, routes, src, or equivalent directories
+- existing page patterns
+- existing service pages
+- existing layout components
+- existing metadata patterns
+- existing schema injection patterns
+- existing form components
+- existing CTA components
+- existing FAQ or accordion components
+- existing navigation files
+- existing sitemap behavior
+- existing styling system
+- existing image folder conventions
+
+Claude Code must report what it finds before planning the build.
+
+## Framework Detection Requirement
+
+Claude Code must identify the framework and routing pattern before creating files.
+
+It must check:
+
+- package.json
+- config files
+- root folder structure
+- build scripts
+- routing directories
+
+If the framework is unclear, Claude Code must stop and ask for confirmation.
+
+Do not guess the routing pattern.
+
+## Existing Service Page Fallback
+
+Claude Code must search for the closest existing service page.
+
+If no service page exists, it must use the most structurally similar page as the pattern reference.
+
+Acceptable fallback references:
+
+- Homepage
+- About page
+- Blog post
+- Landing page
+- Location page
+- Category page
+
+Claude Code must state the fallback assumption in the Gate 1 report.
+
+## Duplicate Route Check
+
+Before creating the new route, Claude Code must confirm no existing file or route already resolves to the target URL.
+
+If a duplicate route exists, Claude Code must stop and report the conflict before building.
+
+## Gate 2 — Implementation Plan and Approval Pause
+
+After inspection, Claude Code must provide an implementation plan.
+
+The plan must include:
+
+- Route to create
+- Route type
+- Framework/routing convention
+- Files to create
+- Files to edit
+- Files not to touch
+- Components to reuse
+- Components to create
+- Metadata approach
+- Schema approach
+- Form approach
+- CTA approach
+- Navigation update approach
+- Sitemap update approach
+- Internal link approach
+- Image approach
+- Risks or blockers
+
+After presenting the Gate 2 plan, Claude Code must stop completely.
+
+Do not proceed to Gate 3 until explicit user confirmation is received.
+
+Do not edit, create, rename, delete, or move files until Gate 2 is approved.
+
+## Required File Scope Declaration
+
+Before building, Claude Code must output:
+
+Files I will create:
+- [file path]
+
+Files I will edit:
+- [file path]
+
+Files I will not touch:
+- Global styles unless required
+- Unrelated pages
+- Unrelated components
+- Unrelated routes
+- Unrelated navigation behavior
+- Unrelated schema utilities
+- Unrelated form handlers
+
+If the build requires touching a global file, Claude Code must explain why before proceeding.
+
+## Form and CTA Specification Requirement
+
+For any lead-generation page, the final Claude Code prompt must specify:
+
+- Form fields
+- Field types
+- Required fields
+- Validation rules
+- Submit button label
+- Submission destination if known
+- Fallback if no handler exists
+- Confirmation behavior
+- Thank-you page route if known
+- Tap-to-call behavior
+- Mobile sticky CTA behavior
+- CTA placement by section
+
+If the form submission destination is unknown, Claude Code must add a TODO comment and report it as a blocker or launch dependency.
+
+## Broken Internal Link Prevention
+
+Claude Code must only create internal links to routes that already exist or are being created in the same build.
+
+If a target route does not exist, Claude Code must skip the link and report it in Gate 5.
+
+Do not create broken links.
+
+## Schema Implementation Requirement
+
+Claude Code must inspect the existing schema implementation pattern before adding schema.
+
+It must identify whether the project uses:
+
+- JSON-LD script tags
+- Next.js metadata or head component
+- Astro frontmatter or layout injection
+- CMS schema fields
+- Reusable schema utility
+- Manual inline script component
+- Other schema system
+
+Claude Code must follow the existing project pattern.
+
+Do not invent fake reviews, ratings, pricing, hours, addresses, credentials, guarantees, or business claims.
+
+## Conditional Schema Safety
+
+AggregateRating schema:
+Only include if real, verified ratingValue and reviewCount are provided.
+
+FAQPage schema:
+Only include if FAQs are visible on the page and schema text exactly matches visible text.
+
+HowTo schema:
+Only include if the visible process section has 3 or more named steps that match the schema.
+
+BreadcrumbList schema:
+Only include if visible breadcrumbs are rendered or added.
+
+## Pricing Claim Safety
+
+Any specific pricing claim, price range, discount, special offer, financing claim, average cost, or cost estimate must be flagged for client confirmation.
+
+If pricing is not verified, use quote-based language instead.
+
+Safe fallback:
+"Pricing depends on the number of items, accessibility, and job size. Request a free quote before scheduling service."
+
+## Navigation Update Scope Limit
+
+If navigation must be updated, Claude Code may only add the required link.
+
+Do not:
+
+- Restructure navigation
+- Reorder existing links
+- Change styling
+- Modify header/footer layout
+- Rename navigation files
+- Alter unrelated menu behavior
+
+## Sitemap Conditional Logic
+
+If the project uses a static sitemap.xml, add the new page URL.
+
+If the sitemap is dynamically generated, confirm whether the route is automatically included.
+
+If sitemap behavior is unclear, add:
+
+TODO: Confirm new page URL is included in sitemap before launch.
+
+Do not refactor the sitemap system unless required.
+
+## Gate 4 — Validation Requirement
+
+After building, Claude Code must validate:
+
+- Route resolves
+- No duplicate route exists
+- Metadata is present
+- Canonical is present
+- One H1 exists
+- Sections are in correct order
+- Form fields match requirements
+- CTA links work
+- Tap-to-call uses tel: protocol
+- Internal links resolve
+- Schema matches visible content
+- Conditional schema rules are followed
+- Images have alt text
+- Accessibility basics pass
+- Mobile layout works
+- Desktop layout works
+- No unrelated files were modified
+- Build/lint/test commands pass if available
+
+If validation fails, Claude Code must fix the issue before reporting.
+
+## Gate 5 — Final Report Requirement
+
+Claude Code must finish with a report that includes:
+
+1. What was built
+2. Files created
+3. Files edited
+4. Files intentionally not touched
+5. Route created
+6. Metadata added
+7. Schema added
+8. Schema intentionally skipped and why
+9. Internal links added
+10. Internal links skipped and why
+11. CTA placements added
+12. Form behavior and remaining TODOs
+13. Client-confirmation flags
+14. Validation results
+15. Remaining blockers
+16. Recommended next step
+
+## Final Claude Code Prompt Requirement
+
+The final output of this prompt must be a paste-ready Claude Code prompt.
+
+It must include the specific project/page details, route, metadata, page sections, schema requirements, CTA requirements, guardrails, validation checklist, and report format.
+
+Do not output only a strategy summary.
+
+Do not assume Claude Code remembers previous prompts.
+
+## Token Efficiency Rule
+
+If the strategy has already been approved, compress strategy context and focus on implementation instructions.
+
+Do not regenerate the full strategy.
+
+Keep the final Claude Code prompt complete, but remove repeated explanations that do not affect implementation.
