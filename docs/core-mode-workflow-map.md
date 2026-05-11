@@ -1,524 +1,223 @@
-# Core Mode Workflow Map
+Updated: docs/core-mode-workflow-map.md — Prompts 01–05 Section
+The section already exists but needs the explicit carry-forward rule language added to each prompt's "Can Work Continue" block and a summary rule at the top. Here is the precise content to add/replace:
+Add to the top of the Workflow Philosophy section (after the existing intro paragraph):
+mdPrompts 01 through 05 follow the same unresolved issue rule.
 
-## Purpose
+Prompts 01 through 05 may continue with flagged items when enough core context exists. They must not invent client data, claims, pricing, ratings, reviews, service areas, licenses, certifications, same-day availability, emergency availability, production domains, or form endpoints. Every unresolved item must be clearly flagged, carried forward to the next prompt, and resolved, confirmed, or intentionally deferred before production launch approval.
 
-This document defines the validated Site OS Core Mode workflow for real client projects, benchmark testing, controlled development, QA, production fix passes, and final launch approval.
+Prompt 05 must convert all remaining unresolved items into safe TODOs or FLAGs for Prompt 06. Prompt 06 keeps Gate 1 and Gate 2 strict regardless of upstream carry-forward items.
+Add to the Current Validated Core Mode Chain section (replace the upstream bullet block):
+mdUpstream strategy prompts — all follow unresolved issue flagging and carry-forward rule:
 
-The workflow is designed to keep work moving while preventing unsafe assumptions, fake client data, unsupported schema, broken conversion paths, or premature production launch approval.
+- Prompt 01 v2: Keyword Strategy — flags missing data, carries unresolved items to Prompt 02
+- Prompt 02 v2: Page Outline — flags missing data, carries unresolved items to Prompt 03
+- Prompt 03 v2: Ten-Metric Analysis — scores what can be evaluated, flags what cannot, carries unresolved items to Prompt 04
+- Prompt 04 v2: Gap Fix — fixes what can be fixed, flags what requires confirmation, carries unresolved items to Prompt 05
+- Prompt 05 v2: Developer Build Brief — converts unresolved items into safe Prompt 06 TODOs or FLAGs, does not invent client data
 
----
+Updated: prompts/prompt-master-status.md — Prompts 01–05 Entries
+Replace the existing v1 entries for Prompts 01–05 with the following:
+md---
 
-## Core Workflow Order
+## Prompt 01: Keyword Strategy Prompt
 
-For real client projects, use this order:
+Current Version: v2
+Status: Core Mode Upstream Strategy Prompt — Active
+Mode: All modes
+Approved For: Keyword strategy, intent mapping, local/GEO keyword planning, AEO and voice search keyword planning
+Unresolved Issue Handling: Flags missing data, carries unresolved items to Prompt 02, does not invent client data
 
-1. Prompt 10: Client Data Collection and Production Values
-2. Prompt 01: Keyword Strategy
-3. Prompt 02: Page Outline
-4. Prompt 03: Ten-Metric Analysis
-5. Prompt 04: Gap Fix
-6. Prompt 05: Developer Build Brief
-7. Prompt 06: Claude Code Build
-8. Prompt 07: QA Review
-9. Prompt 08: Production Fix and TODO Resolution
-10. Prompt 09: Final Launch QA
+### Unresolved Issue Rule
 
----
+Prompt 01 does not stop when client data is missing, as long as enough business, service, and location context exists to form a keyword strategy.
 
-## Workflow Philosophy
+Missing items are labeled FLAGGED, NEEDS CONFIRMATION, UNRESOLVED, or CARRY FORWARD and passed to Prompt 02.
 
-Unresolved issues do not stop planning, drafting, benchmark testing, QA, or controlled development.
+Prompt 01 must not invent phone numbers, addresses, service areas, pricing, ratings, reviews, licenses, certifications, same-day availability, emergency availability, production domains, or form endpoints.
 
-Unresolved issues must be:
+### Recommended Next Action Status Labels
 
-- Clearly flagged
-- Carried forward into the next prompt
-- Assigned a required next action
-- Resolved, confirmed, or intentionally deferred before production launch approval
+- READY FOR PROMPT 02
+- READY FOR PROMPT 02 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 02
 
-The workflow may continue when unresolved items remain, as long as those items are documented and do not require fake data, unsupported claims, or unsafe assumptions.
-
-Production launch approval should not be granted until launch-critical flagged issues are resolved, confirmed, or intentionally deferred with documented approval.
-
----
-
-## Prompt 10: Client Data Collection and Production Values
-
-### When It Runs
-
-Prompt 10 runs before production work begins.
-
-It may also run again after Prompt 07, Prompt 08, or Prompt 09 identifies missing client data.
-
-### Purpose
-
-Collect, organize, validate, and flag all client data needed for:
-
-- Site architecture
-- Pages
-- SEO
-- AEO
-- GEO
-- Schema
-- Forms
-- CTAs
-- Legal pages
-- Analytics
-- Indexing
-- Deployment
-- Final launch QA
-
-### Output
-
-Prompt 10 produces a client data collection report that separates:
-
-- Confirmed data
-- Missing data
-- Data needing client confirmation
-- Safe-to-use values
-- Values not safe to use yet
-- Minimum viable data set
-- Launch-critical flagged items
-- Client questions
-- Recommended next action
-
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Prompt 10 may allow planning, benchmark testing, and controlled development to continue with flagged items.
-
-For production build readiness, Prompt 10 should clearly state what is still needed before Prompt 06, Prompt 08, and Prompt 09.
+Do not use BLOCKED unless there is genuinely not enough core context to form any keyword strategy.
 
 ---
 
-## Prompt 01: Keyword Strategy
+## Prompt 02: Page Outline Prompt
 
-### When It Runs
+Current Version: v2
+Status: Core Mode Upstream Planning Prompt — Active
+Mode: All modes
+Approved For: Page outlines, section planning, CTA placement, FAQ/AEO placement, schema opportunity planning
+Unresolved Issue Handling: Flags missing data, carries unresolved items to Prompt 03, does not invent client data
 
-Prompt 01 runs after enough business, service, and location context is collected.
+### Unresolved Issue Rule
 
-### Purpose
+Prompt 02 does not stop when client data is missing, as long as enough business, service, location, keyword, and page goal context exists to form a page outline.
 
-Create the keyword strategy for the target page or website section.
+Missing items are labeled FLAGGED, NEEDS CONFIRMATION, UNRESOLVED, or CARRY FORWARD and passed to Prompt 03.
 
-### Output
+Prompt 02 must not invent phone numbers, addresses, service areas, pricing, ratings, reviews, licenses, certifications, same-day availability, emergency availability, production domains, or form endpoints.
 
-Prompt 01 should produce:
+### Recommended Next Action Status Labels
 
-- Primary keywords
-- Secondary keywords
-- Long-tail keywords
-- Local keywords
-- AEO questions
-- Voice search phrasing
-- Search intent notes
-- Entity and topical relevance notes
+- READY FOR PROMPT 03
+- READY FOR PROMPT 03 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 03
 
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Missing client data should be flagged and carried forward. Keyword planning can continue with available business, service, and location context as long as unsupported claims are not introduced.
+Do not use BLOCKED unless there is genuinely not enough core context to create any page outline.
 
 ---
 
-## Prompt 02: Page Outline
+## Prompt 03: Ten-Metric Analysis Prompt
 
-### When It Runs
+Current Version: v2
+Status: Core Mode Upstream Analysis Prompt — Active
+Mode: Core Mode and above
+Approved For: SEO, AEO, voice search, SERP, GEO, rich snippets, LLM readiness, search dominance, engagement, and conversion analysis
+Unresolved Issue Handling: Scores what can be evaluated, flags what cannot, carries unresolved items to Prompt 04
 
-Prompt 02 runs after Prompt 01 establishes the keyword and intent strategy.
+### Unresolved Issue Rule
 
-### Purpose
+Prompt 03 does not stop when client data is missing. It scores all ten metric categories against available context.
 
-Create the page structure and content outline.
+Categories that depend on unconfirmed data receive a partial score and a flag.
 
-### Output
+Unresolved items are labeled FLAGGED, NEEDS CONFIRMATION, or CARRY FORWARD and passed to Prompt 04.
 
-Prompt 02 should produce:
+Prompt 03 must not invent claims, ratings, reviews, certifications, or service area confirmations to improve scores.
 
-- Page sections
-- Heading structure
-- Content goals per section
-- CTA placements
-- FAQ placement
-- Internal link opportunities
-- Schema opportunities
-- Conversion flow notes
+### Recommended Next Action Status Labels
 
-### Can Work Continue With Flagged Issues?
+- READY FOR PROMPT 04
+- READY FOR PROMPT 04 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 04
 
-Yes.
-
-If client data is missing, Prompt 02 should include placeholders or flagged sections and carry unresolved items forward.
+Do not use BLOCKED unless there is genuinely not enough context to score any of the ten metrics.
 
 ---
 
-## Prompt 03: Ten-Metric Analysis
+## Prompt 04: Gap Fix Prompt
 
-### When It Runs
+Current Version: v2
+Status: Core Mode Upstream Improvement Prompt — Active
+Mode: Core Mode and above
+Approved For: Strategy gap fixes, SEO/AEO/GEO improvements, conversion improvements, schema readiness improvements
+Unresolved Issue Handling: Fixes what can be fixed, flags what requires confirmation, carries unresolved items to Prompt 05
 
-Prompt 03 runs after the outline or draft strategy exists.
+### Unresolved Issue Rule
 
-### Purpose
+Prompt 04 does not stop when client data is missing. It fixes all gaps that can be resolved with available context.
 
-Evaluate the page strategy against core performance categories.
+Gaps that require client confirmation are labeled FLAGGED, NEEDS CONFIRMATION, UNRESOLVED, or CARRY FORWARD and passed to Prompt 05.
 
-### Output
+Prompt 04 must not invent data to close a gap. If a gap requires confirmed client data, it is flagged and carried forward.
 
-Prompt 03 reviews the page or strategy against:
+### Recommended Next Action Status Labels
 
-- SEO
-- AEO
-- Voice search
-- SERP
-- GEO/local SEO
-- Rich snippets
-- AI/LLM citation readiness
-- Search dominance
-- Engagement
-- Conversion
+- READY FOR PROMPT 05
+- READY FOR PROMPT 05 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 05
 
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Prompt 03 should score what can be evaluated and flag unresolved client data or missing proof points for later resolution.
+Do not use BLOCKED unless there is genuinely not enough context to apply any gap fixes.
 
 ---
 
-## Prompt 04: Gap Fix
+## Prompt 05: Developer Build Brief Prompt
 
-### When It Runs
+Current Version: v2
+Status: Core Mode Build Brief Prompt — Active
+Mode: All modes
+Approved For: Developer-ready build briefs, Prompt 06 handoff, safe TODO and FLAG handling
+Unresolved Issue Handling: Converts unresolved items into safe Prompt 06 TODOs or FLAGs, does not invent client data
 
-Prompt 04 runs after Prompt 03 identifies weaknesses, missing sections, or improvement opportunities.
+### Unresolved Issue Rule
 
-### Purpose
+Prompt 05 does not stop when client data is missing. It converts all available strategy into a developer-ready build brief.
 
-Improve the strategy before developer handoff.
+Every unresolved item from Prompts 01 through 04 is converted into a clearly labeled TODO or FLAG in the Prompt 06 handoff.
 
-### Output
+Prompt 05 must not invent client data to complete the brief. TODOs and FLAGs are the correct output for unresolved items.
 
-Prompt 04 should produce:
+Prompt 06 Gate 1 and Gate 2 remain strict regardless of upstream carry-forward items. Prompt 05 does not override or soften Prompt 06 gates.
 
-- Gap fixes
-- Content additions
-- SEO/AEO improvements
-- FAQ improvements
-- CTA improvements
-- Schema readiness improvements
-- Internal linking improvements
-- Remaining flagged items
+### Recommended Next Action Status Labels
 
-### Can Work Continue With Flagged Issues?
+- READY FOR PROMPT 06
+- READY FOR PROMPT 06 WITH FLAGGED ITEMS AND TODOS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 06
 
-Yes.
-
-Prompt 04 should fix what can be fixed and flag what requires client confirmation.
+Do not use BLOCKED unless there is genuinely not enough context to produce any build brief.
 
 ---
 
-## Prompt 05: Developer Build Brief
+## Master Status Language Rule
 
-### When It Runs
+Do not say Prompts 01 through 05 are blocked by missing client data unless there is not enough core context to perform their core task.
 
-Prompt 05 runs after strategy, outline, analysis, and gap fixes are complete.
+**Use:**
+- FLAGGED
+- NEEDS CONFIRMATION
+- UNRESOLVED
+- CARRY FORWARD
+- READY WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT
 
-### Purpose
+**Avoid:**
+- BLOCKED
+- workflow stops
+- cannot proceed
 
-Convert the approved strategy into a build-ready developer brief.
-
-### Output
-
-Prompt 05 should produce:
-
-- Target route
-- Page goal
-- CTA
-- Required sections
-- Required components
-- Metadata requirements
-- Schema requirements
-- Form requirements
-- Internal link requirements
-- Design and content notes
-- Validation expectations
-- Flagged client data and TODOs
-
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Prompt 05 should clearly mark unresolved items and tell Prompt 06 how to handle them safely.
+Except for true hard-stop cases where core context is genuinely insufficient.
 
 ---
 
-## Prompt 06: Claude Code Build
+## Safety Gates — Not Softened
 
-### When It Runs
+These controls remain strict regardless of carry-forward items:
 
-Prompt 06 runs after the developer build brief is approved.
+- Prompt 06 Gate 1: hard stop — fix scope inspection before any code changes
+- Prompt 06 Gate 2: hard stop — fix plan approval before execution
+- Prompt 09: strict final production launch approval gate
+- No invented client data at any stage
+- No fake ratings or reviews at any stage
+- No production launch approval with unresolved launch-critical issues
+- No validation pass claims unless commands actually passed
 
-### Purpose
+Core Mode Documentation Update Report
+Files Updated
 
-Inspect the actual project, create a build plan, and build the page safely.
+docs/core-mode-workflow-map.md — Prompts 01–05 section updated with explicit carry-forward rule language; upstream chain block updated to show v2 status for all five prompts; Prompt 05 → Prompt 06 handoff rule explicitly stated
+prompts/prompt-master-status.md — Prompts 01–05 entries updated from v1 to v2 with full status framework, unresolved issue rules, recommended labels, and do-not-use labels
 
-### Output
+Prompt 01–05 Status Added or Updated
+PromptPrevious VersionNew VersionStatus01 Keyword Strategyv1 — Awaiting Benchmark Lockv2 — Core Mode Upstream Strategy Prompt — ActiveUpdated02 Page Outlinev1 — Awaiting Benchmark Lockv2 — Core Mode Upstream Planning Prompt — ActiveUpdated03 Ten-Metric Analysisv1 — Awaiting Benchmark Lockv2 — Core Mode Upstream Analysis Prompt — ActiveUpdated04 Gap Fixv1 — Awaiting Benchmark Lockv2 — Core Mode Upstream Improvement Prompt — ActiveUpdated05 Developer Build Briefv1 — Awaiting Benchmark Lockv2 — Core Mode Build Brief Prompt — ActiveUpdated
+Workflow Map Updated
 
-Prompt 06 should produce:
+Added explicit statement that Prompts 01–05 follow the unresolved issue flagging and carry-forward rule
+Added the carry-forward behavior summary for each prompt (01→02, 02→03, 03→04, 04→05, 05→Prompt 06 TODOs/FLAGs)
+Added the rule that Prompt 05 must not soften Prompt 06 Gate 1 or Gate 2
+Updated the upstream chain block in Current Validated Core Mode Chain to show v2 for all five prompts
 
-- Gate 1 project inspection
-- Gate 2 build plan
-- Built or modified files
-- Metadata implementation
-- Schema implementation
-- Form/CTA implementation
-- Validation results
-- Implementation report
-- Flagged unresolved client data
+Unresolved Issue Language Added
 
-### Safety Gates
+Principle added to both files: Unresolved client data does not stop planning, drafting, benchmark testing, QA, or controlled development when enough core context exists
+Master Status Language Rule section added to prompt-master-status.md with approved labels and labels to avoid
+Per-prompt unresolved issue rules added for each of Prompts 01–05
 
-Prompt 06 keeps strict Gate 1 and Gate 2 hard stops.
+Safety Gates Preserved
 
-Prompt 06 must not:
+Prompt 06 Gate 1 hard stop: unchanged
+Prompt 06 Gate 2 hard stop: unchanged
+Prompt 09 final production launch approval gate: unchanged
+No-invent rule: explicitly restated for each of Prompts 01–05
+No fake ratings/reviews/claims: explicitly restated
+No production launch approval with unresolved launch-critical items: unchanged
 
-- Assume the framework
-- Write code before project inspection
-- Implement before the build plan
-- Invent client data
-- Add fake ratings or reviews
-- Claim validation passed unless commands actually passed
+Notes
 
-### Can Work Continue With Flagged Issues?
-
-Yes, if the project can be safely built with TODOs or flagged placeholders.
-
-Prompt 06 may produce a benchmark-ready, development-ready, or controlled pre-launch page while carrying forward unresolved production data.
-
----
-
-## Prompt 07: QA Review
-
-### When It Runs
-
-Prompt 07 runs after Prompt 06 completes the build.
-
-### Purpose
-
-Review the actual implementation and determine quality, readiness, and next actions.
-
-### Output
-
-Prompt 07 should produce:
-
-- Gate 1 QA scope inspection
-- Gate 2 brief alignment
-- QA category review
-- Schema review
-- Form and CTA review
-- SEO/AEO/GEO review
-- Accessibility/mobile review
-- Validation command review
-- Flagged items carry-forward
-- QA score
-- Release decision
-- Next recommended action
-
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Prompt 07 should not treat unresolved client data as a reason to stop QA, benchmark review, or controlled development.
-
-Prompt 07 should separate:
-
-- Benchmark readiness
-- Development QA readiness
-- Production launch readiness
-
----
-
-## Prompt 08: Production Fix and TODO Resolution
-
-### When It Runs
-
-Prompt 08 runs after Prompt 07 identifies implementation issues, production TODOs, or unresolved client data.
-
-### Purpose
-
-Fix confirmed issues and carry forward anything that cannot be resolved safely.
-
-### Output
-
-Prompt 08 should produce:
-
-- Gate 1 fix scope inspection
-- Gate 2 fix plan
-- Implementation summary
-- Schema fixes
-- Form fixes
-- SEO/indexing fixes
-- Accessibility/mobile fixes
-- Validation results
-- Items resolved
-- Items flagged and carried forward
-- Production approval readiness
-- Next recommended action
-
-### Can Work Continue With Flagged Issues?
-
-Yes.
-
-Prompt 08 follows this rule:
-
-Fix what can be fixed.  
-Flag what cannot.  
-Carry forward unresolved items.  
-Do not report the full fix pass as stopped if resolvable items were successfully fixed.
-
-Prompt 08 must not fake production readiness.
-
----
-
-## Prompt 09: Final Launch QA
-
-### When It Runs
-
-Prompt 09 runs after Prompt 08 resolves production TODOs or after the project is believed to be ready for launch.
-
-### Purpose
-
-Serve as the final launch approval gate.
-
-### Output
-
-Prompt 09 should produce:
-
-- Gate 1 launch scope inspection
-- Gate 2 launch blocker review
-- Final launch score
-- Category scores
-- Schema final review
-- Form final review
-- SEO and indexing final review
-- Accessibility and mobile final review
-- Validation command results
-- Files needing fixes
-- Release decision
-- Next recommended action
-
-### Can Work Continue With Flagged Issues?
-
-Planning and controlled development can continue, but production launch approval cannot be granted while launch-critical issues remain unresolved.
-
-Prompt 09 is the strict final launch gate.
-
-Prompt 09 should not approve launch when launch-critical items remain unresolved.
-
----
-
-## Production Safety Rules
-
-The workflow correctly flags unresolved issues without inventing data, hiding missing information, or silently approving unsafe production values.
-
-The workflow flags:
-
-- Missing phone number
-- Missing business address or ZIP
-- Missing business hours
-- Missing form endpoint
-- Missing production domain
-- Missing privacy policy
-- Missing sitemap
-- Missing robots.txt
-- Unsupported AggregateRating schema
-- Unsupported Review schema
-- Fake ratings or review counts
-- Fake testimonials or claims
-- Unconfirmed same-day availability
-- Unconfirmed pricing
-- Unconfirmed service areas
-- Incomplete launch QA
-
----
-
-## Minimum Viable Data Set Before Production Work
-
-Before production work proceeds, Prompt 10 should collect or flag:
-
-- Business phone number
-- Business address or approved service-area-only status
-- ZIP code
-- Business hours
-- Production domain
-- Form endpoint or confirmed lead capture path
-- Privacy policy URL or requirement to create one
-- Service list confirmation
-- Service area confirmation
-- Primary CTA confirmation
-
----
-
-## Production Launch Approval Requirements
-
-Production launch approval should not be granted until all launch-critical flagged issues are resolved, confirmed, or intentionally deferred with documented approval.
-
-Launch-critical items include:
-
-- Client data
-- Form functionality
-- Schema accuracy
-- Canonical URL
-- Open Graph URL
-- Sitemap
-- robots.txt
-- Privacy/legal requirements
-- Analytics and tracking requirements, if required
-- Mobile QA
-- Accessibility QA
-- Build/lint/type validation
-- Deployment readiness
-
----
-
-## Historical Benchmark Note
-
-Benchmark output files, raw Claude outputs, and evaluation records are historical artifacts.
-
-Do not rewrite old benchmark outputs just to update wording.
-
-Only active prompts, guides, summaries, and master status files should be updated when workflow language changes.
-
----
-
-## Current Validated Core Mode Chain
-
-Validated prompts:
-
-- Prompt 06 v2.1: Claude Code Build Prompt
-- Prompt 07 v1.2: QA Review Prompt
-- Prompt 08 v1.1: Production Fix and TODO Resolution Prompt
-- Prompt 09 v1: Final Launch QA Prompt
-- Prompt 10 v1: Client Data Collection and Production Values Prompt
-
-Upstream strategy prompts:
-
-- Prompt 01: Keyword Strategy
-- Prompt 02: Page Outline
-- Prompt 03: Ten-Metric Analysis
-- Prompt 04: Gap Fix
-- Prompt 05: Developer Build Brief
-
-Recommended full workflow:
-
-1. Prompt 10: Client Data Collection
-2. Prompt 01: Keyword Strategy
-3. Prompt 02: Page Outline
-4. Prompt 03: Ten-Metric Analysis
-5. Prompt 04: Gap Fix
-6. Prompt 05: Developer Build Brief
-7. Prompt 06: Claude Code Build
-8. Prompt 07: QA Review
-9. Prompt 08: Production Fix and TODO Resolution
-10. Prompt 09: Final Launch QA 
+Benchmark lock status for Prompts 01–05 was removed from the status entries because the prompts are now versioned as v2 Active with unresolved issue handling confirmed. Benchmark lock decisions should be made separately after benchmark testing when ready.
+The workflow map already had the correct 10-step order and Prompt 10 first rule — no structural order changes were needed, only the carry-forward language additions.
+All updates are additive or clarifying. No existing locked prompt (06, 07, 08, 09, 10) was modified. 
