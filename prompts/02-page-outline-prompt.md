@@ -1,511 +1,413 @@
-# Beyond Elite Page Strategy Blueprint Prompt
+# Prompt 02: Page Outline Prompt
 
-You are acting as a senior SEO strategist, AEO architect, GEO/local SEO specialist, conversion strategist, content architect, technical SEO planner, and Claude Code implementation planner.
+## Version
 
-Your job is not to create a basic page outline.
+Prompt 02 v2
+Updated to include unresolved issue flagging language, safety rules, and structured carry-forward behavior.
 
-Your job is to create a complete page strategy blueprint that can be used to build a high performing website page that supports SEO, AEO, voice search, SERP visibility, GEO/local relevance, rich snippets, AI/LLM citation readiness, search dominance, engagement, and conversion.
+---
 
-## Page Details
+## Purpose
 
-Business Name:
-[BUSINESS NAME]
+Create the page structure and content outline when enough business, service, location, keyword, and page goal context exists.
 
-Website Name:
-[WEBSITE NAME]
+Missing client data must be flagged, labeled as needing confirmation, and carried forward to Prompt 03. It must never be invented, assumed, or treated as confirmed unless verified.
 
-Page Type:
-[Homepage, service page, location page, category page, blog post, landing page]
+---
 
-Target Service, Topic, or Category:
-[SERVICE, TOPIC, OR CATEGORY]
+## Core Workflow Rule
 
-Target Location:
-[LOCATION IF APPLICABLE]
+Unresolved client data does not stop page outline work when enough business, service, location, keyword, and page goal context exists.
 
-Primary Keyword:
-[PRIMARY KEYWORD]
+If data is missing:
 
-Secondary Keywords:
-[SECONDARY KEYWORDS]
+- Do not invent it.
+- Flag the missing item clearly.
+- Continue the outline where possible.
+- Carry all unresolved items forward to Prompt 03.
 
-Target Audience:
-[TARGET AUDIENCE]
+---
 
-Primary CTA:
-[PRIMARY CTA]
+## Do Not Invent
 
-Secondary CTA:
-[SECONDARY CTA]
+Prompt 02 must not invent or treat as confirmed:
 
-Internal Links to Include:
-[INTERNAL LINKS]
+- Phone number
+- Address
+- ZIP code
+- Business hours
+- Service areas
+- Pricing
+- Guarantees
+- Reviews
+- Ratings
+- Reviewer names
+- Licenses
+- Certifications
+- Insurance
+- Awards
+- Years in business
+- Emergency availability
+- Same-day availability
+- Form endpoint
+- Production domain
+- Google Business Profile details
+- Testimonials
+- Case studies
+- Before/after results
+- Financing options
+- Warranty details
 
-Brand Voice:
-[BRAND VOICE]
+If any of these would improve the page outline but are not confirmed, flag them as:
 
-Special Requirements:
-[SPECIAL REQUIREMENTS]
+**NEEDS CLIENT CONFIRMATION**
 
-## Objective
+or:
 
-Create a beyond standard page strategy blueprint.
+**CARRY FORWARD**
 
-Before creating the final outline, generate 3 competing page structure strategies:
+---
 
-1. SEO-first structure
-2. Conversion-first structure
-3. AEO/AI-citation-first structure
+## Recommended Labels
 
-If this is a location page or local service page, also generate:
+Use these labels for missing or unresolved data:
 
-4. GEO/local-first structure
+- FLAGGED
+- NEEDS CONFIRMATION
+- UNRESOLVED
+- CARRY FORWARD
+- REQUIRES CLIENT CONFIRMATION
 
-## Part 1: Page Strategy Variants
+Avoid:
 
-For each structure, provide:
+- BLOCKED
+- cannot proceed
+- workflow stops
 
-- Structure name
-- Best use case
-- Section flow
-- Strengths
-- Weaknesses
-- Risks
-- What should be borrowed from this structure
-- What should be avoided from this structure
+Unless there is genuinely not enough core context to create any useful outline.
 
-Score each structure from 1 to 10 against:
+---
 
-1. SEO
-2. AEO
-3. Voice search
-4. SERP visibility
-5. GEO/local relevance
-6. Rich snippet potential
-7. AI/LLM citation readiness
-8. Search dominance
-9. Engagement
-10. Conversion
+## Step 1: Select Execution Depth
 
-Then select the strongest overall structure.
+Choose one:
 
-## Part 2: Final Recommended Page Blueprint
+- **Standard** — Normal service, location, or category page. Adequate context exists. Full outline produced.
+- **Reduced** — Some context is missing. Outline produced with flagged gaps and carry-forward items.
+- **Minimal** — Core context only. Basic outline produced. High number of carry-forward items expected.
 
-Create the final page outline by merging the strongest parts of the best structures.
+Select the depth that matches available context. Do not over-engineer for a simple page.
 
-The final outline must include:
+---
 
-1. Recommended URL slug
-2. Meta title
-3. Meta description
-4. Primary keyword
-5. Secondary keywords
-6. Search intent
-7. Target audience
-8. Primary CTA
-9. Secondary CTA
-10. Recommended schema types
-11. Internal links to include
-12. Image recommendations
-13. Conversion path summary
+## Step 2: Review Source Context
 
-## Part 3: Section-by-Section Strategy Map
+Review all available inputs before building the outline:
 
-For every recommended page section, include:
+- Business name and type
+- Service or product offered
+- Target location or service area
+- Primary keyword and keyword strategy from Prompt 01
+- Page goal (lead generation, sales, information, local visibility)
+- Target audience
+- Competitive context if available
+- Site structure if available
+- Any carry-forward items from Prompt 01
+
+Identify what is confirmed and what is missing.
+
+---
+
+## Step 3: Identify Confirmed and Missing Inputs
+
+### Confirmed Inputs
+
+List all verified inputs available for outline work.
+
+### Missing or Unconfirmed Inputs
+
+List all inputs that are missing, unverified, or require client confirmation.
+
+For each missing input, note:
+
+- What is missing
+- Why it matters for the outline
+- Whether the outline can proceed without it
+- Whether it should be flagged or blocks a specific section
+
+---
+
+## Step 4: Build the Page Outline
+
+Use confirmed inputs to build the page outline. Where client data is missing, note the gap and flag the section rather than inventing content.
+
+### Page Strategy Summary
+
+Define:
+
+- Page type
+- Page goal
+- Target audience
+- Primary search intent
+- Secondary search intent
+- Primary CTA
+- Secondary CTA
+- Conversion path
+- Recommended URL slug
+
+### H1 Recommendation
+
+Provide the recommended H1 for the page. If location data is unconfirmed, flag the location placeholder with NEEDS CLIENT CONFIRMATION.
+
+### Page Section Outline
+
+For each section provide:
 
 - Section number
 - Section name
-- Section goal
-- Search intent supported
-- Keyword/entity focus
-- User question answered
-- Content angle
-- Suggested content blocks
-- Conversion purpose
-- Trust signal or proof element
-- Internal link opportunity
-- Schema opportunity
-- Notes for Claude Code implementation
+- Recommended heading
+- Purpose
+- Content notes
+- CTA or conversion role
+- SEO/AEO/GEO role
+- Required confirmation, if any
 
-Use this format for each section:
+Recommended sections for a standard service page:
 
-### Section [Number]: [Section Name]
+1. Hero / Above-the-Fold
+2. Direct Answer / Problem Statement
+3. Service Overview
+4. Service Features or Benefits
+5. Local/GEO Context
+6. Trust and Proof Section
+7. FAQ / AEO Section
+8. Final CTA Section
 
-Goal:
-[Explain the purpose of the section]
+Add, remove, or reorder sections based on page goal and available context. Flag any section that requires unconfirmed client data.
 
-Search Intent Supported:
-[Informational, commercial, transactional, navigational, local, comparison, problem-aware, solution-aware]
+---
 
-Keyword / Entity Focus:
-[Keywords, entities, services, locations, problems, or related terms]
+## Step 5: Plan Direct-Answer and AEO Placement
 
-User Question Answered:
-[What question this section answers for the visitor]
+Identify:
 
-Content Angle:
-[How the section should be framed]
+- Where the page delivers a direct answer to the primary keyword question
+- What the direct-answer statement is or should be
+- Where AEO content appears
+- Which People Also Ask questions the page targets
+- Where voice search and AI citation content is supported
 
-Suggested Content Blocks:
-- [Block 1]
-- [Block 2]
-- [Block 3]
+---
 
-Conversion Purpose:
-[How this section helps move the visitor toward action]
+## Step 6: Plan FAQ Placement and Themes
 
-Trust Signal or Proof Element:
-[Trust element to include if available]
-
-Internal Link Opportunity:
-[Relevant internal link target and suggested anchor text]
+Identify:
 
-Schema Opportunity:
-[Relevant schema opportunity if applicable]
+- Where the FAQ section appears in the page
+- Recommended FAQ themes based on keyword strategy and search intent
+- Whether any FAQ content requires unconfirmed client data
 
-Claude Code Notes:
-[Implementation notes for layout, component needs, or content handling]
+Flag any FAQ item that requires client confirmation before it can be included.
 
-## Part 4: AEO and Voice Search Strategy
+---
 
-Provide:
+## Step 7: Plan Local and GEO Content Placement
 
-1. Top direct-answer opportunities
-2. Featured snippet opportunities
-3. People Also Ask style questions
-4. Voice search phrases
-5. Short answer statements that should appear on the page
-6. FAQ questions to include
-7. Questions to avoid because they are too generic or weak
+If the page serves a local area:
 
-## Part 5: Internal Linking Strategy
+- Identify where local context appears in the outline
+- Identify city, neighborhood, or region references to include
+- Identify local pain points, urgency signals, or proximity language
+- Flag any location-specific claim that is not yet confirmed
 
-Provide:
+If the page is not local, state that GEO content is not applicable for this outline.
 
-- Recommended source links from this page to other pages
-- Recommended pages that should link back to this page
-- Suggested anchor text
-- Topical authority purpose
-- User journey purpose
+---
 
-## Part 6: Schema Strategy
+## Step 8: Plan CTA and Conversion Flow
 
-Recommend schema types and explain why each one matters.
+Identify:
 
-Possible schema types include:
+- Above-the-fold CTA placement
+- Mid-page CTA placement
+- Final CTA placement
+- Lead capture section placement
+- Objection-handling placement
+- Trust signal placement
+- Mobile conversion considerations
 
-- WebPage
-- BreadcrumbList
-- FAQPage
-- Service
-- LocalBusiness
-- Organization
-- Article
-- Product
-- SoftwareApplication
-- Review, only if real reviews are provided
+Flag any CTA element that depends on unconfirmed data such as phone number, form endpoint, or production domain.
 
-For each schema type, include:
+---
 
-- Schema type
-- Why it applies
-- Required information
-- Optional enhancements
-- Implementation notes
+## Step 9: Identify Internal Linking Opportunities
 
-## Part 7: Conversion Strategy
+Identify:
 
-Provide:
-
-1. Above-the-fold CTA recommendation
-2. Mid-page CTA recommendation
-3. Final CTA recommendation
-4. Objections to address
-5. Trust signals to include
-6. Lead capture or contact path
-7. Mobile conversion considerations
-
-## Part 8: Risks to Avoid
-
-Identify risks such as:
-
-- Keyword stuffing
-- Thin content
-- Generic local content
-- Duplicate location page wording
-- Weak CTAs
-- Unsupported claims
-- Overly long sections
-- Repetitive FAQs
-- Missing internal links
-- Missing schema opportunities
-
-For each risk, provide the prevention strategy.
-
-## Part 9: Final Build Brief Summary
-
-End with a short implementation-ready summary for Claude Code that includes:
-
-- Page name
-- Route
-- Main sections
-- Metadata
-- Schema
-- Internal links
-- CTA strategy
-- Image needs
-- Files likely to be created or updated
-- QA expectations
-
-Do not write the full page content unless specifically asked.
-
-Focus on strategy, structure, search intent, conversion logic, and implementation readiness.
-
-## Competitor Outperformance Strategy
-
-The final page strategy must be designed to outperform and outpace competing pages.
-
-Do not create a page that merely follows standard SEO structure.
-
-Before finalizing the page blueprint, identify:
-
-- What competing pages usually include
-- What competing pages usually miss
-- What sections can make this page more useful
-- What direct answers can make this page stronger for AEO and AI citation
-- What local details can make this page more specific
-- What proof or trust signals can make this page harder to copy
-- What process details can create a stronger content moat
-- What objections should be addressed better than competitors
-- What internal links can support faster topical authority
-- What CTA flow can make this page convert better
-
-## Required Competitive Advantage Section
-
-Add a section titled:
-
-### Competitive Advantage Plan
-
-Include:
-
-1. Competitor content gaps
-2. Stronger content angles
-3. Better direct-answer opportunities
-4. Better FAQ opportunities
-5. Better local specificity opportunities
-6. Better proof or trust opportunities
-7. Better internal linking opportunities
-8. Better schema opportunities
-9. Better conversion opportunities
-10. Content moat opportunities
-
-## Outperformance Standard
-
-The final outline should not simply be complete.
-
-It should be:
-
-- More useful than competing pages
-- More specific than competing pages
-- Easier to understand than competing pages
-- Better structured than competing pages
-- Stronger for AEO and voice search
-- Stronger for AI/LLM citation readiness
-- Stronger for user trust
-- Stronger for conversion
-- Easier for Claude Code to implement correctly
+- Pages on the site that should link to this page
+- Pages this page should link to
+- Anchor text suggestions
+- Topical authority linking opportunities
 
-## Multi-Platform Content Structure Requirement
-
-The final page blueprint must structure content for:
-
-- Google Search
-- Bing
-- Apple Maps / Apple Search when local intent applies
-- Google Business Profile when local intent applies
-- AI assistants
-- Perplexity
-- ChatGPT
-- Featured snippets
-- People Also Ask
-- Rich snippets
-- Topical authority
-- Lead generation
+Flag if site structure is not yet available.
 
-## Required Structure Signals
+---
 
-The outline must include section planning for:
+## Step 10: Identify Schema Opportunities
 
-1. Clear page purpose
-2. Clear business or brand entity
-3. Clear service, topic, or category definition
-4. Local relevance when applicable
-5. Direct-answer section
-6. Entity-rich explanation sections
-7. AEO and People Also Ask style FAQs
-8. Internal links for topical authority
-9. Schema and rich snippet planning
-10. AI/LLM citation-worthy statements
-11. Engagement and trust sections
-12. Lead generation CTA path
+Identify:
 
-## Platform Alignment Summary
+- Schema types appropriate for this page
+- Key schema fields needed
+- Schema fields that require client confirmation
+- Schema risks to avoid
 
-Add a final section titled:
+---
 
-### Multi-Platform Alignment Summary
+## Step 11: Plan Trust and Proof Placement
 
-Include:
+Identify:
 
-- How the page supports Google Search
-- How the page supports Bing
-- How the page supports Apple Maps / Apple Search if applicable
-- How the page supports Google Business Profile if applicable
-- How the page supports AI assistants
-- How the page supports Perplexity
-- How the page supports ChatGPT
-- How the page supports featured snippets
-- How the page supports People Also Ask
-- How the page supports rich snippets
-- How the page supports topical authority
-- How the page supports lead generation
+- Where trust signals appear in the outline
+- What trust content is confirmed and can be included
+- What trust content is unconfirmed and must be flagged
 
-## Prompt Revision: Page Outline Refinements for 100-Point Standard
+Do not add fake ratings, fake reviews, fake certifications, fake licenses, fake guarantees, or any unverified trust claim to the outline.
 
-## Image Alt Text Requirement
+If trust content would strengthen the outline but is not confirmed, flag it as:
 
-For any section that includes an image, icon grid, visual card, team photo, process image, location image, or hero image, include:
+**REQUIRES CLIENT CONFIRMATION**
 
-- Recommended image type
-- Recommended file/folder note if useful
-- SEO-friendly image alt text
-- Image purpose
-- Whether the image supports SEO, GEO, AEO, trust, or conversion
+---
 
-Do not require image alt text for sections that do not use images.
+## Step 12: Flag All Unresolved Data
 
-## Local Behavioral Context Requirement
+For each unresolved item that affects the outline, create an entry using this format:
 
-For local pages, include at least one audience behavior, market condition, property type, or local customer scenario specific to the target city or service area.
+- Item:
+- Why it matters:
+- Status:
+- Required confirmation:
+- Carry-forward destination:
 
-Examples:
+---
 
-- Apartment turnover
-- Move-out deadlines
-- Rental property cleanouts
-- HOA or community restrictions
-- Seasonal moving patterns
-- Local business corridors
-- Common property types
-- Local service-area challenges
+## Step 13: Determine Readiness for Prompt 03
 
-Do not use generic city-name swapping.
+Choose one:
 
-The local context should make the page harder for national competitors to copy.
+- **READY FOR PROMPT 03** — Page outline is complete. No unresolved items affect outline confidence.
+- **READY FOR PROMPT 03 WITH FLAGGED ITEMS** — Page outline is complete. Unresolved items are flagged and carried forward. Prompt 03 may proceed.
+- **NEEDS MORE CORE CONTEXT BEFORE PROMPT 03** — Not enough business, service, or location context to form a usable page outline. List what is needed.
 
-## Claude Code Component Naming Requirement
+Do not mark the outline as production-ready if launch-critical or claim-sensitive data is missing.
 
-In the final build brief, include recommended component names for each major section.
+The outline may still be marked ready for Prompt 03 if enough core context exists and all unresolved items are flagged and carried forward.
 
-Example component names:
+---
 
-- HeroSection
-- QuickAnswerBlock
-- ItemGrid
-- ProcessSteps
-- AudienceCards
-- ServiceAreaBadges
-- TrustBlock
-- FaqAccordion
-- QuoteForm
-- StickyMobileCTA
-- Breadcrumbs
-- SchemaJsonLd
+## Safety Rules
 
-Use names that match the project�s existing component conventions if known.
+1. Do not add fake ratings, fake review counts, fake testimonials, fake certifications, fake licenses, fake pricing, fake service areas, fake guarantees, or fake availability claims to the page outline.
 
-If the project�s component naming convention is unknown, state:
+2. If these items would improve the outline but are not verified, list them as opportunities that require client confirmation.
 
-"Confirm existing component naming conventions before creating new components."
+3. Do not use BLOCKED or cannot proceed unless there is genuinely not enough core context to create any page outline.
 
-## Route Type Requirement
+4. Do not invent or assume any business claim not confirmed by the client.
 
-In the final build brief, state the route type:
+5. Do not mark the page outline as production-ready if launch-critical or claim-sensitive data is missing.
 
-- Static route
-- Dynamic route
-- CMS-managed page
-- Framework-specific route
-- Unknown � inspect project before implementation
+---
 
-If unknown, instruct Claude Code to inspect the project structure before creating files.
+## Required Output Format
 
-## Thank-You / Confirmation Page Requirement
+Return this complete report:
 
-If the page includes a form, booking flow, quote request, or lead capture action, include:
+---
 
-- Recommended confirmation behavior
-- Thank-you page route if known
-- Conversion tracking note
-- Fallback behavior if form integration is not available
+# Prompt 02 Page Outline Report
 
-Example:
+## 1. Execution Depth
 
-"After form submission, redirect to /thank-you or display an on-page confirmation message. If analytics is installed, mark the form submission or click-to-call as a conversion event."
+Selected depth:
 
-## Sticky Mobile CTA Requirement
+## 2. Source Context Review
 
-If the page is conversion-focused, include a mobile CTA recommendation.
+### Sources Reviewed
 
-State whether the page should use:
+### Business Context
 
-- StickyMobileCTA
-- FloatingCallButton
-- StickyQuoteButton
-- No sticky CTA needed
+### Service Context
 
-Include:
+### Location Context
 
-- CTA label
-- Destination or action
-- Mobile behavior
-- When to hide or show it
+### Keyword Context
 
-## Next Pages to Build Requirement
+### Page Goal Context
 
-In the competitive advantage or topical authority section, include a short "Next Pages to Build" note.
+### Missing Context
 
-List 2 to 3 supporting pages that should be created next.
+## 3. Confirmed Inputs
 
-For each page, include:
+## 4. Missing or Unconfirmed Inputs
 
-- Page name
-- Why it should be built next
-- Keyword or entity supported
-- Internal link relationship
-- Priority
+## 5. Page Strategy Summary
 
-Prioritize pages that improve topical authority, local visibility, AEO, or conversion velocity.
+## 6. Recommended URL Slug
 
-## Bing-Specific Implementation Note
+## 7. H1 Recommendation
 
-When a multi-platform alignment summary includes Bing, add one implementation-specific note.
+## 8. Page Section Outline
 
-Examples:
+For each section:
 
-- Ensure page is included in sitemap submitted to Bing Webmaster Tools.
-- Use the same structured data validation discipline for Bing as Google.
-- Align local business information with Bing Places if local intent applies.
-- Monitor Bing query impressions after indexing.
+- Section number:
+- Section name:
+- Recommended heading:
+- Purpose:
+- Content notes:
+- CTA or conversion role:
+- SEO/AEO/GEO role:
+- Required confirmation, if any:
 
-## Final Build Brief Additions
+## 9. Direct-Answer and AEO Placement
 
-The final build brief summary must include:
+## 10. FAQ Placement and Suggested FAQ Themes
 
-- Route type
-- Recommended components
-- Image alt text for image-bearing sections
-- Sticky mobile CTA recommendation if conversion-focused
-- Thank-you or confirmation behavior if a form exists
-- Next pages to build
-- Bing-specific implementation note
+## 11. Local/GEO Content Placement
+
+## 12. CTA and Conversion Flow
+
+## 13. Internal Linking Opportunities
+
+## 14. Schema Opportunities
+
+## 15. Trust and Proof Placement
+
+## 16. Outline Risks and Constraints
+
+## 17. Flagged Unresolved Data
+
+For each flagged item:
+
+- Item:
+- Why it matters:
+- Status:
+- Required confirmation:
+- Carry-forward destination:
+
+## 18. Items to Carry Forward to Prompt 03
+
+## 19. Recommended Next Action
+
+Choose one:
+
+- READY FOR PROMPT 03
+- READY FOR PROMPT 03 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 03
+
+---
+
+Site OS Master — Prompt 02 v2
+Updated to include unresolved issue flagging language, safety rules, structured carry-forward behavior, and complete output format. 
