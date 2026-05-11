@@ -1,19 +1,218 @@
+# Site OS Prompt Master Status
+
+This file is the source of truth for all active Site OS prompt versions, lock decisions, and status.
+
+Update this file whenever a prompt version changes, a lock decision is made, or a benchmark test is completed.
+
+---
+
+## Workflow Continuity Rule
+
+Unresolved client data does not stop the Site OS workflow.
+
+When client data, form endpoints, production domain, or infrastructure items are unresolved:
+
+- Flag each item clearly.
+- Carry each item forward in the relevant prompt output.
+- Document each item as AWAITING CLIENT CONFIRMATION, AWAITING INFRASTRUCTURE, or AWAITING APPROVAL.
+- Continue the workflow for planning, drafting, benchmark testing, QA, and controlled development.
+- Resolve all flagged items before production launch approval.
+
+Production launch approval requires all carry-forward items to be resolved. Benchmark readiness, development QA, and pre-launch structural review do not.
+
+---
+
+## Prompt 01: Keyword Strategy Prompt
+
+Current Version: v1
+Status: Active — Awaiting Benchmark Lock
+Mode: All modes
+Approved For: Keyword strategy, search intent alignment, primary and secondary keyword identification
+
+---
+
+## Prompt 02: Page Outline Prompt
+
+Current Version: v1
+Status: Active — Awaiting Benchmark Lock
+Mode: All modes
+Approved For: Page structure, section planning, AEO/FAQ planning, heading hierarchy
+
+---
+
+## Prompt 03: Ten-Metric Analysis Prompt
+
+Current Version: v1
+Status: Active — Awaiting Benchmark Lock
+Mode: Core Mode and above
+Approved For: 10-metric page analysis, SEO/AEO/GEO/conversion scoring
+
+---
+
+## Prompt 04: Gap Fix Prompt
+
+Current Version: v1
+Status: Active — Awaiting Benchmark Lock
+Mode: Core Mode and above
+Approved For: Gap identification, fix recommendations, content improvement targeting
+
+---
+
+## Prompt 05: Developer Build Brief Prompt
+
+Current Version: v1
+Status: Active — Awaiting Benchmark Lock
+Mode: All modes
+Approved For: Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan
+
+---
+
+## Prompt 06: Claude Code Build Prompt
+
+Current Version: v2.1
+Status: Core Mode Build Master — Locked
+Benchmark: Benchmark 1
+Latest Result: PASS
+Validation Type: Supervised simulation validation + Live repository validation (Live Validation 02)
+Approved For: Core Mode service page builds, Next.js 14 App Router service pages, local SEO service pages, AEO-ready page builds
+
+### Lock Decision
+
+Prompt 06 v2.1 is approved and locked as the Core Mode Build Master.
+
+The prompt successfully passed:
+
+- Gate 1 project inspection hard stop
+- Gate 2 build plan hard stop
+- Unknown-framework halt rule
+- AggregateRating master rule (no fake ratings invented at any point)
+- Form field source rule (no endpoint invented without confirmation)
+- LocalBusiness schema field protection (placeholder/flag rule for all unconfirmed fields)
+- HowTo schema conditional
+- Navigation scope rule
+- robots.txt rule
+- Page-specific validation placeholder rule
+- Final v2.1 quality gate
+- npm run build — PASS
+- npm run lint — PASS
+
+### Carry-Forward Behavior
+
+Prompt 06 v2.1 correctly flags all unresolved client data as TODO in project files and reports them in the implementation report. These items are carried forward to Prompt 07 QA review. They do not stop the build.
+
+### Production Requirement
+
+Prompt 06 may complete a build with flagged TODOs. Those TODOs must be resolved before production launch approval at Prompt 09.
+
+---
+
+## Prompt 07: QA Review Prompt
+
+Current Version: v1.2
+Status: Core Mode QA Review Master — Locked
+Benchmark: Benchmark 1
+Latest Result: PASS
+Validation Type: Supervised simulation-context QA validation + Live Validation 02 QA review
+Approved For: Core Mode QA reviews, post-build page reviews, simulation QA reviews, prompt behavior evaluations, schema safety audits, form/CTA review, SEO/AEO/GEO QA checks, accessibility and mobile readiness review
+
+### Lock Decision
+
+Prompt 07 v1.2 is approved and locked as the Core Mode QA Review Master.
+
+### What Changed in v1.2
+
+Added Unresolved Client Data Handling Rule. Unresolved items are flagged, documented, and carried forward in the Flagged Items Carry-Forward section. The QA review continues for all sections that do not depend on missing data.
+
+Added CONDITIONALLY APPROVED as a release decision option. This allows the workflow to continue when the implementation is structurally sound and brief-aligned but client data or infrastructure items remain unresolved.
+
+Added Flagged Items Carry-Forward as a required QA category (category 20).
+
+### Required Controls Confirmed
+
+- Execution depth selection
+- Gate 1 QA scope inspection hard stop
+- Simulation-context handling rule
+- Gate 2 brief alignment hard stop
+- QA category scoring
+- Schema review
+- Form and CTA review
+- SEO/AEO/GEO review
+- Accessibility and mobile review
+- Validation command review
+- Unresolved client data handling
+- Flagged items carry-forward
+- Release decision
+
+### Carry-Forward Behavior
+
+Prompt 07 v1.2 documents all unresolved items and carries them forward. The release decision reflects the current state accurately. CONDITIONALLY APPROVED confirms structural readiness while documenting what must be resolved before production launch.
+
+### Production Requirement
+
+APPROVED or APPROVED WITH MINOR REFINEMENTS may only be issued after actual files, routes, metadata, schema, forms, accessibility, mobile behavior, and build validation are confirmed clean and all flagged items are resolved.
+
+---
+
+## Prompt 08: Production Fix and TODO Resolution Prompt
+
+Current Version: v1.1
+Status: Core Mode Production Fix Master — Locked
+Benchmark: Benchmark 1
+Latest Result: PASS
+Validation Type: Core Mode production fix validation with missing client data
+Approved For: Core Mode production fix sessions, TODO resolution, client data replacement, schema fix, form endpoint connection, sitemap and robots.txt creation, accessibility and mobile fixes, validation re-run
+
+### Lock Decision
+
+Prompt 08 v1.1 is approved and locked as the Core Mode Production Fix Master.
+
+### What Changed in v1.1
+
+Added Unresolved Client Data Handling Rule. Missing client data defers specific fixes without stopping the entire fix session. All safe fixes proceed. Unresolved items are documented and carried forward to Prompt 09.
+
+Added Carry-Forward Items as a required report section (section 11).
+
+Updated release recommendation to include CONDITIONALLY READY — structural fixes complete, carry-forward items documented, ready for Prompt 09 Final Launch QA.
+
+### Required Controls Confirmed
+
+- Execution depth selection
+- Gate 1 fix scope inspection hard stop
+- Gate 2 fix plan hard stop
+- Client data safety rule
+- Schema safety rule
+- Form fix rule
+- SEO and indexing fix rule
+- Navigation fix rule
+- Validation command reporting
+- Unresolved client data handling
+- Carry-forward items documentation
+- Release recommendation
+
+### Carry-Forward Behavior
+
+Prompt 08 v1.1 proceeds with all safe fixes. Unresolved items are documented with their status and next required action. They are carried forward to Prompt 09 Final Launch QA.
+
+### Production Requirement
+
+READY FOR FINAL QA or CONDITIONALLY READY may only be issued after all safe fixes are complete and all remaining unresolved items are clearly documented. Production launch requires Prompt 09 approval with all carry-forward items resolved.
+
 ---
 
 ## Prompt 09: Final Launch QA Prompt
 
-Current Version: v1  
-Status: Core Mode Final Launch QA Master  
-Benchmark: Benchmark 1  
-Latest Result: PASS  
-Validation Type: Final launch gate validation with missing client data and incomplete production infrastructure  
-Approved For: Core Mode final launch QA, production release gating, launch blocker review, client-data-safe launch approval decisions  
+Current Version: v1
+Status: Core Mode Final Launch QA Master — Locked
+Benchmark: Benchmark 1
+Latest Result: PASS
+Validation Type: Final launch gate validation with missing client data and incomplete production infrastructure
+Approved For: Core Mode final launch QA, production release gating, launch blocker review, client-data-safe launch approval decisions
 
 ### Lock Decision
 
 Prompt 09 v1 is approved and locked as the Core Mode Final Launch QA Master.
 
-The prompt successfully passed all required final launch validation checks:
+### Required Controls Confirmed
 
 - Execution depth selection
 - Gate 1 launch scope inspection hard stop
@@ -28,61 +227,19 @@ The prompt successfully passed all required final launch validation checks:
 
 ### Validation Result
 
-Prompt 09 v1 was tested against the Benchmark 1 service page after:
+Prompt 09 v1 was tested after:
 
 - Prompt 06 v2.1 built the page
 - Prompt 07 v1.1 reviewed the implementation
-- Prompt 08 v1 reviewed production blockers and missing client data
+- Prompt 08 v1 reviewed production blockers
 
-Confirmed client data available during the test:
+No confirmed client data was available during the test.
 
-None.
-
-Prompt 09 correctly determined that the page was:
-
-BLOCKED BY CLIENT DATA
-
-Prompt 09 did not approve launch because critical production launch values remained unresolved:
-
-- Phone number
-- Business address
-- ZIP code
-- Business hours
-- Form endpoint
-- Production domain
-- Sitemap
-- robots.txt
-- Header and footer
-- Final accessibility and mobile QA
-
-Prompt 09 correctly refused to return:
-
-- APPROVED FOR LAUNCH
-- APPROVED WITH NON-BLOCKING FOLLOW-UPS
-
-because those decisions would have been unsafe with unresolved launch blockers.
-
-### Confirmed Behavior
-
-Prompt 09 v1 correctly acted as the final launch gate.
-
-It identified unresolved production-facing TODOs, missing client data, incomplete indexing infrastructure, incomplete form handling, missing production domain values, and incomplete final QA requirements.
-
-It separated benchmark readiness from production launch readiness.
-
-It confirmed that the page had strong structure and content foundations, but correctly blocked launch because the page was not safe for production release.
-
-### Final Decision
-
-PASS.
-
-Prompt 09 v1 is approved for use as the Core Mode Final Launch QA prompt.
+Prompt 09 correctly determined the page was BLOCKED BY CLIENT DATA and did not approve launch.
 
 ### Production Requirement
 
-Prompt 09 may only approve production launch when all critical client data, form handling, schema, indexing, accessibility, mobile, validation, and deployment requirements are complete.
-
-Prompt 09 must confirm:
+Prompt 09 may only approve production launch when all of the following are confirmed:
 
 - No critical TODO or FLAG placeholders remain in production-facing files
 - Phone number and tap-to-call links are real and tested
@@ -101,8 +258,51 @@ Prompt 09 must confirm:
 - Internal links resolve
 - Deployment and indexing requirements are complete
 
-If critical client data or launch infrastructure is missing, Prompt 09 must return one of the blocked decisions:
+If critical client data or launch infrastructure is missing, Prompt 09 must return one of:
 
 - BLOCKED BY LAUNCH TODOs
 - BLOCKED BY CLIENT DATA
-- BLOCKED BY TECHNICAL FAILURES 
+- BLOCKED BY TECHNICAL FAILURES
+
+---
+
+## Prompts 10–20: Advanced Prompts
+
+Current Version: v1 for all
+Status: Active — Awaiting Individual Benchmark Lock
+
+These prompts are available for use in Beyond-Elite Mode and Full Competitive Build Mode.
+
+Lock decisions will be recorded here after each prompt completes benchmark validation.
+
+Prompts in this group:
+
+- 10-internal-linking-strategy-prompt.md
+- 11-schema-strategy-prompt.md
+- 12-conversion-optimization-prompt.md
+- 13-content-quality-editor-prompt.md
+- 14-page-template-evaluation-prompt.md
+- 15-page-variant-battle-prompt.md
+- 16-search-intent-defense-prompt.md
+- 17-ai-citation-readiness-prompt.md
+- 18-page-moat-prompt.md
+- 19-template-eval-rubric-prompt.md
+- 20-visibility-conversion-alignment-prompt.md
+
+---
+
+## Prompt Change Log Reference
+
+All version changes are recorded in:
+
+versions/prompt-change-log.md
+
+All benchmark test results are recorded in:
+
+versions/prompt-performance-log.md
+
+---
+
+Site OS Master — Prompt Master Status
+Last Updated: v1.2 cycle
+Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1 — all locked 
