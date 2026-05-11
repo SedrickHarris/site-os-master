@@ -896,3 +896,145 @@ The final Claude Code prompt must be self-contained.
 Do not rely on Claude Code remembering prior strategy prompts.
 
 Include the route, sections, metadata, schema, CTA requirements, form requirements, internal link rules, guardrails, validation checklist, and report format inside the final prompt.
+
+## Prompt Revision: Prompt 06 Production Safety Fixes
+
+## Gate 1 Hard Stop Requirement
+
+After completing Gate 1 inspection, Claude Code must stop completely.
+
+Claude Code must not proceed to Gate 2 until the user explicitly confirms that the inspection findings are approved.
+
+Required instruction for every Claude Code build prompt:
+
+After completing Gate 1, report your inspection findings and stop. Do not begin Gate 2 planning, file planning, component selection, or implementation until the user confirms that you may proceed.
+
+If the inspection reveals framework uncertainty, route conflicts, missing project patterns, missing form handlers, unclear schema patterns, or missing required client data, ask for guidance before continuing.
+
+Do not create, edit, rename, move, or delete files during Gate 1.
+
+## Gate 2 Hard Stop Requirement
+
+After completing Gate 2 implementation planning, Claude Code must stop completely.
+
+Claude Code must not proceed to Gate 3 until the user explicitly confirms that the plan is approved.
+
+Required instruction for every Claude Code build prompt:
+
+After presenting the Gate 2 implementation plan, stop completely. Do not proceed to Gate 3 until explicit user confirmation is received.
+
+Do not create, edit, rename, move, or delete files until Gate 2 is approved.
+
+## LocalBusiness Schema Field Protection
+
+When LocalBusiness schema is required, Claude Code must not invent or assume any business data.
+
+Required LocalBusiness fields that must be confirmed or flagged:
+
+- Business name
+- Website URL
+- Phone number
+- Street address, if applicable
+- City
+- State
+- ZIP code
+- Opening hours
+- Service area
+- Logo URL, if used
+- Image URL, if used
+- sameAs profile URLs, if used
+- priceRange, if used
+
+If any field is missing, Claude Code must use a clearly labeled placeholder or omit the field if optional.
+
+Required placeholder format:
+
+[FIELD NAME — CLIENT MUST CONFIRM BEFORE LAUNCH]
+
+Required code comment format:
+
+// FLAG: CLIENT MUST CONFIRM [FIELD NAME] BEFORE LAUNCH. Do not invent this value.
+
+Hard stop rule:
+
+Do not create finalized LocalBusiness schema with unverified phone, address, hours, rating, review count, price range, logo, image, or sameAs values.
+
+If too many required fields are missing for valid LocalBusiness schema, Claude Code must create a TODO placeholder block and report the missing fields in Gate 5 instead of publishing incomplete or fake schema.
+
+## Form Endpoint Confirmation Requirement
+
+For any lead-generation page with a quote form, contact form, booking form, newsletter form, or intake form, Claude Code must identify the submission method before building the form.
+
+Gate 2 must include:
+
+- Existing form component found: yes/no
+- Existing form handler found: yes/no
+- Form submission method: known/unknown
+- Submission destination: email, CRM, API route, server action, third-party embed, static form provider, or unknown
+- Confirmation behavior: on-page success message, redirect to thank-you page, CRM confirmation, or unknown
+- Validation approach
+- Spam prevention approach if already used in the project
+
+If no submission handler exists, Claude Code may build the visual form only if it adds a clear TODO comment.
+
+Required TODO comment:
+
+// TODO: Connect this form to the approved submission handler, CRM webhook, API route, or static form provider before launch.
+
+Required report note:
+
+Form submission is not launch-ready until the destination and confirmation behavior are confirmed.
+
+Hard stop rule:
+
+Do not invent a submission endpoint, CRM webhook, API route, email address, thank-you page, or form provider.
+
+## Direct-Answer Section Requirement
+
+For service pages, each major content section should include at least one direct-answer sentence when appropriate.
+
+The sentence should clearly answer a likely user or search query.
+
+Examples:
+
+- Pit Stop Junk Removal removes furniture and appliances throughout Las Vegas, including couches, mattresses, refrigerators, washers, and dryers.
+- Furniture and appliance removal pricing depends on item quantity, accessibility, and job size.
+- Same-day furniture pickup may be available in Las Vegas when scheduling slots are open.
+
+Do not force a direct-answer sentence into purely visual or CTA-only sections.
+
+## Sitemap Build Step Requirement
+
+If the page is a new route, Gate 3 must include sitemap handling.
+
+Claude Code must check whether the project uses:
+
+- Static sitemap.xml
+- Dynamic sitemap generator
+- Framework sitemap route
+- CMS-managed sitemap
+- No sitemap found
+
+If static, add the new URL.
+
+If dynamic, confirm whether the new route is included automatically.
+
+If unclear, add:
+
+// TODO: Confirm new page URL is included in sitemap before launch.
+
+Do not refactor the sitemap system unless required.
+
+## Updated Gate 5 Report Requirement
+
+Gate 5 must include:
+
+- Whether Gate 1 was approved
+- Whether Gate 2 was approved
+- Whether form submission is fully connected or still TODO
+- Which schema fields are verified
+- Which schema fields are placeholders
+- Which LocalBusiness fields require client confirmation
+- Whether sitemap was updated, automatically included, or flagged as TODO
+- Any internal links skipped because target routes did not exist
+- Any client-confirmation items required before launch
