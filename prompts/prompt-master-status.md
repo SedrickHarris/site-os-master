@@ -1,185 +1,44 @@
-# Prompt Master Status
-
-## Prompt 06: Claude Code Build Prompt
-
-Current Version: v2.1  
-Status: Core Mode Master  
-Benchmark: Benchmark 1  
-Latest Score: 96/100 live control validation; 94/100 supervised control validation  
-Validation Type: Supervised control validation + live repository build validation  
-Approved For: Core Mode service page builds, supervised builds, live repository builds  
-Not Yet Approved For: Fully unsupervised production launch without final QA and client data confirmation  
-
-### Lock Decision
-
-Prompt 06 v2.1 is approved and locked as the Core Mode Master for service page builds.
-
-The prompt successfully passed all required v2.1 control checks:
-
-- Execution depth selection
-- Gate 1 project inspection hard stop
-- Unknown-framework halt rule
-- Gate 2 build plan hard stop
-- Existing pattern fallback rule
-- AggregateRating master rule
-- Page-specific validation placeholder rule
-- HowTo schema audit requirement
-- Navigation scope outcome rule
-- robots.txt check
-- Form field source rule
-- Final v2.1 quality gate
-
-### Live Repository Validation
-
-Live repository validation completed successfully in Live Validation 02.
-
-Prompt 06 v2.1 inspected a clean Next.js 14 App Router project, completed Gate 1, completed Gate 2, built the benchmark service page, passed build and lint validation, and correctly deferred unresolved client data as TODOs.
-
-The page built during Live Validation 02:
-
-- Business: Pit Stop Junk Removal
-- Page Type: Service Page
-- Service: Furniture and Appliance Removal
-- Location: Las Vegas, NV
-- Route: `/services/furniture-appliance-removal-las-vegas`
-- Goal: Generate quote requests
-- CTA: Request a Free Quote
-
-Final Prompt 06 live build status:
-
-READY FOR PROMPT 07 QA REVIEW
-
-### Production Requirement
-
-For production launch, Prompt 07 QA must still be run against the actual implementation files, and all unresolved client data TODOs must be resolved.
-
-Production launch requires confirmed:
-
-- Phone number
-- Business address and ZIP
-- Business hours
-- Production form endpoint
-- Production domain
-- Sitemap
-- robots.txt
-- Header and footer
-- Final accessibility and mobile QA
-
 ---
 
-## Prompt 07: QA Review Prompt
-
-Current Version: v1.1  
-Status: Core Mode QA Review Master  
-Benchmark: Benchmark 1  
-Latest Score: 94/100 supervised simulation-context QA validation; 87/100 live implementation QA  
-Validation Type: Supervised simulation-context QA validation + live implementation QA validation  
-Approved For: Core Mode QA reviews, post-build service page QA, supervised simulation QA, live implementation QA  
-
-### Lock Decision
-
-Prompt 07 v1.1 is approved and locked as the Core Mode QA Review Master.
-
-The prompt successfully passed all required QA validation checks:
-
-- Execution depth selection
-- Gate 1 QA scope inspection hard stop
-- Simulation-context handling rule
-- Gate 2 brief alignment hard stop
-- QA category scoring
-- Schema review
-- Form and CTA review
-- SEO/AEO/GEO review
-- Accessibility and mobile review
-- Validation command review
-- Release decision
-- Final QA test decision
-
-### Live QA Validation
-
-Live QA validation completed successfully in Live Validation 02.
-
-Prompt 07 v1.1 reviewed the actual page implementation created by Prompt 06 v2.1 and returned a CONDITIONAL PASS.
-
-Prompt 07 confirmed that the implementation is benchmark-ready but not production-ready until client TODOs and production infrastructure items are resolved.
-
-Prompt 07 correctly validated:
-
-- Brief alignment
-- Route and page structure
-- SEO readiness
-- AEO and voice search readiness
-- Local SEO/GEO readiness
-- Schema safety
-- FAQ accuracy
-- CTA and conversion path
-- Form behavior
-- Internal links
-- Navigation scope
-- robots.txt and indexing state
-- Accessibility and mobile readiness
-- Build validation
-- Release decision
-
-Final Prompt 07 live QA decision:
-
-CONDITIONAL PASS
-
-Benchmark status:
-
-APPROVED
-
-Production launch status:
-
-BLOCKED until TODOs are resolved
-
-### Production Requirement
-
-For live production release approval, Prompt 07 must be run after all client data, form handling, sitemap, robots.txt, header/footer, accessibility, mobile, and deployment requirements are completed.
-
-Prompt 07 may approve benchmark readiness while still blocking production launch when unresolved client data or infrastructure TODOs remain.
-
----
-
-## Prompt 08: Production Fix and TODO Resolution Prompt
+## Prompt 09: Final Launch QA Prompt
 
 Current Version: v1  
-Status: Core Mode Production Fix Master  
+Status: Core Mode Final Launch QA Master  
 Benchmark: Benchmark 1  
 Latest Result: PASS  
-Validation Type: Production fix and missing client data validation  
-Approved For: Core Mode production fix planning, TODO resolution, pre-launch blocker review, client-data-safe production cleanup  
+Validation Type: Final launch gate validation with missing client data and incomplete production infrastructure  
+Approved For: Core Mode final launch QA, production release gating, launch blocker review, client-data-safe launch approval decisions  
 
 ### Lock Decision
 
-Prompt 08 v1 is approved and locked as the Core Mode Production Fix and TODO Resolution Master.
+Prompt 09 v1 is approved and locked as the Core Mode Final Launch QA Master.
 
-The prompt successfully passed all required production fix validation checks:
+The prompt successfully passed all required final launch validation checks:
 
 - Execution depth selection
-- Gate 1 fix scope inspection hard stop
-- Gate 2 fix plan hard stop
-- Client data safety rule
-- Schema safety rule
-- Form fix rule
-- SEO and indexing fix rule
-- Navigation fix rule
+- Gate 1 launch scope inspection hard stop
+- Gate 2 launch blocker review hard stop
+- Client data final safety rule
+- Schema final safety rule
+- Form final launch rule
+- SEO and indexing final launch rule
+- Accessibility and mobile final launch rule
 - Validation command reporting
-- Release recommendation
+- Launch score and release decision
 
 ### Validation Result
 
-Prompt 08 v1 was tested against the Benchmark 1 production blockers identified by Prompt 07 v1.1.
+Prompt 09 v1 was tested against the Benchmark 1 page after Prompt 06 build, Prompt 07 QA, and Prompt 08 production blocker review.
 
 Confirmed client data available during the test:
 
 None.
 
-Prompt 08 correctly determined that the page was:
+Prompt 09 correctly determined that the page was:
 
-BLOCKED BY MISSING CLIENT DATA
+BLOCKED BY CLIENT DATA
 
-Prompt 08 did not invent:
+Prompt 09 did not approve launch because critical production launch values remained unresolved:
 
 - Phone number
 - Business address
@@ -187,23 +46,30 @@ Prompt 08 did not invent:
 - Business hours
 - Form endpoint
 - Production domain
-- Review rating
-- Review count
-- Reviewer names
-- Awards, licenses, certifications, or guarantees
+- Sitemap
+- robots.txt
+- Header and footer
+- Final accessibility and mobile QA
 
-Prompt 08 correctly left all production-blocking TODOs unresolved and reported them as client-data blockers rather than implementation failures.
+Prompt 09 correctly refused to return:
+
+- APPROVED FOR LAUNCH
+- APPROVED WITH NON-BLOCKING FOLLOW-UPS
+
+because those decisions would have been unsafe with unresolved launch blockers.
 
 ### Final Decision
 
 PASS.
 
-Prompt 08 v1 is approved for use as the Core Mode Production Fix and TODO Resolution prompt.
+Prompt 09 v1 is approved for use as the Core Mode Final Launch QA prompt.
 
 ### Production Requirement
 
-Prompt 08 may only resolve production blockers when the required data is confirmed by the client or already verified in the project.
+Prompt 09 may only approve production launch when all critical client data, form handling, schema, indexing, accessibility, mobile, validation, and deployment requirements are complete.
 
-If client data is missing, Prompt 08 must leave TODOs in place and return:
+If critical client data or launch infrastructure is missing, Prompt 09 must return one of the blocked decisions:
 
-BLOCKED BY MISSING CLIENT DATA 
+- BLOCKED BY LAUNCH TODOs
+- BLOCKED BY CLIENT DATA
+- BLOCKED BY TECHNICAL FAILURES 
