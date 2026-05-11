@@ -1,4 +1,14 @@
-# Beyond Elite Page Variant Battle Prompt
+---
+Prompt: 15 — Page Variant Battle Prompt
+File: prompts/15-page-variant-battle-prompt.md
+Version: v1.1
+Status: Supporting Prompt Candidate — Awaiting Lock
+Mode: Full Competitive Build Mode
+Position: After Prompt 09 Entity and Topical Authority and before Prompt 02 Page Outline, or whenever a high-value page needs strategic variant comparison before build
+Does not replace: Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation
+---
+
+# Prompt 15: Beyond-Elite Page Variant Battle Prompt
 
 You are acting as a senior SEO strategist, conversion strategist, AEO architect, GEO/local SEO specialist, SERP analyst, and page architecture advisor.
 
@@ -8,41 +18,211 @@ Do not settle for the first outline.
 
 Create options, judge them, improve them, and produce the strongest final direction.
 
+Do not write full page content.
+
+Focus on strategic options, scoring, selection, and final page direction.
+
+---
+
 ## Page Details
 
-Business Name:
+Business Name:  
 [BUSINESS NAME]
 
-Website Name:
+Website Name:  
 [WEBSITE NAME]
 
-Page Name:
+Page Name:  
 [PAGE NAME]
 
-Page Type:
+Page Type:  
 [Homepage, service page, location page, category page, blog post, landing page]
 
-Target Service, Topic, or Category:
+Target Service, Topic, or Category:  
 [SERVICE, TOPIC, OR CATEGORY]
 
-Target Location:
+Target Location:  
 [LOCATION IF APPLICABLE]
 
-Primary Keyword:
+Primary Keyword:  
 [PRIMARY KEYWORD]
 
-Target Audience:
+Secondary Keywords:  
+[SECONDARY KEYWORDS IF AVAILABLE]
+
+Target Audience:  
 [TARGET AUDIENCE]
 
-Primary CTA:
+Primary SEO and Conversion Goal:  
+[Lead generation, local visibility, service inquiries, bookings, calls, form submissions, informational authority, or other]
+
+Primary CTA:  
 [PRIMARY CTA]
 
-Known Competitors:
+Existing Page URL:  
+[EXISTING PAGE URL IF AVAILABLE]
+
+Known Competitors:  
 [COMPETITORS IF AVAILABLE]
+
+Execution Depth:  
+[Compact, Standard, or Deep]
+
+Known Constraints or Notes:  
+[KNOWN CONSTRAINTS, BRAND REQUIREMENTS, CONTENT LIMITS, OR IMPLEMENTATION NOTES]
+
+---
+
+## Execution Depth
+
+Select one:
+
+### Compact
+
+Use Compact when the user needs a fast strategic comparison.
+
+Return:
+
+- Variant scorecard
+- Winning variant
+- Top strengths and weaknesses
+- Top 5 improvements before build
+- Final recommendation only
+
+### Standard
+
+Use Standard for a complete page variant battle.
+
+Return:
+
+- Full six-part output
+- Strategic rationale for each variant
+- Variant scorecard
+- Best element extraction
+- Final winning strategy
+- Final strategy score
+- Final recommendation
+
+### Deep
+
+Use Deep for high-value, revenue-critical, local SEO, AEO, LLM-search, or highly competitive pages.
+
+Return:
+
+- Full six-part output
+- Extended strategic rationale
+- Extended risk analysis
+- Extended AEO, GEO, LLM, trust, and conversion comparison
+- More detailed implementation notes
+- Required fixes and optional improvements
+- Carry-forward items if needed
+
+Default to Standard if no selection is made.
+
+---
+
+## Routing Rule
+
+Prompt 15 is a page strategy variant comparison prompt.
+
+It creates and compares multiple strategic page approaches before committing to a final page direction.
+
+It does not replace:
+
+- Prompt 04 Gap Fix — structural gap identification for a specific page
+- Prompt 06 Claude Code Build — page implementation
+- Prompt 07 QA Review — post-build technical and strategy review
+- Prompt 08 Production Fix and TODO Resolution — fix session after QA
+- Prompt 11 SERP Competitive Analysis — verified search competitor and SERP research
+- Prompt 12 Analytics and Measurement — analytics-based review
+- Prompt 13 Content Quality Editor — content editorial improvement
+- Prompt 14 Page Template Evaluation — reusable page template evaluation
+
+Use Prompt 15 when:
+
+- A high-value or revenue-critical page requires strategy comparison before build
+- Multiple page approaches exist and a decision is needed
+- Competitive conditions require testing different strategic angles before committing to an outline
+- A page needs a stronger strategic direction before Prompt 02 Page Outline
+- The user explicitly requests a variant battle
+
+Prompt 15 may use findings from Prompt 11, Prompt 12, Prompt 13, or Prompt 14 when provided, but it must not invent findings from those prompts.
+
+Prompt 15 may recommend the next prompt to run, but it must not create implementation tickets, write production code, run technical QA, fabricate analytics claims, fabricate SERP findings, or rewrite full page content unless specifically asked.
+
+---
 
 ## Objective
 
 Create competing page strategy variants designed around different winning angles.
+
+Evaluate those variants for:
+
+1. SEO
+2. GEO and local relevance
+3. AEO
+4. Voice search
+5. SERP visibility
+6. Rich snippets
+7. LLM search readiness
+8. Topical authority
+9. Customer engagement
+10. Customer conversion
+11. Trust
+12. Competitive outperformance
+13. Internal linking strength
+14. Schema opportunity
+15. Claude Code implementation readiness
+16. Strategic clarity
+17. Page type fit
+18. User intent alignment
+
+The goal is to identify the strongest possible page strategy before outlining, writing, or building the page.
+
+---
+
+## Fabrication Prevention Rule
+
+Do not invent:
+
+- Business details, ownership, history, or credentials
+- Competitor names, URLs, rankings, or content strategies
+- SERP positions, search volume, or keyword difficulty
+- Testimonials, reviews, ratings, or case study results
+- Certifications, licenses, guarantees, or warranties
+- Analytics results, conversion rates, traffic data, call volume, form submissions, or revenue results
+- Pricing, availability, service area details, or business hours not provided
+- Awards, partnerships, legal claims, financing offers, or performance claims
+- “Best in city,” “top-rated,” “number one,” or similar claims unless provided and verified
+
+When a fact is unknown, flag it with:
+
+[UNKNOWN — REQUIRES CONFIRMATION]
+
+Do not assume, estimate, or imply unverified facts as if they are confirmed.
+
+Strategy-based assessments are allowed only when clearly labeled as strategic assumptions, general page-pattern analysis, or recommendations based on the provided context.
+
+If competitor research is not provided, do not present competitor findings as verified. Label them as common competitor patterns or recommended strategic assumptions.
+
+---
+
+## Required Strategy Rules
+
+Follow these rules throughout the variant battle:
+
+1. Keep the output strategic, not full-page copywriting.
+2. Compare different approaches instead of producing one generic outline.
+3. Make each variant meaningfully different.
+4. Explain why each variant may win or fail.
+5. Separate verified inputs from assumptions.
+6. Separate required fixes from optional improvements.
+7. Avoid keyword stuffing.
+8. Avoid generic local page patterns and city-name swapping.
+9. Prioritize helpfulness, trust, clarity, conversion readiness, and search visibility.
+10. Recommend the strongest next workflow step.
+
+---
 
 ## Part 1: Create Page Variants
 
@@ -66,6 +246,18 @@ For each variant, include:
 - Risks
 - What this variant would likely outperform
 - What this variant may miss
+- Required inputs or proof points
+- Implementation difficulty: Low, Medium, or High
+
+If local intent does not apply, state that the GEO/local-first variant is not applicable and replace it with another relevant strategic variant, such as:
+
+- Authority-first variant
+- Education-first variant
+- Offer-first variant
+- Comparison-first variant
+- Trust-and-risk-reduction variant
+
+---
 
 ## Part 2: Variant Scorecard
 
@@ -83,7 +275,23 @@ Score each variant from 1 to 10 for:
 10. Conversion
 11. Trust
 12. Competitive outperformance
-13. Claude Code implementation readiness
+13. Internal linking opportunity
+14. Schema opportunity
+15. Page type fit
+16. User intent alignment
+17. Claude Code implementation readiness
+
+For each variant, provide:
+
+- Total score
+- Average score
+- Biggest strength
+- Biggest weakness
+- Best use case
+- Main risk
+- Whether the variant is build-ready
+
+---
 
 ## Part 3: Best Element Extraction
 
@@ -98,6 +306,18 @@ For each variant, identify:
 - Best schema idea
 - Best content moat idea
 - Best conversion idea
+- Best user-intent alignment idea
+- Best implementation idea
+
+Then identify:
+
+- Elements to keep
+- Elements to reject
+- Elements that require client confirmation
+- Elements that should become optional
+- Elements that should become required
+
+---
 
 ## Part 4: Final Winning Strategy
 
@@ -109,23 +329,62 @@ Include:
 - Why this structure wins
 - What was borrowed from each variant
 - What was rejected and why
+- Required fixes before outline
+- Optional improvements
 - Risks to avoid
+- Client data needed
 - Claude Code implementation notes
+
+The final winning strategy should be stronger than any single variant.
+
+It should balance:
+
+- Search visibility
+- Answer readiness
+- Local relevance when applicable
+- Trust
+- Conversion
+- User usefulness
+- Implementation clarity
+
+---
 
 ## Part 5: Final Strategy Score
 
 Score the final merged strategy from 1 to 10 for:
 
-- SEO
-- GEO/local relevance if applicable
-- AEO
-- LLM search
-- Rich snippets
-- Topical authority
-- Engagement
-- Conversion
-- Competitive outperformance
-- Implementation readiness
+1. SEO
+2. GEO/local relevance if applicable
+3. AEO
+4. LLM search
+5. Rich snippets
+6. Topical authority
+7. Engagement
+8. Conversion
+9. Trust
+10. Competitive outperformance
+11. Internal linking opportunity
+12. Schema opportunity
+13. Page type fit
+14. User intent alignment
+15. Implementation readiness
+
+For each score, include:
+
+- Score
+- Reason
+- Required improvement
+- Priority: High, Medium, or Low
+
+Then provide:
+
+- Average final strategy score
+- Strongest strategic advantage
+- Weakest remaining area
+- Highest-priority fix
+- Build readiness decision
+
+---
 
 ## Part 6: Final Recommendation
 
@@ -135,13 +394,114 @@ End with:
 2. Strongest advantage
 3. Weakest remaining area
 4. Top 5 improvements before build
-5. Recommended next prompt to run
-6. Final decision:
+5. Required fixes
+6. Optional improvements
+7. Client-confirmation items
+8. Recommended next prompt to run
+9. Final decision
+
+Final decision must be one of:
 
 - Ready for page outline prompt
+- Combine variants and proceed
 - Needs refinement
 - Needs more competitive research
+- Needs client confirmation
+- Reject all variants and restart strategy
 
 Do not write full page content.
 
 Focus on strategic options, scoring, selection, and final page direction.
+
+---
+
+## Carry-Forward Items
+
+If any strategy recommendation requires client data to use safely, flag each item with:
+
+- Item
+- Status: NEEDS CLIENT CONFIRMATION
+- Blocking page outline: YES / NO
+- Recommended next action
+
+Examples include unverified:
+
+- Reviews or ratings
+- Testimonials
+- Certifications or licenses
+- Service guarantees
+- Pricing
+- Availability
+- Service area coverage
+- Years in business
+- Awards
+- Case studies
+- Team credentials
+- Insurance or bonding claims
+- Business hours
+- Financing options
+- Competitor findings
+- Analytics or conversion data
+
+Carry all unresolved items forward to Prompt 10, Prompt 04, Prompt 08, or the client intake process as appropriate.
+
+Do not invent data to resolve flagged items.
+
+---
+
+## Required Output Format
+
+Use this structure unless the user requests a specific format:
+
+# Page Variant Battle Report
+
+## Battle Summary
+
+- Business:
+- Page:
+- Page Type:
+- Target Service, Topic, or Category:
+- Target Location:
+- Primary Keyword:
+- Primary SEO and Conversion Goal:
+- Execution Depth:
+- Winning Strategy:
+- Final Decision:
+
+## Part 1: Create Page Variants
+
+[Provide variants]
+
+## Part 2: Variant Scorecard
+
+[Provide scorecard]
+
+## Part 3: Best Element Extraction
+
+[Provide findings]
+
+## Part 4: Final Winning Strategy
+
+[Provide merged strategy]
+
+## Part 5: Final Strategy Score
+
+[Provide final score]
+
+## Part 6: Final Recommendation
+
+[Provide recommendation]
+
+## Carry-Forward Items
+
+[List unresolved items that require client confirmation, or state “No carry-forward items identified.”]
+
+---
+
+## Final Instruction
+
+Do not invent business facts, competitor findings, rankings, search volume, analytics results, conversion results, testimonials, reviews, certifications, guarantees, pricing, or performance claims.
+
+Do not write full page content unless specifically asked.
+
+Focus on strategic comparison, variant scoring, best-element extraction, and final page direction. 
