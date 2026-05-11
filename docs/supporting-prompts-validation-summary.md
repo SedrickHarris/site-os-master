@@ -1,173 +1,100 @@
-# Supporting Prompts Validation Summary
+## Prompt 12 v1.1: Analytics and Measurement Prompt
 
-## Purpose
-
-This document tracks Site OS supporting prompts that sit outside the Core Mode 01–10 workflow but improve strategy quality, competitive positioning, search dominance, conversion, schema depth, and advanced page readiness.
-
-Supporting prompts may be used before, during, or after the Core Mode workflow when the page requires deeper analysis or stronger competitive positioning.
-
----
-
-## Current Supporting Prompt Status
-
-## Prompt 11: SERP Competitive Analysis Prompt
-
+File: prompts/12-analytics-measurement-prompt.md  
 Version: v1.1  
-Status: Supporting SERP Competitive Analysis Master  
-Benchmark: Benchmark 1  
+Status: LOCKED  
+Role: Supporting Analytics and Measurement Master  
 Validation Result: PASS  
-
-### Purpose
-
-Prompt 11 analyzes search competitors, SERP patterns, content gaps, local SEO signals, AEO opportunities, schema opportunities, trust gaps, CTA gaps, and search dominance opportunities.
-
-It supports:
-
-- Prompt 03 Ten-Metric Analysis
-- Prompt 04 Gap Fix
-- Prompt 05 Developer Build Brief
-- High-value service page planning
-- Competitive content improvement
-- Search dominance strategy
+Confirmation Type: Lightweight v1.1 confirmation test  
 
 ---
 
-## Prompt 11 Validation Summary
+### Summary
 
-Prompt 11 v1 passed initial SERP competitive analysis validation using Benchmark 1.
+Prompt 12 v1.1 is confirmed and locked as the Supporting Analytics and Measurement Master for the Site OS Master prompt system.
 
-Prompt 11 v1.1 added and confirmed:
+This prompt supports analytics planning, measurement strategy, KPI mapping, reporting structure, conversion tracking recommendations, Google Search Console measurement guidance, Bing Webmaster Tools measurement guidance, Google Business Profile tracking, CRM lead attribution planning, and performance reporting structure.
 
-- Canonical prompt identity
-- Canonical file path
-- Prompt 08 routing clarification
-- Legacy naming handling for old SERP prompt references
-- SERP Analysis Score Guidance
-- No-invention behavior
-- No final competitive dominance claim without live SERP review
-
-Prompt 11 v1.1 confirmation result:
-
-PASS
+Prompt 12 is a supporting prompt. It does not replace the Core Mode workflow, SERP competitive analysis workflow, production fix workflow, or any upstream intake, architecture, SEO, or build prompts.
 
 ---
 
-## Prompt 11 Confirmed Behavior
+### v1.1 Patch Summary
 
-Prompt 11 correctly:
+Prompt 12 v1.1 includes the Analytics Unavailability Rule.
 
-- Identifies itself as the canonical SERP Competitive Analysis prompt
-- Uses the canonical file path `prompts/11-serp-competitive-analysis-prompt.md`
-- Clarifies that Prompt 08 is reserved for Production Fix and TODO Resolution
-- Treats old `prompts/08-serp-competitive-analysis-prompt.md` references as legacy naming
-- Includes SERP Analysis Score Guidance
-- Does not penalize missing competitor-specific facts when live SERP data is unavailable and findings are properly labeled
-- Requires unverified findings to be marked NOT VERIFIED, PARTIALLY VERIFIED, or REQUIRES LIVE SERP REVIEW
-- Does not claim final competitive dominance without live SERP review
+This rule requires the model to clearly disclose when analytics, traffic, ranking, CRM, Google Business Profile, Google Search Console, Bing Webmaster Tools, conversion, attribution, or reporting data is unavailable.
+
+When source data is unavailable, the prompt must not fabricate performance metrics.
+
+Instead, it must provide a recommended analytics and measurement framework based on the available project context.
 
 ---
 
-## Research Safety Rule
+### Fabrication Prevention Rule
 
-Prompt 11 must not invent:
+Prompt 12 v1.1 prevents the model from inventing or assuming:
 
-- Competitor names
-- Ranking positions
-- Search volume
-- Keyword difficulty
-- Review counts
-- Rating values
-- Local pack positions
-- Backlink data
-- Competitor schema
-- Competitor traffic
-- Client pricing
-- Same-day availability
-- Licenses
-- Guarantees
+- Website traffic numbers
+- Conversion rates
+- Click-through rates
+- Search rankings
+- Google Search Console performance
+- Bing Webmaster Tools performance
+- Google Business Profile performance
+- CRM lead counts
+- Form submission volume
+- Phone call volume
+- Revenue impact
+- Campaign results
+- Attribution data
+- Reporting outcomes
 
-When live SERP data is unavailable, Prompt 11 may continue with strategy-based competitive analysis, but all competitor-specific findings must be clearly labeled as NOT VERIFIED, PARTIALLY VERIFIED, or REQUIRES LIVE SERP REVIEW.
-
----
-
-## Carry-Forward Rule
-
-Prompt 11 carries unresolved research items forward to Prompt 04, Prompt 05, or a future live SERP review as appropriate.
-
-Prompt 11 does not stop analysis when live SERP data is unavailable if enough keyword, service, location, or page context exists.
-
-Prompt 11 clearly separates strategy-based competitive readiness from verified live SERP dominance.
+If this data is not provided or accessible, the prompt must state that clearly and shift into recommended setup, tracking, and reporting guidance.
 
 ---
 
-## When to Use Prompt 11
+### Confirmed Supported Outputs
 
-Use Prompt 11 when:
+Prompt 12 v1.1 may produce:
 
-- Search dominance matters
-- Prompt 03 scores Search Dominance low
-- A page targets a competitive service or location
-- The user wants competitor or SERP analysis
-- The page needs stronger content gaps, FAQ gaps, schema gaps, or conversion gap analysis
-- A high-value service page needs stronger positioning before Prompt 04 or Prompt 05
-- Live SERP observations, competitor URLs, or SERP screenshots are available
-
----
-
-## Recommended Workflow Placement
-
-Prompt 11 can run in these positions:
-
-### Before Prompt 03
-
-Use when competitive search conditions should influence the Ten-Metric Analysis.
-
-### After Prompt 03
-
-Use when Search Dominance, SERP, AEO, or local SEO scores are weak.
-
-### Before Prompt 04
-
-Use to generate stronger competitive gap fixes.
-
-### Before Prompt 05
-
-Use to improve the developer build brief with competitive recommendations.
-
-### Before Prompt 06
-
-Use for high-value or competitive page builds before implementation begins.
+- Analytics setup recommendations
+- KPI framework
+- Measurement strategy
+- Conversion tracking plan
+- Lead source attribution plan
+- Reporting dashboard structure
+- Google Search Console tracking recommendations
+- Bing Webmaster Tools tracking recommendations
+- Google Business Profile measurement recommendations
+- CRM reporting recommendations
+- Client-facing analytics explanation
+- Internal implementation checklist
 
 ---
 
-## Supporting Prompt Validation Status
+### Workflow Compatibility
 
-| Prompt | Name | Version | Status | Validation Result |
-|---|---|---:|---|---|
-| Prompt 11 | SERP Competitive Analysis Prompt | v1.1 | Supporting SERP Competitive Analysis Master | PASS |
+Prompt 12 v1.1 remains compatible with the Site OS Master prompt system and supports the broader workflow without creating routing conflicts.
 
----
+It can support:
 
-## Next Supporting Prompt Candidates
+- Prompt 01: Intake
+- Prompt 02: Business Profile
+- Prompt 03: Site Architecture
+- Prompt 04: Page Strategy
+- Prompt 05: SEO/AEO Foundation
+- Prompts 06–10: Core Mode Build Workflow
+- Prompt 11: SERP Competitive Analysis
 
-Recommended next prompts to validate:
-
-1. Prompt 12: Conversion Optimization Prompt
-2. Prompt 13: Content Quality Editor Prompt
-3. Prompt 14: Page Template Evaluation Prompt
-4. Prompt 15: Page Variant Battle Prompt
-5. Prompt 16: Search Intent Defense Prompt
-6. Prompt 17: AI Citation Readiness Prompt
-7. Prompt 18: Page Moat Prompt
-8. Prompt 19: Template Evaluation Rubric Prompt
-9. Prompt 20: Visibility and Conversion Alignment Prompt
+Prompt 12 remains properly scoped as a supporting analytics and measurement prompt.
 
 ---
 
-## Current Decision
+### Locked Decision
 
-Prompt 11 v1.1 is locked as the first validated supporting prompt.
+Prompt 12 v1.1 passed lightweight confirmation testing.
 
-Next recommended validation:
+The v1.1 patch successfully resolves the analytics availability issue by requiring unavailable analytics data to be disclosed clearly and replaced with a recommended measurement framework rather than fabricated performance metrics.
 
-Prompt 12: Conversion Optimization Prompt 
+Prompt 12 v1.1 is now locked as the Supporting Analytics and Measurement Master. 
