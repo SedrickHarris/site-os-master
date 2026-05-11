@@ -2,7 +2,7 @@
 
 ## Purpose
 
-This sample project is used to test the Site OS Master Core Mode workflow in a real buildable website environment.
+This sample project is used to test the Site OS Master Core Mode workflow in a real, buildable website environment.
 
 This project gives Prompt 06 v2.1 and Prompt 07 v1.1 an actual website structure to inspect, build inside, and QA.
 
@@ -23,7 +23,7 @@ CTA: Request a Free Quote
 
 ## Project Goal
 
-Create a small buildable website project that allows Prompt 06 to inspect real framework files, routes, components, styling, metadata, schema, forms, and validation scripts.
+Create a small, buildable website project that allows Prompt 06 to inspect real framework files, routes, components, styling, metadata, schema, forms, and validation scripts.
 
 The sample site should allow a complete end-to-end workflow:
 
@@ -35,7 +35,7 @@ The sample site should allow a complete end-to-end workflow:
 
 ## Recommended Stack
 
-- Next.js
+- Next.js 14
 - App Router
 - TypeScript
 - Tailwind CSS
@@ -43,6 +43,16 @@ The sample site should allow a complete end-to-end workflow:
 - Simple quote request form placeholder
 - JSON-LD schema support
 - Sitemap and robots.txt support
+
+## Brand Direction
+
+Use Pit Stop Junk Removal brand direction:
+
+- Red: `#B82429`
+- Dark red: `#8E1A1E`
+- Black: `#111111`
+- White: `#FFFFFF`
+- Checkered racing flag inspiration as a CSS-only accent, with no image or logo dependency required.
 
 ## Required Sample Site Features
 
@@ -63,20 +73,29 @@ The sample project should eventually include:
 - Build scripts
 - Lint or validation scripts where practical
 
-## Benchmark Service Page Target
+## Recommended Project Structure
 
-The first page to build and test is:
-
-Furniture and Appliance Removal in Las Vegas, NV
-
-Target route:
-
-/services/furniture-appliance-removal-las-vegas
-
-Primary CTA:
-
-Request a Free Quote
-
-## Status
-
-Pending project scaffold.
+```text
+pit-stop-junk-removal-site/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── globals.css
+│   ├── robots.ts
+│   ├── sitemap.ts
+│   └── services/
+│       └── page.tsx
+│           ⚠️ /services/furniture-appliance-removal-las-vegas ← NOT CREATED YET
+├── components/
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── CTASection.tsx
+│   ├── QuoteForm.tsx
+│   ├── FAQSection.tsx
+│   └── JsonLd.tsx
+├── package.json
+├── next.config.mjs
+├── tsconfig.json
+├── tailwind.config.ts
+├── postcss.config.mjs
+└── .eslintrc.json
