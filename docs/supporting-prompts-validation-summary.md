@@ -138,3 +138,45 @@ The confirmation pass verified that Prompt 15 does not replace:
 - Prompt 14 Page Template Evaluation
 
 Prompt 15 v1.1 is now locked as the Supporting Page Variant Battle Master.
+
+## Prompt 16 v1.1: Search Intent Defense Prompt
+
+File: prompts/16-search-intent-defense-prompt.md  
+Status: LOCKED  
+Role: Supporting Search Intent Defense Master  
+Validation Result: PASS  
+Validation Type: Initial validation pass + lightweight confirmation test  
+Initial Score: 74 / 100  
+Confirmation Score: 100 / 100  
+
+Prompt 16 v1.1 is locked as the Supporting Search Intent Defense Master for the Site OS Master prompt system.
+
+Prompt 16 supports search intent validation, page strategy defense, SERP expectation review, AEO and LLM alignment review, local intent review, above-the-fold intent review, conversion intent review, CTA readiness evaluation, mismatch risk detection, and pre-outline page strategy validation.
+
+Prompt 16 v1 initially received a patch decision. The required patches were:
+
+- Add canonical identity header
+- Add expanded Page Details input block
+- Add Execution Depth selector
+- Add Routing Rule section
+- Add workflow position declaration
+- Add Fabrication Prevention Rule
+- Add Required Search Intent Rules section
+- Add Carry-Forward Items section
+- Add Required Output Format section
+
+Prompt 16 v1.1 passed lightweight confirmation testing with a confirmation score of 100 / 100.
+
+The confirmation pass verified that Prompt 16 does not replace:
+
+- Prompt 04 Gap Fix
+- Prompt 06 Claude Code Build
+- Prompt 07 QA Review
+- Prompt 08 Production Fix and TODO Resolution
+- Prompt 11 SERP Competitive Analysis
+- Prompt 12 Analytics and Measurement
+- Prompt 13 Content Quality Editor
+- Prompt 14 Page Template Evaluation
+- Prompt 15 Page Variant Battle
+
+Prompt 16 v1.1 is now locked as the Supporting Search Intent Defense Master. 
