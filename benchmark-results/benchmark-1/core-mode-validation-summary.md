@@ -1,3 +1,29 @@
+## Upstream Prompt Validation
+
+Prompts 01 through 05 v2 were validated as a connected upstream workflow using Benchmark 1.
+
+Validated sequence:
+
+1. Prompt 01 v2: Keyword Strategy
+2. Prompt 02 v2: Page Outline
+3. Prompt 03 v2: Ten-Metric Analysis
+4. Prompt 04 v2: Gap Fix
+5. Prompt 05 v2: Developer Build Brief
+
+Validation Result: PASS  
+Score: 96 / 100  
+
+The upstream workflow correctly:
+
+- Performed each prompt’s core task
+- Continued planning with flagged items when enough core context existed
+- Flagged unresolved client data
+- Carried unresolved items forward into the next prompt
+- Avoided inventing phone numbers, addresses, hours, form endpoints, production domains, pricing, reviews, ratings, licenses, certifications, insurance, or availability claims
+- Produced a clean Prompt 06 handoff with safe TODOs and FLAGs
+
+The Prompt 05 output is ready to be used as a Prompt 06 input for benchmark testing and controlled development.
+
 ## Production Safety Rules Confirmed
 
 The workflow correctly flags unresolved issues without inventing data, hiding missing information, or silently approving unsafe production values.
