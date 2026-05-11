@@ -1038,3 +1038,200 @@ Gate 5 must include:
 - Whether sitemap was updated, automatically included, or flagged as TODO
 - Any internal links skipped because target routes did not exist
 - Any client-confirmation items required before launch
+
+## Prompt Revision: Prompt 06 v2.1 Master Template Patch
+
+## Depth Control Requirement
+
+Every Prompt 06 Claude Code build prompt must support a depth setting.
+
+Use one of the following:
+
+[DEPTH: compact]
+Use for simple page additions on mature projects with known routing, known form handlers, and reusable components.
+
+[DEPTH: standard]
+Use for normal service pages, location pages, landing pages, and local SEO builds.
+
+[DEPTH: deep]
+Use for high-value pages, unfamiliar frameworks, first-time builds, schema-heavy pages, multi-location pages, or pages with complex conversion paths.
+
+## Depth Behavior
+
+Compact depth:
+- Keep Gate 1 inspection focused on framework, routing, metadata, form, schema, route conflict, and sitemap.
+- Keep Gate 2 plan short.
+- Use abbreviated validation checklist.
+- Do not remove hard stops.
+
+Standard depth:
+- Use the full 5-gate workflow.
+- Use normal inspection, plan, build, validate, and report requirements.
+
+Deep depth:
+- Use full inspection.
+- Include deeper schema, internal linking, accessibility, performance, and conversion checks.
+- Include more detailed file scope review.
+- Include extra caution around global files, routing, sitemap, schema, and forms.
+
+Hard stops apply at every depth.
+
+## Unknown Framework Halt Rule
+
+If Claude Code cannot identify the framework, routing pattern, metadata method, schema method, build command, or page file location, it must stop and ask for guidance.
+
+Do not guess.
+
+Do not create files until the framework and route convention are confirmed.
+
+Required Gate 1 language:
+
+"If the framework, routing pattern, or metadata pattern is unclear, stop after Gate 1 and ask for confirmation before proceeding to Gate 2."
+
+## Existing Pattern Fallback Rule
+
+If no existing service page exists, Claude Code must inspect the closest matching page type.
+
+Acceptable fallback pages:
+
+- Homepage
+- About page
+- Contact page
+- Location page
+- Blog post
+- Landing page
+- Category page
+
+Claude Code must report which fallback pattern it is using and why.
+
+## AggregateRating Master Rule
+
+AggregateRating schema is always conditional.
+
+Only include AggregateRating when all of the following are true:
+
+- Real rating value is provided
+- Real review count is provided
+- Review source is verified
+- The rating or reviews are visible on the page or clearly tied to a verified business profile
+- The values are client-confirmed
+
+If any of these are missing, omit AggregateRating entirely.
+
+Do not add placeholder AggregateRating values.
+
+Do not estimate ratings.
+
+Do not invent review counts.
+
+Do not use fake review schema.
+
+Required report line:
+
+"AggregateRating status: included with verified data / omitted because verified data was not provided."
+
+## Page-Specific Validation Placeholder Rule
+
+Gate 4 validation checklists must use page-specific placeholders when generating reusable prompts.
+
+Use placeholders such as:
+
+- [PAGE ROUTE]
+- [PAGE H1]
+- [META TITLE]
+- [META DESCRIPTION]
+- [NUMBER OF SECTIONS]
+- [NUMBER OF FAQS]
+- [PRIMARY CTA]
+- [SECONDARY CTA]
+- [SCHEMA TYPES]
+- [INTERNAL LINK TARGETS]
+- [FORM FIELDS]
+- [SERVICE AREA]
+- [CLIENT CONFIRMATION ITEMS]
+
+When generating a final Claude Code prompt for a specific benchmark or client page, replace placeholders with approved values from the developer build brief.
+
+Do not hardcode Benchmark 1 values into the reusable template.
+
+## HowTo Schema Audit Requirement
+
+If HowTo schema is recommended or conditionally included, Gate 4 must include a validation line.
+
+Required validation line:
+
+- [ ] HowTo schema is either omitted or matches visible process step headings and step descriptions exactly.
+
+Gate 5 must report:
+
+"HowTo schema status: included / omitted / skipped because visible steps did not qualify."
+
+## Navigation Scope Outcome Rule
+
+If navigation update is included in Gate 2 scope:
+
+- Add only the approved single navigation link.
+- Do not restructure navigation.
+- Do not reorder links.
+- Do not change styling.
+- Do not modify unrelated header or footer behavior.
+
+If navigation update is not included in Gate 2 scope:
+
+- Do not modify navigation.
+- Report navigation update as a recommended follow-up in Gate 5.
+
+Required Gate 5 line:
+
+"Navigation update status: completed / skipped because out of scope / recommended as follow-up."
+
+## Robots.txt Check
+
+Gate 1 must check whether the project has a robots.txt file or robots configuration.
+
+Gate 4 must confirm:
+
+- The new route is not blocked by robots.txt or robots meta rules.
+- The page is not noindexed unless intentionally specified.
+
+Required validation line:
+
+- [ ] New route is not blocked by robots.txt or robots meta directives.
+
+## Form Field Source Rule
+
+Form fields must come from the approved brief or an existing reusable form pattern.
+
+If the approved brief does not specify form fields, Claude Code must stop and ask for confirmation before building the form.
+
+Do not invent lead capture fields.
+
+Required Gate 2 line:
+
+"Form fields source: approved brief / existing component pattern / missing and requires confirmation."
+
+## Final v2.1 Quality Gate
+
+Before returning a final Claude Code prompt, confirm that it includes:
+
+- Depth setting
+- Gate 1 hard stop
+- Gate 2 hard stop
+- Framework detection
+- Unknown-framework halt rule
+- Route conflict check
+- File scope declaration
+- Form endpoint confirmation
+- Form field source confirmation
+- Internal link verification
+- LocalBusiness field protection
+- AggregateRating conditional rule
+- FAQ/schema visible-text match rule
+- HowTo audit line
+- Sitemap handling
+- robots.txt check
+- Navigation scope outcome rule
+- Gate 4 validation checklist
+- Gate 5 final report format
+
+If any item is missing, revise the prompt before returning it.
