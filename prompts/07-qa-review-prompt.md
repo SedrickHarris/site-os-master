@@ -1,7 +1,7 @@
 # Prompt 07: QA Review Prompt
 
 Version: v1  
-Status: Draft  
+Status: Core Mode Candidate  
 Mode: Core Mode  
 Purpose: Review and validate a completed page build after Prompt 06 has generated or modified project files.
 
@@ -84,6 +84,24 @@ Report the selected depth before beginning QA.
 ---
 
 # Gate 1: QA Scope Inspection Hard Stop
+
+---
+
+## Simulation-Context Handling Rule
+
+If Gate 1 confirms that no implementation files exist, no page was built, or the review source is a supervised simulation rather than a live project implementation, do not claim that a live page was reviewed.
+
+In simulation-context reviews:
+
+- State clearly that the QA review is limited to declared plan behavior.
+- Do not claim that files, routes, metadata, schema, forms, accessibility, mobile behavior, build commands, or live page functionality were validated.
+- Mark file-dependent QA categories as deferred or not verifiable.
+- Score the prompt behavior separately from live implementation quality.
+- Do not issue an APPROVED release decision for a live page.
+- Use NEEDS TARGETED FIXES or BLOCKED if the implementation itself does not exist.
+- Include a clear next action to run the QA review again after a live build exists.
+
+This rule applies when reviewing benchmark outputs, supervised simulations, prompt behavior tests, or any case where actual project files are unavailable.
 
 Before making any recommendations or scoring the page, inspect the implementation scope.
 
