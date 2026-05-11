@@ -1,222 +1,101 @@
-# Beyond Elite Developer Build Brief Prompt
+# Prompt 05: Developer Build Brief
 
-You are acting as a senior technical SEO strategist, conversion-focused content architect, Claude Code implementation planner, and website QA lead.
+**Version:** v2.0
+**Status:** Updated — Unresolved Issue Flagging Language Added
+**Mode:** All modes
+**Approved For:** Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan, flagged client data carry-forward to Prompt 06
 
-Your job is to convert the approved page strategy into a concise, build-ready developer brief for Claude Code.
+---
 
-This brief should contain only what Claude Code needs to inspect, plan, build, validate, and report without losing the strategic requirements.
+## Purpose
 
-## Input
+Prompt 05 converts the approved strategy, keyword plan, page outline, ten-metric analysis, and gap fixes into a developer-ready build brief.
 
-Use the approved:
+Missing client data does not stop this prompt.
 
-- Page brief
-- Keyword intelligence map
-- Final page strategy blueprint
-- Gap-fixed page structure
-- Metadata plan
-- AEO FAQ plan
-- Internal linking plan
-- Schema plan
-- Conversion plan
-- Image requirements
-- QA expectations
+**Core principle:** Unresolved client data does not stop the developer build brief when enough strategy, page, service, location, and CTA context exists. Create the build brief using confirmed information. Flag missing values clearly. Carry unresolved items forward to Prompt 06. Do not invent missing data.
 
-## Objective
+---
 
-Create a developer build brief that is clear, structured, implementation-ready, and safe for Claude Code.
+## Execution Depth
 
-## Part 1: Page Build Summary
+Before starting, select one:
 
-Include:
+- **Compact** — Simple pages, fast builds, low competition
+- **Standard** — Normal service, location, category, blog, or landing pages
+- **Deep** — High-value, revenue-critical, competitive, or final QA build briefs
 
-- Page name
-- Page type
-- Business name
-- Website name
-- Route / URL slug
-- Page goal
-- Target audience
-- Search intent
-- Primary CTA
-- Secondary CTA
-- Conversion path summary
+Use the lowest depth that produces a complete and useful build brief.
 
-## Part 2: Required Page Sections
+---
 
-Create a section table with:
+## Source Context Required
 
-- Section number
-- Section name
-- Section purpose
-- Content requirements
-- CTA or link needs
-- Trust signal needs
-- Design/layout notes
-- Claude Code notes
+Review all available upstream outputs before building the brief.
 
-## Part 3: SEO Requirements
+Check for and use:
 
-Include:
+- Prompt 10 Client Data Collection output (if available)
+- Prompt 01 Keyword Strategy output
+- Prompt 02 Page Outline output
+- Prompt 03 Ten-Metric Analysis output (if run)
+- Prompt 04 Gap Fix output (if run)
+- Any additional confirmed client-supplied data
 
-- Meta title
-- Meta description
-- Primary keyword
-- Secondary keywords
-- H1
-- Required H2s
-- Recommended H3s
-- URL slug
-- Internal links
-- Image alt text requirements
-- Indexing notes
+If a prompt was skipped in the workflow, note it and proceed with available context.
 
-## Part 4: AEO and Voice Search Requirements
+---
 
-Include:
+## What Prompt 05 Must Not Invent
 
-- Quick answer section requirements
-- Direct-answer statements to include
-- FAQ questions
-- FAQ answer style
-- Voice search phrasing
-- Featured snippet opportunities
-- AI/LLM citation notes
+Prompt 05 must not invent or treat as confirmed:
 
-## Part 5: GEO and Local SEO Requirements
+- Phone number
+- Address
+- ZIP code
+- Business hours
+- Service areas
+- Pricing
+- Guarantees
+- Reviews
+- Ratings
+- Reviewer names
+- Licenses
+- Certifications
+- Insurance
+- Awards
+- Years in business
+- Emergency availability
+- Same-day availability
+- Form endpoint
+- Production domain
+- Google Business Profile details
+- Testimonials
+- Case studies
+- Before/after results
+- Financing options
+- Warranty details
+- Legal policy URLs
+- Analytics IDs
+- Tracking IDs
 
-If the page is local or location-based, include:
+If any of these items would improve the build brief but are not confirmed, flag them using one of these labels:
 
-- Target location
-- Nearby areas
-- Local relevance points
-- Local user problems
-- Local trust signals
-- Natural location keyword usage notes
-- Duplicate location page prevention notes
+- `FLAGGED`
+- `NEEDS CONFIRMATION`
+- `UNRESOLVED`
+- `CARRY FORWARD`
+- `REQUIRES CLIENT CONFIRMATION`
+- `SAFE TODO FOR PROMPT 06`
+- `NOT READY FOR PRODUCTION APPROVAL`
 
-If not local, state that GEO requirements are not applicable.
+Do not use `BLOCKED` or `cannot proceed` unless there is genuinely not enough core context to produce any useful developer build brief.
 
-## Part 6: Schema Requirements
+---
 
-Include:
+## Visibility and Conversion Requirements
 
-- Recommended schema types
-- Required fields
-- Optional enhancements
-- Existing schema pattern to inspect
-- Schema risks to avoid
-- Notes for implementation
-
-Do not invent fake reviews, ratings, prices, or credentials.
-
-## Part 7: Internal Linking Requirements
-
-Include:
-
-- Pages this page should link to
-- Pages that should link back to this page
-- Suggested anchor text
-- User journey purpose
-- Topical authority purpose
-
-## Part 8: Image and Media Requirements
-
-Include:
-
-- Recommended image types
-- Suggested image folder path
-- File naming guidance
-- Alt text guidance
-- No text inside images
-- Page speed considerations
-- Mobile image considerations
-
-## Part 9: Accessibility and Responsive Requirements
-
-Include:
-
-- Semantic structure notes
-- Heading hierarchy notes
-- Button/link clarity
-- Contrast considerations
-- Mobile layout expectations
-- Form or CTA accessibility notes
-
-## Part 10: Files and Implementation Guidance
-
-Provide:
-
-- Files likely to inspect
-- Files likely to create
-- Files likely to update
-- Components likely to reuse
-- Components likely to create
-- Metadata implementation notes
-- Schema implementation notes
-- Styling approach
-- Risks or unknowns Claude Code should inspect before editing
-
-## Part 11: Do Not Change List
-
-Include guardrails:
-
-- Do not remove working code
-- Do not create duplicate routes
-- Do not change global styles unless necessary
-- Do not add fake reviews or unsupported claims
-- Do not add unnecessary dependencies
-- Do not rename files without reason
-- Do not modify unrelated pages
-- Do not use text inside images
-- Do not keyword stuff
-
-## Part 12: Acceptance Criteria
-
-The page is complete only if:
-
-- Route is correct
-- Page follows approved section structure
-- Metadata is included
-- One H1 exists
-- Heading hierarchy is logical
-- Internal links are included
-- CTA path is clear
-- AEO FAQ section is included if required
-- Schema is included or prepared if required
-- Local relevance is included if applicable
-- Images have alt text
-- Page follows existing design patterns
-- Mobile responsiveness is considered
-- No unrelated files were modified
-- No duplicate route was created
-
-## Part 13: Final Claude Code Ready Prompt
-
-End with a concise prompt that can be copied directly into Claude Code.
-
-The prompt should instruct Claude Code to:
-
-1. Inspect the project
-2. Identify existing patterns
-3. Create an implementation plan
-4. Build the page
-5. Validate the page
-6. Report changes
-
-Keep this final prompt clean and implementation-focused.
-
-Do not include unnecessary strategy discussion.
-
-The goal is to give Claude Code a precise build brief, not a long brainstorming document.
-
-## Full Visibility and Conversion Build Requirements
-
-The developer build brief must include implementation notes for applicable visibility and conversion goals.
-
-Include a section titled:
-
-### Visibility and Conversion Requirements
+The developer build brief must include implementation notes for all applicable visibility and conversion goals.
 
 For each applicable goal, provide:
 
@@ -229,7 +108,7 @@ For each applicable goal, provide:
 - Claude Code implementation note
 - QA check
 
-Evaluate:
+Evaluate the following for this page:
 
 1. SEO
 2. GEO
@@ -252,4 +131,435 @@ Evaluate:
 19. Competitive outperformance
 20. Indexing and crawlability
 
-The brief should not move to Claude Code unless the highest priority visibility and conversion requirements are clear.
+---
+
+## Build Brief Sections
+
+### Part 1: Target Page Overview
+
+Provide:
+
+- Business name and context
+- Page type (service page, location page, landing page, blog post, category page, etc.)
+- Target service
+- Target location or service area
+- Page goal
+- Primary CTA
+- Secondary CTA
+- Target route
+- URL slug
+
+### Part 2: Required Page Sections
+
+For each required section, provide:
+
+- Section number
+- Section name
+- Required heading (H1, H2, H3 as applicable)
+- Content purpose
+- CTA role
+- SEO / AEO / GEO role
+- Component recommendation
+- Required confirmation, if any
+
+### Part 3: Content Requirements
+
+Include:
+
+- Tone and voice guidance
+- Required keyword inclusions (primary, secondary, local, AEO)
+- AEO FAQ content requirements
+- Local relevance requirements
+- Proof point requirements (testimonials, certifications, guarantees — flag if unconfirmed)
+- Content safety rules (no invented claims, no unconfirmed availability, no unsupported guarantees)
+
+### Part 4: Component Requirements
+
+Include:
+
+- Components to reuse from the existing project
+- New components to create
+- Component naming guidance
+- Component scope boundaries
+- Notes on existing pattern inspection before creating new components
+
+### Part 5: Metadata Requirements
+
+Include:
+
+- Title tag
+- Meta description
+- Open Graph title
+- Open Graph description
+- Open Graph image guidance
+- Canonical URL (flag if production domain is unconfirmed)
+- robots directive
+- hreflang if applicable
+
+### Part 6: Schema Requirements
+
+Include:
+
+- Recommended schema types
+- Required fields
+- Optional enhancement fields
+- Existing schema pattern to inspect
+- Schema risks to avoid
+
+#### Allowed Schema
+
+List schema types that may be implemented with confirmed data.
+
+#### Schema Fields Confirmed
+
+List fields that are confirmed and safe to implement.
+
+#### Schema Fields Needing Confirmation
+
+For each unconfirmed field, use: `REQUIRES CLIENT CONFIRMATION`
+
+#### Schema Types Not Allowed Without Verified Data
+
+- AggregateRating — Do not implement without verified review count and rating.
+- Review — Do not implement without verified reviewer name, rating, and review text.
+- PriceRange — Do not implement without verified pricing.
+- GeoCoordinates — Do not implement without verified address.
+- OpeningHoursSpecification — Do not implement without verified business hours.
+
+Do not invent fake reviews, ratings, prices, or credentials.
+
+### Part 7: Form and CTA Requirements
+
+Include:
+
+- Confirmed form fields
+- Unconfirmed form details (flag with `REQUIRES CLIENT CONFIRMATION`)
+- CTA button text
+- CTA placement per section
+- Form action endpoint status (flag if unconfirmed: `SAFE TODO FOR PROMPT 06`)
+- Lead capture path confirmation
+
+### Part 8: Internal Link Requirements
+
+Include:
+
+- Pages this page should link to
+- Pages that should link back to this page
+- Suggested anchor text
+- User journey purpose
+- Topical authority purpose
+
+### Part 9: Image and Media Requirements
+
+Include:
+
+- Recommended image types
+- Suggested image folder path
+- File naming guidance
+- Alt text guidance
+- No text inside images rule
+- Page speed considerations
+- Mobile image considerations
+
+### Part 10: Accessibility and Responsive Requirements
+
+Include:
+
+- Semantic structure notes
+- Heading hierarchy notes
+- Button and link clarity
+- Contrast considerations
+- Mobile layout expectations
+- Form and CTA accessibility notes
+
+### Part 11: Navigation, Sitemap, and robots.txt Scope
+
+Include:
+
+- Whether navigation should be updated
+- Whether sitemap should be updated
+- Whether robots.txt should be updated
+- Scope boundaries — what Prompt 06 may and may not change in these files
+
+### Part 12: Files and Implementation Guidance
+
+Provide:
+
+- Files likely to inspect
+- Files likely to create
+- Files likely to update
+- Components likely to reuse
+- Components likely to create
+- Metadata implementation notes
+- Schema implementation notes
+- Styling approach
+- Risks or unknowns Claude Code should inspect before editing
+
+### Part 13: Files or Areas Prompt 06 May Edit
+
+List explicitly what Prompt 06 is permitted to modify.
+
+### Part 14: Files or Areas Prompt 06 Should Not Edit
+
+List explicitly what Prompt 06 must not modify.
+
+Include guardrails:
+
+- Do not remove working code
+- Do not create duplicate routes
+- Do not change global styles unless required by the build brief
+- Do not add fake reviews or unsupported claims
+- Do not add unnecessary dependencies
+- Do not rename files without reason
+- Do not modify unrelated pages
+- Do not use text inside images
+- Do not keyword stuff
+
+### Part 15: Validation Requirements for Prompt 06
+
+Include:
+
+- Required validation commands (e.g., `npm run build`, `npm run lint`, `npm run type-check`)
+- Validation pass criteria
+- Validation reporting requirements
+- Rule: Claude Code must not claim validation passed unless commands actually ran and passed
+
+### Part 16: Flagged Unresolved Data
+
+For each flagged item, provide:
+
+- Item
+- Why it matters
+- Status
+- Required confirmation
+- Carry-forward destination
+- Suggested safe TODO or FLAG for Prompt 06
+
+### Part 17: Items to Carry Forward to Prompt 06
+
+List all unresolved items that Prompt 06 must receive, document, and handle using safe TODOs or FLAG placeholders.
+
+### Part 18: Prompt 06 Handoff Instructions
+
+Include this language:
+
+> Prompt 06 may proceed with controlled development using safe TODO or FLAG placeholders only where unresolved client data is not required for structural implementation.
+>
+> Prompt 06 must not invent unresolved client data.
+>
+> Prompt 06 must carry unresolved launch-critical items into its implementation report.
+
+### Part 19: Acceptance Criteria
+
+The page build by Prompt 06 is complete only if:
+
+- Route is correct
+- Page follows approved section structure
+- Metadata is included
+- One H1 exists
+- Heading hierarchy is logical
+- Internal links are included
+- CTA path is clear
+- AEO FAQ section is included if required
+- Schema is included or prepared if required
+- Local relevance is included if applicable
+- Images have alt text
+- Page follows existing design patterns
+- Mobile responsiveness is considered
+- No unrelated files were modified
+- No duplicate route was created
+- All unresolved items are flagged as safe TODOs or FLAG placeholders — not invented
+
+### Part 20: Final Claude Code Ready Prompt
+
+End with a concise prompt that can be copied directly into Claude Code.
+
+The prompt must instruct Claude Code to:
+
+1. Inspect the project
+2. Identify existing patterns
+3. Create an implementation plan (Gate 2)
+4. Build the page using confirmed data only
+5. Flag unresolved items as safe TODOs or FLAG placeholders
+6. Validate the page
+7. Report all changes and carry-forward items
+
+Keep this prompt clean and implementation-focused. Do not include unnecessary strategy discussion.
+
+---
+
+## Completion Rule
+
+Do not mark the build brief as production-ready if launch-critical or claim-sensitive data is missing.
+
+The build brief may still be marked **READY FOR PROMPT 06 WITH FLAGGED ITEMS** when:
+
+- Enough core context exists to produce a useful developer build brief
+- All unresolved items are flagged
+- Prompt 06 is instructed to use safe TODOs or FLAGs instead of inventing data
+
+---
+
+## Safety Rules
+
+1. Do not add fake ratings, fake review counts, fake testimonials, fake certifications, fake licenses, fake pricing, fake service areas, fake guarantees, fake availability claims, fake form endpoints, fake production domains, or fake legal policy URLs.
+
+2. If those items would improve the build but are not verified, list them as opportunities that require client confirmation.
+
+3. Do not use `BLOCKED` or `cannot proceed` unless there is genuinely not enough core context to produce any useful developer build brief.
+
+4. Do not invent or assume any business claim not confirmed by the client.
+
+5. Do not mark the build brief as production-ready if launch-critical or claim-sensitive data is missing.
+
+---
+
+## Required Output Format
+
+Return this complete report:
+
+---
+
+# Prompt 05 Developer Build Brief
+
+## 1. Execution Depth
+
+Selected depth:
+
+## 2. Source Context Review
+
+### Sources Reviewed
+
+### Prompt 01 Keyword Strategy Reviewed
+
+### Prompt 02 Page Outline Reviewed
+
+### Prompt 03 Ten-Metric Analysis Reviewed
+
+### Prompt 04 Gap Fix Reviewed
+
+### Missing Context
+
+## 3. Confirmed Inputs
+
+## 4. Missing or Unconfirmed Inputs
+
+## 5. Build Brief Summary
+
+## 6. Target Page Details
+
+### Business
+
+### Page Type
+
+### Service
+
+### Location
+
+### Goal
+
+### Primary CTA
+
+### Secondary CTA
+
+### Target Route
+
+### URL Slug
+
+## 7. Required Page Sections
+
+For each section:
+
+- Section number:
+- Section name:
+- Required heading:
+- Content purpose:
+- CTA role:
+- SEO/AEO/GEO role:
+- Component recommendation:
+- Required confirmation, if any:
+
+## 8. Content Requirements
+
+## 9. Component Requirements
+
+## 10. Metadata Requirements
+
+## 11. Schema Requirements
+
+### Allowed Schema
+
+### Schema Fields Confirmed
+
+### Schema Fields Needing Confirmation
+
+### Schema Types Not Allowed Without Verified Data
+
+## 12. Form and CTA Requirements
+
+### Confirmed Form Fields
+
+### Unconfirmed Form Details
+
+### CTA Requirements
+
+### Safe TODOs for Prompt 06
+
+## 13. Internal Link Requirements
+
+## 14. Image and Alt Text Requirements
+
+## 15. Accessibility and Mobile Requirements
+
+## 16. Navigation, Sitemap, and robots.txt Scope
+
+## 17. Visibility and Conversion Requirements
+
+## 18. Files or Areas Prompt 06 May Edit
+
+## 19. Files or Areas Prompt 06 Should Not Edit
+
+## 20. Validation Requirements for Prompt 06
+
+## 21. Build Risks and Constraints
+
+## 22. Flagged Unresolved Data
+
+For each flagged item:
+
+- Item:
+- Why it matters:
+- Status:
+- Required confirmation:
+- Carry-forward destination:
+- Suggested safe TODO or FLAG:
+
+## 23. Items to Carry Forward to Prompt 06
+
+## 24. Prompt 06 Handoff Instructions
+
+> Prompt 06 may proceed with controlled development using safe TODO or FLAG placeholders only where unresolved client data is not required for structural implementation.
+>
+> Prompt 06 must not invent unresolved client data.
+>
+> Prompt 06 must carry unresolved launch-critical items into its implementation report.
+
+## 25. Acceptance Criteria
+
+## 26. Recommended Next Action
+
+Choose one:
+
+- READY FOR PROMPT 06
+- READY FOR PROMPT 06 WITH FLAGGED ITEMS
+- NEEDS MORE CORE CONTEXT BEFORE PROMPT 06
+
+## 27. Final Claude Code Ready Prompt
+
+---
+
+## Version
+
+Prompt 05 v2.0
+Updated to include: unresolved issue flagging language, safety rules, structured carry-forward behavior, Prompt 06 handoff instructions, visibility and conversion requirements section, schema safety fields, form endpoint safety rule, and complete structured output format.
+Next Prompt: Prompt 06 — Claude Code Build 
