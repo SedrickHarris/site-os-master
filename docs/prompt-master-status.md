@@ -226,3 +226,54 @@ Prompt 18 v1 initially received a patch decision and an initial score of 72 / 10
 Prompt 18 was patched to v1.1 and passed lightweight confirmation testing.
 
 Prompt 18 v1.1 is locked as the Supporting Page Moat Master. 
+
+## Prompt 19: Template Eval Rubric Prompt
+
+File: prompts/19-template-eval-rubric-prompt.md  
+Version: v1.2  
+Status: LOCKED  
+Role: Supporting Template Eval Rubric Master  
+Validation: PASS  
+Confirmation: Lightweight v1.2 confirmation PASS  
+
+### Summary
+
+Prompt 19 v1.2 is locked as the Supporting Template Eval Rubric Master for the Site OS Master prompt system.
+
+Prompt 19 supports Site OS prompt evaluation, workflow file evaluation, checklist evaluation, rubric evaluation, reusable template evaluation, benchmark output review, version comparison, scoring consistency review, lock-readiness review, system-standard compliance review, and PASS/PATCH/FAIL decision support.
+
+Prompt 19 is distinct from Prompt 14. Prompt 14 evaluates reusable page templates. Prompt 19 evaluates Site OS system assets such as prompt files, workflow files, evaluation rubrics, checklists, validation outputs, and benchmark results.
+
+### v1.2 Patch Notes
+
+Prompt 19 v1.2 includes the required Site OS supporting prompt standards:
+
+- Canonical identity header
+- Expanded Item to Evaluate input block
+- NEEDS FILE CONTENTS instruction
+- Execution Depth selector
+- Routing Rule section
+- Prompt 19 vs Prompt 14 distinction
+- Required Rules — Do Not Invent section
+- Conditional scoring logic
+- Scorecard table format
+- PASS/PATCH/FAIL decision structure
+- Carry-Forward Items section
+- Required Output Format section
+- Reinforced fabrication prevention
+
+The NEEDS FILE CONTENTS instruction prevents evaluation from proceeding when only a file name or path is provided without the actual item text.
+
+The conditional scoring logic separates System-Standard Dimensions from Page-Strategy Dimensions so non-page assets are not incorrectly scored against SEO, GEO, AEO, or conversion criteria.
+
+The PASS/PATCH/FAIL decision structure aligns Prompt 19 with the Site OS validation standard used across the supporting prompt system.
+
+### Locked Decision
+
+Prompt 19 v1 initially received a patch decision and an initial score of 63 / 100.
+
+Prompt 19 was patched to v1.1, received a conditional pass with minor patch required, then was patched to v1.2.
+
+Prompt 19 v1.2 passed lightweight confirmation testing.
+
+Prompt 19 v1.2 is locked as the Supporting Template Eval Rubric Master.
