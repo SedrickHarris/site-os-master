@@ -1,9 +1,35 @@
 # Prompt 11: SERP Competitive Analysis Prompt
 
-Version: v1  
-Status: Draft  
+Version: v1.1  
+Status: Supporting Prompt Candidate  
 Mode: Supporting Prompt  
 Purpose: Analyze search competitors, SERP patterns, content gaps, local SEO signals, AEO opportunities, schema opportunities, and search dominance gaps before or after the core page strategy workflow.
+
+---
+
+## Prompt Identity and Routing Rule
+
+This prompt is the active SERP Competitive Analysis prompt.
+
+Canonical prompt name:
+
+Prompt 11: SERP Competitive Analysis Prompt
+
+Canonical file path:
+
+prompts/11-serp-competitive-analysis-prompt.md
+
+Do not refer to this prompt as Prompt 08.
+
+Prompt 08 is reserved for:
+
+Prompt 08: Production Fix and TODO Resolution Prompt
+
+If older repository files, task maps, benchmark notes, or prior documentation reference:
+
+prompts/08-serp-competitive-analysis-prompt.md
+
+treat that as legacy naming and update references to Prompt 11.
 
 ---
 
@@ -79,7 +105,17 @@ You may receive:
 
 Use only the sources provided or verified.
 
-If live search is available and requested, use live search. If live search is not available, clearly state that the analysis is based only on provided source material.
+If live search is available and requested, use live search.
+
+If live search is not available, clearly state that the analysis is based only on provided source material.
+
+If competitor URLs or live SERP data are not provided, continue with a strategy-based competitive analysis when enough keyword, service, location, or page context exists.
+
+Mark all competitor-specific findings as:
+
+- NOT VERIFIED
+- PARTIALLY VERIFIED
+- REQUIRES LIVE SERP REVIEW
 
 ---
 
@@ -117,10 +153,13 @@ Identify:
 - People Also Ask data provided
 - Missing SERP data
 - Missing competitor data
+- Whether live SERP review is required for final confidence
 
 If no competitor or SERP data is available, continue with a strategy-based competitive analysis using the known keyword and page context, but label all competitor findings as NOT VERIFIED.
 
 Do not invent live ranking positions.
+
+Gate 1 is complete when the available source material and missing SERP data are clearly documented.
 
 ---
 
@@ -139,8 +178,12 @@ The plan must identify:
 - Trust signals to evaluate
 - Conversion paths to evaluate
 - Missing data that affects confidence
+- What requires live SERP review
+- What can be analyzed from available context
 
 If required live SERP data is unavailable, flag it and continue with available sources.
+
+Gate 2 is complete when the analysis plan separates verified inputs, strategy-based assumptions, and items requiring live SERP review.
 
 ---
 
@@ -179,6 +222,7 @@ unless there is not enough source context to perform any useful competitive anal
 
 Do not invent or treat as confirmed:
 
+- Competitor names
 - Competitor ranking positions
 - Search volume
 - Keyword difficulty
@@ -198,6 +242,29 @@ Do not invent or treat as confirmed:
 - Client service areas
 
 If these would improve analysis but are not verified, flag them as needing confirmation or live review.
+
+---
+
+## SERP Analysis Score Guidance
+
+If live SERP data or competitor URLs are unavailable, do not penalize the prompt for missing competitor-specific facts as long as all unverified findings are clearly labeled.
+
+Score the analysis based on:
+
+- Source and SERP scope clarity
+- No-invention behavior
+- Competitive pattern analysis
+- Content gap usefulness
+- AEO and People Also Ask opportunity quality
+- Local/GEO opportunity quality
+- Schema opportunity quality
+- Trust and conversion opportunity quality
+- Carry-forward clarity
+- Next action clarity
+
+If live SERP data is unavailable, state that the score reflects strategy-based competitive readiness, not verified live SERP dominance.
+
+Do not claim final competitive dominance without live SERP review.
 
 ---
 
@@ -234,7 +301,15 @@ Return this report:
 
 Selected depth:
 
-## 2. Gate 1 Source and SERP Scope Review
+## 2. Prompt Identity
+
+### Canonical Prompt Name
+
+### Canonical Prompt File
+
+### Legacy Naming Notes
+
+## 3. Gate 1 Source and SERP Scope Review
 
 ### Target Business
 
@@ -256,7 +331,9 @@ Selected depth:
 
 ### Missing or Unverified SERP Data
 
-## 3. Gate 2 Competitive Analysis Plan
+### Live SERP Review Requirement
+
+## 4. Gate 2 Competitive Analysis Plan
 
 ### Keywords to Compare
 
@@ -276,37 +353,43 @@ Selected depth:
 
 ### Missing Data That Affects Confidence
 
-## 4. SERP Intent Summary
+### Items Requiring Live SERP Review
 
-## 5. Competitor Page Type Patterns
+## 5. SERP Intent Summary
 
-## 6. SERP Feature Opportunities
+## 6. Competitor Page Type Patterns
 
-## 7. People Also Ask and AEO Opportunities
+## 7. SERP Feature Opportunities
 
-## 8. Local/GEO Competitive Opportunities
+## 8. People Also Ask and AEO Opportunities
 
-## 9. Content Gap Analysis
+## 9. Local/GEO Competitive Opportunities
 
-## 10. Direct-Answer Gap Analysis
+## 10. Content Gap Analysis
 
-## 11. FAQ Gap Analysis
+## 11. Direct-Answer Gap Analysis
 
-## 12. Schema Gap Analysis
+## 12. FAQ Gap Analysis
 
-## 13. Trust Signal Gap Analysis
+## 13. Schema Gap Analysis
 
-## 14. CTA and Conversion Gap Analysis
+## 14. Trust Signal Gap Analysis
 
-## 15. Internal Linking and Topical Authority Opportunities
+## 15. CTA and Conversion Gap Analysis
 
-## 16. Search Dominance Opportunity Score
+## 16. Internal Linking and Topical Authority Opportunities
+
+## 17. Search Dominance Opportunity Score
 
 Score:
 
+Score Type: Verified live SERP score / Strategy-based readiness score
+
 Reason:
 
-## 17. Competitive Outperformance Recommendations
+Confidence level:
+
+## 18. Competitive Outperformance Recommendations
 
 Group recommendations by:
 
@@ -316,7 +399,7 @@ Group recommendations by:
 - Carry forward for client confirmation
 - Requires live SERP review
 
-## 18. Flagged Unresolved Data
+## 19. Flagged Unresolved Data
 
 For each flagged item:
 
@@ -326,7 +409,7 @@ For each flagged item:
 - Required confirmation or review:
 - Carry-forward destination:
 
-## 19. Recommended Next Action
+## 20. Recommended Next Action
 
 Choose one:
 
