@@ -201,9 +201,9 @@ Prompt 08 v1.1 is approved and locked as the Core Mode Production Fix Master.
 
 Added Unresolved Client Data Handling Rule. Missing client data defers specific fixes without stopping the entire fix session. All safe fixes proceed. Unresolved items are documented and carried forward to Prompt 09.
 
-Added Carry-Forward Items as a required report section (section 11).
+Added Carry-Forward Items as a required report section.
 
-Updated release recommendation to include CONDITIONALLY READY — structural fixes complete, carry-forward items documented, ready for Prompt 09 Final Launch QA.
+Updated production readiness language to reflect that safe fixes may be completed while unresolved launch-critical items remain flagged for final launch QA.
 
 ### Required Controls Confirmed
 
@@ -226,7 +226,7 @@ Prompt 08 v1.1 proceeds with all safe fixes. Unresolved items are documented wit
 
 ### Production Requirement
 
-READY FOR FINAL QA or CONDITIONALLY READY may only be issued after all safe fixes are complete and all remaining unresolved items are clearly documented. Production launch requires Prompt 09 approval with all carry-forward items resolved.
+READY FOR FINAL QA or a similar readiness recommendation may only be issued after all safe fixes are complete and all remaining unresolved items are clearly documented. Production launch requires Prompt 09 approval with all carry-forward items resolved, confirmed, or intentionally deferred with documented approval.
 
 ---
 
@@ -297,7 +297,152 @@ If critical client data or launch infrastructure is missing, Prompt 09 must retu
 
 ---
 
-## Prompts 10–20: Advanced Prompts
+## Prompt 10: Client Data Collection and Production Values Prompt
+
+Current Version: v1  
+Status: Core Mode Client Data Collection Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Client intake, production values, schema readiness, launch blocker prevention validation  
+Approved For: Core Mode client intake, production data collection, schema data collection, website planning data readiness, pre-build issue flagging, production values review
+
+### Lock Decision
+
+Prompt 10 v1 is approved and locked as the Core Mode Client Data Collection and Production Values Master.
+
+### Required Controls Confirmed
+
+- Execution depth selection
+- Gate 1 source review hard stop
+- Gate 2 data confirmation plan hard stop
+- Client data safety rule
+- Business identity collection
+- Contact data collection
+- Address and location data collection
+- Business hours collection
+- Services and service area collection
+- Website architecture data collection
+- CTA and conversion path collection
+- Form and lead capture collection
+- Brand and design data collection
+- SEO and keyword data collection
+- AEO, FAQ, and LLM readiness data collection
+- Schema data collection
+- Social proof and trust data collection
+- Legal and compliance data collection
+- Analytics, tracking, and indexing data collection
+- Hosting, domain, and deployment data collection
+- Client approval and review data collection
+- Minimum Viable Data Set
+- Production values summary
+- Client questions
+- Readiness recommendation
+
+### Minimum Viable Data Set
+
+Before production work proceeds, Prompt 10 should collect or flag:
+
+- Business phone number
+- Business address or approved service-area-only status
+- ZIP code
+- Business hours
+- Production domain
+- Form endpoint or confirmed lead capture path
+- Privacy policy URL or requirement to create one
+- Service list confirmation
+- Service area confirmation
+- Primary CTA confirmation
+
+### Carry-Forward Behavior
+
+Prompt 10 identifies confirmed values, missing values, values needing client confirmation, values that should not be used until verified, launch-critical flagged items, and recommended next actions.
+
+Prompt 10 does not invent missing production data. It may allow planning, benchmark testing, and controlled development to continue when flagged issues are documented.
+
+### Production Requirement
+
+Prompt 10 must not mark a client data package production-ready unless the minimum viable data set and launch-critical fields are resolved, confirmed, or intentionally deferred with documented approval.
+
+---
+
+## Prompt 11: SERP Competitive Analysis Prompt
+
+Current Version: v1.1  
+Status: Supporting SERP Competitive Analysis Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: SERP competitive analysis behavior validation + routing and scoring confirmation  
+Approved For: SERP competitive analysis, search dominance review, competitor pattern analysis, content gap analysis, AEO and People Also Ask opportunity discovery, local/GEO competitive review, schema opportunity review, trust and conversion gap analysis
+
+### Lock Decision
+
+Prompt 11 v1.1 is approved and locked as the Supporting SERP Competitive Analysis Master.
+
+Prompt 11 v1 passed the initial SERP competitive analysis validation using Benchmark 1.
+
+Prompt 11 v1.1 added and confirmed:
+
+- Canonical prompt identity
+- Canonical file path
+- Prompt 08 routing clarification
+- Legacy naming handling for old SERP prompt references
+- SERP Analysis Score Guidance
+- No-invention behavior
+- No final competitive dominance claim without live SERP review
+
+### Validation Result
+
+Prompt 11 v1.1 confirmation test result:
+
+PASS.
+
+The confirmation test verified that Prompt 11 v1.1:
+
+- Identifies itself as the canonical SERP Competitive Analysis prompt
+- Uses the canonical file path `prompts/11-serp-competitive-analysis-prompt.md`
+- Clarifies that Prompt 08 is reserved for Production Fix and TODO Resolution
+- Treats old `prompts/08-serp-competitive-analysis-prompt.md` references as legacy naming
+- Includes SERP Analysis Score Guidance
+- Does not penalize missing competitor-specific facts when live SERP data is unavailable and findings are properly labeled
+- Requires unverified findings to be marked NOT VERIFIED, PARTIALLY VERIFIED, or REQUIRES LIVE SERP REVIEW
+- Does not claim final competitive dominance without live SERP review
+
+### Research Safety Rule
+
+Prompt 11 must not invent:
+
+- Competitor names
+- Ranking positions
+- Search volume
+- Keyword difficulty
+- Review counts
+- Rating values
+- Local pack positions
+- Backlink data
+- Competitor schema
+- Competitor traffic
+- Client pricing
+- Same-day availability
+- Licenses
+- Guarantees
+
+When live SERP data is unavailable, Prompt 11 may continue with strategy-based competitive analysis, but all competitor-specific findings must be clearly labeled as NOT VERIFIED, PARTIALLY VERIFIED, or REQUIRES LIVE SERP REVIEW.
+
+### Carry-Forward Behavior
+
+Prompt 11 carries unresolved research items forward to Prompt 04, Prompt 05, or a future live SERP review as appropriate.
+
+Prompt 11 does not stop analysis when live SERP data is unavailable if enough keyword, service, location, or page context exists. It clearly separates strategy-based competitive readiness from verified live SERP dominance.
+
+### Final Decision
+
+PASS.
+
+Prompt 11 v1.1 is ready for use as the Supporting SERP Competitive Analysis Master.
+
+---
+
+## Prompts 12–20: Advanced Prompts
 
 Current Version: v1 for all  
 Status: Active — Awaiting Individual Benchmark Lock
@@ -308,8 +453,6 @@ Lock decisions will be recorded here after each prompt completes benchmark valid
 
 Prompts in this group:
 
-- 10-internal-linking-strategy-prompt.md
-- 11-schema-strategy-prompt.md
 - 12-conversion-optimization-prompt.md
 - 13-content-quality-editor-prompt.md
 - 14-page-template-evaluation-prompt.md
@@ -335,6 +478,7 @@ versions/prompt-performance-log.md
 ---
 
 Site OS Master — Prompt Master Status  
-Last Updated: v1.3 cycle  
+Last Updated: v1.4 cycle  
 Upstream workflow: Prompts 01–05 v2 — PASS — Connected Upstream Workflow Validated (Benchmark 1, Score: 96 / 100)  
-Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1 — all locked 
+Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1, Prompt 10 v1 — all locked  
+Supporting prompts: Prompt 11 v1.1 — PASS — Supporting SERP Competitive Analysis Master 
