@@ -176,3 +176,53 @@ Prompt 17 v1 initially received a patch decision and an initial score of 74 / 10
 Prompt 17 was patched to v1.1 and passed lightweight confirmation testing.
 
 Prompt 17 v1.1 is locked as the Supporting AI Citation Readiness Master.
+
+## Prompt 18: Page Moat Prompt
+
+File: prompts/18-page-moat-prompt.md  
+Version: v1.1  
+Status: LOCKED  
+Role: Supporting Page Moat Master  
+Validation: PASS  
+Confirmation: Lightweight v1.1 confirmation PASS  
+
+### Summary
+
+Prompt 18 v1.1 is locked as the Supporting Page Moat Master for the Site OS Master prompt system.
+
+Prompt 18 supports competitive durability review, page defensibility strategy, content moat development, generic content risk detection, competitor copycat risk review, trust and proof strategy, AEO and AI citation moat review, local moat strategy, conversion moat strategy, carry-forward proof needs, and final moat readiness scoring.
+
+Prompt 18 improves page moat strength, but it does not guarantee rankings, traffic, conversions, AI citations, or competitor outperformance.
+
+### v1.1 Patch Notes
+
+Prompt 18 v1.1 includes the required Site OS supporting prompt standards:
+
+- Canonical identity header
+- Expanded Page Details input block
+- Execution Depth selector
+- Routing Rule section
+- Workflow position declaration
+- Required Rules — Do Not Invent section
+- Page Moat Strategy Rules section
+- Carry-Forward Items section
+- Final Moat Readiness Score and Recommendation section
+- Required Output Format section
+- No guaranteed outcome claim rule
+- Reinforced fabrication prevention
+
+The Execution Depth selector allows Prompt 18 to run in Compact, Standard, or Deep mode depending on the complexity, competitiveness, and moat-risk level of the page review.
+
+The Routing Rule clarifies that Prompt 18 does not replace Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, Prompt 16 Search Intent Defense, or Prompt 17 AI Citation Readiness.
+
+The Required Rules — Do Not Invent section prevents Prompt 18 from inventing competitor findings, proof points, rankings, testimonials, reviews, credentials, case studies, proprietary assets, local claims, service area claims, guarantees, pricing, analytics results, conversion results, or performance claims.
+
+The Carry-Forward Items section requires unresolved client-confirmation items, proof-confirmation items, source-confirmation items, SERP-research needs, competitor-research needs, and verified business-information gaps to be flagged instead of invented.
+
+### Locked Decision
+
+Prompt 18 v1 initially received a patch decision and an initial score of 72 / 100.
+
+Prompt 18 was patched to v1.1 and passed lightweight confirmation testing.
+
+Prompt 18 v1.1 is locked as the Supporting Page Moat Master. 
