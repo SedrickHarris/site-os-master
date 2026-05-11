@@ -1,6 +1,6 @@
 ## Production Safety Rules Confirmed
 
-The workflow correctly flags unresolved issues without inventing data or silently approving unsafe production values.
+The workflow correctly flags unresolved issues without inventing data, hiding missing information, or silently approving unsafe production values.
 
 The workflow flags:
 
@@ -21,10 +21,21 @@ The workflow flags:
 - Unconfirmed service areas
 - Incomplete launch QA
 
+## Workflow Continuity Rule
+
+Unresolved issues do not stop planning, drafting, benchmark testing, QA, or controlled development.
+
+Unresolved issues must be:
+
+- Clearly flagged
+- Carried forward into the next prompt
+- Assigned a required next action
+- Resolved, confirmed, or intentionally deferred before production launch approval
+
+The workflow may continue when unresolved items remain, as long as those items are documented and do not require fake data, unsupported claims, or unsafe assumptions.
+
 ## Production Readiness Rule
 
-Unresolved issues should be flagged clearly and carried forward into the next prompt, not ignored or hidden.
+Production launch approval should not be granted until all launch-critical flagged issues are resolved, confirmed, or intentionally deferred with documented approval.
 
-The workflow may continue for planning, benchmark testing, drafting, and controlled development when issues are unresolved.
-
-Production launch approval should not be given until all launch-critical flagged issues are resolved, confirmed, or intentionally deferred with documented approval. 
+Launch-critical items include client data, form functionality, schema accuracy, indexing setup, privacy/legal requirements, mobile and accessibility QA, and final validation results. 
