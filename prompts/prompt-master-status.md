@@ -137,4 +137,73 @@ BLOCKED until TODOs are resolved
 
 For live production release approval, Prompt 07 must be run after all client data, form handling, sitemap, robots.txt, header/footer, accessibility, mobile, and deployment requirements are completed.
 
-Prompt 07 may approve benchmark readiness while still blocking production launch when unresolved client data or infrastructure TODOs remain. 
+Prompt 07 may approve benchmark readiness while still blocking production launch when unresolved client data or infrastructure TODOs remain.
+
+---
+
+## Prompt 08: Production Fix and TODO Resolution Prompt
+
+Current Version: v1  
+Status: Core Mode Production Fix Master  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Production fix and missing client data validation  
+Approved For: Core Mode production fix planning, TODO resolution, pre-launch blocker review, client-data-safe production cleanup  
+
+### Lock Decision
+
+Prompt 08 v1 is approved and locked as the Core Mode Production Fix and TODO Resolution Master.
+
+The prompt successfully passed all required production fix validation checks:
+
+- Execution depth selection
+- Gate 1 fix scope inspection hard stop
+- Gate 2 fix plan hard stop
+- Client data safety rule
+- Schema safety rule
+- Form fix rule
+- SEO and indexing fix rule
+- Navigation fix rule
+- Validation command reporting
+- Release recommendation
+
+### Validation Result
+
+Prompt 08 v1 was tested against the Benchmark 1 production blockers identified by Prompt 07 v1.1.
+
+Confirmed client data available during the test:
+
+None.
+
+Prompt 08 correctly determined that the page was:
+
+BLOCKED BY MISSING CLIENT DATA
+
+Prompt 08 did not invent:
+
+- Phone number
+- Business address
+- ZIP code
+- Business hours
+- Form endpoint
+- Production domain
+- Review rating
+- Review count
+- Reviewer names
+- Awards, licenses, certifications, or guarantees
+
+Prompt 08 correctly left all production-blocking TODOs unresolved and reported them as client-data blockers rather than implementation failures.
+
+### Final Decision
+
+PASS.
+
+Prompt 08 v1 is approved for use as the Core Mode Production Fix and TODO Resolution prompt.
+
+### Production Requirement
+
+Prompt 08 may only resolve production blockers when the required data is confirmed by the client or already verified in the project.
+
+If client data is missing, Prompt 08 must leave TODOs in place and return:
+
+BLOCKED BY MISSING CLIENT DATA 
