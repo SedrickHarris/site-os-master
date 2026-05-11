@@ -1,8 +1,8 @@
 # Prompt 08: Production Fix and TODO Resolution Prompt
 
-Version: v1  
-Status: Draft  
-Mode: Core Mode  
+Version: v1.1
+Status: Core Mode Production Fix Master
+Mode: Core Mode
 Purpose: Resolve production blockers, client TODOs, infrastructure gaps, and QA issues identified by Prompt 07 before final launch approval.
 
 ---
@@ -39,6 +39,25 @@ Do not create new strategy. Do not rewrite the page unnecessarily.
 
 ---
 
+## Unresolved Client Data Handling Rule
+
+If client data is not available at the time Prompt 08 runs, the workflow does not stop.
+
+Do the following:
+
+- Identify every item that requires confirmed client data.
+- Attempt all fixes that do not require missing data.
+- For items where data is missing, leave the existing TODO or FLAG comment in place.
+- Document each unresolved item clearly in the report.
+- Mark each unresolved item as AWAITING CLIENT CONFIRMATION.
+- Report which items are blocking production launch.
+
+The workflow continues for all fixes that are safe to complete. Unresolved items are carried forward to Prompt 09 Final Launch QA.
+
+Do not invent or guess any client data to fill an unresolved item.
+
+---
+
 ## Inputs You May Receive
 
 You may receive:
@@ -59,7 +78,7 @@ You may receive:
 
 Use confirmed client data only.
 
-If data is not confirmed, leave the TODO in place and report it as unresolved.
+If data is not confirmed, leave the TODO in place, document it as unresolved, and carry it forward to the next prompt.
 
 ---
 
@@ -95,12 +114,14 @@ You must identify:
 - Infrastructure gaps
 - Build/lint status from previous QA
 - Exact files likely to be modified
+- Items that can be safely fixed now
+- Items that must wait for client confirmation
 
 HARD STOP:
 
 Do not edit files until Gate 1 is complete and the fix scope is reported.
 
-If required client data is missing, do not invent it.
+If required client data is missing for a specific fix, do not invent it. Document it as unresolved and continue with all other safe fixes.
 
 ---
 
@@ -111,7 +132,7 @@ Before implementation, create a fix plan.
 The fix plan must include:
 
 - Issues to fix now
-- Issues to leave unresolved
+- Issues that must wait for client confirmation
 - Files to modify
 - Files to leave untouched
 - Schema changes
@@ -126,7 +147,7 @@ HARD STOP:
 
 Do not implement until the fix plan is complete.
 
-If the requested fixes require missing client data, stop and request the missing data or leave the TODO unresolved.
+For any fix that requires missing client data, mark it as deferred in the plan. Do not block the entire fix session because some items are unresolved.
 
 ---
 
@@ -148,7 +169,7 @@ Never invent or guess:
 
 Only use client-confirmed data provided in the task or already present in verified project config.
 
-If data is missing, leave a clear TODO or FLAG comment.
+If data is missing, leave a clear TODO or FLAG comment and document it in the carry-forward section.
 
 ---
 
@@ -164,6 +185,8 @@ FAQPage schema must match visible FAQ content exactly.
 
 HowTo schema must only exist when visible step-by-step content supports it.
 
+If LocalBusiness schema fields are unresolved, leave the TODO fields in place and document each one as a carry-forward item.
+
 ---
 
 ## Form Fix Rule
@@ -174,7 +197,8 @@ If no endpoint is provided:
 
 - Keep the form as a placeholder
 - Keep the TODO
-- Report production launch as blocked for form conversion
+- Document the form endpoint as a carry-forward item
+- Note that production launch is blocked for form conversion until resolved
 
 Do not pretend the form is production-ready unless it actually submits to a confirmed endpoint.
 
@@ -187,7 +211,7 @@ Only add production domain values if confirmed.
 If production domain is missing:
 
 - Keep relative canonical or TODO
-- Report domain as unresolved
+- Document the domain as a carry-forward item
 
 If adding sitemap or robots.txt:
 
@@ -195,6 +219,8 @@ If adding sitemap or robots.txt:
 - Do not include pages that do not exist
 - Do not block the target service page from indexing
 - Use TODO if sitemap URL needs confirmed production domain
+
+Infrastructure shells (sitemap, robots.txt) may be created as partial implementations even when domain is unresolved, as long as TODO is clearly marked and documented.
 
 ---
 
@@ -206,7 +232,7 @@ Do not add or modify global navigation unless:
 - The project architecture supports it
 - The user approved the change
 
-If navigation is out of scope, report it as a follow-up.
+If navigation is out of scope, report it as a follow-up carry-forward item.
 
 ---
 
@@ -254,11 +280,15 @@ Selected depth:
 
 ### Files Likely to Change
 
+### Safe Fixes Available Now
+
+### Deferred Items Requiring Client Data
+
 ## 3. Gate 2 Fix Plan
 
 ### Fix Now
 
-### Leave Unresolved
+### Defer Until Client Confirmation
 
 ### Files to Modify
 
@@ -282,14 +312,29 @@ Selected depth:
 
 ## 10. Files Changed
 
-## 11. Remaining Blockers
+## 11. Carry-Forward Items
+
+List all items that were not resolved due to missing client data or deferred infrastructure.
+For each item:
+- Item name
+- Status: AWAITING CLIENT CONFIRMATION / AWAITING INFRASTRUCTURE / AWAITING APPROVAL
+- Blocking production launch: YES / NO
+- Next required action
 
 ## 12. Release Recommendation
 
 Choose one:
-
 - READY FOR FINAL QA
+- CONDITIONALLY READY — Structural fixes complete. Carry-forward items documented. Ready for Prompt 09 Final Launch QA. Production approval requires carry-forward resolution.
 - NEEDS ADDITIONAL FIXES
 - BLOCKED BY MISSING CLIENT DATA
 
-## 13. Next Recommended Action 
+## 13. Next Recommended Action
+```
+
+---
+
+Site OS Master — Prompt 08 v1.1
+Workflow: Core Mode | Status: Core Mode Production Fix Master
+Change: Added Unresolved Client Data Handling Rule, added Carry-Forward Items as a required report section, updated release recommendation to include CONDITIONALLY READY, clarified that missing client data defers specific fixes without stopping the full session.
+Next Prompt: Prompt 09 — Final Launch QA 
