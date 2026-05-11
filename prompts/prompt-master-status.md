@@ -24,64 +24,95 @@ Production launch approval requires all carry-forward items to be resolved. Benc
 
 ## Prompt 01: Keyword Strategy Prompt
 
-Current Version: v1
-Status: Active — Awaiting Benchmark Lock
-Mode: All modes
+Current Version: v2  
+Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Mode: All modes  
 Approved For: Keyword strategy, search intent alignment, primary and secondary keyword identification
+
+Carry-Forward Behavior: Prompt 01 flags unresolved client data and carries unresolved items forward to Prompt 02.
 
 ---
 
 ## Prompt 02: Page Outline Prompt
 
-Current Version: v1
-Status: Active — Awaiting Benchmark Lock
-Mode: All modes
+Current Version: v2  
+Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Mode: All modes  
 Approved For: Page structure, section planning, AEO/FAQ planning, heading hierarchy
+
+Carry-Forward Behavior: Prompt 02 receives flagged items from Prompt 01, flags unresolved client data, and carries unresolved items forward to Prompt 03.
 
 ---
 
 ## Prompt 03: Ten-Metric Analysis Prompt
 
-Current Version: v1
-Status: Active — Awaiting Benchmark Lock
-Mode: Core Mode and above
+Current Version: v2  
+Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Mode: Core Mode and above  
 Approved For: 10-metric page analysis, SEO/AEO/GEO/conversion scoring
+
+Carry-Forward Behavior: Prompt 03 receives flagged items from Prompt 02, flags unresolved client data, and carries unresolved items forward to Prompt 04.
 
 ---
 
 ## Prompt 04: Gap Fix Prompt
 
-Current Version: v1
-Status: Active — Awaiting Benchmark Lock
-Mode: Core Mode and above
+Current Version: v2  
+Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Mode: Core Mode and above  
 Approved For: Gap identification, fix recommendations, content improvement targeting
+
+Carry-Forward Behavior: Prompt 04 receives flagged items from Prompt 03, flags unresolved client data, and carries unresolved items forward to Prompt 05.
 
 ---
 
 ## Prompt 05: Developer Build Brief Prompt
 
-Current Version: v1
-Status: Active — Awaiting Benchmark Lock
-Mode: All modes
+Current Version: v2  
+Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Mode: All modes  
 Approved For: Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan
+
+Carry-Forward Behavior: Prompt 05 receives flagged items from Prompt 04 and converts all unresolved items into safe Prompt 06 TODOs or FLAGs. Prompt 05 output is approved as a valid Prompt 06 input for benchmark testing and controlled development.
+
+---
+
+### Upstream Connected Workflow Validation
+
+Prompts 01 through 05 v2 were validated as a connected upstream workflow using Benchmark 1.
+
+Validation Result: PASS  
+Score: 96 / 100
+
+The validation confirmed that Prompts 01 through 05:
+
+- Performed each prompt's core task
+- Continued planning with flagged items when enough core context existed
+- Flagged unresolved client data
+- Carried unresolved items forward into the next prompt
+- Avoided inventing phone numbers, addresses, hours, form endpoints, production domains, pricing, reviews, ratings, licenses, certifications, insurance, or availability claims
+- Produced a clean Prompt 06 handoff with safe TODOs and FLAGs
+
+Prompt 05 output is approved as a valid Prompt 06 input for benchmark testing and controlled development.
 
 ---
 
 ## Prompt 06: Claude Code Build Prompt
 
-Current Version: v2.1
-Status: Core Mode Build Master — Locked
-Benchmark: Benchmark 1
-Latest Result: PASS
-Validation Type: Supervised simulation validation + Live repository validation (Live Validation 02)
+Current Version: v2.1  
+Status: Core Mode Build Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Supervised simulation validation + Live repository validation (Live Validation 02)  
 Approved For: Core Mode service page builds, Next.js 14 App Router service pages, local SEO service pages, AEO-ready page builds
 
 ### Lock Decision
 
 Prompt 06 v2.1 is approved and locked as the Core Mode Build Master.
 
-The prompt successfully passed:
+### Required Controls Confirmed
 
+- Execution depth selection
 - Gate 1 project inspection hard stop
 - Gate 2 build plan hard stop
 - Unknown-framework halt rule
@@ -108,11 +139,11 @@ Prompt 06 may complete a build with flagged TODOs. Those TODOs must be resolved 
 
 ## Prompt 07: QA Review Prompt
 
-Current Version: v1.2
-Status: Core Mode QA Review Master — Locked
-Benchmark: Benchmark 1
-Latest Result: PASS
-Validation Type: Supervised simulation-context QA validation + Live Validation 02 QA review
+Current Version: v1.2  
+Status: Core Mode QA Review Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Supervised simulation-context QA validation + Live Validation 02 QA review  
 Approved For: Core Mode QA reviews, post-build page reviews, simulation QA reviews, prompt behavior evaluations, schema safety audits, form/CTA review, SEO/AEO/GEO QA checks, accessibility and mobile readiness review
 
 ### Lock Decision
@@ -155,11 +186,11 @@ APPROVED or APPROVED WITH MINOR REFINEMENTS may only be issued after actual file
 
 ## Prompt 08: Production Fix and TODO Resolution Prompt
 
-Current Version: v1.1
-Status: Core Mode Production Fix Master — Locked
-Benchmark: Benchmark 1
-Latest Result: PASS
-Validation Type: Core Mode production fix validation with missing client data
+Current Version: v1.1  
+Status: Core Mode Production Fix Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Core Mode production fix validation with missing client data  
 Approved For: Core Mode production fix sessions, TODO resolution, client data replacement, schema fix, form endpoint connection, sitemap and robots.txt creation, accessibility and mobile fixes, validation re-run
 
 ### Lock Decision
@@ -201,11 +232,11 @@ READY FOR FINAL QA or CONDITIONALLY READY may only be issued after all safe fixe
 
 ## Prompt 09: Final Launch QA Prompt
 
-Current Version: v1
-Status: Core Mode Final Launch QA Master — Locked
-Benchmark: Benchmark 1
-Latest Result: PASS
-Validation Type: Final launch gate validation with missing client data and incomplete production infrastructure
+Current Version: v1  
+Status: Core Mode Final Launch QA Master — Locked  
+Benchmark: Benchmark 1  
+Latest Result: PASS  
+Validation Type: Final launch gate validation with missing client data and incomplete production infrastructure  
 Approved For: Core Mode final launch QA, production release gating, launch blocker review, client-data-safe launch approval decisions
 
 ### Lock Decision
@@ -268,7 +299,7 @@ If critical client data or launch infrastructure is missing, Prompt 09 must retu
 
 ## Prompts 10–20: Advanced Prompts
 
-Current Version: v1 for all
+Current Version: v1 for all  
 Status: Active — Awaiting Individual Benchmark Lock
 
 These prompts are available for use in Beyond-Elite Mode and Full Competitive Build Mode.
@@ -303,6 +334,7 @@ versions/prompt-performance-log.md
 
 ---
 
-Site OS Master — Prompt Master Status
-Last Updated: v1.2 cycle
+Site OS Master — Prompt Master Status  
+Last Updated: v1.3 cycle  
+Upstream workflow: Prompts 01–05 v2 — PASS — Connected Upstream Workflow Validated (Benchmark 1, Score: 96 / 100)  
 Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1 — all locked 
