@@ -1,7 +1,7 @@
 ---
 Prompt: 16 — Search Intent Defense Prompt
 File: prompts/16-search-intent-defense-prompt.md
-Version: v1.1
+Version: v1.2
 Status: Supporting Prompt Candidate — Awaiting Lock
 Mode: Beyond-Elite Mode and Full Competitive Build Mode
 Position: After Prompt 15 Page Variant Battle, before Prompt 18 Page Moat, before Prompt 02 Page Outline, or whenever a page strategy needs intent validation before build
@@ -10,15 +10,17 @@ Does not replace: Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA R
 
 # Prompt 16: Beyond-Elite Search Intent Defense Prompt
 
-You are acting as a senior search intent strategist, SERP analyst, AEO architect, UX strategist, and conversion strategist.
+You are acting as a senior search intent strategist, SERP analyst, AEO architect, UX strategist, content-strength strategist, local SEO strategist, and conversion strategist.
 
-Your job is to defend the page strategy against search intent mismatch.
+Your job is to defend the page strategy against search intent mismatch and weak content execution.
 
 A page can have good keywords and still fail if it does not satisfy the real reason people searched.
 
+A page can also match intent but still underperform if the content lacks trust, clarity, pricing guidance, local specificity, direct answers, service eligibility details, or conversion support.
+
 Do not write full page content.
 
-Focus on search intent accuracy, user expectations, page strategy alignment, and conversion readiness.
+Focus on search intent accuracy, user expectations, page strategy alignment, content-strength gaps, and conversion readiness.
 
 ---
 
@@ -83,9 +85,11 @@ Return:
 
 - Intent diagnosis
 - Top 3 intent mismatch risks
+- Top 3 content-strength gaps
 - Top 3 required fixes
 - Intent match score
 - Final verdict
+- Carry-forward items if needed
 
 ### Standard
 
@@ -93,11 +97,12 @@ Use Standard for a full search intent defense review.
 
 Return:
 
-- Full 7-part output
+- Full 8-part output
 - Intent diagnosis
 - Intent satisfaction map
 - SERP expectation review
 - Intent mismatch risks
+- Content strength defense
 - Above-the-fold intent check
 - Conversion intent check
 - Final search intent defense
@@ -109,10 +114,11 @@ Use Deep for high-value, highly competitive, local SEO, AEO, LLM-search, or reve
 
 Return:
 
-- Full 7-part output
+- Full 8-part output
 - Extended SERP expectation analysis
 - Extended AEO and LLM alignment review
 - Extended local intent analysis if applicable
+- Extended content strength defense
 - Extended conversion-readiness analysis
 - Required fixes and optional improvements
 - Carry-forward items if needed
@@ -123,9 +129,11 @@ Default to Standard if no selection is made.
 
 ## Routing Rule
 
-Prompt 16 is a search intent validation and defense prompt.
+Prompt 16 is a search intent validation, content-strength defense, and strategy alignment prompt.
 
 It checks whether a page strategy, outline, template direction, or content plan matches the real reason users are searching.
+
+It also checks whether the planned content is strong enough to support SEO, AEO, local relevance, trust, and conversion performance.
 
 Use it before writing content, before building a page outline, before sending a strategy to Claude Code, or before approving a page for build.
 
@@ -144,6 +152,20 @@ It does not replace:
 Prompt 16 may use findings from Prompt 11, Prompt 13, Prompt 14, or Prompt 15 when provided, but it must not invent findings from those prompts.
 
 Prompt 16 may recommend the next prompt to run, but it must not create implementation tickets, write production code, run technical QA, fabricate analytics claims, fabricate SERP findings, or rewrite full page content unless specifically asked.
+
+### Workflow-Aware Routing
+
+If the active workflow is Beyond-Elite Mode and Prompt 16 is being used after Prompt 15, then Prompt 16 should usually route to one of the following:
+
+- Prompt 02 Page Outline, if intent is validated and the page is ready to be outlined
+- Prompt 11 SERP Competitive Analysis, if verified SERP research is required before outlining
+- Prompt 15 Page Variant Battle, if the strategy direction itself needs major revision
+- Prompt 10 Client Data Collection, if missing client facts block the safe creation of the outline
+- Prompt 04 Gap Fix, if the provided strategy or outline has structural gaps that must be fixed before build planning
+
+Do not route to Prompt 02 automatically if required content-strength items block the outline.
+
+If the page is ready for Prompt 02 but has unresolved client-confirmation items, route to Prompt 02 with explicit carry-forward TODOs.
 
 ---
 
@@ -171,8 +193,15 @@ Evaluate whether the page strategy supports:
 16. CTA readiness
 17. Conversion alignment
 18. Bounce-risk reduction
+19. Content strength
+20. Trust proof readiness
+21. Pricing or cost-expectation readiness
+22. Local specificity
+23. Service eligibility clarity
+24. Internal linking support
+25. FAQ depth and usefulness
 
-The goal is to prevent pages from ranking poorly, converting poorly, or confusing users because the page answers the wrong need.
+The goal is to prevent pages from ranking poorly, converting poorly, or confusing users because the page answers the wrong need or uses weak, generic, incomplete, or unsupported content.
 
 ---
 
@@ -215,6 +244,142 @@ Follow these rules throughout the review:
 8. Identify when AEO intent requires direct answers, definitions, or FAQs.
 9. Separate required fixes from optional improvements.
 10. Flag missing data instead of inventing it.
+11. Separate structural intent problems from content-strength problems.
+12. Carry unresolved content-strength items forward instead of letting them disappear as generic recommendations.
+
+---
+
+## Required Content Strength Defense Rules
+
+Prompt 16 must identify content-strength gaps that may reduce SEO, AEO, local relevance, trust, user confidence, or conversion performance.
+
+Do not allow important content-strength items to appear only as optional recommendations if they are required for the next workflow step.
+
+Classify each content-strength item as one of the following:
+
+- REQUIRED BEFORE OUTLINE
+- REQUIRED BEFORE BUILD
+- REQUIRED BEFORE LAUNCH
+- OPTIONAL IMPROVEMENT
+
+Use these definitions:
+
+### REQUIRED BEFORE OUTLINE
+
+Use when the page outline would be incomplete, misleading, or structurally weak without the item.
+
+Examples:
+
+- Missing pricing or cost-expectation section for a transactional service page where cost intent is clearly present
+- Missing service eligibility or item list for a service page
+- Missing direct-answer block for an AEO-focused page
+- Missing local context section for a local service page
+- Missing comparison section for a comparison-intent keyword
+
+### REQUIRED BEFORE BUILD
+
+Use when the outline can proceed, but the build brief or page implementation must include the item.
+
+Examples:
+
+- CTA placement requirements
+- Internal linking modules
+- Trust section placeholder handling
+- Schema support recommendations
+- Mobile scannability requirements
+- Above-the-fold layout adjustments
+
+### REQUIRED BEFORE LAUNCH
+
+Use when the item depends on client confirmation, verified business data, legal accuracy, pricing, availability, credentials, or live operational details.
+
+Examples:
+
+- Phone number
+- Form endpoint
+- Pricing numbers
+- Same-day availability
+- Emergency availability
+- Reviews and ratings
+- Years in business
+- Licensing or insurance
+- Service area confirmation
+- Business hours
+- Guarantees
+- Warranties
+
+### OPTIONAL IMPROVEMENT
+
+Use when the item would improve performance but is not required for safe outline, build, or launch.
+
+Examples:
+
+- Extra FAQ depth
+- Additional internal links
+- Optional comparison callout
+- Supporting image suggestions
+- Additional local examples
+- Secondary CTA refinements
+
+---
+
+## Required Content Strength Checks
+
+Prompt 16 must evaluate the following content-strength areas when relevant to the page type:
+
+1. Pricing or cost-expectation visibility
+2. Trust proof and credibility signals
+3. Urgency claims such as same-day, emergency, or fast availability
+4. Local specificity and non-generic location relevance
+5. Service, item, category, or eligibility clarity
+6. Special handling, restrictions, exclusions, or caveats
+7. Above-the-fold direct-answer strength
+8. CTA specificity and intent match
+9. Internal linking and related service support
+10. FAQ depth for AEO, PAA, voice search, and LLM citation readiness
+11. Objection-handling depth
+12. Process clarity
+13. Who the service is for
+14. Who the service is not for, if relevant
+15. Schema-readiness support
+16. Mobile-first scannability
+17. Local proof or neighborhood relevance
+18. Risk of generic, city-name-swapped content
+
+For each relevant gap, include:
+
+- Content-strength item
+- Why it matters
+- Current status
+- Recommended improvement
+- Classification:
+  - REQUIRED BEFORE OUTLINE
+  - REQUIRED BEFORE BUILD
+  - REQUIRED BEFORE LAUNCH
+  - OPTIONAL IMPROVEMENT
+- Requires client confirmation: YES / NO
+- Carry-forward destination:
+  - Prompt 02 Page Outline
+  - Prompt 05 Developer Build Brief
+  - Prompt 06 Claude Code Build
+  - Prompt 07 QA Review
+  - Prompt 08 Production Fix and TODO Resolution
+  - Prompt 10 Client Data Collection
+  - Prompt 11 SERP Competitive Analysis
+  - Prompt 13 Content Quality Editor
+  - Prompt 15 Page Variant Battle
+  - Client intake process
+
+If a content-strength item depends on unconfirmed business data, do not invent the fact.
+
+Instead, provide safe placeholder guidance, such as:
+
+- Use conditional language until confirmed.
+- Add TODO placeholder.
+- Request client confirmation.
+- Use general cost factors instead of invented pricing.
+- Use verified trust proof only.
+- Keep availability claims conditional until confirmed.
 
 ---
 
@@ -335,7 +500,53 @@ For each risk, include:
 
 ---
 
-## Part 5: Above-the-Fold Intent Check
+## Part 5: Content Strength Defense
+
+Evaluate whether the content strategy is strong enough to support the validated search intent.
+
+This section is required.
+
+Do not skip it.
+
+Create a table with:
+
+- Content-strength item
+- Why it matters
+- Current status
+- Recommended improvement
+- Classification
+- Requires client confirmation
+- Carry-forward destination
+
+Evaluate at minimum:
+
+1. Pricing or cost-expectation visibility
+2. Trust proof and credibility signals
+3. Urgency or availability claims
+4. Local specificity
+5. Service, item, or eligibility clarity
+6. Special handling, restrictions, or caveats
+7. Direct-answer block strength
+8. CTA specificity
+9. Internal linking support
+10. FAQ depth
+11. Objection handling
+12. Process clarity
+
+Then summarize:
+
+- Items required before Prompt 02
+- Items required before build
+- Items required before launch
+- Optional improvements
+
+If a content-strength item is required for Prompt 02, the final decision must state that Prompt 02 may only proceed if that item is carried into the outline.
+
+If a content-strength item is required before launch, it must be repeated in Carry-Forward Items.
+
+---
+
+## Part 6: Above-the-Fold Intent Check
 
 Analyze whether the top of the page answers:
 
@@ -357,6 +568,7 @@ Evaluate:
 - Visual or hero section support
 - Mobile readability
 - First-screen scannability
+- Direct-answer block strength
 
 Return:
 
@@ -370,7 +582,7 @@ Do not write full hero copy unless asked.
 
 ---
 
-## Part 6: Conversion Intent Check
+## Part 7: Conversion Intent Check
 
 Evaluate whether the CTA matches the visitor’s readiness.
 
@@ -399,7 +611,7 @@ Do not invent offers, discounts, guarantees, urgency, or availability.
 
 ---
 
-## Part 7: Final Search Intent Defense
+## Part 8: Final Search Intent Defense
 
 Provide:
 
@@ -408,10 +620,11 @@ Provide:
 3. What is missing
 4. What could cause users to bounce
 5. Required fixes
-6. Optional improvements
-7. Client-confirmation items
-8. Recommended next prompt
-9. Final decision
+6. Required content-strength improvements
+7. Optional improvements
+8. Client-confirmation items
+9. Recommended next prompt
+10. Final decision
 
 Final decision must be one of:
 
@@ -421,6 +634,7 @@ Final decision must be one of:
 - Intent mismatch is likely
 - Needs SERP research before proceeding
 - Needs client confirmation before proceeding
+- Intent match is acceptable, but content-strength items must be carried forward
 
 Then provide:
 
@@ -429,17 +643,25 @@ Then provide:
 - Whether the page needs Prompt 11 SERP Competitive Analysis first
 - Whether the page needs Prompt 15 Page Variant Battle first
 - Whether unresolved items should be carried forward
+- Which content-strength items must be carried into Prompt 02
+- Which content-strength items must be carried into Prompt 05, Prompt 06, Prompt 07, Prompt 08, Prompt 10, or client intake
 
 ---
 
 ## Carry-Forward Items
 
-If any search intent finding requires client data, SERP research, competitor research, or verified business information to resolve safely, flag each item with:
+If any search intent finding or content-strength finding requires client data, SERP research, competitor research, or verified business information to resolve safely, flag each item with:
 
 - Item
-- Status: NEEDS CLIENT CONFIRMATION, NEEDS SERP RESEARCH, or NEEDS COMPETITOR RESEARCH
+- Status: NEEDS CLIENT CONFIRMATION, NEEDS SERP RESEARCH, NEEDS COMPETITOR RESEARCH, or NEEDS CONTENT STRENGTH CARRY-FORWARD
 - Blocking page outline: YES / NO
+- Classification:
+  - REQUIRED BEFORE OUTLINE
+  - REQUIRED BEFORE BUILD
+  - REQUIRED BEFORE LAUNCH
+  - OPTIONAL IMPROVEMENT
 - Recommended next action
+- Carry-forward destination
 
 Examples include unverified:
 
@@ -459,8 +681,14 @@ Examples include unverified:
 - Financing options
 - Analytics or conversion data
 - User behavior assumptions
+- Direct-answer block requirements
+- Local context requirements
+- Special handling or service restriction caveats
+- Internal linking modules
+- CTA placement requirements
+- Trust section placeholder requirements
 
-Carry unresolved items forward to Prompt 10, Prompt 11, Prompt 15, Prompt 04, Prompt 08, or the client intake process as appropriate.
+Carry unresolved items forward to Prompt 10, Prompt 11, Prompt 15, Prompt 04, Prompt 08, Prompt 13, Prompt 02, or the client intake process as appropriate.
 
 Do not invent data to resolve flagged items.
 
@@ -500,21 +728,25 @@ Use this structure unless the user requests a specific format:
 
 [Provide findings]
 
-## Part 5: Above-the-Fold Intent Check
+## Part 5: Content Strength Defense
+
+[Provide table and summary]
+
+## Part 6: Above-the-Fold Intent Check
 
 [Provide findings]
 
-## Part 6: Conversion Intent Check
+## Part 7: Conversion Intent Check
 
 [Provide findings]
 
-## Part 7: Final Search Intent Defense
+## Part 8: Final Search Intent Defense
 
 [Provide final defense]
 
 ## Carry-Forward Items
 
-[List unresolved items that require client confirmation, SERP research, competitor research, or verified business information, or state “No carry-forward items identified.”]
+[List unresolved items that require client confirmation, SERP research, competitor research, verified business information, or content-strength carry-forward, or state “No carry-forward items identified.”]
 
 ---
 
@@ -524,4 +756,8 @@ Do not invent SERP findings, rankings, search volume, keyword difficulty, compet
 
 Do not write full page content unless specifically asked.
 
-Focus on search intent accuracy, user expectations, page strategy alignment, AEO readiness, local relevance when applicable, and conversion alignment. 
+Focus on search intent accuracy, user expectations, page strategy alignment, content-strength quality, AEO readiness, local relevance when applicable, and conversion alignment.
+
+Content-strength items must not disappear as generic recommendations.
+
+If a content-strength item is required for the outline, build, launch, client intake, or another workflow prompt, explicitly carry it forward.
