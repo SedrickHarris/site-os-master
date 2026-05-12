@@ -1,8 +1,8 @@
 # Prompt 11: SERP Competitive Analysis Prompt
 
-Version: v1.1  
-Status: Supporting Prompt Candidate  
-Mode: Supporting Prompt  
+Version: v1.2  
+Status: Supporting Prompt Candidate — Awaiting Patch Confirmation  
+Mode: Supporting Prompt, Beyond-Elite Mode, Full Competitive Build Mode  
 Purpose: Analyze search competitors, SERP patterns, content gaps, local SEO signals, AEO opportunities, schema opportunities, and search dominance gaps before or after the core page strategy workflow.
 
 ---
@@ -63,6 +63,10 @@ The analysis should support:
 - Prompt 03 search dominance scoring
 - Prompt 04 gap fixes
 - Prompt 05 developer build brief improvements
+- Prompt 15 page variant strategy
+- Prompt 16 search intent defense
+- Prompt 18 page moat review
+- Prompt 20 visibility and conversion alignment
 
 ---
 
@@ -75,6 +79,7 @@ Use Prompt 11:
 - Before Prompt 04 to create stronger gap fixes
 - Before Prompt 05 to improve the developer build brief
 - Before Prompt 06 for high-value or competitive pages
+- Before Prompt 15 when a Beyond-Elite or Full Competitive Build workflow needs competitive strategy context
 - Before rewriting a page that is underperforming in search
 - When the user asks for competitor, SERP, ranking, or search dominance analysis
 
@@ -91,6 +96,8 @@ You may receive:
 - Business name
 - Service name
 - Existing page URL
+- Workflow mode
+- Recommended next step preference
 - Competitor URLs
 - SERP screenshots
 - Search results copied by the user
@@ -102,6 +109,7 @@ You may receive:
 - Ten-metric analysis from Prompt 03
 - Gap fix output from Prompt 04
 - Developer build brief from Prompt 05
+- Page Variant Battle output from Prompt 15
 
 Use only the sources provided or verified.
 
@@ -135,6 +143,50 @@ Report the selected depth before beginning Gate 1.
 
 ---
 
+## Workflow-Aware Routing Rule
+
+Prompt 11 must recommend the next prompt based on workflow mode and available SERP evidence.
+
+If the user is running Core Mode and the SERP analysis is being used to repair or strengthen an existing page strategy, Prompt 11 may recommend:
+
+- Prompt 04: Gap Fix Prompt
+
+If the user is running Beyond-Elite Mode, Full Competitive Build Mode, or a supporting-prompt workflow test, Prompt 11 must not automatically route to Prompt 04 unless the user explicitly asks to return to gap fixing.
+
+For Beyond-Elite supporting prompt workflows, the default next prompt after Prompt 11 is:
+
+- Prompt 15: Page Variant Battle Prompt
+
+For Full Competitive Build Mode, the default next prompt after Prompt 11 is:
+
+- Prompt 15: Page Variant Battle Prompt
+
+If the SERP analysis reveals severe search intent uncertainty, Prompt 11 may recommend:
+
+- Prompt 16: Search Intent Defense Prompt
+
+If the SERP analysis reveals weak competitive durability or a lack of defensible content advantages, Prompt 11 may recommend:
+
+- Prompt 18: Page Moat Prompt
+
+If the SERP analysis reveals a visibility versus conversion conflict, Prompt 11 may recommend:
+
+- Prompt 20: Visibility and Conversion Alignment Prompt
+
+If live SERP data, competitor URLs, SERP screenshots, local pack data, or People Also Ask data are not provided, Prompt 11 must not fabricate competitor findings.
+
+Instead, it must choose one of these safe routing paths:
+
+1. Recommend collecting live SERP data before final competitive conclusions.
+2. Recommend proceeding to Prompt 15 using a strategy-based competitive baseline.
+3. Recommend Prompt 16 if search intent assumptions need defense before strategy variants.
+
+Prompt 11 must include a short routing explanation in the final recommendation.
+
+Do not recommend Prompt 04 by default when the current workflow is explicitly Beyond-Elite Mode, Full Competitive Build Mode, or a supporting-prompt workflow test.
+
+---
+
 # Gate 1: Source and SERP Scope Review
 
 Before producing the analysis, review the available source material.
@@ -147,6 +199,8 @@ Identify:
 - Target location
 - Primary keyword
 - Secondary keywords
+- Workflow mode
+- Recommended next step preference
 - Competitor URLs provided
 - SERP data provided
 - Local pack data provided
@@ -261,6 +315,7 @@ Score the analysis based on:
 - Trust and conversion opportunity quality
 - Carry-forward clarity
 - Next action clarity
+- Workflow-aware routing accuracy
 
 If live SERP data is unavailable, state that the score reflects strategy-based competitive readiness, not verified live SERP dominance.
 
@@ -290,6 +345,35 @@ Review the competitive environment across:
 
 ---
 
+## Final Recommendation
+
+End with:
+
+1. SERP analysis decision
+2. Competitive readiness level
+3. Strongest opportunity
+4. Weakest remaining area
+5. Missing SERP data
+6. Required live SERP research before final conclusions
+7. Recommended next prompt
+8. Routing reason
+9. Final decision
+
+The recommended next prompt must match the workflow mode:
+
+- Core Mode gap repair: Prompt 04
+- Beyond-Elite supporting prompt workflow: Prompt 15
+- Full Competitive Build Mode: Prompt 15
+- Search intent uncertainty: Prompt 16
+- Competitive moat weakness: Prompt 18
+- Visibility/conversion conflict: Prompt 20
+
+If live SERP data is missing, the final decision must clearly state:
+
+STRATEGY-BASED SERP READINESS ONLY — LIVE SERP REVIEW STILL REQUIRED
+
+---
+
 ## Final Output Format
 
 Return this report:
@@ -309,7 +393,7 @@ Selected depth:
 
 ### Legacy Naming Notes
 
-## 3. Gate 1 Source and SERP Scope Review
+## 3. Gate 1: Source and SERP Scope Review
 
 ### Target Business
 
@@ -323,6 +407,10 @@ Selected depth:
 
 ### Secondary Keywords
 
+### Workflow Mode
+
+### Recommended Next Step Preference
+
 ### Sources Reviewed
 
 ### Competitor URLs Reviewed
@@ -333,7 +421,7 @@ Selected depth:
 
 ### Live SERP Review Requirement
 
-## 4. Gate 2 Competitive Analysis Plan
+## 4. Gate 2: Competitive Analysis Plan
 
 ### Keywords to Compare
 
@@ -396,6 +484,7 @@ Group recommendations by:
 - Fix now
 - Add to Prompt 04
 - Add to Prompt 05
+- Add to Prompt 15
 - Carry forward for client confirmation
 - Requires live SERP review
 
@@ -409,12 +498,28 @@ For each flagged item:
 - Required confirmation or review:
 - Carry-forward destination:
 
-## 20. Recommended Next Action
+## 20. Workflow-Aware Routing Recommendation
+
+Include:
+
+- Workflow mode:
+- Recommended next prompt:
+- Routing reason:
+- Alternative next prompt if live SERP data is collected:
+- Whether live SERP review is still required:
+
+## 21. Final Decision
 
 Choose one:
 
 - READY FOR PROMPT 04
 - READY FOR PROMPT 04 WITH FLAGGED ITEMS
-- READY FOR PROMPT 05
+- READY FOR PROMPT 15
+- READY FOR PROMPT 15 WITH STRATEGY-BASED SERP BASELINE
+- READY FOR PROMPT 16
+- READY FOR PROMPT 18
+- READY FOR PROMPT 20
 - NEEDS LIVE SERP REVIEW
-- NEEDS MORE CORE CONTEXT 
+- NEEDS MORE CORE CONTEXT
+
+State whether the output is based on verified SERP data or strategy-based SERP readiness only.

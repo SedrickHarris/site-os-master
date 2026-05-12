@@ -1,12 +1,42 @@
-# Beyond Elite Claude Code Build Prompt
+# Prompt 06: Claude Code Build Prompt
 
-You are working inside this website project in VS Code using Claude Code.
+Version: v2.2  
+Status: Core Mode Build Master â€” Awaiting Patch Confirmation  
+Mode: Core Mode, Beyond-Elite Mode, Full Competitive Build Mode  
+Purpose: Generate production-safe Claude Code build prompts that can be pasted into VS Code to build or update website pages without breaking existing functionality, inventing client data, or modifying unrelated files.
+
+---
+
+## Prompt Length Reminder for Claude Code
+
+This is a long implementation prompt. Read the full prompt before starting Gate 1.
+
+Do not modify files until:
+
+1. Gate 1 inspection is complete.
+2. Gate 1 findings are reported.
+3. The user explicitly approves moving to Gate 2.
+4. Gate 2 implementation plan is complete.
+5. File scope is declared.
+6. The user explicitly approves moving to Gate 3.
+
+Do not create, edit, rename, move, or delete files until Gate 2 is approved.
+
+---
+
+## Role
+
+You are Claude Code working inside an existing website project in VS Code.
 
 You are not just building a page.
 
-You are implementing an approved SEO, AEO, GEO, technical SEO, and conversion strategy inside an existing codebase without breaking existing functionality.
+You are implementing an approved SEO, AEO, GEO, technical SEO, schema, accessibility, and conversion strategy inside an existing codebase without breaking existing functionality.
 
-## Goal
+Your job is to inspect first, plan second, build third, validate fourth, and report fifth.
+
+---
+
+## Primary Goal
 
 Build or update the following page:
 
@@ -36,6 +66,47 @@ Build or update the following page:
 
 [SECONDARY CTA]
 
+## Execution Depth
+
+[DEPTH: compact / standard / deep]
+
+Use one of the following:
+
+### [DEPTH: compact]
+
+Use for simple page additions on mature projects with known routing, known form handlers, and reusable components.
+
+Compact depth:
+
+- Keep Gate 1 inspection focused on framework, routing, metadata, form, schema, route conflict, sitemap, and robots.
+- Keep Gate 2 plan short.
+- Use abbreviated validation checklist.
+- Do not remove hard stops.
+
+### [DEPTH: standard]
+
+Use for normal service pages, location pages, landing pages, and local SEO builds.
+
+Standard depth:
+
+- Use the full 5-gate workflow.
+- Use normal inspection, plan, build, validate, and report requirements.
+
+### [DEPTH: deep]
+
+Use for high-value pages, unfamiliar frameworks, first-time builds, schema-heavy pages, multi-location pages, or pages with complex conversion paths.
+
+Deep depth:
+
+- Use full inspection.
+- Include deeper schema, internal linking, accessibility, performance, and conversion checks.
+- Include more detailed file scope review.
+- Include extra caution around global files, routing, sitemap, schema, and forms.
+
+Hard stops apply at every depth.
+
+---
+
 ## Approved Page Sections
 
 Build the page using these approved sections:
@@ -48,6 +119,9 @@ Build the page using these approved sections:
 6. [Section 6]
 7. [Section 7]
 8. [Section 8]
+9. [Section 9 if applicable]
+
+---
 
 ## SEO Requirements
 
@@ -62,649 +136,35 @@ Include:
 - Clean URL route
 - Internal links where relevant
 - Descriptive image alt text
-- Search intent aligned content structure
+- Search-intent-aligned content structure
+- Canonical URL handling based on the projectâ€™s existing metadata pattern
+- Robots/noindex behavior checked before launch
+
+Do not keyword stuff.
+
+Do not create generic city-name-swapped content.
+
+---
 
 ## AEO and Voice Search Requirements
 
 Include:
 
-- Direct answer style sections
+- Direct-answer style sections
 - Clear short-answer summary near the top of the page
-- Question based headings where natural
+- Question-based headings where natural
 - AEO FAQ section
 - Concise FAQ answers
 - Voice-search-friendly phrasing
 - Clear service, location, or category context
 
-## GEO and Local SEO Requirements
-
-If the page has a local focus, include:
-
-- Target location naturally in the H1 or intro
-- Local relevance section
-- Nearby areas if applicable
-- Locally relevant user problems
-- Local service area context
-- Natural local language without keyword stuffing
-
-## Schema Requirements
-
-Add or prepare schema using the existing project pattern.
-
-Recommended schema:
-
-- WebPage
-- BreadcrumbList
-- FAQPage
-- Service if this is a service page
-- LocalBusiness if this is a local business page
-- Article if this is a blog post
-- Organization if applicable
-
-Do not invent fake reviews, ratings, prices, or business credentials.
-
-## Internal Linking Requirements
-
-Add internal links where relevant.
-
-Use natural anchor text.
-
-Do not add links that do not help the user journey or topical authority.
-
-## Image Requirements
-
-Follow the project image rules.
-
-Include:
-
-- Descriptive alt text
-- No text inside images
-- No unnecessary image bloat
-- Use existing image patterns where available
-- Follow the project image folder structure if applicable
-
-## Design Requirements
-
-Follow:
-
-- Existing design system
-- Existing layout patterns
-- Existing component patterns
-- Project design style files
-- Responsive design best practices
-- Accessibility best practices
-
-Do not create a new design pattern unless needed.
-
-Do not change global styles unless absolutely necessary.
-
-## Guardrails
-
-Do not:
-
-- Remove existing working code unless required
-- Create duplicate routes
-- Rename files unnecessarily
-- Change unrelated pages
-- Change global styles without a clear reason
-- Add fake testimonials
-- Add fake reviews
-- Add unsupported claims
-- Add text inside images
-- Overuse keywords
-- Create unnecessary dependencies
-- Break existing navigation
-- Ignore existing metadata or schema patterns
-
-## Required Workflow
-
-Follow this gated implementation workflow.
-
-### Gate 1: Inspect
-
-Before editing, inspect:
-
-1. Project structure
-2. Package files
-3. Framework
-4. Routing pattern
-5. App or pages directory
-6. Existing components
-7. Existing styling system
-8. Existing metadata pattern
-9. Existing schema pattern
-10. Existing internal link pattern
-11. Existing image usage pattern
-
-After inspection, summarize what you found.
-
-### Gate 2: Plan
-
-Before editing, provide a short implementation plan.
-
-Include:
-
-- Files likely to be created
-- Files likely to be updated
-- Components likely to be reused
-- Components likely to be created
-- Metadata approach
-- Schema approach
-- Internal linking approach
-- Any risks or uncertainties
-
-Do not begin editing until the plan is clear.
-
-### Gate 3: Build
-
-Implement the page using the approved strategy.
-
-During implementation:
-
-- Follow existing patterns
-- Keep code clean and readable
-- Use semantic structure where applicable
-- Add metadata
-- Add schema if the project supports it
-- Add internal links
-- Add CTAs
-- Keep layout responsive
-- Preserve existing functionality
-
-### Gate 4: Validate
-
-After editing, validate:
-
-- Page route exists
-- Page renders without obvious errors
-- No duplicate route was created
-- Metadata exists
-- One H1 exists
-- H2 and H3 hierarchy is logical
-- AEO FAQ section exists if required
-- Schema exists or is prepared
-- Internal links are included
-- CTAs are visible
-- Images have alt text
-- Mobile layout was considered
-- No unrelated files were modified
-
-### Gate 5: Report
-
-After validation, provide:
-
-1. Summary of changes
-2. Files created
-3. Files updated
-4. Route created or updated
-5. Metadata added
-6. Schema added or prepared
-7. Internal links added
-8. CTA placements
-9. QA results
-10. Remaining issues or recommendations
-
-## Acceptance Criteria
-
-The page is not complete until:
-
-- The route is correct
-- The page follows the approved section structure
-- The metadata is present
-- One clear H1 exists
-- Headings are logical
-- Internal links are included
-- CTAs are clear
-- AEO/FAQ content is included if required
-- Schema is included or prepared if required
-- The page follows existing design patterns
-- The page is responsive or uses responsive patterns
-- No unrelated files were changed
-- No duplicate route was created
-- No fake claims, fake reviews, or unsupported proof were added
-
-## Final Instruction
-
-Work carefully and sequentially.
-
-Inspect first.
-
-Plan second.
-
-Build third.
-
-Validate fourth.
-
-Report fifth.
-
-## Prompt Revision: Prompt 06 Priority Safety Fixes
-
-## Gate 2 Formal Approval Pause
-
-After Gate 2, Claude Code must stop completely.
-
-Add this rule to every Claude Code build prompt:
-
-After presenting the Gate 2 implementation plan, stop completely. Do not proceed to Gate 3 until explicit user confirmation is received.
-
-If there are unresolved blockers, unknown framework issues, missing route conventions, missing form handlers, missing schema patterns, or unclear client-confirmation values, ask for guidance before building anything.
-
-Do not edit, create, rename, delete, or move files until Gate 2 is approved.
-
-## Pricing Claim Confirmation Requirement
-
-Any specific pricing claim, price range, average cost, starting price, discount, special offer, financing claim, or cost estimate must be flagged for client confirmation before launch.
-
-If FAQ content includes a price range, add this warning directly beside the FAQ answer and in the QA checklist:
-
-FLAG: CLIENT MUST CONFIRM PRICING BEFORE LAUNCH. Replace with verified pricing, an approved general range, or a non-specific quote-based answer. Do not ship unconfirmed pricing claims.
-
-For example, if a FAQ says:
-
-"Furniture removal in Las Vegas typically costs between $75 and $300 depending on the number of items and accessibility."
-
-Add:
-
-FLAG: CLIENT MUST CONFIRM: The $75–$300 price range is an approximation. Replace with actual pricing or an accurate approved range before launch. Do not ship this copy unconfirmed.
-
-If pricing is not confirmed, use a safer fallback answer:
-
-"Furniture removal pricing in Las Vegas depends on the number of items, accessibility, and job size. Pit Stop Junk Removal provides a free quote before any work begins."
-
-## Unknown Framework Fallback
-
-If Claude Code cannot identify the framework from the named options, it must inspect:
-
-- package.json
-- config files
-- project root structure
-- routing folders
-- build scripts
-
-Then it must report the findings and ask for confirmation before continuing.
-
-Do not guess the routing pattern.
-
-## No Existing Service Page Fallback
-
-If no existing service page exists, Claude Code must use the most structurally similar page available as the reference pattern.
-
-Acceptable fallback references:
-
-- Homepage
-- About page
-- Blog post
-- Landing page
-- Existing location page
-- Existing category page
-
-Claude Code must state this assumption in the Gate 1 report.
-
-## Navigation Update Scope Limit
-
-When updating navigation, make only the single required link addition.
-
-Do not:
-
-- Restructure navigation
-- Reorder existing links
-- Change styling
-- Modify header/footer layout
-- Rename existing navigation files
-- Alter unrelated menu behavior
-
-Add only:
-
-Link text:
-Furniture and Appliance Removal
-
-Destination:
-/services/furniture-appliance-removal-las-vegas
-
-Follow the existing navigation pattern exactly.
-
-## Sitemap Conditional Logic
-
-If the project uses a static sitemap.xml, add the new page URL as a new URL entry.
-
-If the sitemap is dynamically generated, check whether the new route will be automatically included.
-
-If Claude Code cannot determine sitemap behavior, add this TODO:
-
-TODO: Confirm new page URL is included in sitemap before launch.
-
-Do not invent sitemap logic or refactor the sitemap system unless required.
-
-## Prompt Length Reminder for Claude Code
-
-At the top of every long Claude Code build prompt, include:
-
-This is a long implementation prompt. Read the full prompt before starting Gate 1. Do not modify files until Gate 1 inspection is complete, Gate 2 plan is complete, and the user explicitly approves proceeding to Gate 3.
-
-## Prompt Revision: Production-Safe Claude Code Build Template Requirements
-
-This prompt must generate Claude Code build prompts that are safe to paste into VS Code for real website projects.
-
-The final Claude Code prompt must be self-contained and must not rely on earlier strategy context being remembered.
-
-## Required Gate Structure
-
-Every Claude Code build prompt must use this gate structure:
-
-1. Gate 1 — Inspect
-2. Gate 2 — Plan
-3. Gate 3 — Build
-4. Gate 4 — Validate
-5. Gate 5 — Report
-
-## Gate 1 — Inspection-Only Pass
-
-Before creating, editing, moving, deleting, or renaming any files, Claude Code must inspect the project.
-
-Claude Code must inspect:
-
-- package.json
-- project root structure
-- routing folders
-- app, pages, routes, src, or equivalent directories
-- existing page patterns
-- existing service pages
-- existing layout components
-- existing metadata patterns
-- existing schema injection patterns
-- existing form components
-- existing CTA components
-- existing FAQ or accordion components
-- existing navigation files
-- existing sitemap behavior
-- existing styling system
-- existing image folder conventions
-
-Claude Code must report what it finds before planning the build.
-
-## Framework Detection Requirement
-
-Claude Code must identify the framework and routing pattern before creating files.
-
-It must check:
-
-- package.json
-- config files
-- root folder structure
-- build scripts
-- routing directories
-
-If the framework is unclear, Claude Code must stop and ask for confirmation.
-
-Do not guess the routing pattern.
-
-## Existing Service Page Fallback
-
-Claude Code must search for the closest existing service page.
-
-If no service page exists, it must use the most structurally similar page as the pattern reference.
-
-Acceptable fallback references:
-
-- Homepage
-- About page
-- Blog post
-- Landing page
-- Location page
-- Category page
-
-Claude Code must state the fallback assumption in the Gate 1 report.
-
-## Duplicate Route Check
-
-Before creating the new route, Claude Code must confirm no existing file or route already resolves to the target URL.
-
-If a duplicate route exists, Claude Code must stop and report the conflict before building.
-
-## Gate 2 — Implementation Plan and Approval Pause
-
-After inspection, Claude Code must provide an implementation plan.
-
-The plan must include:
-
-- Route to create
-- Route type
-- Framework/routing convention
-- Files to create
-- Files to edit
-- Files not to touch
-- Components to reuse
-- Components to create
-- Metadata approach
-- Schema approach
-- Form approach
-- CTA approach
-- Navigation update approach
-- Sitemap update approach
-- Internal link approach
-- Image approach
-- Risks or blockers
-
-After presenting the Gate 2 plan, Claude Code must stop completely.
-
-Do not proceed to Gate 3 until explicit user confirmation is received.
-
-Do not edit, create, rename, delete, or move files until Gate 2 is approved.
-
-## Required File Scope Declaration
-
-Before building, Claude Code must output:
-
-Files I will create:
-- [file path]
-
-Files I will edit:
-- [file path]
-
-Files I will not touch:
-- Global styles unless required
-- Unrelated pages
-- Unrelated components
-- Unrelated routes
-- Unrelated navigation behavior
-- Unrelated schema utilities
-- Unrelated form handlers
-
-If the build requires touching a global file, Claude Code must explain why before proceeding.
-
-## Form and CTA Specification Requirement
-
-For any lead-generation page, the final Claude Code prompt must specify:
-
-- Form fields
-- Field types
-- Required fields
-- Validation rules
-- Submit button label
-- Submission destination if known
-- Fallback if no handler exists
-- Confirmation behavior
-- Thank-you page route if known
-- Tap-to-call behavior
-- Mobile sticky CTA behavior
-- CTA placement by section
-
-If the form submission destination is unknown, Claude Code must add a TODO comment and report it as a blocker or launch dependency.
-
-## Broken Internal Link Prevention
-
-Claude Code must only create internal links to routes that already exist or are being created in the same build.
-
-If a target route does not exist, Claude Code must skip the link and report it in Gate 5.
-
-Do not create broken links.
-
-## Schema Implementation Requirement
-
-Claude Code must inspect the existing schema implementation pattern before adding schema.
-
-It must identify whether the project uses:
-
-- JSON-LD script tags
-- Next.js metadata or head component
-- Astro frontmatter or layout injection
-- CMS schema fields
-- Reusable schema utility
-- Manual inline script component
-- Other schema system
-
-Claude Code must follow the existing project pattern.
-
-Do not invent fake reviews, ratings, pricing, hours, addresses, credentials, guarantees, or business claims.
-
-## Conditional Schema Safety
-
-AggregateRating schema:
-Only include if real, verified ratingValue and reviewCount are provided.
-
-FAQPage schema:
-Only include if FAQs are visible on the page and schema text exactly matches visible text.
-
-HowTo schema:
-Only include if the visible process section has 3 or more named steps that match the schema.
-
-BreadcrumbList schema:
-Only include if visible breadcrumbs are rendered or added.
-
-## Pricing Claim Safety
-
-Any specific pricing claim, price range, discount, special offer, financing claim, average cost, or cost estimate must be flagged for client confirmation.
-
-If pricing is not verified, use quote-based language instead.
-
-Safe fallback:
-"Pricing depends on the number of items, accessibility, and job size. Request a free quote before scheduling service."
-
-## Navigation Update Scope Limit
-
-If navigation must be updated, Claude Code may only add the required link.
-
-Do not:
-
-- Restructure navigation
-- Reorder existing links
-- Change styling
-- Modify header/footer layout
-- Rename navigation files
-- Alter unrelated menu behavior
-
-## Sitemap Conditional Logic
-
-If the project uses a static sitemap.xml, add the new page URL.
-
-If the sitemap is dynamically generated, confirm whether the route is automatically included.
-
-If sitemap behavior is unclear, add:
-
-TODO: Confirm new page URL is included in sitemap before launch.
-
-Do not refactor the sitemap system unless required.
-
-## Gate 4 — Validation Requirement
-
-After building, Claude Code must validate:
-
-- Route resolves
-- No duplicate route exists
-- Metadata is present
-- Canonical is present
-- One H1 exists
-- Sections are in correct order
-- Form fields match requirements
-- CTA links work
-- Tap-to-call uses tel: protocol
-- Internal links resolve
-- Schema matches visible content
-- Conditional schema rules are followed
-- Images have alt text
-- Accessibility basics pass
-- Mobile layout works
-- Desktop layout works
-- No unrelated files were modified
-- Build/lint/test commands pass if available
-
-If validation fails, Claude Code must fix the issue before reporting.
-
-## Gate 5 — Final Report Requirement
-
-Claude Code must finish with a report that includes:
-
-1. What was built
-2. Files created
-3. Files edited
-4. Files intentionally not touched
-5. Route created
-6. Metadata added
-7. Schema added
-8. Schema intentionally skipped and why
-9. Internal links added
-10. Internal links skipped and why
-11. CTA placements added
-12. Form behavior and remaining TODOs
-13. Client-confirmation flags
-14. Validation results
-15. Remaining blockers
-16. Recommended next step
-
-## Final Claude Code Prompt Requirement
-
-The final output of this prompt must be a paste-ready Claude Code prompt.
-
-It must include the specific project/page details, route, metadata, page sections, schema requirements, CTA requirements, guardrails, validation checklist, and report format.
-
-Do not output only a strategy summary.
-
-Do not assume Claude Code remembers previous prompts.
-
-## Token Efficiency Rule
-
-If the strategy has already been approved, compress strategy context and focus on implementation instructions.
-
-Do not regenerate the full strategy.
-
-Keep the final Claude Code prompt complete, but remove repeated explanations that do not affect implementation.
-
-## Prompt Revision: Prompt 06 Master Hard Gates and AEO/LLM Implementation Requirements
-
-## Pre-Build Stop Checklist
-
-Every Claude Code build prompt must include this checklist before any file edits begin.
-
-Claude Code must stop and ask for clarification if any required item is missing.
-
-Required before build:
-
-- Approved route is confirmed
-- Route conflict check is complete
-- Framework and routing pattern are identified
-- Metadata is confirmed
-- Approved section structure is confirmed
-- Primary CTA is confirmed
-- Form behavior is confirmed or flagged
-- Schema types and required fields are confirmed
-- Client-confirmation values are flagged
-- Internal links are verified or marked as skipped
-- File scope declaration is complete
-- Gate 2 plan is approved by the user
-
-Hard stop rule:
-
-Do not proceed to file creation or file editing until Gate 1 inspection is complete, Gate 2 plan is complete, file scope is declared, and the user explicitly approves moving to Gate 3.
-
-## Required AEO Answer Format
-
 For any page with FAQ, People Also Ask, voice search, or answer-engine intent, FAQ answers must use direct-answer format.
 
 Each FAQ answer must follow this structure:
 
-1. First sentence: direct answer
-2. Second sentence: short clarification or trust-building detail
-3. Optional third sentence: CTA, local detail, or process note
+1. First sentence: direct answer.
+2. Second sentence: short clarification or trust-building detail.
+3. Optional third sentence: CTA, local detail, or process note.
 
 Do not write vague answers.
 
@@ -712,9 +172,11 @@ Do not bury the answer after a long introduction.
 
 Do not include FAQPage schema unless the visible FAQ text exactly matches the schema text.
 
-## Required LLM and AI Citation Notes
+---
 
-Every Claude Code build prompt must include instructions to make key page sections AI-readable.
+## LLM and AI Citation Requirements
+
+Every service page must include instructions to make key page sections AI-readable.
 
 For service pages, include:
 
@@ -727,11 +189,52 @@ For service pages, include:
 - No schema-only claims
 - No unsupported claims
 
-Example:
+Example format:
 
-"[Business Name] provides [service] in [location] for [target audience]. The company helps customers with [specific problems or use cases]."
+[Business Name] provides [service] in [location] for [target audience]. The company helps customers with [specific problems or use cases].
 
 This block must be visible body content, not hidden metadata.
+
+---
+
+## GEO and Local SEO Requirements
+
+If the page has a local focus, include:
+
+- Target location naturally in the H1 or intro
+- Local relevance section
+- Nearby areas if applicable
+- Locally relevant user problems
+- Local service area context
+- Natural local language without keyword stuffing
+
+Do not invent service areas.
+
+Do not add city or neighborhood claims unless confirmed in the approved brief.
+
+---
+
+## Schema Requirements
+
+Add or prepare schema using the existing project pattern.
+
+Claude Code must inspect the existing schema implementation pattern before adding schema.
+
+Identify whether the project uses:
+
+- JSON-LD script tags
+- Next.js metadata or head component
+- Astro frontmatter or layout injection
+- CMS schema fields
+- Reusable schema utility
+- Manual inline script component
+- Other schema system
+
+Follow the existing project pattern.
+
+Do not invent fake reviews, ratings, prices, hours, addresses, credentials, guarantees, or business claims.
+
+---
 
 ## Schema Field-Level Requirement
 
@@ -750,68 +253,233 @@ For each schema type, include:
 
 For local service pages, include at minimum:
 
-LocalBusiness:
+### LocalBusiness
+
+Required or conditional fields:
+
 - name
 - url
 - telephone
-- address if available
+- address, if available and approved for public use
 - areaServed
-- openingHours if available
+- openingHours, if available
 - description
-- sameAs if available
+- sameAs, if available
+- logo URL, if available
+- image URL, if available
+- priceRange, if verified
 
-Service:
+Required protection:
+
+LocalBusiness schema must not include unverified phone, address, ZIP, hours, rating, review count, price range, logo, image, or sameAs values.
+
+If too many required fields are missing for valid LocalBusiness schema, create a TODO placeholder block and report the missing fields in Gate 5 instead of publishing incomplete or fake schema.
+
+Required placeholder format:
+
+[FIELD NAME â€” CLIENT MUST CONFIRM BEFORE LAUNCH]
+
+Required code comment format:
+
+// FLAG: CLIENT MUST CONFIRM [FIELD NAME] BEFORE LAUNCH. Do not invent this value.
+
+### Service
+
+Required or conditional fields:
+
 - name
 - serviceType
 - provider
 - areaServed
 - description
 
-FAQPage:
+### FAQPage
+
+Requirements:
+
 - visible questions only
 - visible answers only
 - exact text match required
 
-BreadcrumbList:
+### BreadcrumbList
+
+Requirements:
+
 - visible breadcrumb must also exist
 - JSON-LD must match visible breadcrumb
 
-AggregateRating:
-- conditional only
-- use only real verified ratingValue and reviewCount
-- omit if values are not verified
+### AggregateRating
 
-HowTo:
-- conditional only
-- use only when visible process steps exist and match schema
+AggregateRating schema is always conditional.
 
-## Fake Data Hard Stop
+Only include AggregateRating when all of the following are true:
 
-Claude Code must not invent:
+- Real rating value is provided.
+- Real review count is provided.
+- Review source is verified.
+- The rating or reviews are visible on the page or clearly tied to a verified business profile.
+- The values are client-confirmed.
 
-- Reviews
-- Ratings
-- Review counts
-- Pricing
-- Discounts
-- Financing claims
-- Hours
-- Address
-- Phone number
-- Licenses
-- Certifications
-- Years in business
-- Job counts
-- Guarantees
-- Awards
-- Service availability claims
+If any of these are missing, omit AggregateRating entirely.
 
-If a required value is missing, Claude Code must:
+Do not add placeholder AggregateRating values.
 
-1. Use a clearly labeled placeholder
-2. Add a TODO or FLAG comment
-3. Include the missing value in the final report
-4. Avoid adding schema fields that require unverified data
+Do not estimate ratings.
+
+Do not invent review counts.
+
+Do not use fake review schema.
+
+Required report line:
+
+AggregateRating status: included with verified data / omitted because verified data was not provided.
+
+### Review
+
+Do not include Review schema unless real verified review data is provided and visible or properly sourced.
+
+### HowTo
+
+HowTo schema is conditional only.
+
+Use only when visible process steps exist and match the schema.
+
+If HowTo schema is recommended or conditionally included, Gate 4 must include this validation line:
+
+- [ ] HowTo schema is either omitted or matches visible process step headings and step descriptions exactly.
+
+Gate 5 must report:
+
+HowTo schema status: included / omitted / skipped because visible steps did not qualify.
+
+---
+
+## Internal Linking Requirements
+
+Add internal links where relevant.
+
+Use natural anchor text.
+
+Do not add links that do not help the user journey or topical authority.
+
+Claude Code must verify internal link targets before adding links.
+
+If a target route does not exist:
+
+- Do not add the link.
+- Report it as skipped.
+- Recommend it as a future page if useful.
+
+Do not create broken links.
+
+Only create internal links to routes that already exist or are being created in the same build.
+
+---
+
+## Image Requirements
+
+Follow the project image rules.
+
+Include:
+
+- Descriptive alt text
+- No text inside images
+- No unnecessary image bloat
+- Existing image patterns where available
+- Existing project image folder structure where applicable
+- Explicit width/height or aspect-ratio handling where needed to avoid layout shift
+
+Do not add ImageObject schema unless a real image asset is confirmed.
+
+Do not invent hero images, team photos, project photos, or logos.
+
+---
+
+## Design Requirements
+
+Follow:
+
+- Existing design system
+- Existing layout patterns
+- Existing component patterns
+- Project design style files
+- Responsive design best practices
+- Accessibility best practices
+
+Do not create a new design pattern unless needed.
+
+Do not change global styles unless absolutely necessary and explicitly approved.
+
+---
+
+## Form and CTA Specification Requirement
+
+For any lead-generation page, the final Claude Code prompt must specify:
+
+- Form fields
+- Field types
+- Required fields
+- Validation rules
+- Submit button label
+- Submission destination if known
+- Fallback if no handler exists
+- Confirmation behavior
+- Thank-you page route if known
+- Tap-to-call behavior
+- Mobile sticky CTA behavior
+- CTA placement by section
+
+Form fields must come from the approved brief or an existing reusable form pattern.
+
+If the approved brief does not specify form fields, Claude Code must stop and ask for confirmation before building the form.
+
+Do not invent lead capture fields.
+
+Required Gate 2 line:
+
+Form fields source: approved brief / existing component pattern / missing and requires confirmation.
+
+For any lead-generation page with a quote form, contact form, booking form, newsletter form, or intake form, Claude Code must identify the submission method before building the form.
+
+Gate 2 must include:
+
+- Existing form component found: YES / NO
+- Existing form handler found: YES / NO
+- Form submission method: known / unknown
+- Submission destination: email, CRM, API route, server action, third-party embed, static form provider, or unknown
+- Confirmation behavior: on-page success message, redirect to thank-you page, CRM confirmation, or unknown
+- Validation approach
+- Spam prevention approach if already used in the project
+
+If no submission handler exists, Claude Code may build the visual form only if it adds a clear TODO comment.
+
+Required TODO comment:
+
+// TODO: Connect this form to the approved submission handler, CRM webhook, API route, or static form provider before launch.
+
+Required report note:
+
+Form submission is not launch-ready until the destination and confirmation behavior are confirmed.
+
+Hard stop rule:
+
+Do not invent a submission endpoint, CRM webhook, API route, email address, thank-you page, or form provider.
+
+---
+
+## Pricing Claim Safety
+
+Any specific pricing claim, price range, average cost, starting price, discount, special offer, financing claim, or cost estimate must be flagged for client confirmation before launch.
+
+If FAQ content includes a price range, add this warning directly beside the FAQ answer and in the QA checklist:
+
+FLAG: CLIENT MUST CONFIRM PRICING BEFORE LAUNCH. Replace with verified pricing, an approved general range, or a non-specific quote-based answer. Do not ship unconfirmed pricing claims.
+
+If pricing is not confirmed, use a safer fallback answer:
+
+Pricing depends on the number of items, accessibility, and job size. Request a free quote before scheduling service.
+
+---
 
 ## Competitive Differentiation Requirement
 
@@ -835,77 +503,133 @@ Do not add fake differentiators.
 
 Only use differentiators supported by the approved strategy or client-confirmed facts.
 
-## Internal Link Safety Requirement
+---
 
-Claude Code must verify internal link targets before adding links.
+## Fake Data Hard Stop
 
-If a target route does not exist:
+Claude Code must not invent:
 
-- Do not add the link
-- Report it as skipped
-- Recommend it as a future page if useful
+- Reviews
+- Ratings
+- Review counts
+- Pricing
+- Discounts
+- Financing claims
+- Hours
+- Address
+- ZIP code
+- Phone number
+- Email address
+- Licenses
+- Certifications
+- Years in business
+- Job counts
+- Guarantees
+- Awards
+- Service availability claims
+- Same-day availability
+- Emergency availability
+- Testimonials
+- Hero image assets
+- GBP URLs
+- Form endpoints
+- Analytics IDs
+- Search Console verification
+- Bing Webmaster verification
 
-Do not create broken links.
+If a required value is missing, Claude Code must:
 
-## File Scope Declaration Requirement
+1. Use a clearly labeled placeholder when safe.
+2. Add a TODO or FLAG comment.
+3. Include the missing value in the final report.
+4. Avoid adding schema fields that require unverified data when omission is safer.
 
-Before build begins, Claude Code must declare:
+---
 
-Files I will create:
-- [path]
+## Guardrails
 
-Files I will edit:
-- [path]
+Do not:
 
-Files I will not touch:
-- [path or category]
+- Remove existing working code unless required
+- Create duplicate routes
+- Rename files unnecessarily
+- Change unrelated pages
+- Change global styles without a clear reason and approval
+- Add fake testimonials
+- Add fake reviews
+- Add unsupported claims
+- Add text inside images
+- Overuse keywords
+- Create unnecessary dependencies
+- Break existing navigation
+- Ignore existing metadata or schema patterns
+- Invent client data
+- Invent internal routes
+- Invent form handlers
+- Invent schema values
+- Continue past a required hard stop without user approval
 
-If a global file must be edited, explain why before proceeding.
+---
 
-Global navigation may only be updated if the brief explicitly requires it.
+# Required Gate Structure
 
-Global styles, layout, shared components, and unrelated pages must not be modified unless approved.
+Every Claude Code build prompt must use this gate structure:
 
-## Final Report-Back Requirement
+1. Gate 1 â€” Inspect
+2. Gate 2 â€” Plan
+3. Gate 3 â€” Build
+4. Gate 4 â€” Validate
+5. Gate 5 â€” Report
 
-Every Claude Code prompt must end with a required final report.
+---
 
-The report must include:
-
-1. Summary of what was built
-2. Files created
-3. Files edited
-4. Files intentionally not touched
-5. Route created
-6. Metadata added
-7. Schema added
-8. Schema skipped and why
-9. Internal links added
-10. Internal links skipped and why
-11. CTA placements added
-12. Form behavior and remaining TODOs
-13. Client-confirmation flags
-14. Validation results
-15. Remaining blockers
-16. Recommended next step
-
-## Final Master Rule
-
-The final Claude Code prompt must be self-contained.
-
-Do not rely on Claude Code remembering prior strategy prompts.
-
-Include the route, sections, metadata, schema, CTA requirements, form requirements, internal link rules, guardrails, validation checklist, and report format inside the final prompt.
-
-## Prompt Revision: Prompt 06 Production Safety Fixes
+# Gate 1: Inspect
 
 ## Gate 1 Hard Stop Requirement
+
+Before creating, editing, moving, deleting, or renaming any files, Claude Code must inspect the project.
+
+Claude Code must inspect:
+
+- package.json
+- project root structure
+- routing folders
+- app, pages, routes, src, or equivalent directories
+- existing page patterns
+- existing service pages
+- existing layout components
+- existing metadata patterns
+- existing schema injection patterns
+- existing form components
+- existing CTA components
+- existing FAQ or accordion components
+- existing navigation files
+- existing sitemap behavior
+- existing robots.txt file or robots configuration
+- existing styling system
+- existing image folder conventions
+
+Claude Code must identify the framework and routing pattern before creating files.
+
+It must check:
+
+- package.json
+- config files
+- root folder structure
+- build scripts
+- routing directories
+
+If the framework, routing pattern, metadata method, schema method, build command, or page file location is unclear, Claude Code must stop after Gate 1 and ask for confirmation before proceeding to Gate 2.
+
+Do not guess.
+
+Do not create files until the framework and route convention are confirmed.
 
 After completing Gate 1 inspection, Claude Code must stop completely.
 
 Claude Code must not proceed to Gate 2 until the user explicitly confirms that the inspection findings are approved.
 
-Required instruction for every Claude Code build prompt:
+Required instruction:
 
 After completing Gate 1, report your inspection findings and stop. Do not begin Gate 2 planning, file planning, component selection, or implementation until the user confirms that you may proceed.
 
@@ -913,97 +637,257 @@ If the inspection reveals framework uncertainty, route conflicts, missing projec
 
 Do not create, edit, rename, move, or delete files during Gate 1.
 
+---
+
+## File-State Verification Rule
+
+Prompt 06 must not claim that a file, page, route, component, schema block, form handler, CTA component, FAQ component, sitemap entry, robots rule, or project feature exists unless it has directly inspected the relevant file, route, or command output.
+
+Prompt 06 must not infer file contents from:
+
+- File names
+- Expected framework conventions
+- Prior reports
+- Assumed scaffold patterns
+- Route names
+- Search results without opening the file
+- User-provided summaries unless clearly labeled as user-provided
+
+If the target file exists, Gate 1 must report:
+
+- Exact file path
+- How existence was verified
+- Whether the file was opened or read
+- Key contents found
+- Existing imports
+- Existing route pattern
+- Existing components used
+- Existing metadata pattern
+- Existing schema blocks
+- Existing form or CTA logic
+- Existing FAQ data source
+- Existing TODO or FLAG comments
+- Whether the file should be extended, replaced, or left untouched
+
+If the target file was not directly inspected, Gate 1 must state:
+
+FILE EXISTENCE NOT VERIFIED â€” DO NOT CLAIM EXISTING PAGE CONTENTS
+
+Prompt 06 must not proceed with an audit-and-extend plan unless the target file contents were actually inspected.
+
+---
+
+## Existing Pattern Fallback Rule
+
+Claude Code must search for the closest existing service page.
+
+If no service page exists, it must use the most structurally similar page as the pattern reference.
+
+Acceptable fallback pages:
+
+- Homepage
+- About page
+- Contact page
+- Location page
+- Blog post
+- Landing page
+- Category page
+
+Claude Code must report which fallback pattern it is using and why.
+
+---
+
+## Duplicate Route Check
+
+Before creating the new route, Claude Code must confirm no existing file or route already resolves to the target URL.
+
+If a duplicate route exists, Claude Code must stop and report the conflict before building.
+
+---
+
+## Gate 1 Required Output
+
+After Gate 1, report:
+
+1. Project structure found
+2. Package manager
+3. Framework and version if identifiable
+4. Routing pattern
+5. App/pages/routes directory
+6. Existing page patterns
+7. Existing service page pattern or fallback pattern
+8. Existing layout components
+9. Existing metadata pattern
+10. Existing schema pattern
+11. Existing form components and handlers
+12. Existing CTA components
+13. Existing FAQ or accordion components
+14. Existing navigation files
+15. Existing sitemap behavior
+16. Existing robots.txt or robots configuration
+17. Existing styling system
+18. Existing image folder conventions
+19. Duplicate route status
+20. File-state verification summary
+21. Risks or blockers
+22. Whether Gate 1 is ready for user approval
+
+---
+
+# Gate 2: Plan
+
 ## Gate 2 Hard Stop Requirement
 
-After completing Gate 2 implementation planning, Claude Code must stop completely.
+After inspection, Claude Code must provide an implementation plan.
 
-Claude Code must not proceed to Gate 3 until the user explicitly confirms that the plan is approved.
+The plan must include:
 
-Required instruction for every Claude Code build prompt:
+- Route to create or update
+- Route type
+- Framework/routing convention
+- Files to create
+- Files to edit
+- Files not to touch
+- Components to reuse
+- Components to create
+- Metadata approach
+- Schema approach
+- Form approach
+- CTA approach
+- Navigation update approach
+- Sitemap update approach
+- Robots handling approach
+- Internal link approach
+- Image approach
+- Risks or blockers
 
-After presenting the Gate 2 implementation plan, stop completely. Do not proceed to Gate 3 until explicit user confirmation is received.
+After presenting the Gate 2 implementation plan, Claude Code must stop completely.
 
-Do not create, edit, rename, move, or delete files until Gate 2 is approved.
+Do not proceed to Gate 3 until explicit user confirmation is received.
 
-## LocalBusiness Schema Field Protection
+Do not create, edit, rename, delete, or move files until Gate 2 is approved.
 
-When LocalBusiness schema is required, Claude Code must not invent or assume any business data.
+---
 
-Required LocalBusiness fields that must be confirmed or flagged:
+## Gate 2 Existing File Audit Rule
 
-- Business name
-- Website URL
-- Phone number
-- Street address, if applicable
-- City
-- State
-- ZIP code
-- Opening hours
-- Service area
-- Logo URL, if used
-- Image URL, if used
-- sameAs profile URLs, if used
-- priceRange, if used
+Gate 2 must not create an audit-and-extend plan for an existing page unless Gate 1 verified that the target file was directly opened and read.
 
-If any field is missing, Claude Code must use a clearly labeled placeholder or omit the field if optional.
+If Gate 1 did not verify the file contents, Gate 2 must first inspect the target file before planning.
 
-Required placeholder format:
+If the target file cannot be found, Gate 2 must classify the build as:
 
-[FIELD NAME — CLIENT MUST CONFIRM BEFORE LAUNCH]
+NEW FILE BUILD REQUIRED
 
-Required code comment format:
+If the target file exists and was inspected, Gate 2 may classify the build as:
 
-// FLAG: CLIENT MUST CONFIRM [FIELD NAME] BEFORE LAUNCH. Do not invent this value.
+AUDIT AND EXTEND EXISTING FILE
+
+If Gate 1 and Gate 2 disagree about whether the file exists, Prompt 06 must stop and report:
+
+REPOSITORY STATE MISMATCH â€” NEEDS USER CONFIRMATION
+
+Prompt 06 must not continue to Gate 3 until the repository state mismatch is resolved.
+
+---
+
+## Required File Scope Declaration
+
+Before building, Claude Code must output:
+
+Files I will create:
+
+- [file path]
+
+Files I will edit:
+
+- [file path]
+
+Files I will not touch:
+
+- Global styles unless required and approved
+- Unrelated pages
+- Unrelated components
+- Unrelated routes
+- Unrelated navigation behavior
+- Unrelated schema utilities
+- Unrelated form handlers
+- Unrelated layout files
+- Unrelated configuration files
+
+If the build requires touching a global file, Claude Code must explain why before proceeding.
+
+Global navigation may only be updated if the brief explicitly requires it.
+
+Global styles, layout, shared components, and unrelated pages must not be modified unless approved.
+
+---
+
+## Pre-Build Stop Checklist
+
+Every Claude Code build prompt must include this checklist before any file edits begin.
+
+Claude Code must stop and ask for clarification if any required item is missing.
+
+Required before build:
+
+- Approved route is confirmed
+- Route conflict check is complete
+- Framework and routing pattern are identified
+- Target file state is verified
+- Metadata is confirmed
+- Approved section structure is confirmed
+- Primary CTA is confirmed
+- Form behavior is confirmed or flagged
+- Form fields source is confirmed
+- Schema types and required fields are confirmed
+- Client-confirmation values are flagged
+- Internal links are verified or marked as skipped
+- Sitemap behavior is verified or flagged
+- Robots behavior is verified or flagged
+- File scope declaration is complete
+- Gate 1 plan is approved by the user
+- Gate 2 plan is approved by the user
 
 Hard stop rule:
 
-Do not create finalized LocalBusiness schema with unverified phone, address, hours, rating, review count, price range, logo, image, or sameAs values.
+Do not proceed to file creation or file editing until Gate 1 inspection is complete, Gate 2 plan is complete, file scope is declared, and the user explicitly approves moving to Gate 3.
 
-If too many required fields are missing for valid LocalBusiness schema, Claude Code must create a TODO placeholder block and report the missing fields in Gate 5 instead of publishing incomplete or fake schema.
+---
 
-## Form Endpoint Confirmation Requirement
+## Navigation Update Scope Limit
 
-For any lead-generation page with a quote form, contact form, booking form, newsletter form, or intake form, Claude Code must identify the submission method before building the form.
+When updating navigation, make only the single required link addition.
 
-Gate 2 must include:
+Do not:
 
-- Existing form component found: yes/no
-- Existing form handler found: yes/no
-- Form submission method: known/unknown
-- Submission destination: email, CRM, API route, server action, third-party embed, static form provider, or unknown
-- Confirmation behavior: on-page success message, redirect to thank-you page, CRM confirmation, or unknown
-- Validation approach
-- Spam prevention approach if already used in the project
+- Restructure navigation
+- Reorder existing links
+- Change styling
+- Modify header/footer layout
+- Rename existing navigation files
+- Alter unrelated menu behavior
 
-If no submission handler exists, Claude Code may build the visual form only if it adds a clear TODO comment.
+If navigation update is included in Gate 2 scope:
 
-Required TODO comment:
+- Add only the approved single navigation link.
+- Do not restructure navigation.
+- Do not reorder links.
+- Do not change styling.
+- Do not modify unrelated header or footer behavior.
 
-// TODO: Connect this form to the approved submission handler, CRM webhook, API route, or static form provider before launch.
+If navigation update is not included in Gate 2 scope:
 
-Required report note:
+- Do not modify navigation.
+- Report navigation update as a recommended follow-up in Gate 5.
 
-Form submission is not launch-ready until the destination and confirmation behavior are confirmed.
+Required Gate 5 line:
 
-Hard stop rule:
+Navigation update status: completed / skipped because out of scope / recommended as follow-up.
 
-Do not invent a submission endpoint, CRM webhook, API route, email address, thank-you page, or form provider.
+---
 
-## Direct-Answer Section Requirement
-
-For service pages, each major content section should include at least one direct-answer sentence when appropriate.
-
-The sentence should clearly answer a likely user or search query.
-
-Examples:
-
-- Pit Stop Junk Removal removes furniture and appliances throughout Las Vegas, including couches, mattresses, refrigerators, washers, and dryers.
-- Furniture and appliance removal pricing depends on item quantity, accessibility, and job size.
-- Same-day furniture pickup may be available in Las Vegas when scheduling slots are open.
-
-Do not force a direct-answer sentence into purely visual or CTA-only sections.
-
-## Sitemap Build Step Requirement
+## Sitemap Conditional Logic
 
 If the page is a new route, Gate 3 must include sitemap handling.
 
@@ -1019,116 +903,237 @@ If static, add the new URL.
 
 If dynamic, confirm whether the new route is included automatically.
 
-If unclear, add:
+If sitemap behavior is unclear, add:
 
 // TODO: Confirm new page URL is included in sitemap before launch.
 
 Do not refactor the sitemap system unless required.
 
-## Updated Gate 5 Report Requirement
+---
 
-Gate 5 must include:
+## Gate 2 Required Output
 
-- Whether Gate 1 was approved
-- Whether Gate 2 was approved
-- Whether form submission is fully connected or still TODO
-- Which schema fields are verified
-- Which schema fields are placeholders
-- Which LocalBusiness fields require client confirmation
-- Whether sitemap was updated, automatically included, or flagged as TODO
-- Any internal links skipped because target routes did not exist
-- Any client-confirmation items required before launch
+After Gate 2, report:
 
-## Prompt Revision: Prompt 06 v2.1 Master Template Patch
+1. Build approach: Create new file / Audit and extend / Replace / No edit
+2. Target route
+3. Target file path
+4. File-state verification summary
+5. Files to create
+6. Files to edit
+7. Files not to touch
+8. Components to reuse
+9. Components to create, if needed
+10. Metadata approach
+11. Schema approach
+12. Form approach
+13. Form fields source
+14. CTA approach
+15. Navigation approach
+16. Sitemap approach
+17. Robots approach
+18. Internal link approach
+19. Image approach
+20. Validation plan
+21. Risks or blockers
+22. Whether user approval is required before Gate 3
 
-## Depth Control Requirement
+Stop after Gate 2.
 
-Every Prompt 06 Claude Code build prompt must support a depth setting.
+---
 
-Use one of the following:
+# Gate 3: Build
 
-[DEPTH: compact]
-Use for simple page additions on mature projects with known routing, known form handlers, and reusable components.
+## Gate 3 Repository State Reconciliation Rule
 
-[DEPTH: standard]
-Use for normal service pages, location pages, landing pages, and local SEO builds.
+Before implementation, Prompt 06 must reconcile Gate 1 and Gate 2 findings.
 
-[DEPTH: deep]
-Use for high-value pages, unfamiliar frameworks, first-time builds, schema-heavy pages, multi-location pages, or pages with complex conversion paths.
+Prompt 06 must confirm:
 
-## Depth Behavior
+- Target project folder
+- Target route
+- Target file path
+- Whether the target file currently exists
+- Whether the target file was opened/read
+- Whether Gate 1 and Gate 2 agree on file state
+- Whether implementation is creating a new file or editing an existing file
+- Exact files approved for editing
+- Exact files that must not be edited
 
-Compact depth:
-- Keep Gate 1 inspection focused on framework, routing, metadata, form, schema, route conflict, and sitemap.
-- Keep Gate 2 plan short.
-- Use abbreviated validation checklist.
-- Do not remove hard stops.
+If Gate 1 or Gate 2 said the file existed but Gate 3 cannot find it, stop and report:
 
-Standard depth:
-- Use the full 5-gate workflow.
-- Use normal inspection, plan, build, validate, and report requirements.
+REPOSITORY STATE MISMATCH â€” DO NOT IMPLEMENT
 
-Deep depth:
-- Use full inspection.
-- Include deeper schema, internal linking, accessibility, performance, and conversion checks.
-- Include more detailed file scope review.
-- Include extra caution around global files, routing, sitemap, schema, and forms.
+If Gate 1 or Gate 2 said the file did not exist but Gate 3 finds it, stop and report:
 
-Hard stops apply at every depth.
+REPOSITORY STATE MISMATCH â€” DO NOT OVERWRITE WITHOUT APPROVAL
 
-## Unknown Framework Halt Rule
+Prompt 06 must not proceed with implementation until the mismatch is resolved or the user explicitly approves the corrected file-state plan.
 
-If Claude Code cannot identify the framework, routing pattern, metadata method, schema method, build command, or page file location, it must stop and ask for guidance.
+---
 
-Do not guess.
+## Build Instructions
 
-Do not create files until the framework and route convention are confirmed.
+Implement the page using the approved strategy.
 
-Required Gate 1 language:
+During implementation:
 
-"If the framework, routing pattern, or metadata pattern is unclear, stop after Gate 1 and ask for confirmation before proceeding to Gate 2."
+- Follow existing patterns
+- Keep code clean and readable
+- Use semantic structure where applicable
+- Add metadata
+- Add schema if the project supports it and the data is verified
+- Add internal links only when verified
+- Add CTAs
+- Keep layout responsive
+- Preserve existing functionality
+- Preserve existing architecture
+- Preserve TODO and FLAG comments for unconfirmed data
+- Avoid unrelated file changes
 
-## Existing Pattern Fallback Rule
+Do not create fake data.
 
-If no existing service page exists, Claude Code must inspect the closest matching page type.
+Do not add unsupported proof.
 
-Acceptable fallback pages:
+Do not overwrite existing files unless that was approved in Gate 2.
 
-- Homepage
-- About page
-- Contact page
-- Location page
-- Blog post
-- Landing page
-- Category page
+---
 
-Claude Code must report which fallback pattern it is using and why.
+# Gate 4: Validate
 
-## AggregateRating Master Rule
+After building, Claude Code must validate:
 
-AggregateRating schema is always conditional.
+- Page route exists
+- Page renders without obvious errors
+- No duplicate route was created
+- Metadata exists
+- Canonical is present or correctly TODO-flagged
+- One H1 exists
+- H2 and H3 hierarchy is logical
+- Sections are in correct order
+- AEO FAQ section exists if required
+- FAQPage schema matches visible FAQ content exactly
+- HowTo schema is either omitted or matches visible process step headings and step descriptions exactly
+- LocalBusiness schema contains only verified values or clearly flagged placeholders
+- AggregateRating is included only if verified rating data was provided
+- BreadcrumbList schema matches visible breadcrumb if used
+- Internal links resolve
+- Broken internal links were not added
+- CTAs are visible
+- CTA links work or are TODO-flagged
+- Tap-to-call uses tel: protocol if phone is confirmed
+- Form fields match requirements
+- Form submission is connected or clearly TODO-flagged
+- Images have alt text
+- New route is not blocked by robots.txt or robots meta directives
+- Sitemap includes the route or is TODO-flagged
+- Accessibility basics pass
+- Mobile layout works
+- Desktop layout works
+- No unrelated files were modified
+- Build/lint/test commands pass if available
 
-Only include AggregateRating when all of the following are true:
+If validation fails, Claude Code must fix the issue before reporting.
 
-- Real rating value is provided
-- Real review count is provided
-- Review source is verified
-- The rating or reviews are visible on the page or clearly tied to a verified business profile
-- The values are client-confirmed
+Run available validation commands based on package.json.
 
-If any of these are missing, omit AggregateRating entirely.
+Use:
 
-Do not add placeholder AggregateRating values.
+- npm run build, if available
+- npm run lint, if available
+- npm run typecheck, if available
+- tsc --noEmit, if TypeScript is configured and no typecheck script exists
+- npm test, if available
 
-Do not estimate ratings.
+Do not claim validation passed unless the command actually ran and passed.
 
-Do not invent review counts.
+---
 
-Do not use fake review schema.
+# Gate 5: Report
 
-Required report line:
+Claude Code must finish with a report that includes:
 
-"AggregateRating status: included with verified data / omitted because verified data was not provided."
+1. Summary of what was built
+2. Files created
+3. Files edited
+4. Files intentionally not touched
+5. Route created or updated
+6. Metadata added
+7. Schema added
+8. Schema skipped and why
+9. AggregateRating status: included with verified data / omitted because verified data was not provided
+10. HowTo schema status: included / omitted / skipped because visible steps did not qualify
+11. Internal links added
+12. Internal links skipped and why
+13. CTA placements added
+14. Form behavior and remaining TODOs
+15. Whether form submission is fully connected or still TODO
+16. Client-confirmation flags
+17. Which schema fields are verified
+18. Which schema fields are placeholders
+19. Which LocalBusiness fields require client confirmation
+20. Whether sitemap was updated, automatically included, or flagged as TODO
+21. Navigation update status: completed / skipped because out of scope / recommended as follow-up
+22. Validation results
+23. Remaining blockers
+24. Recommended next step
+25. Whether Gate 1 was approved
+26. Whether Gate 2 was approved
+27. File-state verification summary
+28. Whether the target file existed before implementation
+29. Whether the target file was opened/read before planning
+30. Whether the final implementation created a new file or edited an existing file
+31. Whether Gate 1, Gate 2, and Gate 3 agreed on repository state
+32. Any repository state mismatch and how it was resolved
+
+---
+
+## File-State Verification Summary
+
+Include this summary in Gate 1, Gate 2, and Gate 3 reports:
+
+- Target file path:
+- File exists: YES / NO / NOT VERIFIED
+- File opened/read: YES / NO
+- Evidence of file inspection:
+- Existing contents summary:
+- Existing imports found:
+- Existing components found:
+- Existing metadata found:
+- Existing schema found:
+- Existing TODO or FLAG comments found:
+- Build approach: Create new file / Audit and extend / Replace / No edit
+- Repository state mismatch: YES / NO
+- User approval required before implementation: YES / NO
+
+---
+
+## Acceptance Criteria
+
+The page is not complete until:
+
+- The route is correct
+- The page follows the approved section structure
+- The metadata is present
+- One clear H1 exists
+- Headings are logical
+- Internal links are included or skipped with reason
+- CTAs are clear
+- AEO/FAQ content is included if required
+- Schema is included or prepared if required
+- Schema uses only verified data
+- FAQPage schema matches visible FAQ text exactly
+- LocalBusiness schema does not invent business data
+- AggregateRating is omitted unless verified rating data is provided
+- The page follows existing design patterns
+- The page is responsive or uses responsive patterns
+- No unrelated files were changed
+- No duplicate route was created
+- No fake claims, fake reviews, unsupported proof, or unverified business data were added
+- File-state verification is documented
+- Gate 1 and Gate 2 were explicitly approved before build
+
+---
 
 ## Page-Specific Validation Placeholder Rule
 
@@ -1152,65 +1157,37 @@ Use placeholders such as:
 
 When generating a final Claude Code prompt for a specific benchmark or client page, replace placeholders with approved values from the developer build brief.
 
-Do not hardcode Benchmark 1 values into the reusable template.
+Do not hardcode benchmark values into the reusable template.
 
-## HowTo Schema Audit Requirement
+---
 
-If HowTo schema is recommended or conditionally included, Gate 4 must include a validation line.
+## Final Claude Code Prompt Requirement
 
-Required validation line:
+The final output of this prompt must be a paste-ready Claude Code prompt.
 
-- [ ] HowTo schema is either omitted or matches visible process step headings and step descriptions exactly.
+It must include the specific project/page details, route, metadata, page sections, schema requirements, CTA requirements, form requirements, internal link rules, guardrails, validation checklist, and report format.
 
-Gate 5 must report:
+Do not output only a strategy summary.
 
-"HowTo schema status: included / omitted / skipped because visible steps did not qualify."
+Do not assume Claude Code remembers previous prompts.
 
-## Navigation Scope Outcome Rule
+The final Claude Code prompt must be self-contained.
 
-If navigation update is included in Gate 2 scope:
+Include the route, sections, metadata, schema, CTA requirements, form requirements, internal link rules, guardrails, validation checklist, and report format inside the final prompt.
 
-- Add only the approved single navigation link.
-- Do not restructure navigation.
-- Do not reorder links.
-- Do not change styling.
-- Do not modify unrelated header or footer behavior.
+---
 
-If navigation update is not included in Gate 2 scope:
+## Token Efficiency Rule
 
-- Do not modify navigation.
-- Report navigation update as a recommended follow-up in Gate 5.
+If the strategy has already been approved, compress strategy context and focus on implementation instructions.
 
-Required Gate 5 line:
+Do not regenerate the full strategy.
 
-"Navigation update status: completed / skipped because out of scope / recommended as follow-up."
+Keep the final Claude Code prompt complete, but remove repeated explanations that do not affect implementation.
 
-## Robots.txt Check
+---
 
-Gate 1 must check whether the project has a robots.txt file or robots configuration.
-
-Gate 4 must confirm:
-
-- The new route is not blocked by robots.txt or robots meta rules.
-- The page is not noindexed unless intentionally specified.
-
-Required validation line:
-
-- [ ] New route is not blocked by robots.txt or robots meta directives.
-
-## Form Field Source Rule
-
-Form fields must come from the approved brief or an existing reusable form pattern.
-
-If the approved brief does not specify form fields, Claude Code must stop and ask for confirmation before building the form.
-
-Do not invent lead capture fields.
-
-Required Gate 2 line:
-
-"Form fields source: approved brief / existing component pattern / missing and requires confirmation."
-
-## Final v2.1 Quality Gate
+## Final v2.2 Quality Gate
 
 Before returning a final Claude Code prompt, confirm that it includes:
 
@@ -1220,6 +1197,9 @@ Before returning a final Claude Code prompt, confirm that it includes:
 - Framework detection
 - Unknown-framework halt rule
 - Route conflict check
+- File-state verification rule
+- Existing file audit rule
+- Repository state reconciliation rule
 - File scope declaration
 - Form endpoint confirmation
 - Form field source confirmation
@@ -1233,5 +1213,40 @@ Before returning a final Claude Code prompt, confirm that it includes:
 - Navigation scope outcome rule
 - Gate 4 validation checklist
 - Gate 5 final report format
+- File-state verification summary in Gate 1, Gate 2, and Gate 3
 
 If any item is missing, revise the prompt before returning it.
+
+---
+
+## Final Master Rule
+
+Work carefully and sequentially.
+
+Inspect first.
+
+Stop.
+
+Wait for Gate 1 approval.
+
+Plan second.
+
+Stop.
+
+Wait for Gate 2 approval.
+
+Build third.
+
+Validate fourth.
+
+Report fifth.
+
+Do not rely on memory.
+
+Do not invent client data.
+
+Do not claim a file exists unless it was inspected.
+
+Do not claim a fileâ€™s contents unless it was opened/read.
+
+Do not proceed through hard stops without explicit user approval.

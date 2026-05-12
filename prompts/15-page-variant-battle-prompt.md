@@ -1,11 +1,11 @@
 ---
 Prompt: 15 — Page Variant Battle Prompt
 File: prompts/15-page-variant-battle-prompt.md
-Version: v1.1
-Status: Supporting Prompt Candidate — Awaiting Lock
-Mode: Full Competitive Build Mode
-Position: After Prompt 09 Entity and Topical Authority and before Prompt 02 Page Outline, or whenever a high-value page needs strategic variant comparison before build
-Does not replace: Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation
+Version: v1.2
+Status: Supporting Prompt Candidate — Awaiting Patch Confirmation
+Mode: Beyond-Elite Mode, Full Competitive Build Mode, Supporting Prompt Workflow
+Position: After Prompt 11 SERP Competitive Analysis when competitive strategy variants are needed; after Prompt 09 Entity and Topical Authority when entity findings should inform strategy; before Prompt 02 Page Outline only when the workflow is returning to page outlining
+Does not replace: Prompt 02 Page Outline, Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 16 Search Intent Defense, Prompt 18 Page Moat, Prompt 20 Visibility and Conversion Alignment
 ---
 
 # Prompt 15: Beyond-Elite Page Variant Battle Prompt
@@ -61,6 +61,15 @@ Primary CTA:
 
 Existing Page URL:  
 [EXISTING PAGE URL IF AVAILABLE]
+
+Known Competitors:  
+[COMPETITORS IF AVAILABLE]
+
+Workflow Mode:  
+[Core Mode, Beyond-Elite Mode, Full Competitive Build Mode, Supporting Prompt Workflow Test, Existing Page Review, or Other]
+
+Recommended Next Step Preference:  
+[Page outline, search intent defense, page moat review, visibility/conversion alignment, content quality review, or unknown]
 
 Known Competitors:  
 [COMPETITORS IF AVAILABLE]
@@ -129,6 +138,7 @@ It creates and compares multiple strategic page approaches before committing to 
 
 It does not replace:
 
+- Prompt 02 Page Outline — page outline creation after a strategy direction is chosen
 - Prompt 04 Gap Fix — structural gap identification for a specific page
 - Prompt 06 Claude Code Build — page implementation
 - Prompt 07 QA Review — post-build technical and strategy review
@@ -137,6 +147,9 @@ It does not replace:
 - Prompt 12 Analytics and Measurement — analytics-based review
 - Prompt 13 Content Quality Editor — content editorial improvement
 - Prompt 14 Page Template Evaluation — reusable page template evaluation
+- Prompt 16 Search Intent Defense — search intent mismatch review
+- Prompt 18 Page Moat — competitive durability and moat strategy
+- Prompt 20 Visibility and Conversion Alignment — balancing visibility with conversion
 
 Use Prompt 15 when:
 
@@ -145,10 +158,46 @@ Use Prompt 15 when:
 - Competitive conditions require testing different strategic angles before committing to an outline
 - A page needs a stronger strategic direction before Prompt 02 Page Outline
 - The user explicitly requests a variant battle
+- A Beyond-Elite or Full Competitive Build workflow needs strategic page direction before search intent defense or moat analysis
 
-Prompt 15 may use findings from Prompt 11, Prompt 12, Prompt 13, or Prompt 14 when provided, but it must not invent findings from those prompts.
+Prompt 15 may use findings from Prompt 11, Prompt 12, Prompt 13, Prompt 14, Prompt 16, Prompt 18, or Prompt 20 when provided, but it must not invent findings from those prompts.
 
 Prompt 15 may recommend the next prompt to run, but it must not create implementation tickets, write production code, run technical QA, fabricate analytics claims, fabricate SERP findings, or rewrite full page content unless specifically asked.
+
+---
+
+## Workflow-Aware Routing Rule
+
+Prompt 15 must recommend the next prompt based on the workflow mode.
+
+If the user is running Core Mode or building a page from scratch, Prompt 15 may recommend:
+
+- Prompt 02: Page Outline Prompt
+
+If the user is running Beyond-Elite Mode, Full Competitive Build Mode, or a supporting-prompt workflow test, Prompt 15 must not automatically route backward to Prompt 02 unless the user explicitly asks to return to page outlining.
+
+For Beyond-Elite supporting prompt workflows, the default next prompt after Prompt 15 is:
+
+- Prompt 16: Search Intent Defense Prompt
+
+Alternative next prompts may be recommended only when justified:
+
+- Prompt 18: Page Moat Prompt, if the biggest issue is competitive durability
+- Prompt 20: Visibility and Conversion Alignment Prompt, if the biggest issue is balancing search visibility and conversion
+- Prompt 13: Content Quality Editor Prompt, if page content already exists and needs editorial strengthening
+- Prompt 02: Page Outline Prompt, only if the workflow is explicitly ready to turn the winning strategy into an outline
+
+For Full Competitive Build Mode, the default next prompt after Prompt 15 is:
+
+- Prompt 16: Search Intent Defense Prompt
+
+If the final strategy exposes a weak competitive moat, recommend Prompt 18 before Prompt 16.
+
+If the final strategy exposes a visibility/conversion tradeoff, recommend Prompt 20 after Prompt 16.
+
+Prompt 15 must include a short routing explanation in the Final Recommendation.
+
+Do not recommend Prompt 02 as the default next step when the current workflow is explicitly testing or running Beyond-Elite supporting prompts.
 
 ---
 
@@ -203,7 +252,7 @@ Do not assume, estimate, or imply unverified facts as if they are confirmed.
 
 Strategy-based assessments are allowed only when clearly labeled as strategic assumptions, general page-pattern analysis, or recommendations based on the provided context.
 
-If competitor research is not provided, do not present competitor findings as verified. Label them as common competitor patterns or recommended strategic assumptions.
+If competitor research is not provided, do not present competitor findings as verified. Label them as common competitor patterns, predicted patterns, or recommended strategic assumptions.
 
 ---
 
@@ -221,6 +270,24 @@ Follow these rules throughout the variant battle:
 8. Avoid generic local page patterns and city-name swapping.
 9. Prioritize helpfulness, trust, clarity, conversion readiness, and search visibility.
 10. Recommend the strongest next workflow step.
+11. Match the final routing recommendation to the workflow mode.
+12. Do not route backward to Prompt 02 by default during Beyond-Elite supporting prompt tests.
+
+---
+
+## Output Efficiency Rule
+
+Keep variant comparisons useful but not bloated.
+
+For each variant, provide enough detail to make the strategic tradeoff clear, but do not over-expand repeated points across every variant.
+
+Avoid repeating the same client-data blockers in every section.
+
+List repeated blockers once in the Carry-Forward Items section unless they directly affect the variant score.
+
+Do not repeat the same reason in every variant if it can be summarized once in the scorecard or carry-forward section.
+
+Use concise section flows, not full page copy.
 
 ---
 
@@ -398,11 +465,23 @@ End with:
 6. Optional improvements
 7. Client-confirmation items
 8. Recommended next prompt to run
-9. Final decision
+9. Routing reason
+10. Final decision
+
+The recommended next prompt must match the workflow mode:
+
+- Core Mode / page build from scratch: Prompt 02
+- Beyond-Elite supporting prompt workflow: Prompt 16
+- Full Competitive Build Mode: Prompt 16 or Prompt 18 depending on risk
+- Existing page content review: Prompt 13
+- Visibility/conversion tradeoff review: Prompt 20
 
 Final decision must be one of:
 
 - Ready for page outline prompt
+- Ready for search intent defense
+- Ready for page moat review
+- Ready for visibility and conversion alignment
 - Combine variants and proceed
 - Needs refinement
 - Needs more competitive research
@@ -411,7 +490,7 @@ Final decision must be one of:
 
 Do not write full page content.
 
-Focus on strategic options, scoring, selection, and final page direction.
+Focus on strategic options, scoring, selection, routing, and final page direction.
 
 ---
 
@@ -422,7 +501,9 @@ If any strategy recommendation requires client data to use safely, flag each ite
 - Item
 - Status: NEEDS CLIENT CONFIRMATION
 - Blocking page outline: YES / NO
+- Blocking next Beyond-Elite prompt: YES / NO
 - Recommended next action
+- Destination: Prompt 10, Prompt 04, Prompt 08, client intake, production launch checklist, or later optimization
 
 Examples include unverified:
 
@@ -464,8 +545,10 @@ Use this structure unless the user requests a specific format:
 - Target Location:
 - Primary Keyword:
 - Primary SEO and Conversion Goal:
+- Workflow Mode:
 - Execution Depth:
 - Winning Strategy:
+- Recommended Next Prompt:
 - Final Decision:
 
 ## Part 1: Create Page Variants
@@ -490,7 +573,7 @@ Use this structure unless the user requests a specific format:
 
 ## Part 6: Final Recommendation
 
-[Provide recommendation]
+[Provide recommendation, including workflow-aware routing reason]
 
 ## Carry-Forward Items
 
@@ -504,4 +587,6 @@ Do not invent business facts, competitor findings, rankings, search volume, anal
 
 Do not write full page content unless specifically asked.
 
-Focus on strategic comparison, variant scoring, best-element extraction, and final page direction. 
+Do not recommend Prompt 02 by default when the workflow mode is Beyond-Elite Mode, Full Competitive Build Mode, or Supporting Prompt Workflow Test.
+
+Focus on strategic comparison, variant scoring, best-element extraction, final page direction, and workflow-aware routing.
