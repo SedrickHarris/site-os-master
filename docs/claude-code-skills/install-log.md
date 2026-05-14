@@ -46,6 +46,25 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Open Design (evaluation entry; supersedes the earlier 2026-05-13 placeholder entry for the same skill)
+
+- Classification: Claude Code Design and Visual Artifact Skill
+- Source / URL: To be confirmed (canonical Open Design source URL not yet recorded)
+- Install Method: Not installed yet. Planned install scope: user scope.
+- Status: Evaluating before install
+- Scope: Controlled website/design workflows only.
+- Purpose: Track Open Design as a planned Claude Code design support skill for Site OS Master website build workflows.
+- Notes:
+  - May support website section layouts, landing page layouts, UI design direction, visual artifact polish, client-facing design concepts, and design system inspiration.
+  - Must not be used for prompt validation, workflow routing, PASS/FAIL decisions, benchmark scoring, patch validation logic, or prompt identity decisions.
+  - Must not override Site OS Master rules, `CLAUDE.md` rules, or validated workflow logic.
+  - Should support website build outputs only after Site OS Master defines the page strategy, SEO/AEO requirements, content structure, and conversion goals.
+  - Install scope should be user scope when installed.
+  - Supersedes the earlier 2026-05-13 placeholder entry below, which recorded Open Design as `approved-scoped` at the time the skills documentation layer was scaffolded. That entry is preserved per log discipline.
+  - `approved-skills.md` currently lists Open Design under "Approved (Scoped)". That classification was written at scaffolding time and is now ahead of the actual evaluation state recorded here. Reconcile in a separate update if needed before any install action.
+- Validation Result: Not yet validated. Install action and any controlled design-workflow session are deferred until this evaluation completes.
+- Recorded by: project owner
+
 ### 2026-05-13 — Superpowers installed (supersedes the earlier 2026-05-13 evaluation entry)
 
 - Classification: Claude Code Workflow Discipline Skill
