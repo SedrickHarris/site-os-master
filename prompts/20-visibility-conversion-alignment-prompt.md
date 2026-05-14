@@ -1,11 +1,11 @@
 ---
 Prompt: 20 — Visibility and Conversion Alignment Prompt
 File: prompts/20-visibility-conversion-alignment-prompt.md
-Version: v1.1
+Version: v1.2
 Status: Supporting Prompt Candidate — Awaiting Lock
 Mode: Beyond-Elite Mode and Full Competitive Build Mode; optional in Core Mode for important pages
-Position: Run after Prompt 03 Ten-Metric Analysis and before Prompt 04 Gap Fix; run when page strategy exists and full cross-platform visibility and conversion alignment is needed
-Does not replace: Prompt 03 Ten-Metric Analysis, Prompt 04 Gap Fix, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, Prompt 16 Search Intent Defense, Prompt 17 AI Citation Readiness, Prompt 18 Page Moat, Prompt 19 Template Eval Rubric
+Position: Primary position — after Prompt 03 Ten-Metric Analysis and before Prompt 04 Gap Fix. Secondary position — after Prompt 04 Gap Fix and before Prompt 05 Developer Build Brief, when used as a pre-build gate review.
+Does not replace: Prompt 03 Ten-Metric Analysis, Prompt 04 Gap Fix, Prompt 05 Developer Build Brief, Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, Prompt 16 Search Intent Defense, Prompt 17 AI Citation Readiness, Prompt 18 Page Moat, Prompt 19 Template Eval Rubric
 ---
 
 # Prompt 20: Beyond-Elite Visibility and Conversion Alignment Prompt
@@ -30,85 +30,88 @@ Focus on alignment, readiness, risks, gaps, and recommended fixes.
 
 ## Page Details
 
-Business Name:  
+Business Name:
 [BUSINESS NAME]
 
-Website Name:  
+Website Name:
 [WEBSITE NAME]
 
-Page Name:  
+Page Name:
 [PAGE NAME]
 
-Page Type:  
+Page Type:
 [Homepage, service page, location page, category page, blog post, landing page]
 
-Page Route:  
+Page Route:
 [URL SLUG OR PAGE ROUTE]
 
-Target Service, Topic, or Category:  
+Target Service, Topic, or Category:
 [SERVICE, TOPIC, OR CATEGORY]
 
-Target Location:  
+Target Location:
 [LOCATION IF APPLICABLE]
 
-Primary Keyword:  
+Primary Keyword:
 [PRIMARY KEYWORD]
 
-Secondary Keywords:  
+Secondary Keywords:
 [SECONDARY KEYWORDS]
 
-Target Audience:  
+Target Audience:
 [TARGET AUDIENCE]
 
-Primary CTA:  
+Primary CTA:
 [PRIMARY CTA]
 
-Secondary CTA:  
+Secondary CTA:
 [SECONDARY CTA IF APPLICABLE]
 
-Approved Page Strategy:  
+Workflow Position:
+[Pre-Prompt 04 / Pre-Prompt 05 / Pre-publish / Other]
+
+Approved Page Strategy:
 [PASTE APPROVED PAGE STRATEGY OR OUTLINE]
 
-Schema Plan:  
+Schema Plan:
 [PASTE SCHEMA PLAN IF AVAILABLE]
 
-Internal Linking Plan:  
+Internal Linking Plan:
 [PASTE INTERNAL LINKING PLAN IF AVAILABLE]
 
-Conversion Plan:  
+Conversion Plan:
 [PASTE CONVERSION PLAN IF AVAILABLE]
 
-Analytics Context:  
+Analytics Context:
 [PASTE ANALYTICS, GSC, BING WEBMASTER, GBP, CRM, CALL TRACKING, OR CONVERSION DATA IF AVAILABLE]
 
-Known SERP or Competitor Context:  
+Known SERP or Competitor Context:
 [PASTE PROMPT 11 FINDINGS, SERP NOTES, OR COMPETITOR NOTES IF AVAILABLE]
 
-Proof, Trust, or Business Context:  
+Proof, Trust, or Business Context:
 [PASTE VERIFIED REVIEWS, TESTIMONIALS, CREDENTIALS, GUARANTEES, CASE STUDIES, YEARS IN BUSINESS, SERVICE AREA DETAILS, OR OTHER CONFIRMED TRUST SIGNALS IF AVAILABLE]
 
-Execution Depth:  
+Execution Depth:
 [Compact, Standard, or Deep]
 
-Known Constraints or Notes:  
+Known Constraints or Notes:
 [KNOWN CONSTRAINTS, BRAND REQUIREMENTS, CONTENT LIMITS, ANALYTICS LIMITATIONS, SERP DATA LIMITATIONS, OR IMPLEMENTATION NOTES]
 
 ---
 
 ## Execution Depth
 
-Select one before proceeding:
+Select one before proceeding.
 
 ### Compact
 
-Use Compact when a quick alignment check is needed before build.
+Use Compact when a quick alignment check is needed before build or when the page is low complexity.
 
 Return only:
 
-- Part 1: Visibility and Conversion Metrics Table
+- Part 1: Visibility and Conversion Metrics Table (compact column set — see Part 1 for column definitions)
 - Part 15: Final Recommendations
 - Final Alignment Decision
-- Carry-forward items if needed
+- Carry-Forward Items if needed
 
 Skip Parts 2 through 14.
 
@@ -118,12 +121,24 @@ Use Standard for a normal page strategy alignment review.
 
 Return:
 
-- Parts 1 through 8
-- Part 15
+- Part 1: Visibility and Conversion Metrics Table (standard column set — see Part 1 for column definitions)
+- Parts 2 through 8
+- Part 14: Risk Review (required flags only)
+- Part 15: Final Recommendations
+- Platform Readiness Checklist (lightweight — see Platform Readiness Checklist section)
 - Final Alignment Decision
-- Carry-forward items if needed
+- Carry-Forward Items
 
-Skip Parts 9 through 14 unless those areas are flagged in Parts 1 through 8.
+Escalation rule: Escalate a skipped part into the output when its corresponding score in Part 1 falls below 6.5, or when a high-priority flag is raised in Parts 2 through 8 that directly involves that part's scope.
+
+- Escalate to Part 9 if topical authority score is below 6.5 or internal linking score is below 6.0
+- Escalate to Part 10 if entity clarity score is below 6.5
+- Escalate to Part 11 if user engagement score is below 6.5
+- Escalate to Part 12 if conversion readiness score is below 6.5
+- Escalate to Part 13 if competitive outperformance score is below 6.5
+- Escalate to Full Part 14 if three or more high-risk items are identified
+
+Skip Parts 9 through 13 if no escalation trigger is met.
 
 ### Deep
 
@@ -132,13 +147,14 @@ Use Deep for high-value pages, revenue-critical pages, competitive pages, local 
 Return:
 
 - All 15 parts
+- Full Platform Readiness Checklist (all rows)
 - Multi-platform review table
 - Extended risk review
 - Required fixes and optional improvements
-- Carry-forward items
+- Carry-Forward Items
 - Final Alignment Decision
 
-Default to Standard unless the task is clearly simple or explicitly marked Deep.
+Default to Standard unless the task is clearly simple (use Compact) or explicitly marked Deep.
 
 ---
 
@@ -146,9 +162,9 @@ Default to Standard unless the task is clearly simple or explicitly marked Deep.
 
 Prompt 20 is a visibility and conversion alignment prompt.
 
-Use Prompt 20 when the specific goal is to verify that SEO, AEO, GEO, LLM search readiness, SERP visibility, technical visibility signals, page strategy, trust placement, CTA flow, and conversion path are aligned before build or before publishing.
+### When to use Prompt 20
 
-Use this prompt when:
+Use Prompt 20 when:
 
 - A page strategy exists and you need to verify that visibility and conversion are aligned before build
 - A built page needs a full cross-platform readiness audit before publishing
@@ -156,11 +172,13 @@ Use this prompt when:
 - You need to identify whether a page may rank without converting
 - You need to identify whether a page may convert poorly because search intent, CTA, trust, or lead capture flow is misaligned
 - You need to connect strategy findings from Prompts 11, 12, 13, 16, 17, or 18 into one alignment review
+- You are running a pre-Prompt 05 gate review after Prompt 04 is complete
 
-Prompt 20 does not replace:
+### Prompt 20 does not replace
 
 - Prompt 03 Ten-Metric Analysis — broad multi-metric page analysis
 - Prompt 04 Gap Fix — structural gap repair for a specific page
+- Prompt 05 Developer Build Brief — developer-ready build brief creation
 - Prompt 06 Claude Code Build — page implementation
 - Prompt 07 QA Review — post-build technical and strategy review
 - Prompt 08 Production Fix and TODO Resolution — fix session after QA
@@ -303,47 +321,29 @@ If a score depends on unavailable data, state that clearly.
 
 ## Part 1: Visibility and Conversion Metrics Table
 
-Create a table evaluating each major visibility and conversion goal.
+Use the column set that matches the selected execution depth.
 
-Use these columns unless Execution Depth is Compact and the user asks for a shorter table:
+### Compact Column Set
 
-- Metric
-- Current Alignment Score
-- Visibility Impact
-- Conversion Impact
-- What is working
-- What is missing
-- Required fix
-- Optional improvement
-- Data available: YES / NO
-- Requires confirmation: YES / NO
-- Recommended next action
-- Related prompt if needed
-- Priority: High, Medium, or Low
-- Claude Code note if applicable
+Use for Compact depth only.
 
-Evaluate:
+Columns: Metric | Score | What's Missing | Required Fix | Priority
 
-1. SEO visibility
-2. GEO and local visibility
-3. AEO readiness
-4. Voice search readiness
-5. SERP visibility
-6. Featured snippet readiness
-7. People Also Ask readiness
-8. Rich snippet readiness
-9. LLM search readiness
-10. AI citation readiness
-11. Technical SEO visibility
-12. Indexing and crawlability
-13. Topical authority
-14. Entity clarity
-15. Knowledge panel and entity authority potential
-16. Internal linking strength
-17. Trust and proof placement
-18. User engagement
-19. Conversion readiness
-20. Competitive outperformance
+### Standard Column Set
+
+Use for Standard depth.
+
+Columns: Metric | Score | Vis. Impact | Conv. Impact | What's Working | What's Missing | Required Fix | Priority | Data Available
+
+### Deep Column Set
+
+Use for Deep depth.
+
+Columns: Metric | Score | Vis. Impact | Conv. Impact | What's Working | What's Missing | Required Fix | Optional Improvement | Data Available | Requires Confirmation | Recommended Next Action | Related Prompt | Priority | Claude Code Note
+
+Evaluate all 20 metrics listed in the Objective section regardless of execution depth.
+
+Escalation triggers for Standard depth are based on the scores produced in this table. Apply escalation rules defined in the Execution Depth section after completing this table.
 
 ---
 
@@ -447,7 +447,7 @@ Check:
 - Concise answer placement
 - Clear service or topic definitions
 - Local voice search readiness if applicable
-- “Near me” intent support where relevant
+- "Near me" intent support where relevant
 - Direct next-step guidance
 - FAQ clarity
 - Plain-language explanations
@@ -524,7 +524,7 @@ Return:
 
 If local intent does not apply, state:
 
-“GEO and local intent review is not applicable based on the provided page type, target location, and page goal.”
+"GEO and local intent review is not applicable based on the provided page type, target location, and page goal."
 
 Do not invent local claims, rankings, regulations, neighborhoods, service history, or local proof.
 
@@ -563,6 +563,8 @@ Do not invent schema values, reviews, ratings, prices, addresses, phone numbers,
 
 ## Part 9: Topical Authority Review
 
+Escalate to this part when topical authority score is below 6.5 or internal linking score is below 6.0.
+
 Evaluate whether the page supports topical authority.
 
 Check:
@@ -594,6 +596,8 @@ Recommend Prompt 18 if the page needs deeper page moat strategy.
 
 ## Part 10: Knowledge Panel and Entity Authority Review
 
+Escalate to this part when entity clarity score is below 6.5.
+
 Evaluate whether the page supports entity understanding.
 
 Check:
@@ -624,6 +628,8 @@ Do not invent entity relationships, credentials, affiliations, or authority sign
 
 ## Part 11: Engagement Review
 
+Escalate to this part when user engagement score is below 6.5.
+
 Evaluate whether the page strategy supports user engagement.
 
 Check:
@@ -652,6 +658,8 @@ Return:
 ---
 
 ## Part 12: Conversion Review
+
+Escalate to this part when conversion readiness score is below 6.5.
 
 Evaluate whether the page strategy supports lead generation or the intended conversion.
 
@@ -685,6 +693,8 @@ Do not invent offers, pricing, guarantees, discounts, or urgency.
 
 ## Part 13: Competitive Outperformance Review
 
+Escalate to this part when competitive outperformance score is below 6.5.
+
 Evaluate whether the page strategy is strong enough to compete.
 
 Check:
@@ -715,6 +725,8 @@ If competitor research is unavailable, state that this section is based on gener
 ---
 
 ## Part 14: Risk Review
+
+For Standard depth, include high-priority risks only. For Deep depth, include all risks.
 
 Identify risks such as:
 
@@ -755,57 +767,63 @@ Provide:
 2. Biggest visibility strength
 3. Biggest conversion strength
 4. Biggest alignment gap
-5. Top 10 required fixes
-6. Top 10 optional improvements
-7. Top 5 technical visibility fixes
-8. Top 5 AEO or LLM fixes
-9. Top 5 local visibility fixes if applicable
-10. Top 5 conversion fixes
-11. Top 5 trust or proof fixes
+5. Top required fixes (up to 10 for Deep; top 5 for Standard and Compact)
+6. Top optional improvements (Deep only; skip for Standard and Compact)
+7. Top technical visibility fixes (Deep only)
+8. Top AEO or LLM fixes (Deep only)
+9. Top local visibility fixes if applicable (Deep only)
+10. Top conversion fixes (Deep only)
+11. Top trust or proof fixes (Deep only)
 12. Recommended next prompt
 13. Final recommendation
 
 Final recommendation must be one of:
 
 - Ready for Prompt 04 Gap Fix
+- Ready for Prompt 05 Developer Build Brief
+- Ready for Prompt 05 with Flagged Items
 - Ready for Prompt 06 Claude Code Build
+- Needs client confirmation before Prompt 05
+- Needs visibility fixes before Prompt 05
+- Needs conversion fixes before Prompt 05
 - Needs minor fixes before build
 - Needs major fixes before build
 - Not ready for build
-- Needs analytics review first
-- Needs SERP research first
-- Needs another prompt first
+- Needs analytics review first — run Prompt 12
+- Needs SERP research first — run Prompt 11
+- Needs another prompt first — specify which prompt and why
 
 ---
 
-## Final Alignment Decision
+## Platform Readiness Checklist
 
-Choose one:
+Include for Standard and Deep depth.
 
-- Aligned: Page strategy, visibility signals, and conversion path are aligned. Proceed to Prompt 04 Gap Fix or Prompt 06 Claude Code Build.
-- Needs minor edits: Small gaps identified. Resolve before build. No major workflow change needed.
-- Needs major alignment work: Significant visibility or conversion gaps. Run Prompt 04 Gap Fix and revise strategy before build.
-- Needs analytics review: Key decisions cannot be made without analytics data. Run Prompt 12 Analytics and Measurement first.
-- Needs SERP research: Competitive outperformance and keyword alignment gaps require SERP analysis. Run Prompt 11 SERP Competitive Analysis first.
-- Needs search intent defense: Intent, CTA, or user expectation alignment is unclear. Run Prompt 16 Search Intent Defense first.
-- Needs AI citation review: LLM or AI citation-readiness alignment is weak. Run Prompt 17 AI Citation Readiness first.
-- Needs page moat review: Competitive durability or defensibility is weak. Run Prompt 18 Page Moat first.
-- Run another prompt first: Specify which prompt is needed and why before alignment review can be completed.
+For Standard depth, use the lightweight 6-row checklist.
 
-For the final decision, include:
+For Deep depth, use the full multi-platform review table.
 
-- Decision
-- Why this decision was chosen
-- Required fixes
-- Optional improvements
-- Next prompt or workflow step
-- Blocking build or publish: YES / NO
+### Lightweight Platform Readiness Checklist (Standard depth)
 
----
+| Platform | Ready? | Blocker? | Note |
+|---|---|---|---|
+| Google Search | | | |
+| Google Business Profile | | | |
+| Bing / Bing Places | | | |
+| Apple Maps / Apple Business Connect | | | |
+| ChatGPT / Perplexity | | | |
+| Mobile click-to-call | | | |
 
-## Multi-Platform Review Table
+Mark each row as:
 
-If Execution Depth is Deep, include a multi-platform table covering:
+- Ready: signals confirmed
+- Partial: signals present but incomplete
+- Not ready: required signals missing
+- Needs confirmation: platform status unconfirmed — [NEEDS CLIENT CONFIRMATION] or [NEEDS PLATFORM CONFIRMATION]
+
+### Full Multi-Platform Review Table (Deep depth only)
+
+Include a full multi-platform table covering:
 
 - Google organic search
 - Google featured snippets
@@ -815,7 +833,9 @@ If Execution Depth is Deep, include a multi-platform table covering:
 - Google Search Console readiness
 - Bing organic search
 - Bing Webmaster readiness
+- Bing Places if local
 - Apple Maps or Apple Search if local
+- Apple Business Connect if local
 - ChatGPT readiness
 - Perplexity readiness
 - Copilot readiness
@@ -836,37 +856,94 @@ For each platform or visibility layer, include:
 
 ---
 
+## Final Alignment Decision
+
+Choose one:
+
+- Aligned: Page strategy, visibility signals, and conversion path are aligned. Proceed to the next workflow step.
+- Needs minor edits: Small gaps identified. Resolve before build. No major workflow change needed.
+- Needs major alignment work: Significant visibility or conversion gaps. Run Prompt 04 Gap Fix and revise strategy before build.
+- Needs analytics review: Key decisions cannot be made without analytics data. Run Prompt 12 Analytics and Measurement first.
+- Needs SERP research: Competitive outperformance and keyword alignment gaps require SERP analysis. Run Prompt 11 SERP Competitive Analysis first.
+- Needs search intent defense: Intent, CTA, or user expectation alignment is unclear. Run Prompt 16 Search Intent Defense first.
+- Needs AI citation review: LLM or AI citation-readiness alignment is weak. Run Prompt 17 AI Citation Readiness first.
+- Needs page moat review: Competitive durability or defensibility is weak. Run Prompt 18 Page Moat first.
+- Ready for Prompt 04 Gap Fix: Strategy exists but gaps need repair before build brief.
+- Ready for Prompt 05 Developer Build Brief: Strategy and gaps are resolved. Carry unresolved items as TODOs.
+- Ready for Prompt 05 with Flagged Items: Enough context exists to build the brief. Launch-blocking items must carry forward.
+- Needs client confirmation before Prompt 05: Launch-critical data is missing and cannot be safely TODOed without explicit client input.
+- Needs visibility fixes before Prompt 05: Visibility gaps would cause structural build problems if not resolved first.
+- Needs conversion fixes before Prompt 05: Conversion path gaps would cause structural build problems if not resolved first.
+- Run another prompt first: Specify which prompt is needed and why before alignment review can be completed.
+
+For the final decision, include:
+
+- Decision
+- Why this decision was chosen
+- Required fixes
+- Optional improvements
+- Next prompt or workflow step
+- Blocking build or publish: YES / NO
+
+---
+
 ## Carry-Forward Items
 
-If any visibility or conversion alignment finding requires client data, analytics data, SERP research, competitor research, source confirmation, proof confirmation, or verified business information to resolve safely, flag each item with:
+Flag all unresolved items using the standard Site OS TODO naming convention when this prompt runs as a pre-Prompt 05 gate review.
+
+### TODO Naming Convention
+
+When the Workflow Position is Pre-Prompt 05, format every unresolved client data item using this convention:
+
+`TODO_REAL_PHONE_NUMBER`
+`TODO_FORM_ENDPOINT`
+`TODO_PRODUCTION_DOMAIN`
+`TODO_REAL_ADDRESS`
+`TODO_REAL_ZIP`
+`TODO_REAL_HOURS`
+`TODO_GBP_URL`
+`TODO_BING_PLACES_STATUS`
+`TODO_APPLE_BUSINESS_CONNECT_STATUS`
+`TODO_REAL_REVIEW_OR_TRUST_SIGNAL`
+`TODO_CONFIRM_SAME_DAY_AVAILABILITY`
+`TODO_CONFIRM_FREON_HAZMAT_POLICY`
+`TODO_ECO_DISPOSAL_SPECIFICS`
+
+Rules for TODO naming:
+
+- Use uppercase with underscores
+- Each name must be specific enough for Prompt 06 to use it as a code comment or placeholder constant without ambiguity
+- Do not use generic labels like `TODO_BUSINESS_DATA`
+- Do not create a TODO for anything that can be confirmed from the provided inputs
+
+Also include for every carry-forward item:
 
 - Item
-- Status: NEEDS CLIENT CONFIRMATION, NEEDS ANALYTICS DATA, NEEDS SERP RESEARCH, NEEDS COMPETITOR RESEARCH, NEEDS SOURCE CONFIRMATION, NEEDS PROOF CONFIRMATION, or NEEDS BUSINESS CONFIRMATION
+- Status: NEEDS CLIENT CONFIRMATION / NEEDS ANALYTICS DATA / NEEDS SERP RESEARCH / NEEDS COMPETITOR RESEARCH / NEEDS SOURCE CONFIRMATION / NEEDS PROOF CONFIRMATION / NEEDS BUSINESS CONFIRMATION / NEEDS PLATFORM CONFIRMATION / NEEDS TECHNICAL CONFIRMATION
+- TODO label (if pre-Prompt 05)
+- P05 section it belongs in (if pre-Prompt 05)
 - Blocking build or publish: YES / NO
 - Recommended next action
 
-Examples include unverified:
+### Schema Safety Rules for Carry-Forward
 
-- Analytics data
-- Conversion rates
-- Lead counts
-- Traffic data
-- Ranking positions
-- Competitor findings
-- SERP findings
-- Reviews or testimonials
-- Credentials or certifications
-- Awards
-- Guarantees or warranties
-- Pricing or availability
-- Service area coverage
-- Business hours
-- Schema values
-- Internal URLs
-- Local proof
-- Case studies
-- Revenue claims
-- Performance claims
+Always carry forward with explicit rules when the following apply:
+
+- AggregateRating: DO NOT IMPLEMENT unless verified review count and star rating are provided by the client
+- LocalBusiness schema: DO NOT publish with invented or incomplete phone, address, ZIP, or hours
+- Review schema: DO NOT IMPLEMENT unless verified reviewer name, rating, and review text are provided
+
+State these rules explicitly in the carry-forward section regardless of execution depth.
+
+### Content Safety Rules for Carry-Forward
+
+Always carry forward with explicit rules when the following apply:
+
+- Cost-expectation callout: Must remain in the section spec — do not omit because pricing is unconfirmed
+- Freon or hazmat caveat: Must appear above the FAQ, not only inside it
+- Conditional availability language: Must remain conditional — do not convert to a confirmed claim until client confirms
+
+If no carry-forward items are identified, state: "No carry-forward items identified."
 
 Do not invent data to resolve flagged items.
 
@@ -875,6 +952,8 @@ Do not invent data to resolve flagged items.
 ## Required Output Format
 
 Use this structure unless the user requests a specific format:
+
+---
 
 # Visibility and Conversion Alignment Report
 
@@ -888,81 +967,82 @@ Use this structure unless the user requests a specific format:
 - Target Location:
 - Primary Keyword:
 - Target Audience:
+- Workflow Position:
 - Execution Depth:
 - Overall Alignment Score:
 - Final Alignment Decision:
 
 ## Part 1: Visibility and Conversion Metrics Table
 
-[Provide table]
+[Provide table using the column set for the selected execution depth]
 
 ## Part 2: Indexing and Crawlability Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 3: SERP Visibility Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 4: Featured Snippet and People Also Ask Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 5: AEO and Voice Search Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 6: LLM Search and AI Citation Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 7: GEO and Local Intent Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact." or "Not applicable."]
 
 ## Part 8: Rich Snippet and Schema Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — execution depth is Compact."]
 
 ## Part 9: Topical Authority Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — escalation threshold not met." or "Skipped — execution depth is Compact."]
 
 ## Part 10: Knowledge Panel and Entity Authority Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — escalation threshold not met." or "Skipped — execution depth is Compact."]
 
 ## Part 11: Engagement Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — escalation threshold not met." or "Skipped — execution depth is Compact."]
 
 ## Part 12: Conversion Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — escalation threshold not met." or "Skipped — execution depth is Compact."]
 
 ## Part 13: Competitive Outperformance Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide findings or state "Skipped — escalation threshold not met." or "Skipped — execution depth is Compact."]
 
 ## Part 14: Risk Review
 
-[Provide findings or state skipped due to execution depth]
+[Provide high-priority risks for Standard depth. Provide all risks for Deep depth. State "Skipped — execution depth is Compact." for Compact.]
 
 ## Part 15: Final Recommendations
 
-[Provide recommendations]
+[Provide recommendations using the depth-appropriate list length]
+
+## Platform Readiness Checklist
+
+[Provide lightweight 6-row checklist for Standard depth. Provide full multi-platform table for Deep depth. State "Skipped — execution depth is Compact." for Compact.]
 
 ## Final Alignment Decision
 
-[Provide final decision]
-
-## Multi-Platform Review Table
-
-[Provide if Execution Depth is Deep, or state “Skipped based on execution depth.”]
+[Provide final decision with required fields: Decision, Why, Required fixes, Optional improvements, Next step, Blocking build or publish YES/NO]
 
 ## Carry-Forward Items
 
-[List unresolved items that require confirmation, analytics data, SERP research, competitor research, source confirmation, proof confirmation, or verified business information, or state “No carry-forward items identified.”]
+[List all unresolved items with TODO labels, P05 section, blocking status, and next action. Include schema safety rules and content safety rules. State "No carry-forward items identified." if none.]
 
 ---
 
@@ -974,4 +1054,32 @@ Follow the Analytics Unavailability Rule when analytics data is not available.
 
 Do not claim that alignment guarantees rankings, traffic, leads, calls, conversions, revenue, rich snippets, map pack placement, or AI citations.
 
-Focus on aligning visibility, usefulness, trust, and conversion readiness. 
+Focus on aligning visibility, usefulness, trust, and conversion readiness.
+
+---
+
+## v1.2 Patch Notes
+
+Changes from v1.1 to v1.2:
+
+1. Depth-conditional Part 1 table columns — Compact, Standard, and Deep column sets defined explicitly. Table column count is no longer open-ended.
+
+2. Escalation trigger list for Parts 9 through 13 — Standard depth now has named score thresholds that trigger escalation to skipped parts. The model no longer makes an undirected judgment call about when to expand.
+
+3. Expanded Final Alignment Decision options — Post-Prompt 04 and pre-Prompt 05 workflow decisions added: Ready for Prompt 05 Developer Build Brief, Ready for Prompt 05 with Flagged Items, Needs client confirmation before Prompt 05, Needs visibility fixes before Prompt 05, Needs conversion fixes before Prompt 05.
+
+4. TODO naming convention for pre-Prompt 05 carry-forward — Carry-Forward Items section now defines the uppercase underscore TODO naming standard. All unresolved client data items are named in a format Prompt 05 and Prompt 06 can use directly as code placeholders without translation.
+
+5. Lightweight Platform Readiness Checklist for Standard depth — A 6-row platform checklist (Google Search, GBP, Bing/Bing Places, Apple Maps/Apple Business Connect, ChatGPT/Perplexity, mobile click-to-call) is now included in Standard runs. The full multi-platform table remains Deep only.
+
+6. Workflow Position field added to Page Details input block — Prompt 20 can now be explicitly positioned as Pre-Prompt 04, Pre-Prompt 05, Pre-publish, or Other. The carry-forward format and Final Alignment Decision options adjust based on this field.
+
+7. Schema and content safety rules added to Carry-Forward section — AggregateRating, LocalBusiness schema, cost-expectation callout, hazmat caveat, and conditional availability language rules are now required carry-forward outputs regardless of execution depth.
+
+8. Part 5 of Does not replace list updated — Prompt 05 Developer Build Brief added to the explicit does-not-replace list.
+
+---
+
+Site OS Master — Prompt 20 v1.2
+Status: Supporting Prompt Candidate — Awaiting Lock
+Next step: Run lightweight confirmation test. If confirmed, lock as Supporting Visibility and Conversion Alignment Master v1.2 and update prompts/prompt-master-status.md and docs/supporting-prompts-validation-summary.md.

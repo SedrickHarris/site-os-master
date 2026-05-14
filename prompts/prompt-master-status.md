@@ -442,7 +442,7 @@ Prompt 11 v1.1 is ready for use as the Supporting SERP Competitive Analysis Mast
 
 ---
 
-## Prompts 12–20: Advanced Prompts
+## Prompts 12–19: Advanced Prompts
 
 Current Version: v1 for all  
 Status: Active — Awaiting Individual Benchmark Lock
@@ -461,7 +461,57 @@ Prompts in this group:
 - 17-ai-citation-readiness-prompt.md
 - 18-page-moat-prompt.md
 - 19-template-eval-rubric-prompt.md
-- 20-visibility-conversion-alignment-prompt.md
+
+---
+
+## Prompt 20: Visibility and Conversion Alignment Prompt
+
+Current Version: v1.2  
+Status: Supporting Visibility and Conversion Alignment Master — Locked  
+Benchmark: Lightweight confirmation test  
+Latest Result: PASS WITH FLAGGED ITEMS (non-blocking)  
+Validation Type: Initial validation pass + v1.1 lightweight confirmation test + v1.2 lightweight confirmation test  
+Approved For: Visibility and conversion alignment review, SEO/GEO/AEO/SERP/LLM visibility review, AI citation-readiness alignment, technical SEO and indexing review, internal linking alignment, trust and CTA flow review, conversion path review, competitive outperformance alignment, multi-platform readiness review, and pre-build alignment gate review.
+
+### Lock Decision
+
+Prompt 20 v1.2 is approved and locked as the Supporting Visibility and Conversion Alignment Master.
+
+Prompt 20 v1 initially received a patch decision and an initial score of 61 / 100.
+
+Prompt 20 was patched to v1.1 and passed lightweight confirmation testing; v1.1 was locked as the Supporting Visibility and Conversion Alignment Master.
+
+Prompt 20 was then patched to v1.2 to add the Secondary Position routing and to add Prompt 05 Developer Build Brief to the does-not-replace list. The v1.2 lightweight confirmation test returned PASS WITH FLAGGED ITEMS — all 9 checks passed, with one non-blocking flagged note about a forward-looking next-step instruction inside the prompt file itself.
+
+### v1.2 Patch Notes
+
+Prompt 20 v1.2 extends v1.1 with two workflow-position refinements:
+
+- Added a Secondary Position: after Prompt 04 Gap Fix and before Prompt 05 Developer Build Brief, when Prompt 20 is used as a pre-build alignment gate review.
+- Added Prompt 05 Developer Build Brief to the does-not-replace list so the new Secondary Position cannot be misread as a replacement for the developer build brief.
+
+### Required Controls Confirmed
+
+- Canonical identity header
+- Expanded Page Details input block (including Analytics Context, Known SERP/Competitor Context, Proof/Trust/Business Context)
+- Execution Depth selector
+- Routing Rule section (with Prompt 05 in does-not-replace)
+- Primary Position and Secondary Position workflow declarations
+- Unavailable Data Handling section
+- Analytics Unavailability Rule reference
+- Do Not Invent section
+- Final Alignment Decision section
+- Carry-Forward Items section
+- Required Output Format section
+- No guaranteed outcome claim rule
+
+### Carry-Forward Behavior
+
+Prompt 20 v1.2 flags unresolved analytics, SERP, competitor, schema, internal linking, conversion, proof, and trust data items rather than inventing them. Each flagged item carries forward with a status label, a blocking-or-not flag, and a recommended next action. Prompt 20 does not stop alignment review when source data is unavailable if enough page context exists.
+
+### Production Requirement
+
+Prompt 20 produces an alignment review report, not a build deliverable. Final production launch approval still requires Prompt 09 with all carry-forward items resolved, confirmed, or intentionally deferred with documented approval.
 
 ---
 
@@ -481,4 +531,4 @@ Site OS Master — Prompt Master Status
 Last Updated: v1.4 cycle  
 Upstream workflow: Prompts 01–05 v2 — PASS — Connected Upstream Workflow Validated (Benchmark 1, Score: 96 / 100)  
 Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1, Prompt 10 v1 — all locked  
-Supporting prompts: Prompt 11 v1.1 — PASS — Supporting SERP Competitive Analysis Master 
+Supporting prompts: Prompt 11 v1.1 — PASS — Supporting SERP Competitive Analysis Master; Prompt 20 v1.2 — PASS WITH FLAGGED ITEMS (non-blocking) — Supporting Visibility and Conversion Alignment Master 

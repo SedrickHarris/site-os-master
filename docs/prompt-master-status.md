@@ -281,19 +281,28 @@ Prompt 19 v1.2 is locked as the Supporting Template Eval Rubric Master.
 ## Prompt 20: Visibility and Conversion Alignment Prompt
 
 File: prompts/20-visibility-conversion-alignment-prompt.md  
-Version: v1.1  
+Version: v1.2  
 Status: LOCKED  
 Role: Supporting Visibility and Conversion Alignment Master  
 Validation: PASS  
-Confirmation: Lightweight v1.1 confirmation PASS  
+Confirmation: Lightweight v1.2 confirmation PASS WITH FLAGGED ITEMS (non-blocking)  
 
 ### Summary
 
-Prompt 20 v1.1 is locked as the Supporting Visibility and Conversion Alignment Master for the Site OS Master prompt system.
+Prompt 20 v1.2 is locked as the Supporting Visibility and Conversion Alignment Master for the Site OS Master prompt system.
 
 Prompt 20 supports visibility and conversion alignment review, SEO visibility review, GEO and local visibility review, AEO readiness review, SERP visibility review, LLM search readiness review, AI citation-readiness alignment, technical SEO visibility review, indexing and crawlability review, internal linking alignment, trust and proof placement, CTA flow review, conversion path review, competitive outperformance alignment, multi-platform readiness review, and final alignment decision routing.
 
 Prompt 20 helps confirm that a page strategy is not only built for visibility, but also built to convert.
+
+### v1.2 Patch Notes
+
+Prompt 20 v1.2 extends v1.1 with two workflow-position refinements:
+
+- Added a Secondary Position: after Prompt 04 Gap Fix and before Prompt 05 Developer Build Brief, when Prompt 20 is used as a pre-build alignment gate review.
+- Added Prompt 05 Developer Build Brief to the does-not-replace list so the new Secondary Position cannot be misread as a replacement for the developer build brief.
+
+These changes clarify when Prompt 20 may be re-run as a pre-build alignment gate and prevent scope confusion with Prompt 05.
 
 ### v1.1 Patch Notes
 
@@ -329,6 +338,8 @@ The Final Alignment Decision section provides routing options to Prompt 04, Prom
 
 Prompt 20 v1 initially received a patch decision and an initial score of 61 / 100.
 
-Prompt 20 was patched to v1.1 and passed lightweight confirmation testing.
+Prompt 20 was patched to v1.1 and passed lightweight confirmation testing; v1.1 was locked as the Supporting Visibility and Conversion Alignment Master.
 
-Prompt 20 v1.1 is locked as the Supporting Visibility and Conversion Alignment Master.
+Prompt 20 was then patched to v1.2 to add the Secondary Position routing (after Prompt 04, before Prompt 05) and to add Prompt 05 Developer Build Brief to the does-not-replace list. The v1.2 lightweight confirmation test returned PASS WITH FLAGGED ITEMS — all nine checks passed, with one non-blocking flagged note about a forward-looking next-step instruction inside the prompt file itself.
+
+Prompt 20 v1.2 is locked as the Supporting Visibility and Conversion Alignment Master.

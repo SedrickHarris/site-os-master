@@ -372,3 +372,55 @@ The confirmation pass verified that Prompt 20 does not replace:
 - Prompt 19 Template Eval Rubric
 
 Prompt 20 v1.1 is now locked as the Supporting Visibility and Conversion Alignment Master.
+
+## Prompt 20 v1.2: Visibility and Conversion Alignment Prompt
+
+File: prompts/20-visibility-conversion-alignment-prompt.md  
+Status: LOCKED  
+Role: Supporting Visibility and Conversion Alignment Master  
+Validation Result: PASS WITH FLAGGED ITEMS (non-blocking)  
+Validation Type: Lightweight v1.2 confirmation test  
+Initial Score (v1): 61 / 100  
+
+Prompt 20 v1.2 is locked as the Supporting Visibility and Conversion Alignment Master for the Site OS Master prompt system.
+
+Prompt 20 v1.2 extends v1.1 with two workflow-position refinements:
+
+- Added a Secondary Position: after Prompt 04 Gap Fix and before Prompt 05 Developer Build Brief, when Prompt 20 is used as a pre-build alignment gate review.
+- Added Prompt 05 Developer Build Brief to the does-not-replace list so the new Secondary Position cannot be misread as a replacement for the developer build brief.
+
+Prompt 20 v1.2 passed lightweight confirmation testing. All 9 confirmation checks passed:
+
+1. Prompt identity is clear — PASS
+2. Version is clearly marked as v1.2 — PASS
+3. Workflow Position field is present and usable — PASS
+4. Carry-forward requirements are clear — PASS
+5. Final Alignment Decision options are clear — PASS
+6. Schema and content safety carry-forward rules are present — PASS
+7. Prompt 05 is listed correctly in the does-not-replace list — PASS
+8. Prompt can function as a supporting prompt without replacing core workflow prompts — PASS
+9. No obvious contradictions with existing Site OS Master routing — PASS (with one non-blocking flagged note)
+
+Flagged item (non-blocking):
+
+The v1.2 patch notes section at the bottom of the prompt file contains a forward-looking next-step instruction: "Next step: Run lightweight confirmation test. If confirmed, lock as Supporting Visibility and Conversion Alignment Master v1.2 and update prompts/prompt-master-status.md and docs/supporting-prompts-validation-summary.md." The note is correctly written and ready to execute. It does not block the lock decision.
+
+The confirmation pass re-verified that Prompt 20 v1.2 does not replace:
+
+- Prompt 03 Ten-Metric Analysis
+- Prompt 04 Gap Fix
+- Prompt 05 Developer Build Brief (new in v1.2)
+- Prompt 06 Claude Code Build
+- Prompt 07 QA Review
+- Prompt 08 Production Fix and TODO Resolution
+- Prompt 11 SERP Competitive Analysis
+- Prompt 12 Analytics and Measurement
+- Prompt 13 Content Quality Editor
+- Prompt 14 Page Template Evaluation
+- Prompt 15 Page Variant Battle
+- Prompt 16 Search Intent Defense
+- Prompt 17 AI Citation Readiness
+- Prompt 18 Page Moat
+- Prompt 19 Template Eval Rubric
+
+Prompt 20 v1.2 is now locked as the Supporting Visibility and Conversion Alignment Master. The Prompt 20 v1.1 entry above is preserved for historical reference.
