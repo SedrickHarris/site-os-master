@@ -420,3 +420,49 @@ Before a page is considered ready, verify:
 Do not create content only for one platform.
 
 Create content that is structured for search engines, local platforms, answer engines, AI assistants, and real customers.
+
+# Site OS Master Claude Code Rules
+
+## Primary Operating Principle
+
+This repository is a controlled workflow system. Do not make broad, speculative, or unrelated changes.
+
+Before changing files:
+1. Identify the active prompt, workflow, or test being updated.
+2. Read the relevant files first.
+3. Explain the intended change.
+4. Confirm the expected success criteria.
+5. Make the smallest safe change.
+
+## Site OS Master Change Rules
+
+- Do not rename prompts unless explicitly instructed.
+- Do not change workflow routing unless explicitly instructed.
+- Do not edit unrelated prompt files.
+- Do not refactor folder structure unless explicitly requested.
+- Do not update benchmark results unless a test has been run.
+- Do not mark a prompt as PASS unless validation evidence exists.
+- Do not remove flagged items unless the issue has been resolved.
+- Do not overwrite historical evaluation records.
+
+## Coding and Editing Discipline
+
+Follow these rules on every task:
+
+1. Think before editing.
+2. Build the simplest solution that satisfies the request.
+3. Make surgical changes only.
+4. Do not improve anything that was not requested.
+5. Preserve existing formatting and naming conventions.
+6. Surface uncertainty instead of guessing.
+7. Stop and report blockers if required files are missing.
+
+## Required Response Format After Changes
+
+After completing edits, report:
+
+1. Files changed
+2. Summary of changes
+3. Validation performed
+4. Remaining risks or flagged items
+5. Suggested Git commit message
