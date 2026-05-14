@@ -46,6 +46,27 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Superpowers installed (supersedes the earlier 2026-05-13 evaluation entry)
+
+- Classification: Claude Code Workflow Discipline Skill
+- Source / URL: `obra/superpowers-marketplace` (Claude Code marketplace shorthand; canonical full URL not yet recorded in this log)
+- Install Method: `/plugin marketplace add obra/superpowers-marketplace` → `/plugin install superpowers@superpowers-marketplace` → `/reload-plugins`
+- Status: Installed for user scope. Approved for controlled Site OS Master planning and workflow discipline support only.
+- Scope: User scope. Controlled use for planning, spec creation, task breakdown, review discipline, validation preparation, and commit readiness only.
+- Notes:
+  - Installed successfully in Claude Code.
+  - Scope: user scope.
+  - May support planning, spec creation, task breakdown, review discipline, validation preparation, and commit readiness.
+  - Must not override Site OS Master routing, prompt identity, validation rules, PASS/FAIL decisions, benchmark scoring, or patch validation logic.
+  - Must not edit prompt files unless explicitly instructed.
+  - Plugin reload required after install. `/reload-plugins` completed: 2 plugins (ui-ux-pro-max + superpowers), 0 skills, 6 agents, **1 hook installed by Superpowers**, 0 plugin MCP servers, 0 plugin LSP servers.
+  - Hook awareness: Superpowers installed 1 hook. Hooks execute through the Claude Code harness automatically and are not gated by Site OS Master rules at runtime. Review the hook's behavior in a controlled session before relying on it in production workflows; if it conflicts with Site OS Master discipline, disable it via `settings.json` per `update-config` guidance.
+  - Skill scope awareness: the bundled `superpowers:using-superpowers` skill describes a posture of "requiring Skill tool invocation before ANY response including clarifying questions." Per `CLAUDE.md` and `docs/claude-code-skills/site-os-usage-rules.md`, Site OS Master rules take precedence when a skill's guidance conflicts with them. Superpowers skills are advisory in this repository, not authoritative.
+  - Supersedes the earlier 2026-05-13 evaluation entry for the same skill; that entry is preserved below per log discipline.
+  - `approved-skills.md` lists Superpowers under "Approved (Controlled Testing)". This install-log entry is consistent with that tier and does not promote Superpowers to Production.
+- Validation Result: Install succeeded. Functional/discipline validation pending — to be performed in a controlled planning or review session before any production-impacting use. Hook behavior validation is part of that pending validation.
+- Recorded by: project owner
+
 ### 2026-05-13 — Superpowers (evaluation entry; supersedes the earlier 2026-05-13 placeholder entry for the same skill)
 
 - Classification: Claude Code Workflow Discipline Skill
