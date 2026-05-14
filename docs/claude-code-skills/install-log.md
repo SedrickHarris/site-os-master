@@ -46,6 +46,27 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Open Design (manual-install repo verified; supersedes the earlier 2026-05-13 evaluation entry)
+
+- Classification: Claude Code Design and Visual Artifact Skill
+- Source / URL: https://github.com/nexu-io/open-design.git
+- Install Method: Manual GitHub repo install (NOT Claude plugin marketplace install). Recommended install scope: user/dev-folder level, NOT inside the Site OS Master repo.
+- Status: Verified repo found. Pending manual install.
+- Scope: Controlled website/design workflows only.
+- Purpose: Track Open Design as a planned design/artifact support repo for Site OS Master website build workflows.
+- Notes:
+  - Repo verified: https://github.com/nexu-io/open-design.git
+  - Open Design is a local-first open-source alternative to Claude Design.
+  - Includes design systems, design templates, prompt templates, skills, specs, and templates.
+  - May support website section layouts, landing page layouts, UI design direction, visual artifact polish, client-facing design concepts, and design system inspiration.
+  - Must not be used for prompt validation, workflow routing, PASS/FAIL decisions, benchmark scoring, patch validation logic, or prompt identity decisions.
+  - Must not override Site OS Master rules, `CLAUDE.md` rules, or validated workflow logic.
+  - Install method is manual GitHub repo install, not Claude plugin marketplace install.
+  - Recommended install scope: user/dev-folder level, not Site OS Master repo scope.
+  - Supersedes the earlier 2026-05-13 evaluation entry below, which recorded the source URL as "to be confirmed". That entry is preserved per log discipline.
+- Validation Result: Repo existence/identity verification step complete. Functional design-workflow validation pending — to be performed in a controlled session after manual install.
+- Recorded by: project owner
+
 ### 2026-05-13 — Open Design (evaluation entry; supersedes the earlier 2026-05-13 placeholder entry for the same skill)
 
 - Classification: Claude Code Design and Visual Artifact Skill
