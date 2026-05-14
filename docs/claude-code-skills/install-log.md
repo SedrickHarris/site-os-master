@@ -46,6 +46,23 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Obsidian Skills and Ruflo / RooFlow removed from active integration plan
+
+- Classification: Skills documentation status change (no install action)
+- Source / URL: Not applicable
+- Install Method: Not applicable — neither skill is or was installed in this repository or on this machine
+- Status: Not Planned — Removed from Active Scope (both skills)
+- Scope: Both skills moved out of the active Site OS Master integration plan.
+- Notes:
+  - **Obsidian Skills:** Only useful if Site OS Master or project notes are connected to Obsidian. They are not currently connected and there is no near-term plan to integrate them. Removed from active scope. Reconsideration trigger: if and when Obsidian becomes part of the project's note-taking or knowledge-management workflow.
+  - **Ruflo / RooFlow:** Advanced multi-agent orchestration. Higher risk, significant additional moving parts (agent roles, hand-offs, shared state), and not needed before website builds. Removed from active scope. Reconsideration trigger: only if the original re-evaluation conditions documented in `experimental-skills.md` are all met with a written plan presented to the project owner.
+  - Neither skill is or was installed; this is a documentation-only status change.
+  - `experimental-skills.md` updated: a new "Not Planned — Removed from Active Scope" tier was added to the tier list, and sections 2 (Obsidian Skills) and 3 (Ruflo / RooFlow) were updated to that status. Historical fields are preserved verbatim under "(historical)" labels per log discipline.
+  - `README.md` and `approved-skills.md` reviewed: no references to either skill were present, so no edits were needed there.
+  - Supersedes the earlier 2026-05-13 placeholder entries for both skills (Obsidian Skills as `optional`, Ruflo / RooFlow as `deferred`). Those entries are preserved below per log discipline.
+- Validation Result: Not applicable — documentation status change only. No functional install or runtime validation performed.
+- Recorded by: project owner
+
 ### 2026-05-13 — Open Design external-tool structure created (supersedes the earlier 2026-05-13 manual-install-pending entry)
 
 - Classification: External Design and Visual Artifact Tool
