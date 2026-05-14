@@ -46,6 +46,26 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Superpowers (evaluation entry; supersedes the earlier 2026-05-13 placeholder entry for the same skill)
+
+- Classification: Claude Code Workflow Discipline Skill
+- Source / URL: To be confirmed (canonical Superpowers source URL not yet recorded)
+- Install Method: Not installed yet. Planned install scope: user scope.
+- Status: Evaluating before install
+- Scope: Controlled planning, spec creation, task breakdown, review discipline, validation preparation, and commit-readiness support.
+- Purpose: Track Superpowers as a planned Claude Code workflow support skill for Site OS Master.
+- Notes:
+  - May support planning, brainstorming, spec creation, task execution planning, branch review, and commit preparation.
+  - Must not override Site OS Master routing, prompt identity, validation rules, PASS/FAIL decisions, benchmark scoring, or patch validation logic.
+  - Must not edit prompt files unless explicitly instructed.
+  - Must not make broad refactors.
+  - Must preserve `CLAUDE.md` rules and Site OS Master validation discipline.
+  - Install scope should be user scope when installed.
+  - Supersedes the earlier 2026-05-13 placeholder entry below, which recorded Superpowers as `approved-controlled-testing` at the time the skills documentation layer was scaffolded. That entry is preserved per log discipline.
+  - `approved-skills.md` currently lists Superpowers under "Approved (Controlled Testing)". That classification was written at scaffolding time and is now ahead of the actual evaluation state recorded here. Reconcile in a separate update if needed before any install action.
+- Validation Result: Not yet validated. Install action and any controlled-testing session are deferred until this evaluation completes.
+- Recorded by: project owner
+
 ### 2026-05-13 — ui-ux-pro-max installed (supersedes the earlier 2026-05-13 evaluating entry)
 
 - Source / URL: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (marketplace shorthand: `nextlevelbuilder/ui-ux-pro-max-skill`)
