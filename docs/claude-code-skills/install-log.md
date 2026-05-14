@@ -46,6 +46,31 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — Open Design external-tool structure created (supersedes the earlier 2026-05-13 manual-install-pending entry)
+
+- Classification: External Design and Visual Artifact Tool
+- Source / URL: https://github.com/nexu-io/open-design.git
+- Install Method: Documentation and folder-structure only. No clone, no install, no submodule add, no copy of repo files.
+- Status: Verified external tool. Not installed. Documentation and future submodule placeholder created.
+- Scope: Website/design workflows only (when eventually used).
+- Purpose: Prepare a controlled documentation and future-tools structure for Open Design without installing, cloning, or copying the Open Design repo.
+- Files created in this action:
+  - `docs/claude-code-skills/open-design.md` — tool identity, approved-use, not-approved-for, build-time usage rules, future integration path, current decision.
+  - `tools/README.md` — purpose and hard rules for the `tools/` folder.
+  - `tools/open-design/README.md` — placeholder for the future Open Design submodule path, including the canonical `git submodule add` command that is **not** yet authorized to run.
+- Notes:
+  - Repo verified: https://github.com/nexu-io/open-design.git
+  - Not installed on Desktop.
+  - Not cloned into Site OS Master.
+  - Not added as a submodule yet.
+  - Future preferred integration path: `tools/open-design` as a Git submodule (only after explicit approval and a new install-log entry recording the submodule action).
+  - Current use: documentation reference only.
+  - The earlier reclassification of Open Design as "External Design and Visual Artifact Tool" supersedes its earlier "Claude Code Design and Visual Artifact Skill" classification. Open Design is a standalone application with optional MCP bridge — it is not a Claude Code skill.
+  - MCP bridge integration remains pending evaluation and is not part of this action.
+  - Supersedes the earlier 2026-05-13 manual-install-pending entry below; that entry is preserved per log discipline.
+- Validation Result: Documentation and folder structure created and verified. No functional install or runtime validation performed (nothing was installed). Future submodule install will require its own log entry.
+- Recorded by: project owner
+
 ### 2026-05-13 — Open Design (manual-install repo verified; supersedes the earlier 2026-05-13 evaluation entry)
 
 - Classification: Claude Code Design and Visual Artifact Skill
