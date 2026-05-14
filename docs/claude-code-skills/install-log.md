@@ -46,6 +46,23 @@ Copy this template when adding a new entry. Do not edit prior entries.
 
 ## Log Entries
 
+### 2026-05-13 — ui-ux-pro-max installed (supersedes the earlier 2026-05-13 evaluating entry)
+
+- Source / URL: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill (marketplace shorthand: `nextlevelbuilder/ui-ux-pro-max-skill`)
+- Install Method: `/plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill` → `/plugin install ui-ux-pro-max@ui-ux-pro-max-skill` → `/reload-plugins`. Earlier attempt with the full HTTPS URL form of `marketplace add` failed with "Malformed input to a URL function"; the marketplace shorthand form succeeded.
+- Status: Installed for user scope. Approved for controlled website/design workflow testing only.
+- Scope: User scope. Controlled testing inside website and design workflows only — website builds, landing pages, UI sections, dashboards, design systems, typography, color palettes, and layout strategy.
+- Notes:
+  - Installed successfully in Claude Code.
+  - Scope: user scope.
+  - Must not be used for prompt validation, workflow routing, PASS/FAIL decisions, benchmark scoring, or patch validation logic.
+  - May be used for website builds, landing pages, UI sections, dashboards, design systems, typography, color palettes, and layout strategy.
+  - Plugin reload required after install. `/reload-plugins` completed: 1 plugin, 0 skills, 6 agents, 0 hooks, 0 plugin MCP servers, 0 plugin LSP servers.
+  - Supersedes the earlier 2026-05-13 `evaluating` entry for the same plugin; that entry is preserved below per log discipline.
+  - Not yet promoted to `approved-skills.md`. Promotion requires a clean controlled-testing pass per `site-os-usage-rules.md`.
+- Validation Result: Install succeeded. Functional/design-workflow validation pending — to be performed in a controlled session before any production use.
+- Recorded by: project owner
+
 ### 2026-05-13 — ui-ux-pro-max (nextlevelbuilder/ui-ux-pro-max-skill)
 
 - Source / URL: https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git
