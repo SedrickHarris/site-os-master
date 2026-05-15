@@ -105,3 +105,40 @@ Prompt 05 v2.1 patch commit: 457f264 — "prompts(05): apply v2.1 developer buil
 ### Readiness
 
 Prompt 05 v2.1 is ready to support the first controlled website build.
+
+---
+
+### Date
+
+2026-05-14
+
+### Prompt Updated
+
+prompts/05-developer-build-brief-prompt.md (v2.1 status-header cleanup)
+
+### Change Type
+
+Bug fix
+
+### Reason for Change
+
+Resolve the one cosmetic documentation flag raised by the lightweight confirmation test of Prompt 05 v2.1. After the confirmation test passed, the Status header in the prompt file still read "v2.1 Patch Applied — Awaiting Confirmation Test"; this update flips it to "v2.1 — Confirmed" so the file's self-declared status matches the master status record and the changelog.
+
+### What Changed
+
+- prompts/05-developer-build-brief-prompt.md: Status header line changed from "v2.1 Patch Applied — Awaiting Confirmation Test" to "v2.1 — Confirmed". No other prompt content modified.
+- No routing logic changed.
+- No Prompt 06 handoff logic changed.
+
+### Confirmation Result
+
+PASS WITH FLAGGED ITEMS — 10/10 functional checks passed; 1 cosmetic status-header flag resolved by this update.
+
+### Commit Reference
+
+Prompt 05 v2.1 patch commit: 457f264 — "prompts(05): apply v2.1 developer build brief patch".
+Prompt 05 v2.1 status/changelog confirmation commit: 33924d8 — "docs(prompt-05): confirm v2.1 status and changelog".
+
+### Readiness
+
+Prompt 05 v2.1 is fully confirmed and ready to support the first controlled website build.
