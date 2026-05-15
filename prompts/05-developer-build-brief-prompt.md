@@ -1,9 +1,13 @@
 # Prompt 05: Developer Build Brief
 
-**Version:** v2.0
-**Status:** Updated — Unresolved Issue Flagging Language Added
+**File:** prompts/05-developer-build-brief-prompt.md
+**Version:** v2.1
+**Status:** v2.1 Patch Applied — Awaiting Confirmation Test
 **Mode:** All modes
+**Position:** After Prompt 04 Gap Fix and before Prompt 06 Claude Code Build. May receive Prompt 20 Visibility and Conversion Alignment (v1.2) output when Prompt 20 runs in its Secondary Position (between Prompt 04 and Prompt 05).
+**Upstream Sources Acknowledged:** Prompt 01 Keyword Strategy, Prompt 02 Page Outline, Prompt 03 Ten-Metric Analysis (if run), Prompt 04 Gap Fix (if run), Prompt 10 Client Data Collection (if available), and Prompt 20 Visibility and Conversion Alignment v1.2 (when run in its Secondary Position).
 **Approved For:** Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan, flagged client data carry-forward to Prompt 06
+**Does Not Replace:** Prompt 06 Claude Code Build, Prompt 07 QA Review, Prompt 08 Production Fix and TODO Resolution, Prompt 09 Final Launch QA, Prompt 10 Client Data Collection, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 14 Page Template Evaluation, Prompt 15 Page Variant Battle, Prompt 16 Search Intent Defense, Prompt 17 AI Citation Readiness, Prompt 18 Page Moat, Prompt 19 Template Evaluation Rubric, Prompt 20 Visibility and Conversion Alignment
 
 ---
 
@@ -40,6 +44,7 @@ Check for and use:
 - Prompt 02 Page Outline output
 - Prompt 03 Ten-Metric Analysis output (if run)
 - Prompt 04 Gap Fix output (if run)
+- Prompt 20 Visibility and Conversion Alignment **v1.2** output (if Prompt 20 was run in its Secondary Position, after Prompt 04 and before Prompt 05, as a pre-build alignment gate review)
 - Any additional confirmed client-supplied data
 
 If a prompt was skipped in the workflow, note it and proceed with available context.
@@ -182,6 +187,12 @@ Include:
 - Component naming guidance
 - Component scope boundaries
 - Notes on existing pattern inspection before creating new components
+- Frontend dependency inspection — before recommending any styling, motion, or component solution, inspect `package.json` to identify the project's installed CSS framework, animation library, component library, and other relevant frontend dependencies. Do not assume; read the file.
+- Frontend dependency handling — when installed or approved dependencies exist (for example, **Tailwind CSS** for utility-first styling and **Framer Motion** for animation, or any project-approved component library), the build brief must plan styling and motion using those dependencies' conventions rather than introducing new libraries. Examples of correct handling:
+  - For styling: specify Tailwind utility patterns and any existing `tailwind.config.ts` design tokens; do not propose CSS-in-JS, plain CSS modules, or a different framework when Tailwind is already installed.
+  - For animation: specify Framer Motion components and patterns (e.g., `motion.div`, `AnimatePresence`, variants) when Framer Motion is installed; do not propose alternative animation libraries.
+  - For components: prefer reusing or extending existing components; defer to the project's component library if one is installed and approved.
+- New frontend dependency rule — if a section of the build brief would require a frontend dependency that is not already installed or approved, flag the proposed addition under "Build Risks and Constraints" with the dependency name, the reason it would be needed, and the impact of going without it. Do not assume Prompt 06 may install new dependencies. The project owner approves dependency additions before Prompt 06 runs.
 
 ### Part 5: Metadata Requirements
 
@@ -560,6 +571,21 @@ Choose one:
 
 ## Version
 
-Prompt 05 v2.0
+Prompt 05 v2.1
+Patched from v2.0 to add:
+
+1. Canonical `File` and `Position` header fields.
+2. Explicit `Does Not Replace` list in the header (matches the Site OS Master supporting-prompt header convention).
+3. Prompt 20 Visibility and Conversion Alignment **v1.2** output as a recognized upstream source for the case where Prompt 20 runs in its Secondary Position (after Prompt 04 and before Prompt 05).
+4. Frontend dependency inspection rule under Part 4 Component Requirements — requires reading `package.json` before recommending styling, motion, or component solutions.
+5. Frontend dependency handling under Part 4 — explicit guidance that when installed or approved dependencies exist (for example, Tailwind CSS for styling and Framer Motion for animation), the build brief must plan around those dependencies' conventions rather than introducing new libraries, with concrete examples for styling, animation, and components.
+6. New frontend dependency rule under Part 4 — any proposed addition of a frontend dependency not already installed or approved must be flagged under "Build Risks and Constraints" for project-owner approval before Prompt 06 runs.
+
+The v2.1 patch does not change routing logic, validation rules, the carry-forward vocabulary, the Prompt 06 handoff language, the Required Output Format, the Acceptance Criteria, or any Safety Rule. It does not modify any prompt other than Prompt 05. It is a clarifying and dependency-discipline patch only.
+
+Next step: Run lightweight confirmation test against the v2.1 file. If confirmed, lock as v2.1 and update `prompts/prompt-master-status.md`.
+
+Prompt 05 v2.0 history:
 Updated to include: unresolved issue flagging language, safety rules, structured carry-forward behavior, Prompt 06 handoff instructions, visibility and conversion requirements section, schema safety fields, form endpoint safety rule, and complete structured output format.
-Next Prompt: Prompt 06 — Claude Code Build 
+
+Next Prompt: Prompt 06 — Claude Code Build
