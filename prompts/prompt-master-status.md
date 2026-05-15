@@ -68,10 +68,26 @@ Carry-Forward Behavior: Prompt 04 receives flagged items from Prompt 03, flags u
 
 ## Prompt 05: Developer Build Brief Prompt
 
-Current Version: v2  
-Status: PASS — Connected Upstream Workflow Validated (Benchmark 1)  
+Current Version: v2.1  
+Status: PASS — Confirmed (Lightweight Confirmation Test)  
 Mode: All modes  
-Approved For: Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan
+Benchmark History: PASS — Connected Upstream Workflow Validated (Benchmark 1, Prompts 01–05 v2, Score: 96 / 100)  
+Approved For: Developer-ready build briefs, section specs, schema planning, CTA path, internal link plan, flagged client data carry-forward to Prompt 06
+
+### What Changed in v2.1
+
+- Added canonical File, Position, and Upstream Sources Acknowledged header fields.
+- Added Prompt 20 v1.2 as recognized upstream source.
+- Added formal Does Not Replace list covering Prompts 06–20.
+- Added frontend dependency inspection requirement.
+- Added installed/approved dependency handling for Tailwind CSS and Framer Motion.
+- Added new dependency approval rule for Prompt 06 handoff safety.
+- No routing logic changed.
+- No Prompt 06 handoff logic changed.
+
+### v2.1 Confirmation Result
+
+PASS — Clean. 10/10 lightweight confirmation checks passed (2026-05-14). Prompt 05 v2.1 is ready to support the first controlled website build.
 
 Carry-Forward Behavior: Prompt 05 receives flagged items from Prompt 04 and converts all unresolved items into safe Prompt 06 TODOs or FLAGs. Prompt 05 output is approved as a valid Prompt 06 input for benchmark testing and controlled development.
 
@@ -528,7 +544,8 @@ versions/prompt-performance-log.md
 ---
 
 Site OS Master — Prompt Master Status  
-Last Updated: v1.4 cycle  
+Last Updated: v1.4 cycle (Prompt 05 v2.1 confirmation, 2026-05-14)  
 Upstream workflow: Prompts 01–05 v2 — PASS — Connected Upstream Workflow Validated (Benchmark 1, Score: 96 / 100)  
+Prompt 05 patched to v2.1 — PASS — Confirmed (Lightweight Confirmation Test, 10/10 checks, 2026-05-14)  
 Core Mode workflow: Prompt 06 v2.1, Prompt 07 v1.2, Prompt 08 v1.1, Prompt 09 v1, Prompt 10 v1 — all locked  
 Supporting prompts: Prompt 11 v1.1 — PASS — Supporting SERP Competitive Analysis Master; Prompt 20 v1.2 — PASS WITH FLAGGED ITEMS (non-blocking) — Supporting Visibility and Conversion Alignment Master 
