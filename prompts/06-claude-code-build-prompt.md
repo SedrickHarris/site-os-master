@@ -1,7 +1,7 @@
 # Prompt 06: Claude Code Build Prompt
 
-Version: v2.2  
-Status: Core Mode Build Master — Awaiting Patch Confirmation  
+Version: v2.3  
+Status: Efficiency Governor Integrated  
 Mode: Core Mode, Beyond-Elite Mode, Full Competitive Build Mode  
 Purpose: Generate production-safe Claude Code build prompts that can be pasted into VS Code to build or update website pages without breaking existing functionality, inventing client data, or modifying unrelated files.
 
@@ -21,6 +21,74 @@ Do not modify files until:
 6. The user explicitly approves moving to Gate 3.
 
 Do not create, edit, rename, move, or delete files until Gate 2 is approved.
+
+---
+
+## Efficiency Governor Inputs
+
+Prompt 06 consumes the Efficiency Governor outputs produced by Prompt 05. These inputs are required before Gate 1 begins.
+
+### Required inputs from Prompt 05
+
+Confirm the following before starting Gate 1:
+
+1. Selected workflow mode — Fast / Core / Beyond-Elite / Full Competitive Build (from Prompt 05 Workflow Mode Gate)
+2. Client Intake Gate status — CLEARED / CLEARED WITH FLAGS / NOT CLEARED (from `efficiency-governor/client-intake-gate.md`)
+3. Compact Strategy Summary — if prior strategy is approved, the filled-in `efficiency-governor/compact-strategy-summary-template.md` is the primary implementation handoff
+4. Approved files allowed for implementation — explicit list from the Prompt 05 build brief
+5. Files forbidden for implementation — explicit list from the Prompt 05 build brief
+6. Validation commands — exact commands Prompt 06 must run after implementation
+7. Current baseline commit — the commit hash Prompt 06 expects HEAD to match before starting
+8. Commit/push allowance — whether Prompt 06 is permitted to commit and push, or must stop at the implementation report
+
+If any required input is missing, Prompt 06 must stop and request the missing input before Gate 1.
+
+### Reference files
+
+- `prompts/05-developer-build-brief-prompt.md` — source of the workflow mode and build brief
+- `efficiency-governor/client-intake-gate.md` — source of the intake gate status
+- `efficiency-governor/compact-strategy-summary-template.md` — compressed handoff format
+- `routing/workflow-mode-map.md` — authoritative mode → prompt chain map
+- `token-control/prompt-efficiency-rules.md` — efficiency thresholds and skip rules
+
+### Mode preservation rule
+
+Prompt 06 must not escalate the workflow mode selected by Prompt 05.
+
+If Prompt 05 selected Fast Mode or Core Mode, Prompt 06 must not turn the task into Beyond-Elite or Full Competitive Build work unless the project owner explicitly approves the escalation in writing.
+
+If escalation appears warranted (unexpected scope, missing strategy work surfaced during inspection), Prompt 06 must stop after Gate 1 and request explicit approval before proceeding.
+
+### Compact Strategy Summary primary handoff rule
+
+If a filled-in Compact Strategy Summary is provided, Prompt 06 must:
+
+1. Use the summary as the primary implementation handoff.
+2. Not ask for the full Prompt 01–05 strategy conversation.
+3. Not re-generate or re-derive the strategy from upstream context.
+4. Carry the summary's TODO list, launch blockers, file scope, and validation commands into Gate 1, Gate 2, and Gate 5 reports without re-deriving them.
+
+If the Compact Strategy Summary has blank fields without explicit status notes, Prompt 06 must stop and request the missing values before Gate 1.
+
+### No re-running strategy prompts rule
+
+Prompt 06 is for controlled implementation only. It must not re-run:
+
+- Prompt 01 Keyword Strategy
+- Prompt 02 Page Outline
+- Prompt 03 Ten-Metric Analysis
+- Prompt 04 Gap Fix
+- Prompt 20 Visibility and Conversion Alignment
+
+unless Prompt 05 explicitly states those prompts are required for this task.
+
+### Client Intake Gate respect rule
+
+Prompt 06 must respect the Client Intake Gate status:
+
+- CLEARED — proceed with Gate 1 normally.
+- CLEARED WITH FLAGS — proceed with Gate 1, carry every flagged missing item as a TODO during implementation, and list each one as a launch blocker in Gate 5.
+- NOT CLEARED — stop. Do not begin Gate 1 unless the project owner explicitly approves placeholder-based implementation in writing. Document the owner's approval verbatim in the Gate 1 report.
 
 ---
 
@@ -544,6 +612,29 @@ If a required value is missing, Claude Code must:
 3. Include the missing value in the final report.
 4. Avoid adding schema fields that require unverified data when omission is safer.
 
+### TODO Placeholder Rule
+
+A `TODO` placeholder is not permission to invent the missing value at any later step. The placeholder must stay in place until the project owner supplies confirmed data.
+
+Use file-appropriate TODO syntax. Do not use HTML-comment syntax in non-HTML files.
+
+- JSX or HTML: `<!-- TODO: [FIELD] — requires client confirmation before launch -->`
+- TypeScript or JavaScript: `// TODO: [FIELD] — requires client confirmation before launch`
+- Markdown: `TODO: [FIELD] — requires client confirmation before launch`
+- JSON: Do not use comments. Use a valid approved placeholder string only if absolutely required, and document the field as a TODO in the implementation report instead.
+
+Every TODO must include:
+
+- The field name
+- The reason it is missing (e.g. awaiting client, awaiting owner decision, awaiting legal review)
+- A clear note that it is a launch blocker if applicable
+
+Prompt 06 must not:
+
+- Invent phone numbers, addresses, hours, reviews, ratings, pricing, licenses, insurance, certifications, service areas, or legal claims to satisfy a TODO.
+- Invent analytics IDs, Search Console verification tokens, Bing Webmaster verification tokens, GA4 measurement IDs, GTM container IDs, or any third-party platform credential.
+- Replace a TODO with a plausible-looking value during validation or reporting.
+
 ---
 
 ## Guardrails
@@ -568,6 +659,11 @@ Do not:
 - Invent form handlers
 - Invent schema values
 - Continue past a required hard stop without user approval
+- Escalate the workflow mode selected by Prompt 05 (do not turn a Fast or Core Mode task into Beyond-Elite or Full Competitive Build without explicit owner approval)
+- Re-run Prompt 01, Prompt 02, Prompt 03, Prompt 04, or Prompt 20 unless Prompt 05 says they are required
+- Modify any file outside the approved file scope without explicit scope expansion approval
+- Replace a TODO placeholder with a plausible-looking value at any later stage
+- Skip the Efficiency Governor preflight at the start of Gate 1
 
 ---
 
@@ -584,6 +680,25 @@ Every Claude Code build prompt must use this gate structure:
 ---
 
 # Gate 1: Inspect
+
+## Gate 1 Efficiency Governor Preflight
+
+Before any inspection, Prompt 06 must confirm the Efficiency Governor inputs by reporting:
+
+1. Current branch — branch name
+2. Current HEAD — short commit hash and one-line title; must match the baseline commit declared in the build brief or compact summary
+3. Working tree status — clean / dirty / untracked listing
+4. Selected workflow mode — Fast / Core / Beyond-Elite / Full Competitive Build
+5. Client Intake Gate status — CLEARED / CLEARED WITH FLAGS / NOT CLEARED
+6. Compact Strategy Summary status — provided and complete / provided with TODOs / not provided
+7. Approved files allowed for implementation — exact list from the build brief or summary
+8. Files forbidden for implementation — exact list from the build brief or summary
+9. Validation commands — exact commands and order
+10. Commit/push allowance — allowed / not allowed in this Prompt 06 invocation
+
+If any of items 1–10 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
+
+This preflight runs BEFORE the framework/routing inspection in the existing Gate 1 Hard Stop Requirement below.
 
 ## Gate 1 Hard Stop Requirement
 
@@ -821,6 +936,17 @@ Global navigation may only be updated if the brief explicitly requires it.
 
 Global styles, layout, shared components, and unrelated pages must not be modified unless approved.
 
+### Scope expansion requirement
+
+Prompt 06 must only modify files that appear in the approved "Files I will create" or "Files I will edit" lists. If implementation requires a file outside the approved scope:
+
+1. Stop before writing the out-of-scope file.
+2. Report the file path, the reason it is needed, and the impact of going without it.
+3. Request explicit scope expansion approval from the project owner.
+4. Wait for written approval before proceeding.
+
+Do not silently include an out-of-scope file in Gate 3 work.
+
 ---
 
 ## Pre-Build Stop Checklist
@@ -937,6 +1063,10 @@ After Gate 2, report:
 20. Validation plan
 21. Risks or blockers
 22. Whether user approval is required before Gate 3
+23. Exact implementation sequence — ordered list of file operations Gate 3 will perform
+24. Expected `git status` after implementation — exact expected modified / untracked file listing
+25. Carry-forward TODOs and launch blockers — from Prompt 05, Client Intake Gate, and any items surfaced during inspection
+26. Explicit confirmation that no file writes have occurred during Gate 2 and that no file writes will occur until the user approves the Gate 2 plan
 
 Stop after Gate 2.
 
@@ -1085,6 +1215,14 @@ Claude Code must finish with a report that includes:
 30. Whether the final implementation created a new file or edited an existing file
 31. Whether Gate 1, Gate 2, and Gate 3 agreed on repository state
 32. Any repository state mismatch and how it was resolved
+33. Selected workflow mode from Prompt 05 (Fast / Core / Beyond-Elite / Full Competitive Build)
+34. Whether the Compact Strategy Summary was used as the primary handoff (yes / no)
+35. Client Intake Gate status at the start of Gate 1 (CLEARED / CLEARED WITH FLAGS / NOT CLEARED)
+36. TODOs carried forward — every TODO inserted into code with file path and line number
+37. Launch blockers carried forward — every launch-critical item still unresolved
+38. Final `git status` output — verbatim
+39. Whether commit and push were skipped or executed in this Prompt 06 invocation
+40. Workflow-mode escalation check — confirm Prompt 06 did not escalate the mode selected by Prompt 05
 
 ---
 
@@ -1187,7 +1325,7 @@ Keep the final Claude Code prompt complete, but remove repeated explanations tha
 
 ---
 
-## Final v2.2 Quality Gate
+## Final v2.3 Quality Gate
 
 Before returning a final Claude Code prompt, confirm that it includes:
 
@@ -1214,6 +1352,17 @@ Before returning a final Claude Code prompt, confirm that it includes:
 - Gate 4 validation checklist
 - Gate 5 final report format
 - File-state verification summary in Gate 1, Gate 2, and Gate 3
+- Efficiency Governor Inputs section
+- Mode preservation rule
+- Compact Strategy Summary handoff rule
+- No re-running strategy prompts rule
+- Client Intake Gate respect rule
+- TODO Placeholder Rule with file-type-aware syntax
+- Gate 1 Efficiency Governor Preflight
+- Gate 2 implementation sequence and expected git status output
+- Gate 2 carry-forward TODO and launch blocker output
+- Scope expansion requirement
+- Gate 5 Efficiency Governor reporting items (workflow mode, compact summary use, intake status, TODOs, launch blockers, final git status, commit/push status, escalation check)
 
 If any item is missing, revise the prompt before returning it.
 
@@ -1248,5 +1397,13 @@ Do not invent client data.
 Do not claim a file exists unless it was inspected.
 
 Do not claim a file’s contents unless it was opened/read.
+
+Respect the workflow mode selected by Prompt 05.
+
+Respect the Client Intake Gate status.
+
+Use the Compact Strategy Summary as the primary handoff when provided.
+
+Do not escalate, do not re-run upstream strategy prompts, and do not modify files outside the approved scope without explicit approval.
 
 Do not proceed through hard stops without explicit user approval.
