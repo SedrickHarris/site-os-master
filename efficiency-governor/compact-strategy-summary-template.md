@@ -1,6 +1,6 @@
 ---
 File: efficiency-governor/compact-strategy-summary-template.md
-Version: v1.1
+Version: v1.2
 Status: Active — Efficiency Governor Layer
 Purpose: One-page strategy handoff — replaces pasting full strategy conversations into Claude Code
 Used by: Prompt 05 (Part 27 Final Claude Code Ready Prompt), Prompt 06 Gate 1
@@ -484,7 +484,7 @@ Launch blockers still open:
 - `efficiency-governor/client-intake-gate.md` — complete before filling this template
 - `prompts/05-developer-build-brief-prompt.md` — source of the strategy this template compresses
 - `prompts/06-claude-code-build-prompt.md` — receives this template as its primary input
-- `token-control/context-compression-skill.md` — rules for what to keep and remove during compression
+- planned — `token-control/context-compression-skill.md` — rules for what to keep and remove during compression (file not yet created)
 - `token-control/token-saving-rules.md` — rules for reducing token usage across the workflow
 
 ---

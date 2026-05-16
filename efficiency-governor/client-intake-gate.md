@@ -338,7 +338,7 @@ Owner follow-up required before launch: [list or None]
 - `prompts/10-client-data-collection-prompt.md` — use to collect and validate client data
 - `prompts/05-developer-build-brief-prompt.md` — Workflow Mode Gate Step 3 references this file
 - `efficiency-governor/compact-strategy-summary-template.md` — use after intake is cleared to summarize strategy for Claude Code
-- `build-packs/local-service-mvp/required-inputs.md` — build pack input requirements for local service sites
+- planned — `build-packs/local-service-mvp/required-inputs.md` — build pack input requirements for local service sites (file not yet created)
 
 ---
 
