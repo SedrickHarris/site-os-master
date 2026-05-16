@@ -1,8 +1,8 @@
 ---
 Prompt: 07 — QA Review Prompt
 File: prompts/07-qa-review-prompt.md
-Version: v1.3
-Status: Core Mode Prompt — Locked Pending Patch Confirmation
+Version: v1.4
+Status: Efficiency Governor QA Integrated
 Mode: Core Mode, Beyond-Elite Mode, Full Competitive Build Mode
 Position: After Prompt 06 Claude Code Build; before Prompt 08 Production Fix and TODO Resolution
 Does not replace: Prompt 03 Ten-Metric Analysis, Prompt 04 Gap Fix, Prompt 05 Developer Build Brief, Prompt 06 Claude Code Build, Prompt 08 Production Fix and TODO Resolution, Prompt 10 Client Data Collection, Prompt 11 SERP Competitive Analysis, Prompt 12 Analytics and Measurement, Prompt 13 Content Quality Editor, Prompt 16 Search Intent Defense, Prompt 17 AI Citation Readiness, Prompt 18 Page Moat, Prompt 20 Visibility and Conversion Alignment
@@ -87,6 +87,59 @@ Execution Depth:
 
 Known Constraints or Notes:  
 [ANY KNOWN CONSTRAINTS, BLOCKERS, TODO ITEMS, CLIENT DATA LIMITATIONS, OR WORKFLOW NOTES]
+
+---
+
+## Efficiency Governor Inputs
+
+Prompt 07 must receive the Efficiency Governor outputs produced by Prompt 05 and consumed by Prompt 06. These inputs are required before QA begins.
+
+### Required Efficiency Governor inputs
+
+Selected workflow mode (from Prompt 05 Workflow Mode Gate):  
+[Fast / Core / Beyond-Elite / Full Competitive Build]
+
+Workflow mode preserved by Prompt 06:  
+[YES / NO — if NO, document the escalation and any owner approval]
+
+Client Intake Gate status:  
+[CLEARED / CLEARED WITH FLAGS / NOT CLEARED]
+
+Compact Strategy Summary status:  
+[Provided and complete / Provided with TODOs / Not provided]
+
+Compact Strategy Summary used by Prompt 06 as primary handoff:  
+[YES / NO / NOT APPLICABLE]
+
+Approved allowed files:  
+[LIST FROM PROMPT 05 BUILD BRIEF OR COMPACT SUMMARY]
+
+Approved forbidden files:  
+[LIST FROM PROMPT 05 BUILD BRIEF OR COMPACT SUMMARY]
+
+Validation commands required by Prompt 05/06:  
+[LIST]
+
+Baseline commit at start of Prompt 06:  
+[COMMIT HASH]
+
+Final HEAD after Prompt 06 implementation:  
+[COMMIT HASH OR "UNCOMMITTED — REVIEW WORKING TREE STATE"]
+
+Commit/push allowance:  
+[Allowed / Not allowed in this Prompt 06 invocation]
+
+Commit/push result:  
+[Committed and pushed / Committed only / Not committed / Reverted]
+
+### Reference files
+
+- `prompts/05-developer-build-brief-prompt.md` — source of the workflow mode and build brief
+- `prompts/06-claude-code-build-prompt.md` — source of the gate structure and compliance rules
+- `efficiency-governor/client-intake-gate.md` — intake gate definition
+- `efficiency-governor/compact-strategy-summary-template.md` — compressed handoff format
+- `routing/workflow-mode-map.md` — authoritative mode → prompt chain map
+- `token-control/prompt-efficiency-rules.md` — efficiency thresholds and skip rules
 
 ---
 
@@ -861,7 +914,147 @@ Do not claim validation passed unless output or credible report evidence is prov
 
 ---
 
-## Part 17: Issue Severity Matrix
+## Part 17: Efficiency Governor QA Review
+
+Verify that Prompt 06 followed the Efficiency Governor inputs from Prompt 05 and did not invent, escalate, or modify out-of-scope.
+
+### Workflow mode compliance
+
+Confirm:
+
+- Prompt 06 preserved the workflow mode selected by Prompt 05.
+- Fast Mode tasks stayed Fast (Prompt 05 → 06 → 07 only).
+- Core Mode tasks stayed Core (Prompts 02 → 05 → 06 → 07).
+- Beyond-Elite Mode was used only when Prompt 05 selected it.
+- Full Competitive Build Mode was used only when Prompt 05 selected it.
+- Any escalation was explicitly approved by the project owner in writing (cite the approval in the QA report).
+
+Return: PASS / FAIL plus evidence.
+
+### Compact Strategy Summary compliance
+
+If a Compact Strategy Summary was provided, confirm:
+
+- Prompt 06 used it as the primary implementation handoff.
+- Prompt 06 did not ask for or rely on the full Prompt 01–05 strategy conversation.
+- Prompt 06 did not re-run Prompt 01, 02, 03, 04, or 20 unless Prompt 05 explicitly required it.
+- Prompt 06 carried the summary's TODO list, launch blockers, file scope, and validation commands into Gate 1, Gate 2, and Gate 5 reports.
+
+If no Compact Strategy Summary was provided, return NOT APPLICABLE.
+
+Return: PASS / NOT APPLICABLE / FAIL plus evidence.
+
+### Client Intake Gate compliance
+
+Confirm Prompt 06 respected the Client Intake Gate status from Prompt 05:
+
+- CLEARED — Prompt 06 should have proceeded with no missing intake blockers in the final report.
+- CLEARED WITH FLAGS — Every flagged missing item should appear as a TODO in code and as a launch blocker in Gate 5.
+- NOT CLEARED — Prompt 06 should have stopped before Gate 1 unless the project owner explicitly approved placeholder-based implementation in writing.
+
+If NOT CLEARED status was bypassed without documented owner approval, classify as a Critical issue and route to Prompt 08.
+
+Return: PASS / PASS WITH FLAGS / FAIL plus evidence.
+
+### TODO and launch blocker compliance
+
+Verify (reinforcing Part 14):
+
+- Every TODO placeholder is clearly labeled with the field name, reason, and launch-blocker note where applicable.
+- No TODO placeholder was replaced with invented data at any later step.
+- Launch blockers are listed verbatim in the implementation report.
+- Launch blockers are not treated as resolved unless confirmed.
+- TODO syntax matches the file type:
+  - JSX or HTML: `<!-- TODO: [FIELD] — requires client confirmation before launch -->`
+  - TypeScript or JavaScript: `// TODO: [FIELD] — requires client confirmation before launch`
+  - Markdown: `TODO: [FIELD] — requires client confirmation before launch`
+  - JSON: no comments — use a valid approved placeholder string only if absolutely required, and document the field as a TODO in the implementation report.
+
+Return: PASS / PASS WITH FLAGS / FAIL plus evidence.
+
+### No-fabrication compliance
+
+Verify (reinforcing Required Rules — Do Not Invent) that Prompt 06 did not invent any of the following:
+
+- Phone numbers, addresses, business hours
+- Reviews, ratings, testimonials, reviewer names
+- Pricing, discounts, guarantees, warranties
+- Licenses, insurance claims, certifications, awards, years in business
+- Service area confirmation, same-day or emergency availability
+- Legal claims, privacy policy URLs
+- Analytics IDs (GA4 measurement IDs, GTM container IDs)
+- Google Search Console verification tokens
+- Bing Webmaster verification tokens
+- Schema values that require confirmed business data
+
+Each item must appear as a TODO if missing, never as an invented value.
+
+Return: PASS / FAIL plus per-item evidence.
+
+### File scope compliance
+
+Confirm:
+
+- Only files listed under "Approved allowed files" in the Efficiency Governor Inputs section were modified.
+- No files listed under "Approved forbidden files" in the Efficiency Governor Inputs section were modified.
+- No unrelated files were created.
+- If implementation required a file outside the "Approved allowed files" list, Prompt 06 stopped and requested scope expansion before editing.
+
+Cross-check the final `git status` output against the "Approved allowed files" and "Approved forbidden files" lists. Any modification of a file not on the "Approved allowed files" list, or any modification of a file on the "Approved forbidden files" list, is a Critical issue.
+
+Return: PASS / FAIL plus evidence (final `git status` vs "Approved allowed files" and "Approved forbidden files" lists).
+
+### Validation evidence compliance
+
+Verify (reinforcing Part 16):
+
+- Validation commands were actually run by Prompt 06.
+- Actual command output is included in the implementation report, not just claims.
+- `npm run lint` result is reported if required.
+- `npm run build` result is reported if required.
+- Any other required validation (`npm run type-check`, `npm run test`) is reported if available.
+- Any unavailable script was NOT falsely reported as passed; it was reported as "script not present in package.json" or equivalent.
+
+Return: PASS / FAIL plus evidence (verbatim command output verified).
+
+### Git state compliance
+
+Verify:
+
+- Starting branch and HEAD match the baseline commit declared in the build brief or compact summary.
+- Final branch is the same as the starting branch (no unintended branch switch).
+- Final HEAD reflects the expected state given commit/push allowance:
+  - If commit/push was allowed: final HEAD is one commit ahead of baseline with only the approved files in the commit.
+  - If commit/push was not allowed: final HEAD equals baseline; modified/untracked files match the "Approved allowed files" list; nothing is staged or committed.
+- Final working tree status is clean if commit/push was allowed, or shows the expected modified/untracked file list if commit/push was skipped.
+- Expected changed files vs actual changed files match exactly.
+
+Return: PASS / FAIL plus evidence (verbatim `git status`, branch, HEAD).
+
+### Required Efficiency Governor QA output block
+
+Return the following block as part of the QA report:
+
+```
+Efficiency Governor QA Result
+- Efficiency Governor QA result: PASS / PASS WITH FLAGS / FAIL
+- Workflow mode compliance: PASS / FAIL
+- Compact Strategy Summary compliance: PASS / NOT APPLICABLE / FAIL
+- Client Intake Gate compliance: PASS / PASS WITH FLAGS / FAIL
+- TODO and launch blocker compliance: PASS / PASS WITH FLAGS / FAIL
+- File scope compliance: PASS / FAIL
+- Validation evidence compliance: PASS / FAIL
+- Git state compliance: PASS / FAIL
+- Required fixes before commit: [list or None]
+- Required fixes before launch: [list or None]
+- Final recommendation: approve / revise / block
+```
+
+A FAIL in workflow mode compliance, file scope compliance, or git state compliance must result in the rollup verdict being FAIL and the final recommendation being `block` or `revise`. Workflow mode FAIL also requires the QA report to escalate to Prompt 08 or document explicit owner approval for the escalation.
+
+---
+
+## Part 18: Issue Severity Matrix
 
 Create a table with:
 
@@ -896,7 +1089,7 @@ Minor improvement, polish item, or non-blocking documentation issue.
 
 ---
 
-## Part 18: Production Blocker List
+## Part 19: Production Blocker List
 
 List all items that prevent production launch.
 
@@ -911,7 +1104,7 @@ For each item, include:
 
 ---
 
-## Part 19: Scores
+## Part 20: Scores
 
 Provide two scores:
 
@@ -949,7 +1142,7 @@ Explain both scores.
 
 ---
 
-## Part 20: Final QA Decision
+## Part 21: Final QA Decision
 
 Use one of these final decisions:
 
@@ -1019,6 +1212,11 @@ For the final decision, include:
 - Whether Prompt 08 is required: YES / NO
 - Whether Prompt 10 is required: YES / NO
 - Whether production launch is approved: YES / NO
+- Efficiency Governor QA result: PASS / PASS WITH FLAGS / FAIL (from Part 17)
+- Workflow mode compliance: PASS / FAIL (from Part 17)
+- Client Intake Gate compliance: PASS / PASS WITH FLAGS / FAIL (from Part 17)
+- File scope compliance: PASS / FAIL (from Part 17)
+- Git state compliance: PASS / FAIL (from Part 17)
 
 ---
 
@@ -1082,15 +1280,17 @@ Use this structure unless the user requests a specific format:
 
 ## 17. Validation Review
 
-## 18. Issue Severity Matrix
+## 18. Efficiency Governor QA Review
 
-## 19. Production Blocker List
+## 19. Issue Severity Matrix
 
-## 20. Scores
+## 20. Production Blocker List
 
-## 21. Final QA Decision
+## 21. Scores
 
-## 22. Carry-Forward Items
+## 22. Final QA Decision
+
+## 23. Carry-Forward Items
 
 ---
 
@@ -1111,5 +1311,11 @@ DEVELOPMENT PASS — PRODUCTION FIXES REQUIRED
 If build drift or visible unsupported claims need correction before continuing, use:
 
 PATCH REQUIRED — Rerun Prompt 08 before continuing
+
+If the Efficiency Governor QA in Part 17 returns FAIL on workflow mode, file scope, or git state, classify the build as PATCH REQUIRED or FAIL — do not mark it as PASS or DEVELOPMENT PASS.
+
+If Prompt 06 escalated the workflow mode without documented owner approval, classify the build as PATCH REQUIRED — Rerun Prompt 08 before continuing.
+
+If Prompt 06 modified files outside the "Approved allowed files" list, classify the build as PATCH REQUIRED unless the scope expansion was explicitly approved in the Efficiency Governor Inputs section.
 
 Prompt 07 must produce a clear QA decision, not vague approval language.
