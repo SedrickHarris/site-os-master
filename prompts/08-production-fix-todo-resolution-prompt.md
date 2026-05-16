@@ -1,7 +1,7 @@
 # Prompt 08: Production Fix and TODO Resolution Prompt
 
-Version: v1.2  
-Status: Core Mode Production Fix Master — Awaiting Patch Confirmation  
+Version: v1.3  
+Status: Efficiency Governor Fix Integrated  
 Mode: Core Mode, Production Fix Workflow  
 Purpose: Resolve production blockers, client TODOs, infrastructure gaps, and QA issues identified by Prompt 07 before final launch approval or next workflow handoff.
 
@@ -165,6 +165,42 @@ If data is not confirmed, leave the TODO in place, document it as unresolved, an
 
 ---
 
+## Efficiency Governor Inputs
+
+Prompt 08 must receive the Efficiency Governor outputs produced by Prompt 05 and preserved through Prompts 06 and 07. These inputs are required before Gate 1 begins.
+
+### Required Efficiency Governor inputs
+
+Confirm the following before starting Gate 1:
+
+1. Prompt 07 final decision (PASS / DEVELOPMENT PASS — PRODUCTION FIXES REQUIRED / PATCH REQUIRED / FAIL)
+2. Prompt 07 Efficiency Governor QA result (PASS / PASS WITH FLAGS / FAIL)
+3. Selected workflow mode (from Prompt 05 Workflow Mode Gate, preserved through Prompts 06 and 07)
+4. Client Intake Gate status (CLEARED / CLEARED WITH FLAGS / NOT CLEARED)
+5. Compact Strategy Summary status (Provided and complete / Provided with TODOs / Not provided / Not applicable)
+6. Approved allowed files (from Prompt 05 build brief or compact summary, plus any Prompt 07 fix-scope additions)
+7. Approved forbidden files (from Prompt 05 build brief or compact summary)
+8. Required fixes before commit (from Prompt 07)
+9. Required fixes before launch (from Prompt 07)
+10. TODOs and launch blockers carried forward (from Prompts 05, 06, and 07)
+11. Validation commands required by Prompts 05, 06, and 07
+12. Current baseline commit at start of Prompt 08
+13. Commit/push allowance for this Prompt 08 invocation (Allowed / Not allowed)
+
+If any required input is missing, Prompt 08 must stop and request the missing input before Gate 1.
+
+### Reference files
+
+- `prompts/05-developer-build-brief-prompt.md` — source of the workflow mode and build brief
+- `prompts/06-claude-code-build-prompt.md` — source of the gate structure and build implementation report
+- `prompts/07-qa-review-prompt.md` — source of the QA verdict, Efficiency Governor QA result, and approved fix scope
+- `efficiency-governor/client-intake-gate.md` — intake gate definition
+- `efficiency-governor/compact-strategy-summary-template.md` — compressed handoff format
+- `routing/workflow-mode-map.md` — authoritative mode → prompt chain map
+- `token-control/prompt-efficiency-rules.md` — efficiency thresholds and skip rules
+
+---
+
 ## Execution Depth Setting
 
 Before beginning, identify the requested execution depth.
@@ -184,6 +220,27 @@ Report the selected depth before beginning Gate 1.
 # Gate 1: Fix Scope Inspection Hard Stop
 
 Before editing any files, inspect the current project and Prompt 07 QA report.
+
+## Gate 1 Efficiency Governor Preflight
+
+Before identifying fix scope, confirm the Efficiency Governor preflight inputs:
+
+1. Current branch
+2. Current HEAD
+3. Working tree status
+4. Prompt 07 final decision
+5. Prompt 07 Efficiency Governor QA result
+6. Selected workflow mode (from Prompt 05 Workflow Mode Gate, preserved through Prompts 06 and 07)
+7. Client Intake Gate status
+8. Approved allowed files
+9. Approved forbidden files
+10. Exact approved fixes (from Prompt 07 required fixes before commit / before launch)
+11. Validation commands
+12. Commit/push allowance
+
+If any item is missing, stop and request the missing input before continuing.
+
+## Gate 1 Fix Scope Inspection
 
 You must identify:
 
@@ -225,6 +282,10 @@ The fix plan must include:
 - Accessibility/mobile changes
 - Validation commands to run
 - Risks or blockers
+- Exact implementation sequence — ordered list of file operations Prompt 08 will perform
+- TODOs and launch blockers that must remain (must not be erased)
+- Expected `git status` after fixes
+- Explicit confirmation that no file writes have occurred during Gate 2 and that no file writes will occur until the user approves the Gate 2 plan
 
 HARD STOP:
 
@@ -316,6 +377,90 @@ Do not add or modify global navigation unless:
 - The user approved the change
 
 If navigation is out of scope, report it as a follow-up carry-forward item.
+
+---
+
+## Efficiency Governor Fix Rules
+
+These rules layer on top of the existing Client Data Safety Rule, Schema Safety Rule, Form Fix Rule, SEO and Indexing Fix Rule, and Navigation Fix Rule. They make Prompt 08 a controlled fix prompt rather than a second uncontrolled build prompt.
+
+### Workflow mode preservation
+
+Prompt 08 must not escalate the workflow mode selected by Prompt 05 and preserved through Prompts 06 and 07.
+
+If the build was Fast Mode or Core Mode, Prompt 08 must not introduce Beyond-Elite or Full Competitive Build work.
+
+Prompt 08 may only fix approved QA issues. New scope, new pages, new strategy, and new competitive analysis are out of bounds for this prompt.
+
+### Prompt 07 verdict enforcement
+
+Prompt 08 must treat Prompt 07 as the source of truth for which fixes are allowed.
+
+Map Prompt 07's final decision to Prompt 08's behavior:
+
+- **PASS — Ready for production handoff:** Prompt 08 should not run unless the project owner explicitly requests optional polish. If polish is requested, scope must be limited to non-blocking improvements and documented as optional in the report.
+- **DEVELOPMENT PASS — PRODUCTION FIXES REQUIRED or PASS WITH FLAGS:** Prompt 08 may resolve listed flags only. Do not expand scope beyond Prompt 07's listed items.
+- **PATCH REQUIRED — Rerun Prompt 08 before continuing:** Prompt 08 must fix only the listed patch items. Do not expand scope.
+- **FAIL — Rebuild or rerun Prompt 06 required:** Prompt 08 must not patch unless Prompt 07 explicitly says the failure is patchable. Otherwise, route back to Prompt 06 or rebuild as Prompt 07 directs.
+
+If Prompt 07's verdict is unclear or missing, stop and request clarification before applying any fix.
+
+### File scope enforcement
+
+Prompt 08 may only modify:
+
+- Files listed in Prompt 07's approved fix scope
+- Files listed in Prompt 06's "Approved allowed files" if still applicable for the fix
+- Files explicitly approved by the project owner for the fix
+
+If a required fix needs a file outside the approved scope, Prompt 08 must stop and request scope expansion. Do not silently include an out-of-scope file in Gate 3 fix work.
+
+### TODO and launch blocker preservation
+
+Prompt 08 must not:
+
+- Erase TODOs unless the missing data has been confirmed by the project owner and supplied in the Prompt 08 inputs.
+- Erase FLAG comments unless the flagged item has been resolved.
+- Replace TODO placeholders with plausible-looking values.
+- Mark launch blockers as resolved unless they are actually resolved.
+
+Every preserved TODO and launch blocker must appear in the Prompt 08 implementation report's carry-forward section.
+
+### No-fabrication compliance
+
+Reinforcing the Client Data Safety Rule. Prompt 08 must not invent any of the following at any step of the fix workflow:
+
+- Phone numbers, addresses, business hours
+- Reviews, ratings, testimonials, reviewer names
+- Pricing, discounts, guarantees, warranties
+- Licenses, insurance claims, certifications, awards, years in business
+- Service area confirmation, same-day or emergency availability
+- Legal claims, privacy policy URLs
+- Analytics IDs (GA4 measurement IDs, GTM container IDs)
+- Google Search Console verification tokens
+- Bing Webmaster verification tokens
+- Schema values that require confirmed business data
+
+Each item must appear as a TODO if missing, never as an invented value.
+
+### File-type-aware TODO syntax
+
+When Prompt 08 preserves or adds a TODO, the syntax must match the file type. Do not use HTML-comment syntax in non-HTML files.
+
+- JSX or HTML: `<!-- TODO: [FIELD] — requires client confirmation before launch -->`
+- TypeScript or JavaScript: `// TODO: [FIELD] — requires client confirmation before launch`
+- Markdown: `TODO: [FIELD] — requires client confirmation before launch`
+- JSON: JSON does not support comments. Use a valid approved placeholder string only if absolutely required, and document the field as a TODO in the implementation report instead.
+
+Every TODO must include the field name, the reason it is missing (e.g. awaiting client, awaiting owner decision, awaiting legal review), and a launch-blocker note where applicable.
+
+### Fix-boundary rule
+
+Prompt 08 must not improve, redesign, expand, refactor, rewrite, or optimize anything outside the approved Prompt 07 fix list.
+
+If optional improvements are discovered during fix work, list them as future recommendations in the report only. Do not implement them in this Prompt 08 run.
+
+Prompt 08 is a controlled fix prompt, not a second build prompt. The boundary between approved fix and unauthorized improvement must be visible in the implementation report.
 
 ---
 
@@ -444,6 +589,22 @@ Include:
 - Validation results
 - Remaining blockers
 - Correct next workflow step
+
+### Efficiency Governor compliance
+
+Also include:
+
+- Prompt 07 final decision used: [decision]
+- Prompt 07 Efficiency Governor QA result used: PASS / PASS WITH FLAGS / FAIL
+- Selected workflow mode (preserved from Prompt 05): Fast / Core / Beyond-Elite / Full Competitive Build
+- Workflow mode preserved by Prompt 08: YES / NO
+- Approved fixes completed: [list]
+- Approved fixes not completed (and reason): [list]
+- TODOs preserved: [count, with file:line locations]
+- Launch blockers preserved: [list with status]
+- Final `git status` output: [verbatim]
+- Commit/push allowance: Allowed / Not allowed
+- Commit/push result: Committed and pushed / Committed only / Not committed / Reverted
 
 ## 5. Implementation Summary
 
