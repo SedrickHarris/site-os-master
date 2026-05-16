@@ -1,8 +1,8 @@
 # Prompt 05: Developer Build Brief
 
 **File:** prompts/05-developer-build-brief-prompt.md
-**Version:** v2.1
-**Status:** v2.1 — Confirmed
+**Version:** v2.2
+**Status:** v2.2 — Efficiency Governor Gate Added
 **Mode:** All modes
 **Position:** After Prompt 04 Gap Fix and before Prompt 06 Claude Code Build. May receive Prompt 20 Visibility and Conversion Alignment (v1.2) output when Prompt 20 runs in its Secondary Position (between Prompt 04 and Prompt 05).
 **Upstream Sources Acknowledged:** Prompt 01 Keyword Strategy, Prompt 02 Page Outline, Prompt 03 Ten-Metric Analysis (if run), Prompt 04 Gap Fix (if run), Prompt 10 Client Data Collection (if available), and Prompt 20 Visibility and Conversion Alignment v1.2 (when run in its Secondary Position).
@@ -30,6 +30,84 @@ Before starting, select one:
 - **Deep** — High-value, revenue-critical, competitive, or final QA build briefs
 
 Use the lowest depth that produces a complete and useful build brief.
+
+---
+
+## Workflow Mode Gate
+
+Before producing the developer build brief, select a workflow mode and confirm client intake status. This gate is an efficiency governor: it aligns brief depth with task value and prevents over-prompting the Site OS chain.
+
+### Required references
+
+The workflow mode chosen here must align with the canonical routing and efficiency rules:
+
+- `routing/workflow-mode-map.md` — authoritative mode → prompt chain map
+- `token-control/prompt-efficiency-rules.md` — efficiency thresholds, shortcut allowances, and skip rules
+
+### Mode definitions
+
+**Fast Mode** — Single-page, low-stakes, low-competition work. Skip Prompts 03, 04, and 20. Run Prompt 05 → 06 → 07 only. Pair with Compact execution depth.
+
+**Core Mode** — Default for service, location, category, blog, or landing pages with normal stakes. Run Prompts 02 → 05 → 06 → 07. Skip Prompts 03 and 04 unless competitor gaps are flagged. Pair with Standard execution depth.
+
+**Beyond-Elite Mode** — High-value, competitive, conversion-critical pages. Run Prompts 02 → 03 → 04 → 05 → 06 → 07 → 08. Pair with Deep execution depth. Prompt 20 (Visibility and Conversion Alignment) runs in its Secondary Position between Prompt 04 and Prompt 05.
+
+**Full Competitive Build Mode** — Revenue-critical or category-defining pages. Run the full prompt chain (Prompts 01 through 20 as applicable). Pair with Deep execution depth. Gap fixes, ten-metric analysis, and competitive moat work are mandatory.
+
+### Default rule
+
+Default to **Core Mode** unless the task is one of the following:
+
+- Revenue-critical — a page that directly drives revenue
+- Highly competitive — a category with established dominant competitors that must be displaced
+- Explicitly approved by the project owner for a higher mode
+
+If none of the above apply, do not escalate beyond Core Mode.
+
+### Strategy-approved shortcut
+
+When upstream strategy is already complete and validated (Prompt 01 Keyword Strategy, Prompt 02 Page Outline, and any required Prompt 10 Client Data Collection), the strategy-approved shortcut is permitted:
+
+**Prompt 05 → Prompt 06 → Prompt 07**
+
+Use the shortcut only when:
+
+- The selected mode is Core Mode or Fast Mode.
+- No competitor gaps are flagged.
+- No strategy alignment issues require Prompt 04 Gap Fix or Prompt 20 Visibility and Conversion Alignment.
+
+Higher modes (Beyond-Elite, Full Competitive Build) do not qualify for the shortcut.
+
+### Client intake status check
+
+Before proceeding with the build brief, confirm:
+
+- **Prompt 10 (Client Data Collection) status:** Complete / In Progress / Not Started
+- **Required client data for this page:** Resolved / Flagged / Missing
+- **Launch-critical client values** (legal copy, contact details, form endpoints, brand assets, seed data): Confirmed / Pending
+
+If client intake is incomplete and the missing data is launch-critical for the page in scope, flag those items per the carry-forward vocabulary and proceed with safe TODOs. Do not block the build brief on incomplete intake.
+
+### Required Workflow Mode Gate output block
+
+The build brief output must include the following block immediately after Section 1 "Execution Depth" and before Section 2 "Source Context Review":
+
+```
+## Workflow Mode Gate
+
+- Selected mode: [Fast | Core | Beyond-Elite | Full Competitive Build]
+- Reason: [one sentence justifying the mode selection]
+- Workflow path: [ordered list of prompts to run]
+- Skipped prompts: [list of prompts deliberately skipped, or "None"]
+- Client intake status: [Complete | In Progress | Not Started]
+- Required client data status: [Resolved | Flagged | Missing]
+- Strategy-approved shortcut used: [Yes | No]
+- References:
+  - routing/workflow-mode-map.md
+  - token-control/prompt-efficiency-rules.md
+```
+
+If the selected mode deviates from the default Core Mode, the Reason field must justify the escalation in one sentence.
 
 ---
 
@@ -423,6 +501,8 @@ The build brief may still be marked **READY FOR PROMPT 06 WITH FLAGGED ITEMS** w
 
 5. Do not mark the build brief as production-ready if launch-critical or claim-sensitive data is missing.
 
+6. **Over-Prompting Prevention Rule.** Do not run more prompts than the selected workflow mode requires. Do not invoke Prompts 03, 04, or 20 for Core Mode or Fast Mode tasks unless competitor gaps or strategy alignment issues are explicitly flagged in the Workflow Mode Gate output block. Do not escalate to Beyond-Elite Mode or Full Competitive Build Mode without explicit owner approval recorded in the Reason field of the Workflow Mode Gate output block. The Workflow Mode Gate selection is the authoritative source for which prompts run; deviations from the mode's prompt chain require written justification in Section 2 "Source Context Review" of the build brief.
+
 ---
 
 ## Required Output Format
@@ -436,6 +516,19 @@ Return this complete report:
 ## 1. Execution Depth
 
 Selected depth:
+
+## Workflow Mode Gate
+
+- Selected mode:
+- Reason:
+- Workflow path:
+- Skipped prompts:
+- Client intake status:
+- Required client data status:
+- Strategy-approved shortcut used:
+- References:
+  - routing/workflow-mode-map.md
+  - token-control/prompt-efficiency-rules.md
 
 ## 2. Source Context Review
 
