@@ -616,3 +616,58 @@ Tier R3-4 Gate 3 implementation pass touches exactly:
 
 1. `docs/new-client-startup-workflow.md` (create)
 2. `docs/prompt-master-status.md` (append this appendix only)
+
+## Tier R3-5 Final Readiness Patch — Continue-Existing-Client Workflow Doc
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: create standalone continue-existing-client workflow doc
+
+### Background
+
+Tier R3-4 created `docs/new-client-startup-workflow.md` for first-time onboarding, but no companion doc orchestrates the re-entry sequence used on every session after the first. Resume-scoped rules currently live distributed across:
+
+- `docs/new-client-startup-workflow.md` (Tier R3-4) — Phase F step 28 explicitly forward-references R3-5 as the resume complement
+- `docs/standing-approval-rule-template.md` (Tier R2) — § Session-Scoped Nature rule ("must be re-invoked per session") that drives every resume
+- `docs/file-scope-and-git-safety-policy.md` (Tier R3-1) — §4 Git Status Checks Before Work, §9 Dirty Working Tree Rules, §11 Cross-Repo Separation, §12 Copy-Paste-Ready Verification Commands; the audit primitives every resume runs
+- `docs/client-repo-doc-structure.md` (Tier R2) — `docs/site-os/{inputs, outputs, qa, changelog}` is the audit trail every resume re-reads
+- `checklists/deploy-workflow-checklist.md` (Tier R1) — §7 "If returning to a paused session, do NOT assume artifacts are fresh — always rebuild" is the canonical resume anti-stale-artifact rule
+- `checklists/post-deploy-production-verification-checklist.md` (Tier R1) — §4 CTA wording spot-check is the canonical production-drift detection on resume
+- `efficiency-governor/client-intake-gate.md` v1.2 — § Launch Blocker Reference and § Prompt 05 Summary Output Block surface the carry-forward items every resume reads from prior session outputs
+- `docs/no-fake-data-policy.md` (Tier R3-3) — universal policy that applies on every resume regardless of session continuity
+
+No standalone universal resume/re-entry orchestrator existed. Tier R3-5 closes that gap as the complement to R3-4: every client engagement uses R3-4 once and R3-5 every session after.
+
+### New Files
+
+| File | Path | Status |
+|------|------|--------|
+| Continue-Existing-Client Workflow | `docs/continue-existing-client-workflow.md` | New |
+
+### How This File Supports Final Client-Build Readiness
+
+- Provides a canonical resume sequence: Phase A Re-Entry Audit → Phase B Context Reconstruction → Phase C Policy Re-Invocation → Phase D Scope and Tier Selection → Phase E Strategy/Build/Deploy → Phase F Carry-Forward Update and Handoff
+- Adds two dedicated transversal sections: Production Drift Detection (catches stale-artifact production state) and Cross-Repo Consistency Check (catches Site OS Master vs. client repo divergence)
+- References the R3-4 new-client doc, the R1 deploy and post-deploy checklists, the R2 standing approval template and client-repo doc structure, the R3-1 file-scope and Git safety policy, and the R3-3 no-fake-data policy — does not duplicate any of them
+- Uses the 702Xchange repo at HEAD `b50770d` (production Worker Version `aa3d92af-4f5d-4f69-a540-ff9d322c76cd`) as a labeled working example "as of 2026-05-17, illustrative only"; the workflow itself never depends on those exact values
+- Includes a Common Pitfalls section drawn from real R1/R2/R3-1/R3-3/R3-4 build-session lessons
+- Includes an Anti-Patterns to Avoid section enumerating known resume failure modes (re-scaffolding when scaffold exists, re-running intake gate from scratch, blowing away dirty state, force-pushing main to "clean up")
+- Includes Stop Conditions that pause the workflow when resume-time state is inconsistent or unverified
+- Includes a copy-paste-ready re-entry session kickoff prompt template (resume-framed: current HEAD, last commit, last changelog, deployed Worker Version ID, session scope, standing approval re-invocation)
+
+### Scope Boundary
+
+Tier R3-5 is additive only. No prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, workflow tests, versions, existing checklists, `efficiency-governor/*` files, `README.md`, `CLAUDE.md`, or other existing `docs/*` files (including `docs/new-client-startup-workflow.md`) are modified.
+
+`README.md` update is deferred to the batched R3-9 README update (avoids per-patch README churn; matches the precedent set by R3-1, R3-3, R3-4).
+
+`CLAUDE.md` integration is deferred to its own dedicated approval cycle (CLAUDE.md is the project's primary behavioral contract and warrants its own approval cycle).
+
+Integration of this doc into Prompts 05 / 06 / 07 chains is deferred — per-prompt content stays context-specific; the new universal resume workflow is referenced from those prompts only when explicitly approved in a later patch.
+
+### Tier R3-5 Gate 3 Scope
+
+Tier R3-5 Gate 3 implementation pass touches exactly:
+
+1. `docs/continue-existing-client-workflow.md` (create)
+2. `docs/prompt-master-status.md` (append this appendix only)
