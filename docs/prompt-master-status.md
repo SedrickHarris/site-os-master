@@ -508,3 +508,52 @@ Tier R3-1 Gate 3 implementation pass touches exactly:
 
 1. `docs/file-scope-and-git-safety-policy.md` (create)
 2. `docs/prompt-master-status.md` (append this appendix only)
+
+## Tier R3-3 Final Readiness Patch — No-Fake-Data Policy
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: create standalone no-fake-data policy
+
+### Background
+
+The no-fake-data rules proven over the 702Xchange Tier 6A through Tier 7A-1 build sessions and codified across multiple Site OS Master files currently live distributed across:
+
+- `efficiency-governor/client-intake-gate.md` (L32–36) — "Do Not Fabricate Rule" + the CONFIRMED / APPROVED PLACEHOLDER / MISSING — FLAGGED status framework (intake-scoped)
+- All 20 `prompts/*.md` files — per-prompt fabrication-prevention sections (Prompt 02 alone has 21 occurrences; Prompt 06 has 20; Prompt 20 has 16; every prompt has at least 3)
+- `schemas/localbusiness-schema-template.md` (L37) — one explicit rule about not inventing public street addresses for service-area-only businesses
+- `checklists/launch-readiness-checklist.md`, `page-before-build-checklist.md`, `page-after-build-checklist.md`, `seo-indexing-checklist.md` — no-fake rules embedded in Schema Implementation, Trust, and Launch Blocker sections
+- Inline 702Xchange `lib/data/listings.ts` header (L1–2) — "Do not invent business names, phones, addresses, hours, reviews, ratings, or claims."
+
+No standalone universal policy doc existed. Tier R3-3 closes that gap with a single discoverable home that other docs cross-reference.
+
+### New Files
+
+| File | Path | Status |
+|------|------|--------|
+| No-Fake-Data Policy | `docs/no-fake-data-policy.md` | New |
+
+### How This File Supports Final Client-Build Readiness
+
+- Provides a canonical universal reference for fake-data prevention across 12 categories (business identity, contact data, service data, reviews & ratings, trust signals, performance claims, schema markup, image & media, external data sources, listings & directory data, CTAs & social proof, competitor claims)
+- Cross-references the Client Intake Gate CONFIRMED / APPROVED PLACEHOLDER / MISSING — FLAGGED status framework without creating a competing state machine
+- Provides AggregateRating / Review schema guidance with 2 concrete examples (fake — never use; owner-approved verified — acceptable when 4 conditions hold)
+- Codifies directory-site rules inspired by the 702Xchange MVP pattern (no fake listings, no scraping, owner/manual entry preferred, no Places API or automatic Google review pulls unless explicitly approved)
+- Codifies the programmatic content rule as a transversal section (allowed with verified source data; not allowed with invented source data)
+- Includes a copy-paste-ready review checklist suitable for page reviews, PR reviews, or QA passes
+- Enumerates stop conditions that apply to every Site OS Master client build regardless of session, stack, page type, or workflow mode
+
+### Scope Boundary
+
+Tier R3-3 is additive only. No prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, workflow tests, versions, existing checklists, `efficiency-governor/*` files, `README.md`, `CLAUDE.md`, or other `docs/*` files are modified.
+
+`README.md` update is deferred — batched with future R3-N items rather than churning the README per-patch. `CLAUDE.md` integration is deferred to its own dedicated approval cycle (CLAUDE.md is the project's primary behavioral contract and warrants its own approval cycle).
+
+Integration into Prompt 06 / 07 / 08 / 09 chains is deferred — per-prompt fabrication-prevention sections stay context-specific; the new universal policy is referenced from those sections only when explicitly approved in a later patch.
+
+### Tier R3-3 Gate 3 Scope
+
+Tier R3-3 Gate 3 implementation pass touches exactly:
+
+1. `docs/no-fake-data-policy.md` (create)
+2. `docs/prompt-master-status.md` (append this appendix only)
