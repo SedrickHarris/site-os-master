@@ -343,3 +343,33 @@ Prompt 20 was patched to v1.1 and passed lightweight confirmation testing; v1.1 
 Prompt 20 was then patched to v1.2 to add the Secondary Position routing (after Prompt 04, before Prompt 05) and to add Prompt 05 Developer Build Brief to the does-not-replace list. The v1.2 lightweight confirmation test returned PASS WITH FLAGGED ITEMS — all nine checks passed, with one non-blocking flagged note about a forward-looking next-step instruction inside the prompt file itself.
 
 Prompt 20 v1.2 is locked as the Supporting Visibility and Conversion Alignment Master.
+
+## Recent Efficiency Governor Patches (Core Workflow Prompts)
+
+This appendix lists the Efficiency Governor patch series for the Core Workflow Prompts (06, 07, 08) and the two reference files that support them. Each entry cites the short commit hash, the commit subject, the affected file, and the version locked by the commit. Full per-prompt status entries for Prompts 05–08 are not yet present in this file; this appendix is a pointer, not a replacement for those entries.
+
+### 7f3e097 — Prompt 06 v2.3
+
+- File: prompts/06-claude-code-build-prompt.md
+- Version: v2.3
+- Commit: `docs(prompt-06): apply v2.3 efficiency governor integration patch`
+
+### 05065fa — Prompt 07 v1.4
+
+- File: prompts/07-qa-review-prompt.md
+- Version: v1.4
+- Commit: `docs(prompt-07): apply v1.4 efficiency governor qa integration patch`
+
+### 8785098 — Prompt 08 v1.3
+
+- File: prompts/08-production-fix-todo-resolution-prompt.md
+- Version: v1.3
+- Commit: `docs(prompt-08): apply v1.3 efficiency governor fix integration patch`
+
+### 9b03dc5 — Routing and Token-Control Reference Files
+
+- Files: routing/workflow-mode-map.md, token-control/prompt-efficiency-rules.md
+- Scope: reference files aligned with shipped Prompt 05–08 Efficiency Governor behavior
+- Commit: `docs(efficiency-governor): align routing and token-control files with Prompt 05-08 behavior`
+
+See routing/workflow-mode-map.md and token-control/prompt-efficiency-rules.md for the canonical workflow mode chains, strategy-approved shortcut conditions, and efficiency rules referenced by Prompts 05–08.
