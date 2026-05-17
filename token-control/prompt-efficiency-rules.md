@@ -45,6 +45,14 @@ Skip 03 when:
 - Page is low priority
 - Only a build prompt is needed
 
+Use 04 gap fix when:
+- Prompt 03, Prompt 07, or owner-reviewed analysis identifies a real gap requiring strategy repair before build
+- Competitor gap, alignment gap, or search-intent gap is flagged
+
+Skip 04 when:
+- Strategy is already approved and no gap has been flagged
+- Task is a quick edit or implementation-only
+
 Use 20 visibility alignment when:
 - Page is high value
 - Page must support multi-platform visibility
@@ -73,6 +81,11 @@ Use 07 when:
 - Page was built
 - Launch readiness or QA is needed
 
+Use 10 client data collection when:
+- Missing client data blocks launch, schema, CTA, legal copy, forms, contact details, analytics, indexing, or final production approval
+
+Do not use 10 to invent missing data.
+
 ## Prompt Chaining Rules
 
 Do not chain prompts automatically unless the next step is needed.
@@ -83,6 +96,29 @@ After each major output, decide:
 - Does it need review?
 - Can we skip deeper analysis?
 - Is the next prompt worth the tokens?
+
+## Strategy-Approved Shortcut
+
+Use the shortcut Prompt 05 → Prompt 06 → Prompt 07 when all of the following are true:
+
+- Strategy is already approved
+- No competitor gap, alignment gap, or search-intent gap is flagged
+- The task can be described by Prompt 05 or the Compact Strategy Summary without re-running upstream strategy prompts
+
+Higher modes (Beyond-Elite, Full Competitive Build) do not qualify for the shortcut.
+
+## Over-Prompting Prevention
+
+Do not run Prompts 03, 04, or 20 for Fast Mode or Core Mode unless explicitly required by a flagged gap or owner approval.
+
+Do not escalate Fast Mode or Core Mode work into Beyond-Elite or Full Competitive Build work without explicit owner approval.
+
+## Efficiency Governor References
+
+The Efficiency Governor layer is supported by these files:
+
+- efficiency-governor/client-intake-gate.md — hard gate checklist; no build begins until cleared
+- efficiency-governor/compact-strategy-summary-template.md — one-page strategy handoff used when prior strategy is approved
 
 ## Final Rule
 
