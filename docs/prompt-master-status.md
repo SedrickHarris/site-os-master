@@ -373,3 +373,43 @@ This appendix lists the Efficiency Governor patch series for the Core Workflow P
 - Commit: `docs(efficiency-governor): align routing and token-control files with Prompt 05-08 behavior`
 
 See routing/workflow-mode-map.md and token-control/prompt-efficiency-rules.md for the canonical workflow mode chains, strategy-approved shortcut conditions, and efficiency rules referenced by Prompts 05–08.
+
+## Tier R1 Final Readiness Patch — Deployment and Production Verification Checklists
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: 702Xchange stale-artifact deployment lesson (Tier 6A initial deploy 2026-05-17)
+
+### Background
+
+The 702Xchange Tier 6A production deploy on 2026-05-17 executed `npm run cf:deploy` successfully and received a new Cloudflare Worker Version ID (`516c6e65-8c76-4d91-af8c-6c9155c99978`), but the Worker shipped stale `.open-next/` artifacts dated May 16 23:13 while the source HEAD was at `5ae64e1` committed May 17 11:37. Pre-Tier-6A content rendered in production. The issue was caught only by a CTA-wording spot-check against rendered production HTML. A rebuild via `npm run cf:build` followed by `npm run cf:deploy` republished the correct content as Worker Version `c6d98246-4200-48f3-9b41-53f2ea9cad0d`.
+
+This lesson did not previously have a home in Site OS Master. Tier R1 closes that gap with two new checklists and this status entry.
+
+### New Checklist Files
+
+| File | Path | Status |
+|------|------|--------|
+| Deploy Workflow Checklist | `checklists/deploy-workflow-checklist.md` | New |
+| Post-Deploy Production Verification Checklist | `checklists/post-deploy-production-verification-checklist.md` | New |
+
+### How These Files Support Final Client-Build Readiness
+
+- Codify the build-before-deploy rule that the 702Xchange incident exposed
+- Provide a stack-specific Next.js + OpenNext + Cloudflare Workers procedure plus universal principles applicable to other stacks
+- Establish the principle that deploy CLI success is not sufficient evidence of a correct production release — production content must be verified against source
+- Provide a reusable production verification template covering HTTP status, content spot-checks, CTA wording, canonical URLs, www to apex redirects, robots.txt, sitemap.xml, and Worker Version ID recording
+- Establish the handoff order: deploy checklist → production verification checklist → indexing checklist
+- Add explicit stop conditions and evidence-capture guidance for verification failures
+
+### Scope Boundary
+
+This patch is additive only. No existing prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, or other checklists are modified by Tier R1. Integration of these checklists into the Prompt 06 / 07 / 08 / 09 chains is reserved for a future Tier R2 or R3 patch.
+
+### Tier R1 Gate 3 Scope
+
+These two checklists were created in a Gate 3 implementation pass that touches exactly:
+
+1. `checklists/deploy-workflow-checklist.md` (create)
+2. `checklists/post-deploy-production-verification-checklist.md` (create)
+3. `docs/prompt-master-status.md` (append this appendix only)
