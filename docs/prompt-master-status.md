@@ -557,3 +557,62 @@ Tier R3-3 Gate 3 implementation pass touches exactly:
 
 1. `docs/no-fake-data-policy.md` (create)
 2. `docs/prompt-master-status.md` (append this appendix only)
+
+## Tier R3-4 Final Readiness Patch — New-Client Startup Workflow Doc
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: create standalone new-client startup workflow doc
+
+### Background
+
+Site OS Master has documents that each cover one piece of starting a new client build, but no single doc orchestrates the end-to-end client-onboarding journey. The pieces currently distributed across:
+
+- `README.md` "Recommended Workflow" — 13 numbered steps, but page-build-scoped not client-onboarding-scoped (no repo scaffold, no policy invocation, no stack decision, no mode selection)
+- `efficiency-governor/client-intake-gate.md` v1.2 — the intake gate itself (13 sections, build-blocker vs. launch-blocker, minimum viable intake, project-type selector)
+- `docs/site-os-prompt-operating-guide.md` — workflow mode selection (Fast / Core / Beyond-Elite / Full Competitive Build), prompt chains, page-type rules
+- `docs/project-brief-template.md` — thin brief skeleton
+- `docs/page-build-workflow.md` — page-level 10-step workflow (per page, not per client)
+- `docs/client-repo-doc-structure.md` (Tier R2) — `docs/site-os/{inputs, outputs, qa, changelog}` scaffold
+- `docs/standing-approval-rule-template.md` (Tier R2) — session-scoped rule
+- `docs/file-scope-and-git-safety-policy.md` (Tier R3-1) — universal Git discipline
+- `docs/no-fake-data-policy.md` (Tier R3-3) — universal fabrication prevention
+- `checklists/deploy-workflow-checklist.md` (Tier R1) — safe deploy
+- `checklists/post-deploy-production-verification-checklist.md` (Tier R1) — production verification
+
+No standalone universal workflow orchestrator existed. Tier R3-4 closes that gap with a single discoverable home that walks a new client build from intake through deploy, referencing the canonical docs at each step rather than duplicating them.
+
+### New Files
+
+| File | Path | Status |
+|------|------|--------|
+| New-Client Startup Workflow | `docs/new-client-startup-workflow.md` | New |
+
+### How This File Supports Final Client-Build Readiness
+
+- Provides a canonical end-to-end client-onboarding sequence: Phase A Pre-Build → Phase B Repo Scaffold → Phase C Policy Invocation → Phase D Strategy and Build → Phase E Deploy → Phase F Carry-Forward
+- References the Client Intake Gate, project brief, workflow mode guide, scaffolding doc, R2/R3-1/R3-3 policies, page-build workflow, deploy checklists, and post-deploy verification checklist — does not duplicate any of them
+- Uses the 702Xchange build session as a labeled working example (not a universal template); 702Xchange-specific decisions (stack, project type, listing thresholds, form vendor) are illustrative only
+- Includes a Common Pitfalls section drawn from real R1/R2/R3-1/R3-3 build-session lessons
+- Includes an Anti-Patterns to Avoid section enumerating known failure modes (deploying from Site OS Master, copying prompts into the client repo, `git add .`/`-A`, force-pushing main, fake-data shortcuts)
+- Includes Stop Conditions that pause the workflow when launch-critical inputs are unresolved
+- Includes a copy-paste-ready first-session kickoff prompt template suitable for any new client build
+
+### Scope Boundary
+
+Tier R3-4 is additive only. No prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, workflow tests, versions, existing checklists, `efficiency-governor/*` files, `README.md`, `CLAUDE.md`, or other existing `docs/*` files are modified.
+
+`README.md` update is deferred to the batched R3-9 README update (avoids per-patch README churn; matches the precedent set by R3-1 and R3-3).
+
+`CLAUDE.md` integration is deferred to its own dedicated approval cycle (CLAUDE.md is the project's primary behavioral contract and warrants its own approval cycle).
+
+The continue-existing-client workflow is deferred to Tier R3-5 (covers ongoing maintenance, mid-tier resumption, and incremental builds — a distinct workflow from new-client onboarding).
+
+Integration of this doc into Prompts 05 / 06 / 07 chains is deferred — per-prompt content stays context-specific; the new universal workflow is referenced from those prompts only when explicitly approved in a later patch.
+
+### Tier R3-4 Gate 3 Scope
+
+Tier R3-4 Gate 3 implementation pass touches exactly:
+
+1. `docs/new-client-startup-workflow.md` (create)
+2. `docs/prompt-master-status.md` (append this appendix only)
