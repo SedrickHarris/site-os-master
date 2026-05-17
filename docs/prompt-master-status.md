@@ -413,3 +413,53 @@ These two checklists were created in a Gate 3 implementation pass that touches e
 1. `checklists/deploy-workflow-checklist.md` (create)
 2. `checklists/post-deploy-production-verification-checklist.md` (create)
 3. `docs/prompt-master-status.md` (append this appendix only)
+
+## Tier R2 Final Readiness Patch — Standing Approval Rule and Client Repo Doc Structure
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: codify standing approval and reusable client repo documentation structure
+
+### Background
+
+During the 702Xchange Tier 6A through Tier 7A-1 build sessions on 2026-05-17, two operational patterns emerged that materially reduced approval friction and improved client-repo handoff predictability but had no home in Site OS Master:
+
+1. **Standing approval rule** — the owner-issued rule that allowed Claude to proceed automatically through Gate 1 → Gate 2 → Gate 3 → Prompt 07 QA → file-scoped commit/push for low-risk internal workflow steps, while still requiring explicit approval for deploys, package installs, route/metadata/schema/sitemap/robots/canonical changes, `lib/data` edits, image assets, external service wiring, and other high-risk actions. Used successfully across Tier 6A (multiple sub-phases), Tier 7A-1, and three subsequent homepage wording patches.
+
+2. **Client repo documentation structure** — the `docs/site-os/{inputs,outputs,qa,changelog,README.md}` pattern that 702Xchange uses to keep client-specific Site OS outputs separate from the Site OS Master workflow source-of-truth. Working example existed only in 702Xchange itself; no template existed in Site OS Master.
+
+Tier R2 closes both gaps.
+
+### New Files
+
+| File | Path | Status |
+|------|------|--------|
+| Standing Approval Rule Template | `docs/standing-approval-rule-template.md` | New |
+| Client Repo Doc Structure Template | `docs/client-repo-doc-structure.md` | New |
+
+### Edited Files
+
+| File | Path | Edit Type |
+|------|------|-----------|
+| Project README | `README.md` | Additive — appends a new "Deploy and Client Handoff Discipline" section near the end pointing to the four R1 + R2 docs |
+
+### How These Files Support Final Client-Build Readiness
+
+- Reduce ad-hoc per-phase approval friction during multi-session client builds while preserving safety on high-risk actions
+- Standardize client repo documentation conventions so any future Site OS Master user recognizes the structure on sight
+- Make the standing approval rule re-invokable per session by providing copy-paste-ready template language
+- Codify the file-scope and Git safety patterns proven over the 702Xchange build (explicit `git add <files>`, no `git add .` or `git add -A`, no force-push to main, chained `cd` on Windows)
+- Cross-reference the R1 deploy + post-deploy verification checklists so all four new docs work together as a coherent client-build operating layer
+
+### Scope Boundary
+
+Tier R2 is additive only. No prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, workflow tests, versions, existing checklists, `efficiency-governor/*` files, `CLAUDE.md`, or other `docs/*` files are modified. Integration into Prompt 06 / 07 / 08 / 09 chains is reserved for Tier R3 or later.
+
+### Tier R2 Gate 3 Scope
+
+Tier R2 Gate 3 implementation pass touches exactly:
+
+1. `docs/standing-approval-rule-template.md` (create)
+2. `docs/client-repo-doc-structure.md` (create)
+3. `README.md` (additive — appends one new section near the end, no existing content modified)
+4. `docs/prompt-master-status.md` (append this appendix only)

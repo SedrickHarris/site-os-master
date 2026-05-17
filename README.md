@@ -105,3 +105,19 @@ The Efficiency Governor helps decide:
 - When to stop
 
 The goal is to produce more high-quality work with fewer wasted tokens.
+
+## Deploy and Client Handoff Discipline
+
+Site OS Master includes safe-deploy, post-deploy production verification, standing approval, and reusable client-repo documentation structure templates. Use these files when deploying client websites or handing builds between sessions, owners, or contractors.
+
+### Safe Deploy
+
+- `checklists/deploy-workflow-checklist.md` — required deploy sequence (build before deploy), correct-repo rule, stack-specific Next.js + OpenNext + Cloudflare Workers procedure, stop conditions, and command examples for PowerShell and Bash.
+- `checklists/post-deploy-production-verification-checklist.md` — verify production content (not local files), HTTP status, CTA wording, canonical URLs, www → apex redirect, robots.txt, sitemap.xml, and Worker Version ID recording.
+
+### Workflow and Handoff Discipline
+
+- `docs/standing-approval-rule-template.md` — codified pattern for reducing yes/no friction across low-risk internal workflow steps (Gate 1 → Gate 2 → Gate 3 → QA → commit → push) while preserving hard stops for deploys, package installs, route changes, lib/data edits, image assets, external API wiring, and other high-risk actions.
+- `docs/client-repo-doc-structure.md` — reusable `docs/site-os/{inputs, outputs, qa, changelog}` folder structure for client repos, with scaffolding commands for PowerShell and Bash and a paste-ready README template.
+
+These templates reduce ad-hoc decisions during multi-session builds and make client handoffs predictable.
