@@ -463,3 +463,48 @@ Tier R2 Gate 3 implementation pass touches exactly:
 2. `docs/client-repo-doc-structure.md` (create)
 3. `README.md` (additive — appends one new section near the end, no existing content modified)
 4. `docs/prompt-master-status.md` (append this appendix only)
+
+## Tier R3-1 Final Readiness Patch — File-Scope and Git Safety Policy
+
+Date: 2026-05-17
+Status: Proposed in Gate 2, implemented in Gate 3
+Reason: create standalone file-scope and Git safety policy
+
+### Background
+
+The file-scope and Git safety rules proven over the 702Xchange Tier 6A through Tier 7A-1 build sessions (plus subsequent homepage wording patches and the Site OS Master Tier R1 and Tier R2 patches) on 2026-05-17 currently live distributed across three locations:
+
+- `docs/standing-approval-rule-template.md` (R2) — session-scoped, opt-in framing
+- `checklists/deploy-workflow-checklist.md` (R1) — deploy-specific framing
+- `CLAUDE.md` — does not cover Git safety or file-scope discipline at all
+
+No standalone universal policy doc existed. Tier R3-1 closes that gap.
+
+### New Files
+
+| File | Path | Status |
+|------|------|--------|
+| File-Scope and Git Safety Policy | `docs/file-scope-and-git-safety-policy.md` | New |
+
+### How This File Supports Final Client-Build Readiness
+
+- Provides a canonical reference for Git safety and file-scope discipline that other docs cross-reference without forcing rewrites of existing context-specific docs
+- Documents force-push policy explicitly scoped to `main`/`master` with a note that other protected branches may be governed by project convention
+- Codifies cross-repo separation between Site OS Master and client repos as a universal rule, not just a session-scoped or deploy-specific one
+- Includes copy-paste-ready verification commands using the chained-`cd` pattern required on Windows
+- Enumerates stop conditions that apply to every Site OS Master client build regardless of session, stack, or workflow mode
+
+### Scope Boundary
+
+Tier R3-1 is additive only. No prompts, skills, routing files, token-control files, schemas, page templates, evals, benchmarks, workflow tests, versions, existing checklists, `efficiency-governor/*` files, `README.md`, `CLAUDE.md`, or other `docs/*` files are modified.
+
+`README.md` update is deferred — batched with future R3-N items rather than churning the README per-patch. The new policy doc references `CLAUDE.md` in its Related Files section, but `CLAUDE.md` itself is not edited in this patch (CLAUDE.md is the project's primary behavioral contract and warrants its own approval cycle).
+
+Integration into Prompt 06 / 07 / 08 / 09 chains is reserved for Tier R3-N or later.
+
+### Tier R3-1 Gate 3 Scope
+
+Tier R3-1 Gate 3 implementation pass touches exactly:
+
+1. `docs/file-scope-and-git-safety-policy.md` (create)
+2. `docs/prompt-master-status.md` (append this appendix only)
