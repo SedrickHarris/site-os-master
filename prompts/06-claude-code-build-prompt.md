@@ -461,6 +461,37 @@ Do not add ImageObject schema unless a real image asset is confirmed.
 
 Do not invent hero images, team photos, project photos, or logos.
 
+### Service Card Image Placeholder Standard (service-based business builds)
+
+If the build is for a service-based business and the page includes any reusable service card grid (homepage service preview, services hub, related-service section, location page service grid, service + city matrix, landing page service cards, reusable `ServiceCard` components), every service card must include a visual image placeholder area at the top per `docs/service-card-image-placeholder-standard.md`.
+
+Required service card structure:
+
+1. Image placeholder area — top of the card
+2. Service title — H3, font-display
+3. Short service description — one to two sentences
+4. CTA link or button with arrow affordance
+5. Optional supporting details — verified only
+
+Image placeholder requirements:
+
+- Aspect ratio: `aspect-[16/10]` or `aspect-[4/3]`, consistent across all cards in the grid
+- Background: brand tokens (soft-blue, light-gray, subtle radial/linear gradient), not raw hex
+- No text baked into the placeholder image
+- `aria-hidden="true"` when decorative (the typical case)
+- TODO comment in code noting an owner-supplied photo should replace the placeholder when available
+- Card wrapper: `overflow-hidden` so the placeholder's rounded top corners are clipped correctly
+- Tap targets: full-card link or explicit CTA ≥ 44px (preferably 48px for primary actions)
+
+Reusable component pattern:
+
+- `ServiceCard` — composes the placeholder + body + CTA into a single reusable card
+- Optional `ServiceImagePlaceholder` — extract when the project has many service cards across multiple page types
+
+Fake-data hard stops continue to apply: no auto-pulled photos from Google Places, GBP, stock libraries, or AI generators; no fake before/after; no fake team / customer / project / completed-work photos per `docs/no-fake-data-policy.md` §8 (Image and Media) and §9 (External Data Sources). The placeholder is the ship-ready visual; real images replace it only when owner-supplied and approved.
+
+This standard does not apply to text-only navigation lists, inline service mentions in body copy, or non-service-business project types.
+
 ---
 
 ## Design Requirements
@@ -477,6 +508,44 @@ Follow:
 Do not create a new design pattern unless needed.
 
 Do not change global styles unless absolutely necessary and explicitly approved.
+
+### Service Business Hero and CTA Layout Standard
+
+If the build is for a service-based business (local service, home services, professional services, trades, agencies, healthcare, finance, legal, real estate, or similar conversion-focused vertical), the hero section and the primary CTA section must default to the two-column conversion layout per `docs/service-business-conversion-layout.md`.
+
+Required layout:
+
+- Left column: headline (H1), subheadline, verified trust bullets if any, primary CTA, optional secondary CTA (typically tap-to-call).
+- Right column: quote form, contact form, booking form, or approved form placeholder.
+- Mobile: single column, content first then form.
+- Container: expanded (`max-w-[1440px]` or equivalent project token) with progressive horizontal padding (`px-4 sm:px-6 lg:px-10 xl:px-12 2xl:px-16`).
+- Grid: `grid-cols-1 lg:grid-cols-[minmax(0,1.05fr)_minmax(420px,0.75fr)]` with `gap-10 lg:gap-14 xl:gap-20`.
+- Form column: `w-full lg:max-w-xl lg:justify-self-end`.
+- Touch targets: minimum 44px, primary actions 48px.
+- Motion: subtle, reduced-motion-safe, no scroll-jacking, durations under 300ms.
+
+Reusable component pattern:
+
+- `HeroSection` with `formSlot?: ReactNode`, `layout?: 'standard' | 'split'`, `container?: 'normal' | 'wide'` props. Presence of `formSlot` implies split layout and wide container.
+- `CTASection` with the same three-prop API.
+- `QuoteFormPlaceholder` / `ContactFormPlaceholder` / `BookingFormPlaceholder` until the live form endpoint is owner-confirmed (per `docs/no-fake-data-policy.md` §9, never invent the endpoint).
+
+Conversion-hierarchy rules:
+
+- One primary CTA per view (the form button is the primary action on the hero).
+- Do not duplicate forms — if the hero contains a form, the final CTA section is text + buttons only, not a second form.
+- Trust bullets must use verified facts only. Reviews, ratings, license numbers, insurance details, satisfaction guarantees, years-in-business, certifications, and awards must be owner-confirmed before they appear.
+
+This standard does not apply to:
+
+- Blog posts and editorial pages
+- Legal pages (privacy, terms, accessibility, cookie policy)
+- About / Our Team narrative pages
+- 404 / utility pages
+- Directory or marketplace business-profile pages
+- Any project type other than service-based business
+
+For those page types, follow the existing project layout pattern.
 
 ---
 

@@ -39,6 +39,7 @@ Recommended Schema:
    - Strong value statement
    - Primary CTA
    - Trust signal
+   - **Layout default (service-based offers):** Two-column conversion layout per `docs/service-business-conversion-layout.md` — content on the left (eyebrow, H1, sub, primary CTA, optional tap-to-call), lead form (or approved placeholder) on the right, expanded container, mobile stacks content first then form. For landing pages that intentionally route off-page (app-store install, calendar booking on a third-party domain, etc.), use the standard single-column hero instead.
 
 2. Quick Answer / Offer Summary
    - Explain what the offer is
@@ -56,6 +57,7 @@ Recommended Schema:
 5. What Is Included
    - Clarify deliverables
    - Reduce uncertainty
+   - **Service-card variant default:** If "What Is Included" renders as a service / offer card grid (rather than a bulleted text list), render each card following `docs/service-card-image-placeholder-standard.md` — image placeholder area at the top with brand-token background, then card title, short description, and CTA. If the section renders as a plain bullet list, the card standard does not apply.
 
 6. Why Choose This Offer
    - Add trust and proof where verified
@@ -72,6 +74,7 @@ Recommended Schema:
    - Repeat offer
    - Make action clear
    - Reduce friction
+   - **Layout default:** If the hero already contains a form (the standard for service-based landing pages per `docs/service-business-conversion-layout.md`), the Final CTA is text + primary CTA only — no duplicate form. If the hero is standard layout, the Final CTA may host the form using the same two-column pattern.
 
 ## Conversion Rules
 

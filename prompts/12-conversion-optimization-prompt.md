@@ -294,6 +294,7 @@ Safe conversion improvements include:
 - Sticky mobile CTA structure
 - CTA support copy that does not rely on unverified claims
 - Better anchor links to forms or quote sections
+- **Two-column conversion layout for hero and primary CTA on service-based business pages** — content left, quote/contact/booking form (or approved placeholder) right, expanded container, mobile stacks content first per `docs/service-business-conversion-layout.md`. Placing a usable form (or placeholder) directly next to the hero copy on first paint is one of the highest-leverage structural conversion improvements for service businesses and should be the default recommendation for homepages, service pages, location pages, service + location pages, and landing pages. Final CTA sections do not need a second form if the hero already has one.
 
 ---
 

@@ -122,6 +122,8 @@ The following remain in force inside Fast Build Batch, Fast Integration Checklis
 - File-scope discipline per `docs/file-scope-and-git-safety-policy.md` — explicit per-file `git add <path>`, never `git add .` or `git add -A`
 - No-fake-data discipline per `docs/no-fake-data-policy.md` — no invented data, schema must match visible content, no auto-pulls without owner consent
 - Hard Stop List from `docs/standing-approval-rule-template.md` always applies
+- Service-business conversion layout per `docs/service-business-conversion-layout.md` — when iterating hero or primary CTA sections on a service-based business build, default to the two-column conversion layout (content left, form/placeholder right, expanded container) unless the page is explicitly non-conversion (blog, legal, about, 404, etc.)
+- Service card image placeholder per `docs/service-card-image-placeholder-standard.md` — when iterating service cards on a service-based business build (homepage previews, services hub, related services, location grids, landing page service cards, reusable ServiceCard components), every card must include a visual image placeholder area at the top using brand tokens; no fake / auto-pulled / stock imagery per `docs/no-fake-data-policy.md` §8–§9
 - Build-before-deploy per `checklists/deploy-workflow-checklist.md` if a deploy is approved separately
 - Post-deploy verification per `checklists/post-deploy-production-verification-checklist.md` after every deploy
 
@@ -132,6 +134,8 @@ Speed comes from skipping unnecessary planning ceremony, not from skipping safet
 - `docs/standing-approval-rule-template.md` — Hard Stop List that the routing rules above inherit unchanged
 - `docs/file-scope-and-git-safety-policy.md` — explicit per-file `git add` discipline that applies inside every mode
 - `docs/no-fake-data-policy.md` — fabrication-prevention rules that apply inside every mode
+- `docs/service-business-conversion-layout.md` — universal two-column hero/CTA layout standard for service-based business builds; applies inside Fast Build Batch and Multi-Gate
+- `docs/service-card-image-placeholder-standard.md` — universal service-card image-placeholder standard for service-based business builds; applies inside Fast Build Batch and Multi-Gate
 - `docs/new-client-startup-workflow.md` — first-time onboarding; initial client builds use Multi-Gate because pattern, data, and stack decisions are all new
 - `docs/continue-existing-client-workflow.md` — resume workflow; the routing rules above determine Fast Build Batch vs. Multi-Gate per session
 - `checklists/deploy-workflow-checklist.md` — required when a deploy is approved separately

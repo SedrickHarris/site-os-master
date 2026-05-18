@@ -53,6 +53,7 @@ Recommended Schema:
    - Service and location context
    - Primary CTA
    - Trust signal
+   - **Layout default:** Two-column conversion layout per `docs/service-business-conversion-layout.md` — content on the left (eyebrow, H1, sub, primary CTA, optional tap-to-call), quote/contact/booking form (or approved placeholder) on the right, expanded container, mobile stacks content first then form.
 
 2. Quick Answer Section
    - Define the service in plain language
@@ -100,6 +101,7 @@ Recommended Schema:
    - Link to relevant locations
    - Link to contact, quote, or booking page
    - Use natural anchor text
+   - **Related-services card grid default:** When the related-services section uses a card grid (rather than an inline text link list), render each related service as a card following `docs/service-card-image-placeholder-standard.md` — image placeholder area at the top with brand-token background, then title, description, and CTA. Match the aspect ratio used by the homepage service preview for visual consistency.
 
 11. AEO FAQ Section
    - Include 5 to 8 strong FAQs
@@ -111,6 +113,7 @@ Recommended Schema:
    - Restate value
    - Address next step
    - Include clear conversion path
+   - **Layout default:** If the hero already contains a form (the standard for service pages per `docs/service-business-conversion-layout.md`), the Final CTA Section is text + primary CTA + optional tap-to-call only — no duplicate form. If the hero is standard layout without a form, the Final CTA may host the form using the same two-column pattern.
 
 ## Multi-Platform Requirements
 

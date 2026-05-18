@@ -129,6 +129,18 @@ If the build will use standing approval to reduce yes/no friction between low-ri
 
 `docs/no-fake-data-policy.md` is the universal policy. Highlights to observe from day one: 12 categories of fake-data prevention (business identity, contact data, service data, reviews and ratings, trust signals, performance claims, schema markup, image and media, external data sources, listings and directory data, CTAs and social proof, competitor claims), the schema-matches-visible-content rule, no Places API or GBP auto-pulls without owner consent, no fake reviews or listings, programmatic content allowed only when source data is verified.
 
+### 15a. Confirm service-business conversion layout standard (service-based builds only)
+
+If the project type is **local service business** or any other service-based vertical, `docs/service-business-conversion-layout.md` is the universal hero/CTA layout standard. Highlights to observe from day one: two-column conversion layout (content left, form right), expanded container (`max-w-[1440px]` with progressive padding), mobile stacks content first then form, single primary CTA per view, no duplicate forms on the same page, accessibility minimums (44–48px touch targets, visible focus, single H1), reduced-motion-safe entrance animation only, and the no-fake-data rules continue to govern any trust copy inside the layout. Reusable components are typically `HeroSection` and `CTASection` with `formSlot` / `layout` / `container` props plus a `QuoteFormPlaceholder` (or equivalent) until a live form endpoint is owner-confirmed.
+
+This standard does not apply to non-conversion pages (blog, legal, about, 404, utility). Skip step 15a entirely when the project type is directory/marketplace, SaaS/product, or other non-service-business — those project types have their own layout patterns.
+
+### 15b. Confirm service-card image-placeholder standard (service-based builds only)
+
+If the project type is **local service business** or any other service-based vertical, `docs/service-card-image-placeholder-standard.md` is the universal service-card layout standard. Highlights to observe from day one: every service card must include a visual image placeholder area at the top (homepage service previews, services hub, related-service grids, location page service grids, service + city matrix cards, landing page service cards, reusable `ServiceCard` components). Use a consistent `aspect-[16/10]` (or `aspect-[4/3]`) placeholder with a brand-token background (soft-blue / light-gray / subtle gradient), `aria-hidden="true"` when decorative, no embedded text inside the image, and a TODO comment noting that an owner-supplied photo should replace the placeholder when available. No fake before/after, no fake team/customer/project photos, no Google Places / GBP / stock auto-pulls per `docs/no-fake-data-policy.md` §8–§9. Reusable components are typically a `ServiceCard` plus an optional `ServiceImagePlaceholder` for projects with many cards.
+
+This standard does not apply to non-card UI (text-only navigation lists, inline service mentions in body copy, table-style listings) and does not apply to non-service-business project types — those project types have their own card patterns.
+
 ## Phase D — Strategy and Build
 
 ### 16. Run the upstream strategy prompts (Prompts 01 through 05)
@@ -290,6 +302,8 @@ The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-
 - `docs/standing-approval-rule-template.md` — session-scoped rule invoked in Phase C step 13
 - `docs/file-scope-and-git-safety-policy.md` — universal file-scope and Git discipline invoked in Phase C step 14 and applied throughout
 - `docs/no-fake-data-policy.md` — universal no-fake-data discipline invoked in Phase C step 15 and applied throughout
+- `docs/service-business-conversion-layout.md` — universal hero/CTA layout standard invoked in Phase C step 15a for service-based business builds; consumed by every page-build that creates a hero or primary CTA on a homepage, service page, location page, service + location page, or landing page
+- `docs/service-card-image-placeholder-standard.md` — universal service-card layout standard invoked in Phase C step 15b for service-based business builds; consumed by every page-build that renders a service card on a homepage, services hub, service page (related services), location page, service + city matrix page, landing page, or reusable `ServiceCard` component
 - `checklists/deploy-workflow-checklist.md` — safe-deploy procedure followed in Phase E step 21
 - `checklists/post-deploy-production-verification-checklist.md` — production verification followed in Phase E step 22
 

@@ -57,6 +57,30 @@ Create the page outline with:
 - Schema recommendations
 - Image recommendations
 
+### Service Business Layout Note
+
+If the build is for a service-based business (homepage, service page, location page, service + location page, landing page, or any conversion-focused section), the **Hero section** and the primary conversion **CTA section** must default to the two-column conversion layout per `docs/service-business-conversion-layout.md`:
+
+- Left column: headline, sub, primary CTA, secondary CTA (tap-to-call), optional verified trust bullets.
+- Right column: quote form, contact form, booking form, or approved form placeholder.
+- Mobile: stack content first, form second.
+- Container: expanded (`max-w-[1440px]` with progressive padding).
+- Do not duplicate forms across multiple sections on the same page — choose one primary form moment (usually the hero).
+
+This does not apply to non-conversion pages (blog posts, legal, about, 404). For those, follow the existing project layout pattern.
+
+### Service Card Image Placeholder Note
+
+If the page includes any reusable service card grid (homepage service preview, services hub, related-service section, location page service grid, service + city matrix, landing page service cards), every service card must include a visual image placeholder area at the top per `docs/service-card-image-placeholder-standard.md`:
+
+- Aspect ratio: `aspect-[16/10]` (or `aspect-[4/3]`), consistent across all cards in a grid.
+- Background: brand tokens (soft-blue, light-gray, subtle gradient) — not raw hex, not stock photography, not auto-pulled imagery.
+- Accessibility: `aria-hidden="true"` when decorative; `alt` text only when a real image lands.
+- TODO: leave a code comment noting an owner-supplied photo should replace the placeholder when available.
+- No text baked into the placeholder image; no fake before/after; no fake team/customer/project photos per `docs/no-fake-data-policy.md` §8–§9.
+
+This does not apply to text-only navigation lists or inline service mentions in body copy.
+
 ## Step 4: AEO FAQ Plan
 
 Create FAQs that:

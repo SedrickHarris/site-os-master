@@ -52,6 +52,7 @@ Recommended Schema:
    - Short local intro
    - Primary CTA
    - Local trust signal
+   - **Layout default:** Two-column conversion layout per `docs/service-business-conversion-layout.md` — location-aware content on the left (eyebrow, H1, sub, primary CTA, tap-to-call), quote/contact form (or approved placeholder) on the right, expanded container, mobile stacks content first then form.
 
 2. Quick Local Answer
    - Explain who the page serves in this location
@@ -67,6 +68,7 @@ Recommended Schema:
    - List relevant services or categories
    - Link to service pages where appropriate
    - Explain how each service supports local customers
+   - **Service card grid default:** Render each service as a card following `docs/service-card-image-placeholder-standard.md` — image placeholder area at the top (brand-token background, consistent aspect ratio), then service title, short location-relevant description, and CTA link. Use the same card pattern as the homepage service preview for visual consistency across the build.
 
 5. Local Problems / Local Search Intent
    - Identify what people in this area commonly need
@@ -100,6 +102,7 @@ Recommended Schema:
    - Restate location relevance
    - Make next step clear
    - Include phone, form, booking, quote, or listing path
+   - **Layout default:** If the hero already contains a form (the standard per `docs/service-business-conversion-layout.md`), the Final Local CTA is text + primary CTA + tap-to-call only — no duplicate form. If the hero is standard layout, the Final Local CTA may host the form using the same two-column pattern.
 
 ## Multi-Platform Requirements
 

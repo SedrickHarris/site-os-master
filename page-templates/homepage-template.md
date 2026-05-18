@@ -40,6 +40,7 @@ Recommended Schema:
    - Primary CTA
    - Secondary CTA
    - Trust signal
+   - **Service-based business default:** Use the two-column conversion layout per `docs/service-business-conversion-layout.md` — content on the left (eyebrow, H1, sub, primary CTA, secondary CTA, optional verified trust bullets), quote form / contact form / approved form placeholder on the right, expanded container (`max-w-[1440px]`), mobile stacks content first then form. Do not use this layout for non-service-business homepages (directory, SaaS, etc.) — follow that project type's pattern instead.
 
 2. Quick Answer / What We Do
    - Explain the business in plain language
@@ -49,6 +50,7 @@ Recommended Schema:
    - Show primary services or offers
    - Link to service pages
    - Explain who each service helps
+   - **Service-based business default:** Render each service as a card following `docs/service-card-image-placeholder-standard.md` — image placeholder area at the top (consistent aspect ratio, brand-token background, `aria-hidden` when decorative), then service title, short description, and CTA link with arrow affordance. No baked-in text, no fake photography, TODO comment for future real-image replacement.
 
 4. Problems We Solve
    - Address customer pain points
@@ -78,6 +80,7 @@ Recommended Schema:
 10. Final CTA
    - Restate the main offer
    - Make the next step clear
+   - **Service-based business default:** If the hero already contains a form (the standard for service-based business homepages per `docs/service-business-conversion-layout.md`), the Final CTA is text + primary CTA + optional tap-to-call only — no second form. If the hero is standard layout without a form, the Final CTA may host the form using the same two-column pattern.
 
 ## Multi-Platform Requirements
 

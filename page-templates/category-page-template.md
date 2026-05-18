@@ -44,6 +44,7 @@ Recommended Schema:
 4. Subcategory or Related Page Links
    - Link to child service pages, location pages, or related content
    - Use clear anchor text
+   - **Service-business category-card default:** When the category page is for a service-based business and the subcategory list is rendered as a card grid (rather than a plain text list), render each card following `docs/service-card-image-placeholder-standard.md` — image placeholder area at the top with brand-token background and consistent aspect ratio, then category/service title, short description, and CTA link. If the list is rendered as inline anchor text only, the card standard does not apply.
 
 5. Who This Category Helps
    - Explain customer segments
