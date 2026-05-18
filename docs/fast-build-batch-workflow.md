@@ -125,10 +125,41 @@ The following remain in force inside Fast Build Batch, Fast Integration Checklis
 - Service-business conversion layout per `docs/service-business-conversion-layout.md` — when iterating hero or primary CTA sections on a service-based business build, default to the two-column conversion layout (content left, form/placeholder right, expanded container) unless the page is explicitly non-conversion (blog, legal, about, 404, etc.)
 - Service card image placeholder per `docs/service-card-image-placeholder-standard.md` — when iterating service cards on a service-based business build (homepage previews, services hub, related services, location grids, landing page service cards, reusable ServiceCard components), every card must include a visual image placeholder area at the top using brand tokens; no fake / auto-pulled / stock imagery per `docs/no-fake-data-policy.md` §8–§9
 - Client repo prompt and documentation system per `docs/client-repo-prompt-system-standard.md` — every client website repo must carry the full `docs/site-os/` prompt structure (build, content, seo-aeo, qa, updates, reference, checklists, decisions) so the repo is self-sufficient for ongoing builds, content work, SEO/AEO improvement, gap fixes, updates, and QA without depending on Claude Project memory or master-repo access; install at new-client startup via `prompts/client-repo-prompt-system-setup-prompt.md`
+- Prompt routing and AI depth selection per `docs/prompt-router-and-ai-depth-standard.md` — every page build (including ones running under Fast Build Batch) must classify page type, page value, and select the correct prompt + AI depth before drafting; high-value pages route to individual prompts, not batch prompts (see Batch Prompt Limitation Rule below)
+- High-value page enforcement per `docs/high-value-page-enforcement-standard.md` — pre-build deliverables (keyword map, AEO FAQ map, content gap list, implementation plan) and post-build pass/fail gate are mandatory for high-value pages
+- Pass/fail page quality gate per `docs/pass-fail-page-quality-gates.md` — every high-value page build returns PASS or FAIL with the specific list of failures; no commits on FAIL
 - Build-before-deploy per `checklists/deploy-workflow-checklist.md` if a deploy is approved separately
 - Post-deploy verification per `checklists/post-deploy-production-verification-checklist.md` after every deploy
 
 Speed comes from skipping unnecessary planning ceremony, not from skipping safety.
+
+## Batch Prompt Limitation Rule
+
+Batch prompts are not the default for high-value pages.
+
+Batch prompts are appropriate for:
+
+- Project setup
+- Shared components
+- Legal / utility pages
+- Low-risk scaffolding
+- Commit / QA workflows
+
+Batch prompts are not appropriate for:
+
+- Homepage
+- Free quote page
+- Contact page
+- Services hub
+- Locations hub
+- About page
+- FAQ hub
+- Core service pages
+- Core location pages
+- Service + location pages
+- Revenue-critical landing pages
+
+…unless explicitly approved by the project owner and recorded in the implementation log. For high-value pages, route to the individual prompts in `prompts/individual-homepage-*-prompt.md`, `prompts/conversion-page-*-prompt.md`, `prompts/seo-aeo-service-page-*-prompt.md`, `prompts/local-seo-location-page-*-prompt.md`, or `prompts/aeo-faq-hub-prompt.md` per `docs/prompt-router-and-ai-depth-standard.md`. Even when a batch prompt is approved for a high-value page, the pass/fail gate from `docs/pass-fail-page-quality-gates.md` still runs.
 
 ## Cross-references
 
@@ -139,6 +170,10 @@ Speed comes from skipping unnecessary planning ceremony, not from skipping safet
 - `docs/service-card-image-placeholder-standard.md` — universal service-card image-placeholder standard for service-based business builds; applies inside Fast Build Batch and Multi-Gate
 - `docs/client-repo-prompt-system-standard.md` — universal client-side prompt and documentation system standard; required at every client repo from startup so build, content, SEO/AEO, gap-fix, update, and QA workflows operate without master-repo dependence
 - `prompts/client-repo-prompt-system-setup-prompt.md` — copy-paste-ready Claude Code prompt that installs the client-side system per the standard above
+- `docs/prompt-router-and-ai-depth-standard.md` — universal page-type routing and AI depth selection; required before any page work, including under Fast Build Batch
+- `docs/keyword-research-and-aeo-depth-standard.md` — keyword type and AEO question research required before high-value page writing
+- `docs/high-value-page-enforcement-standard.md` — pre-build deliverables and post-build proof for high-value pages
+- `docs/pass-fail-page-quality-gates.md` — universal pass/fail gate for high-value page builds
 - `docs/new-client-startup-workflow.md` — first-time onboarding; initial client builds use Multi-Gate because pattern, data, and stack decisions are all new
 - `docs/continue-existing-client-workflow.md` — resume workflow; the routing rules above determine Fast Build Batch vs. Multi-Gate per session
 - `checklists/deploy-workflow-checklist.md` — required when a deploy is approved separately

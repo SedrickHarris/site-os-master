@@ -2,6 +2,18 @@
 
 Use this template for service pages designed to rank, answer search intent, support AI and LLM visibility, build trust, and convert visitors into leads.
 
+## Routing and Enforcement
+
+- **Page type:** Individual Service Page
+- **Page value:** High
+- **AI depth:** Level 3 Core SEO/AEO (or Level 5 for core revenue services)
+- **Prompt:** Service Page Research + Implementation (`prompts/seo-aeo-service-page-research-prompt.md` + `prompts/seo-aeo-service-page-implementation-prompt.md`)
+- **Required research:** service keyword research, long-tail terms, pain points, FAQ research per `docs/keyword-research-and-aeo-depth-standard.md`
+- **Pass/fail gate:** `docs/pass-fail-page-quality-gates.md`
+- **Customer-facing copy rules:** no em dashes, no double hyphens, no fake claims per `docs/no-fake-data-policy.md`
+
+Do not use a generic batch prompt for core service pages without explicit owner approval per `docs/prompt-router-and-ai-depth-standard.md`.
+
 ## Page Strategy
 
 Business Name:

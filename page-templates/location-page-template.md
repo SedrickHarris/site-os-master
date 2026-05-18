@@ -2,6 +2,18 @@
 
 Use this template for location pages designed to build local relevance, GEO visibility, local SERP performance, AI search clarity, and lead generation.
 
+## Routing and Enforcement
+
+- **Page type:** Individual Location Page
+- **Page value:** High
+- **AI depth:** Level 3 Core SEO/AEO
+- **Prompt:** Location Page Research + Implementation (`prompts/local-seo-location-page-research-prompt.md` + `prompts/local-seo-location-page-implementation-prompt.md`)
+- **Required research:** local modifiers, city + service intent, anti-doorway checks, location FAQs per `docs/keyword-research-and-aeo-depth-standard.md`
+- **Pass/fail gate:** `docs/pass-fail-page-quality-gates.md` (with anti-doorway check)
+- **Customer-facing copy rules:** no em dashes, no double hyphens, no fake location/address claims per `docs/no-fake-data-policy.md` §2
+
+Do not use a generic batch prompt for core location pages without explicit owner approval per `docs/prompt-router-and-ai-depth-standard.md`. Service-area-only positioning required: `LocalBusiness` schema must omit `streetAddress`.
+
 ## Page Strategy
 
 Business Name:

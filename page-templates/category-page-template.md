@@ -2,6 +2,18 @@
 
 Use this template for category pages that organize related services, topics, locations, or content clusters.
 
+## Routing and Enforcement
+
+- **Page type:** Category / Hub Page
+- **Page value:** Medium (Standard) or High (when used as a services hub, locations hub, or pillar hub)
+- **AI depth:** Level 3 Core SEO/AEO (or Level 5 when used as a revenue-critical hub)
+- **Prompt:** Services Hub or Locations Hub variants of the individual SEO/AEO prompts (`prompts/seo-aeo-service-page-research-prompt.md` / `prompts/local-seo-location-page-research-prompt.md` adapted for hub use), or Prompt 06 with explicit hub instructions
+- **Required research:** taxonomy mapping, keyword clusters, internal-link plan, AEO FAQ map per `docs/keyword-research-and-aeo-depth-standard.md`
+- **Pass/fail gate:** `docs/pass-fail-page-quality-gates.md`
+- **Customer-facing copy rules:** no em dashes, no double hyphens, no fake claims per `docs/no-fake-data-policy.md`
+
+When a category page acts as a high-value hub (services hub, locations hub), do not use a generic batch prompt without explicit owner approval per `docs/prompt-router-and-ai-depth-standard.md`.
+
 ## Page Strategy
 
 Category Name:

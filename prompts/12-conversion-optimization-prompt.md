@@ -103,6 +103,19 @@ The absence of analytics does not stop conversion optimization when enough core 
 
 ---
 
+## Routing and AI Depth Requirements
+
+Per `docs/prompt-router-and-ai-depth-standard.md`:
+
+- Conversion pages (free quote, contact, booking, offer, landing) require **AI depth Level 4 or higher**.
+- A keyword map is required per `docs/keyword-research-and-aeo-depth-standard.md` (conversion keywords, quote-process question keywords, form-status keywords, objection-handling phrases).
+- An AEO FAQ map is required (minimum 7–10 FAQs for conversion pages, covering quote intent, form behavior, pricing transparency, service area, call alternative, process expectations, service-uncertainty handling).
+- A content gap fix is required when an existing conversion page is being optimized — name the gaps before patching them.
+- A CTA visibility proof is required: grep the built HTML for every expected CTA label and confirm count ≥ 1.
+- A pass/fail gate per `docs/pass-fail-page-quality-gates.md` is required at the end of every conversion optimization that touches a high-value page.
+
+For pages routed to Level 5 (homepage, revenue-critical landing pages) this prompt is not the primary entry point. Use the dedicated Level 5 prompts (`prompts/individual-homepage-research-prompt.md` / `prompts/individual-homepage-implementation-prompt.md`) instead.
+
 ## Execution Depth Setting
 
 Before beginning, identify the requested execution depth.

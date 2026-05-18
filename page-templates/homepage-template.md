@@ -2,6 +2,18 @@
 
 Use this template for homepages that need to explain the brand, build trust, guide users, support SEO/AEO/LLM visibility, and convert visitors.
 
+## Routing and Enforcement
+
+- **Page type:** Homepage
+- **Page value:** High
+- **AI depth:** Level 5 Beyond-Elite
+- **Prompt:** Individual Homepage Beyond-Elite (`prompts/individual-homepage-research-prompt.md` + `prompts/individual-homepage-implementation-prompt.md`)
+- **Required research:** comprehensive keyword type research per `docs/keyword-research-and-aeo-depth-standard.md`, AEO FAQ research, content gap identification
+- **Pass/fail gate:** `docs/pass-fail-page-quality-gates.md`
+- **Customer-facing copy rules:** no em dashes, no double hyphens, no fake claims per `docs/no-fake-data-policy.md`
+
+Do not use a generic batch prompt for the homepage without explicit owner approval per `docs/prompt-router-and-ai-depth-standard.md`.
+
 ## Page Strategy
 
 Business Name:

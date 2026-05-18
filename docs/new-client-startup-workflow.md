@@ -154,6 +154,22 @@ The full standard, including which prompts are verbatim vs client-adapted, lives
 
 Step 12a is a hard requirement for service-based business builds and a strong recommendation for other project types. If skipped, the client engagement will rely on session memory and operator access to Site OS Master — both fragile single-points-of-failure that this standard exists to remove.
 
+## Prompt Routing and AI Depth Setup
+
+Every client repo must receive the prompt-router and AI-depth standard at startup. Per `docs/prompt-router-and-ai-depth-standard.md`:
+
+- High-value pages (homepage, free quote, contact, services hub, locations hub, about, FAQ hub, core service / location / service+location pages, revenue-critical landing pages) require **individual page prompts** with the correct AI depth level.
+- Batch prompts are appropriate only for: project setup, shared components, legal / utility pages, low-risk scaffolding, commit / QA workflows. Per `docs/fast-build-batch-workflow.md` and `docs/high-value-page-enforcement-standard.md`.
+- Page work must select **prompt type** and **AI depth level** before any drafting begins. The routing output block in `docs/prompt-router-and-ai-depth-standard.md` is mandatory for high-value pages.
+
+At onboarding, ensure the new client repo carries:
+
+- `docs/site-os/prompts/build/` populated per `docs/client-repo-prompt-system-standard.md`
+- Awareness of the individual high-value page prompts in Site OS Master at `prompts/individual-homepage-*-prompt.md`, `prompts/conversion-page-*-prompt.md`, `prompts/seo-aeo-service-page-*-prompt.md`, `prompts/local-seo-location-page-*-prompt.md`, `prompts/aeo-faq-hub-prompt.md`, and `prompts/high-value-page-qa-prompt.md`
+- The pass/fail gate from `docs/pass-fail-page-quality-gates.md` referenced in the client's `pre-commit-qa-prompt.md`
+
+If a high-value page is approached with a generic batch prompt, the operator must either: (a) request and receive explicit approval from the project owner, or (b) re-route to the correct individual prompt. Otherwise the routing standard rejects the build.
+
 ## Phase C — Policy Invocation
 
 ### 13. Invoke the session-scoped standing approval rule
@@ -345,6 +361,16 @@ The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-
 - `docs/service-card-image-placeholder-standard.md` — universal service-card layout standard invoked in Phase C step 15b for service-based business builds; consumed by every page-build that renders a service card on a homepage, services hub, service page (related services), location page, service + city matrix page, landing page, or reusable `ServiceCard` component
 - `docs/client-repo-prompt-system-standard.md` — universal client-side Site OS prompt and documentation system standard invoked in Phase B step 12a; defines the required folder structure, prompt files, reference docs, checklists, and decision docs every client repo must carry so it can continue build, content, SEO/AEO, gap-fix, update, and QA workflows without depending on Claude Project memory or master-repo access
 - `prompts/client-repo-prompt-system-setup-prompt.md` — copy-paste-ready Claude Code prompt that sets up the full client-side prompt and doc system inside a client repo per the standard above
+- `docs/prompt-router-and-ai-depth-standard.md` — page-type routing and AI depth levels; selects which prompt and depth apply to each page
+- `docs/keyword-research-and-aeo-depth-standard.md` — keyword type research and AEO question research required before high-value page writing
+- `docs/high-value-page-enforcement-standard.md` — pre-build deliverables and post-build proof required for high-value pages
+- `docs/pass-fail-page-quality-gates.md` — pass/fail checklist invoked at the end of every high-value page build
+- `prompts/individual-homepage-research-prompt.md`, `prompts/individual-homepage-implementation-prompt.md` — Level 5 Beyond-Elite two-step homepage workflow
+- `prompts/conversion-page-research-prompt.md`, `prompts/conversion-page-implementation-prompt.md` — Level 4 Conversion two-step workflow for /free-quote, /contact, booking, landing
+- `prompts/seo-aeo-service-page-research-prompt.md`, `prompts/seo-aeo-service-page-implementation-prompt.md` — individual service page workflow
+- `prompts/local-seo-location-page-research-prompt.md`, `prompts/local-seo-location-page-implementation-prompt.md` — individual location page workflow
+- `prompts/aeo-faq-hub-prompt.md` — Level 5 FAQ hub single-step prompt with 30+ FAQ minimum and 9-category structure
+- `prompts/high-value-page-qa-prompt.md` — read-only pass/fail QA against the high-value page gate
 - `checklists/deploy-workflow-checklist.md` — safe-deploy procedure followed in Phase E step 21
 - `checklists/post-deploy-production-verification-checklist.md` — production verification followed in Phase E step 22
 

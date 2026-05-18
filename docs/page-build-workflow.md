@@ -2,6 +2,24 @@
 
 Use this workflow for every important website page.
 
+## Page-Type Routing Before Build
+
+Before any page brief, every page build must select:
+
+- **Page type** (homepage, service, location, service + location, hub, conversion, FAQ, legal, utility)
+- **Prompt type** per `docs/prompt-router-and-ai-depth-standard.md`
+- **AI depth** (Level 1 Utility through Level 6 Competitive Research)
+- **Research depth** per `docs/keyword-research-and-aeo-depth-standard.md`
+- **QA gate** per `docs/pass-fail-page-quality-gates.md`
+
+High-value pages (homepage, free quote, contact, services hub, locations hub, about, FAQ hub, core service / location / service+location / landing pages) require individual prompts and the high-value page enforcement standard in `docs/high-value-page-enforcement-standard.md`. They do not run under generic batch prompts without explicit approval.
+
+If routing fails (wrong prompt or wrong depth), stop and return:
+
+```
+ROUTING FAIL: Incorrect prompt or AI depth selected.
+```
+
 ## Step 1: Page Brief
 
 Create a page brief that includes:

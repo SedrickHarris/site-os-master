@@ -765,10 +765,24 @@ Before any inspection, Prompt 06 must confirm the Efficiency Governor inputs by 
 9. Validation commands — exact commands and order
 10. Commit/push allowance — allowed / not allowed in this Prompt 06 invocation
 11. Client-side prompt/doc system status — present and complete / partial / missing — per `docs/client-repo-prompt-system-standard.md`. Confirm by listing whether `docs/site-os/prompts/{build,content,seo-aeo,qa,updates}/`, `docs/site-os/reference/`, `docs/site-os/checklists/`, and `docs/site-os/decisions/client-repo-prompt-standard.md` exist in the client repo.
+12. Page-type routing — per `docs/prompt-router-and-ai-depth-standard.md`. Before creating or editing pages, Claude Code must:
+    a. Classify the page type (homepage, service, location, service + location, hub, conversion, FAQ, legal, utility)
+    b. Select the correct prompt from the router (individual high-value prompts for high-value pages; batch prompt only for setup / scaffolding / legal / utility / low-risk pages)
+    c. Select the correct AI depth level (Level 1 Utility through Level 6 Competitive Research)
+    d. Determine whether a batch prompt is allowed for this page or whether an individual prompt must be used
+    e. Stop if a high-value page is being handled by a generic batch prompt without explicit approval recorded in the implementation log
 
-If any of items 1–11 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
+If any of items 1–12 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
 
 If item 11 is **missing** or **partial** and the project is a service-based business build, Prompt 06 must stop and recommend running `prompts/client-repo-prompt-system-setup-prompt.md` first to install the client-side system. Implementation should not begin on top of an incomplete client-side foundation — the missing prompts and checklists are what guide the build and QA loops.
+
+If item 12 routes to a high-value page and a generic batch prompt is selected without explicit approval, Prompt 06 must stop and return:
+
+```
+ROUTING FAIL: high-value page requires individual prompt per docs/prompt-router-and-ai-depth-standard.md
+```
+
+Recommend the correct individual prompt (e.g., `prompts/individual-homepage-research-prompt.md` + `prompts/individual-homepage-implementation-prompt.md` for the homepage, `prompts/conversion-page-*-prompt.md` for /free-quote or /contact, `prompts/aeo-faq-hub-prompt.md` for the FAQ hub, etc.) before any file changes.
 
 This preflight runs BEFORE the framework/routing inspection in the existing Gate 1 Hard Stop Requirement below.
 

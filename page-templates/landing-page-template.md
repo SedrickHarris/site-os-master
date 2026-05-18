@@ -2,6 +2,18 @@
 
 Use this template for landing pages designed to convert traffic from ads, email, social, local campaigns, or targeted offers.
 
+## Routing and Enforcement
+
+- **Page type:** Landing Page (conversion)
+- **Page value:** High (for revenue-critical landing pages)
+- **AI depth:** Level 4 Conversion (or Level 5 for revenue-critical pillar landing pages)
+- **Prompt:** Conversion Page Research + Implementation (`prompts/conversion-page-research-prompt.md` + `prompts/conversion-page-implementation-prompt.md`)
+- **Required research:** conversion keywords, objection-handling phrases, form-flow plan, AEO FAQ map per `docs/keyword-research-and-aeo-depth-standard.md`
+- **Pass/fail gate:** `docs/pass-fail-page-quality-gates.md`
+- **Customer-facing copy rules:** no em dashes, no double hyphens, no fake claims, no invented pricing per `docs/no-fake-data-policy.md`
+
+Do not use a generic batch prompt for revenue-critical landing pages without explicit owner approval per `docs/prompt-router-and-ai-depth-standard.md`.
+
 ## Page Strategy
 
 Landing Page Name:
