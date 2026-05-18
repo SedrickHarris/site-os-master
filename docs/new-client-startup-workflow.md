@@ -115,6 +115,45 @@ Create the canonical page-list inventory. A page-list captures: route inventory,
 
 **Working Example Callout.** The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-site` is the reference implementation of Phase B steps 8–12. See `docs/site-os/README.md` and `docs/site-os/inputs/page-list.md` in that repo for a fully populated example. 702Xchange-specific decisions (8-category MVP launch set, ≥5/≥8 listing thresholds, 7 primary location pages, GoHighLevel form vendor, directory project type) are illustrative only — other clients will have different page lists, thresholds, and integrations.
 
+### 12a. Create the client-side Site OS prompt and documentation system
+
+After the inputs/outputs/qa/changelog scaffold lands and the page-list inventory is captured, install the full client-side prompt and documentation system per `docs/client-repo-prompt-system-standard.md`. This system makes the client repo self-sufficient for ongoing build, content, SEO/AEO, gap-fix, update, and QA workflows without depending on Claude Project memory or Site OS Master being open in another window.
+
+Required folders to create (under `docs/site-os/`):
+
+- `prompts/build/`
+- `prompts/content/`
+- `prompts/seo-aeo/`
+- `prompts/qa/`
+- `prompts/updates/`
+- `reference/`
+- `checklists/`
+- `outputs/` (with `outputs/batch-2/.gitkeep` from day one)
+- `qa/` (with `qa/.gitkeep`)
+- `decisions/`
+
+Required client-side files (14 prompts + 3 reference docs + 3 checklists + 1 decision doc):
+
+- 5 batch build prompts (`batch-2-core-brand-pages-prompt.md` through `batch-6-service-city-matrix-prompt.md`) — adapt the page lists, slugs, services, and locations to this specific client.
+- 2 content prompts (`seo-aeo-content-generation-prompt.md`, `content-strengthening-prompt.md`) — project-agnostic, copy verbatim.
+- 2 SEO/AEO prompts (`serp-analysis-prompt.md`, `aeo-gap-analysis-prompt.md`) — project-agnostic.
+- 3 QA prompts (`page-qa-prompt.md`, `seo-aeo-qa-prompt.md`, `pre-commit-qa-prompt.md`) — project-agnostic with client-specific phone / brand substitutions.
+- 2 update prompts (`content-gap-fix-prompt.md`, `content-update-prompt.md`) — project-agnostic.
+- 3 reference docs (`client-build-prompt-index.md`, `seo-aeo-content-standards.md`, `service-business-design-standards.md`).
+- 3 checklists (`page-before-build-checklist.md`, `page-after-build-checklist.md`, `content-quality-checklist.md`).
+- 1 decision doc (`decisions/client-repo-prompt-standard.md`) — adoption record inside the client repo.
+
+Setup procedure:
+
+1. Use the copy-paste-ready setup prompt at `prompts/client-repo-prompt-system-setup-prompt.md` (Site OS Master).
+2. Fill in the placeholder values for the new client: `{{CLIENT_NAME}}`, `{{CLIENT_REPO_PATH}}`, `{{GITHUB_REPO}}`, `{{SITE_OS_MASTER_PATH}}`, `{{PRIMARY_SERVICES}}`, `{{PRIMARY_LOCATIONS}}`, `{{BRAND_MESSAGE}}`, `{{PHONE}}`, `{{EMAIL}}`.
+3. Paste into a Claude Code session opened in the client repo.
+4. Review the final report and commit with `docs(site-os): adopt client-side prompt and documentation system`.
+
+The full standard, including which prompts are verbatim vs client-adapted, lives at `docs/client-repo-prompt-system-standard.md`. The Final Touch Cleaning Company client repo is the reference implementation as of 2026-05-17.
+
+Step 12a is a hard requirement for service-based business builds and a strong recommendation for other project types. If skipped, the client engagement will rely on session memory and operator access to Site OS Master — both fragile single-points-of-failure that this standard exists to remove.
+
 ## Phase C — Policy Invocation
 
 ### 13. Invoke the session-scoped standing approval rule
@@ -304,6 +343,8 @@ The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-
 - `docs/no-fake-data-policy.md` — universal no-fake-data discipline invoked in Phase C step 15 and applied throughout
 - `docs/service-business-conversion-layout.md` — universal hero/CTA layout standard invoked in Phase C step 15a for service-based business builds; consumed by every page-build that creates a hero or primary CTA on a homepage, service page, location page, service + location page, or landing page
 - `docs/service-card-image-placeholder-standard.md` — universal service-card layout standard invoked in Phase C step 15b for service-based business builds; consumed by every page-build that renders a service card on a homepage, services hub, service page (related services), location page, service + city matrix page, landing page, or reusable `ServiceCard` component
+- `docs/client-repo-prompt-system-standard.md` — universal client-side Site OS prompt and documentation system standard invoked in Phase B step 12a; defines the required folder structure, prompt files, reference docs, checklists, and decision docs every client repo must carry so it can continue build, content, SEO/AEO, gap-fix, update, and QA workflows without depending on Claude Project memory or master-repo access
+- `prompts/client-repo-prompt-system-setup-prompt.md` — copy-paste-ready Claude Code prompt that sets up the full client-side prompt and doc system inside a client repo per the standard above
 - `checklists/deploy-workflow-checklist.md` — safe-deploy procedure followed in Phase E step 21
 - `checklists/post-deploy-production-verification-checklist.md` — production verification followed in Phase E step 22
 

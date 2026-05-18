@@ -764,8 +764,11 @@ Before any inspection, Prompt 06 must confirm the Efficiency Governor inputs by 
 8. Files forbidden for implementation — exact list from the build brief or summary
 9. Validation commands — exact commands and order
 10. Commit/push allowance — allowed / not allowed in this Prompt 06 invocation
+11. Client-side prompt/doc system status — present and complete / partial / missing — per `docs/client-repo-prompt-system-standard.md`. Confirm by listing whether `docs/site-os/prompts/{build,content,seo-aeo,qa,updates}/`, `docs/site-os/reference/`, `docs/site-os/checklists/`, and `docs/site-os/decisions/client-repo-prompt-standard.md` exist in the client repo.
 
-If any of items 1–10 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
+If any of items 1–11 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
+
+If item 11 is **missing** or **partial** and the project is a service-based business build, Prompt 06 must stop and recommend running `prompts/client-repo-prompt-system-setup-prompt.md` first to install the client-side system. Implementation should not begin on top of an incomplete client-side foundation — the missing prompts and checklists are what guide the build and QA loops.
 
 This preflight runs BEFORE the framework/routing inspection in the existing Gate 1 Hard Stop Requirement below.
 
