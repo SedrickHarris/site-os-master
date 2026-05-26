@@ -133,6 +133,7 @@ Yes — store these client-specific artifacts:
 - Deploy logs and Worker Version ID records
 - Changelog entries per tier or per launch
 - Standing approval invocations used in this build (for audit trail)
+- Third-party embed specs (`docs/site-os/inputs/embed-specs.md`) when the site renders GHL widgets, booking iframes, or other third-party embeds — see `docs/third-party-embed-specs-standard.md`. Sirius Systems is the working example.
 
 ## What Should NOT Be Stored in docs/site-os/
 
@@ -149,6 +150,7 @@ No — do not store these (they belong in Site OS Master, not the client repo):
 ## Cross-References
 
 - `docs/standing-approval-rule-template.md` — the standing approval rule applies inside the client repo workflow, not Site OS Master itself
+- `docs/third-party-embed-specs-standard.md` — convention for documenting third-party iframe and widget embeds inside a client repo's `docs/site-os/inputs/embed-specs.md`
 - `checklists/deploy-workflow-checklist.md` — deploys run from the client repo, never from Site OS Master
 - `checklists/post-deploy-production-verification-checklist.md` — production verification handoff records may live in `docs/site-os/qa/` or `docs/site-os/changelog/` within the client repo
 - `efficiency-governor/client-intake-gate.md` — intake gate that must clear before scaffolding a new client repo to use this structure
