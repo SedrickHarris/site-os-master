@@ -33,6 +33,21 @@ The page should not launch if any of these are unresolved:
 - [ ] Mobile layout is broken
 - [ ] Contact or lead path is broken
 
+## 2a. Cloudflare Pages Static Export Launch Blockers
+
+Applies to every standard Next.js website build intended for Cloudflare Pages static hosting. Canonical doc: `docs/deployment/cloudflare-pages-nextjs-static-export.md`. Cloudflare Pages deployment cannot be marked ready until:
+
+- [ ] `next.config.mjs` includes `output: "export"`
+- [ ] `next.config.mjs` includes `images: { unoptimized: true }`
+- [ ] `next.config.mjs` includes `reactStrictMode: true` and `poweredByHeader: false`
+- [ ] Build generates `out/` at the repo root
+- [ ] `out/index.html` exists after build
+- [ ] `out/404.html` exists when a 404 route is defined
+- [ ] Cloudflare Pages project output directory is set to `out`
+- [ ] Cloudflare Pages project build command matches the repo package manager (`npm run build` or `pnpm build`)
+
+If the project intentionally uses Cloudflare Workers, server functions, image optimization, or another runtime deployment mode, this section does not apply — the exception must be documented per the Exception Rule in `docs/deployment/cloudflare-pages-nextjs-static-export.md`.
+
 ## 3. SEO Launch Readiness
 
 - [ ] Meta title is unique

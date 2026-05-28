@@ -81,6 +81,56 @@ cd "<client repo>"; npm run cf:deploy
 - [ ] Confirm `cf:deploy` reports the new Worker Version ID
 - [ ] Record the new Worker Version ID for the production verification handoff
 
+## 5b. Next.js + Cloudflare Pages Static Export Procedure
+
+For projects targeting Cloudflare Pages as a static export (the standard static deployment mode). Canonical doc: `docs/deployment/cloudflare-pages-nextjs-static-export.md`. This procedure is separate from §5 (Workers + OpenNext) and the two should not be mixed inside the same client repo without an explicit decision record.
+
+### Required next.config.mjs
+
+`next.config.mjs` must include:
+
+- `output: "export"`
+- `images: { unoptimized: true }`
+- `reactStrictMode: true`
+- `poweredByHeader: false`
+
+If any of these is missing, do not deploy — Cloudflare Pages will fail with `Output directory "out" not found` or the build will not produce a usable static directory.
+
+### Required Cloudflare Pages project settings
+
+- Build command: `npm run build` or `pnpm build`, depending on the repo package manager
+- Output directory: `out`
+
+### Required build sequence
+
+```
+cd "<client repo>"; npm run build
+```
+
+After the build:
+
+- [ ] `next.config.mjs` was confirmed to include `output: "export"` and `images: { unoptimized: true }` before the build
+- [ ] `npm run build` (or `pnpm build`) exited with success
+- [ ] `out/` exists at the repo root
+- [ ] `out/index.html` exists
+- [ ] `out/404.html` exists when a 404 route is defined
+- [ ] Cloudflare Pages project output directory is set to `out`
+- [ ] Cloudflare Pages project build command matches the package manager actually run
+
+If `out/` is missing after a successful build, stop and inspect `next.config.mjs` before touching the Cloudflare Pages project settings — the root cause is almost always a missing `output: "export"`.
+
+### Common failure message
+
+```
+Output directory "out" not found
+```
+
+Resolution checklist lives in `docs/deployment/cloudflare-pages-nextjs-static-export.md` § Fix Checklist.
+
+### When this subsection does not apply
+
+If the project intentionally uses Cloudflare Workers (e.g. the 702Xchange reference stack in §5), server functions, image optimization, or another runtime deployment mode, follow the matching stack subsection instead and document the exception per `docs/deployment/cloudflare-pages-nextjs-static-export.md` § When This Standard Does Not Apply.
+
 ## 6. cf:deploy Alone Is Unsafe
 
 Do not run `npm run cf:deploy` alone for production releases:
@@ -193,6 +243,7 @@ Choose one:
 - `checklists/launch-readiness-checklist.md` — pre-launch readiness (page-level)
 - `checklists/seo-indexing-checklist.md` — after publish, before/after indexing
 - `efficiency-governor/client-intake-gate.md` — intake gate that must clear before build or deploy
+- `docs/deployment/cloudflare-pages-nextjs-static-export.md` — canonical Phase 0 standard for Cloudflare Pages static export builds (consumed by §5b above)
 
 ---
 

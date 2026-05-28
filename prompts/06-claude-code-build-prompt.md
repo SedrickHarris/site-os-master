@@ -809,6 +809,7 @@ Claude Code must inspect:
 - existing robots.txt file or robots configuration
 - existing styling system
 - existing image folder conventions
+- `next.config.mjs` (or `next.config.js`) for projects targeting Cloudflare Pages static hosting — confirm it includes `output: "export"` and `images: { unoptimized: true }` per `docs/deployment/cloudflare-pages-nextjs-static-export.md`. If the project targets Cloudflare Pages static export and these fields are missing, surface the gap in the Gate 1 report and treat it as a Phase 0 launch blocker before the first deployment. If the project intentionally uses Cloudflare Workers, server functions, image optimization, or another runtime mode, confirm the exception is documented per `docs/deployment/cloudflare-pages-nextjs-static-export.md` § When This Standard Does Not Apply.
 
 Claude Code must identify the framework and routing pattern before creating files.
 

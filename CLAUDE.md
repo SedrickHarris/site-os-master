@@ -421,6 +421,56 @@ Do not create content only for one platform.
 
 Create content that is structured for search engines, local platforms, answer engines, AI assistants, and real customers.
 
+## Cloudflare Pages Static Export Rule
+
+This is a **Phase 0 foundation rule** for every standard Next.js website build intended for Cloudflare Pages static hosting. The canonical doc is `docs/deployment/cloudflare-pages-nextjs-static-export.md`.
+
+### Required next.config.mjs
+
+For every standard Next.js website build intended for Cloudflare Pages static hosting, `next.config.mjs` must include:
+
+- `output: "export"`
+- `images: { unoptimized: true }`
+- `reactStrictMode: true`
+- `poweredByHeader: false`
+
+Canonical template:
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: "export",
+  reactStrictMode: true,
+  poweredByHeader: false,
+  images: {
+    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
+  },
+};
+
+export default nextConfig;
+```
+
+### Required Cloudflare Pages settings
+
+- Build command: `npm run build` or `pnpm build`, depending on the repo package manager
+- Output directory: `out`
+
+### Phase 0 verification
+
+After running the production build, verify:
+
+- `out/` exists
+- `out/index.html` exists
+- `out/404.html` exists when generated
+- Cloudflare Pages output directory is set to `out`
+
+### Exception rule
+
+This rule applies to standard static Cloudflare Pages builds. If a future project intentionally uses Cloudflare Workers, server functions, image optimization, or another runtime deployment mode, the project must document that exception (in `docs/site-os/decisions/` inside the client repo, or in a repo-level decision doc) before changing this rule.
+
+The 702Xchange reference stack (Next.js 14 + `@opennextjs/cloudflare` + Cloudflare Workers) is an example of a documented exception — its deploy procedure lives in `checklists/deploy-workflow-checklist.md` §5 and does not produce `out/`.
+
 # Site OS Master Claude Code Rules
 
 ## Primary Operating Principle

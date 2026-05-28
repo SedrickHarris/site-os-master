@@ -80,6 +80,8 @@ Decide which pages will ship in the Phase 1 launch. The list becomes the page-li
 
 The default reference stack is Next.js 14 + `@opennextjs/cloudflare` + Cloudflare Workers, as proven on the 702Xchange client repo (see Working Example below). Other stacks are supported. Per `checklists/deploy-workflow-checklist.md` §5, other stacks add their own deploy subsection as they are first used; the rest of this workflow is stack-agnostic.
 
+If the chosen stack is **Next.js + Cloudflare Pages static export** (the standard static deployment path), the build must adopt the Cloudflare Pages Static Export Rule from day one per `docs/deployment/cloudflare-pages-nextjs-static-export.md` and `CLAUDE.md` § Cloudflare Pages Static Export Rule. The deploy subsection is `checklists/deploy-workflow-checklist.md` §5b. Confirm during scaffolding that `next.config.mjs` includes `output: "export"`, `images: { unoptimized: true }`, `reactStrictMode: true`, and `poweredByHeader: false`, and that the Cloudflare Pages project output directory is set to `out`. If the project intentionally uses Cloudflare Workers, server functions, image optimization, or another runtime mode, document the exception per the Exception Rule in the canonical doc before scaffolding the client repo.
+
 ### 8. Create the client repo at the conventional path
 
 Create the client repo at `C:\Users\Welcome\Desktop\client-sites\<client>\` (or platform equivalent). The path convention enables consistent chained-`cd` commands and prevents cross-repo confusion. Per `docs/file-scope-and-git-safety-policy.md` §2 Correct Repo Discipline, never deploy from Site OS Master and never modify a different client repo from inside the current client-build session.
@@ -373,6 +375,7 @@ The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-
 - `prompts/high-value-page-qa-prompt.md` — read-only pass/fail QA against the high-value page gate
 - `checklists/deploy-workflow-checklist.md` — safe-deploy procedure followed in Phase E step 21
 - `checklists/post-deploy-production-verification-checklist.md` — production verification followed in Phase E step 22
+- `docs/deployment/cloudflare-pages-nextjs-static-export.md` — Phase 0 foundation standard invoked in Phase B step 7 for Next.js + Cloudflare Pages static export builds
 
 ---
 
