@@ -156,6 +156,42 @@ The full standard, including which prompts are verbatim vs client-adapted, lives
 
 Step 12a is a hard requirement for service-based business builds and a strong recommendation for other project types. If skipped, the client engagement will rely on session memory and operator access to Site OS Master — both fragile single-points-of-failure that this standard exists to remove.
 
+### 12b. Scaffold the five required design skill files
+
+After the client-side prompt and documentation system is installed, copy the five required design skill files from Site OS Master into the new client repo per `docs/design/required-website-design-skills.md` § Client Repo Scaffold Requirements. The canonical copies live at:
+
+- `.claude/skills/frontend-design-engineer/SKILL.md`
+- `.claude/skills/emil-kowalski-motion-design/SKILL.md`
+- `.claude/skills/impeccable-ui-polish/SKILL.md`
+- `.claude/skills/ux-ui-conversion-design/SKILL.md`
+- `.claude/skills/seo-aeo-llm-page-architecture/SKILL.md`
+
+PowerShell (Windows):
+
+```powershell
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; New-Item -ItemType Directory -Force .claude/skills/frontend-design-engineer, .claude/skills/emil-kowalski-motion-design, .claude/skills/impeccable-ui-polish, .claude/skills/ux-ui-conversion-design, .claude/skills/seo-aeo-llm-page-architecture
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; Copy-Item "C:\Users\Welcome\Desktop\site-os-master\.claude\skills\frontend-design-engineer\SKILL.md" .claude/skills/frontend-design-engineer/SKILL.md
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; Copy-Item "C:\Users\Welcome\Desktop\site-os-master\.claude\skills\emil-kowalski-motion-design\SKILL.md" .claude/skills/emil-kowalski-motion-design/SKILL.md
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; Copy-Item "C:\Users\Welcome\Desktop\site-os-master\.claude\skills\impeccable-ui-polish\SKILL.md" .claude/skills/impeccable-ui-polish/SKILL.md
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; Copy-Item "C:\Users\Welcome\Desktop\site-os-master\.claude\skills\ux-ui-conversion-design\SKILL.md" .claude/skills/ux-ui-conversion-design/SKILL.md
+cd "C:\Users\Welcome\Desktop\client-sites\<client>"; Copy-Item "C:\Users\Welcome\Desktop\site-os-master\.claude\skills\seo-aeo-llm-page-architecture\SKILL.md" .claude/skills/seo-aeo-llm-page-architecture/SKILL.md
+```
+
+Bash:
+
+```bash
+cd "<client repo>" && mkdir -p .claude/skills/frontend-design-engineer .claude/skills/emil-kowalski-motion-design .claude/skills/impeccable-ui-polish .claude/skills/ux-ui-conversion-design .claude/skills/seo-aeo-llm-page-architecture
+cd "<client repo>" && cp "<site-os-master>/.claude/skills/frontend-design-engineer/SKILL.md" .claude/skills/frontend-design-engineer/SKILL.md
+cd "<client repo>" && cp "<site-os-master>/.claude/skills/emil-kowalski-motion-design/SKILL.md" .claude/skills/emil-kowalski-motion-design/SKILL.md
+cd "<client repo>" && cp "<site-os-master>/.claude/skills/impeccable-ui-polish/SKILL.md" .claude/skills/impeccable-ui-polish/SKILL.md
+cd "<client repo>" && cp "<site-os-master>/.claude/skills/ux-ui-conversion-design/SKILL.md" .claude/skills/ux-ui-conversion-design/SKILL.md
+cd "<client repo>" && cp "<site-os-master>/.claude/skills/seo-aeo-llm-page-architecture/SKILL.md" .claude/skills/seo-aeo-llm-page-architecture/SKILL.md
+```
+
+Stage explicitly per file (no `git add .`) per `docs/file-scope-and-git-safety-policy.md`. Commit with a message like `chore(skills): scaffold required design skills from Site OS Master`.
+
+Step 12b is a hard requirement for every client engagement, not just service-based business builds. The first Prompt 06 invocation must stop at Gate 1 if these files are missing (per `prompts/06-claude-code-build-prompt.md` Gate 1 Efficiency Governor Preflight item 11a). If a client engagement updates a skill, propagate the change back to Site OS Master so the master stays the source of truth.
+
 ## Prompt Routing and AI Depth Setup
 
 Every client repo must receive the prompt-router and AI-depth standard at startup. Per `docs/prompt-router-and-ai-depth-standard.md`:
@@ -197,6 +233,17 @@ This standard does not apply to non-conversion pages (blog, legal, about, 404, u
 If the project type is **local service business** or any other service-based vertical, `docs/service-card-image-placeholder-standard.md` is the universal service-card layout standard. Highlights to observe from day one: every service card must include a visual image placeholder area at the top (homepage service previews, services hub, related-service grids, location page service grids, service + city matrix cards, landing page service cards, reusable `ServiceCard` components). Use a consistent `aspect-[16/10]` (or `aspect-[4/3]`) placeholder with a brand-token background (soft-blue / light-gray / subtle gradient), `aria-hidden="true"` when decorative, no embedded text inside the image, and a TODO comment noting that an owner-supplied photo should replace the placeholder when available. No fake before/after, no fake team/customer/project photos, no Google Places / GBP / stock auto-pulls per `docs/no-fake-data-policy.md` §8–§9. Reusable components are typically a `ServiceCard` plus an optional `ServiceImagePlaceholder` for projects with many cards.
 
 This standard does not apply to non-card UI (text-only navigation lists, inline service mentions in body copy, table-style listings) and does not apply to non-service-business project types — those project types have their own card patterns.
+
+### 15c. Confirm the Required Website Design Skill Routing Rule
+
+The five required design skills (`frontend-design-engineer`, `emil-kowalski-motion-design`, `impeccable-ui-polish`, `ux-ui-conversion-design`, `seo-aeo-llm-page-architecture`) must be routed through every page build per `docs/design/required-website-design-skills.md` and `CLAUDE.md` § Required Website Design Skill Routing Rule. Highlights to observe from day one:
+
+- Every page build, regardless of mode, runs the Required Design Skill Pass (frontend-design-engineer, motion design, UI polish, conversion UX, SEO/AEO/LLM architecture)
+- Fast Mode uses the lightweight pass; Core Mode uses the full pass; Beyond-Elite adds extended polish and conversion review; Full Competitive Build adds competitive SERP, conversion, and UX differentiation review (per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode)
+- Claude Project declares the design skill pass in the developer build brief; Claude Code consumes the skill outputs in Prompt 06 Gate 2 and verifies them in Gate 4
+- A page cannot be marked complete until it passes the QA gates in `checklists/launch-readiness-checklist.md` § Required Design Skill Pass
+
+This rule applies to every project type. There are no exemptions; mode controls depth, not whether the pass runs.
 
 ## Phase D — Strategy and Build
 
@@ -376,6 +423,8 @@ The 702Xchange client repo at `C:\Users\Welcome\Desktop\client-sites\702xchange-
 - `checklists/deploy-workflow-checklist.md` — safe-deploy procedure followed in Phase E step 21
 - `checklists/post-deploy-production-verification-checklist.md` — production verification followed in Phase E step 22
 - `docs/deployment/cloudflare-pages-nextjs-static-export.md` — Phase 0 foundation standard invoked in Phase B step 7 for Next.js + Cloudflare Pages static export builds
+- `docs/design/required-website-design-skills.md` — canonical design skill routing standard invoked in Phase B step 12b (scaffold) and Phase C step 15c (rule confirmation); applies to every client engagement
+- `.claude/skills/frontend-design-engineer/SKILL.md`, `.claude/skills/emil-kowalski-motion-design/SKILL.md`, `.claude/skills/impeccable-ui-polish/SKILL.md`, `.claude/skills/ux-ui-conversion-design/SKILL.md`, `.claude/skills/seo-aeo-llm-page-architecture/SKILL.md` — canonical design skill files copied into every new client repo during Phase B step 12b
 
 ---
 

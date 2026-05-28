@@ -1,5 +1,7 @@
 # SEO/AEO Service Page Implementation Prompt
 
+> Design skill routing: every build through this prompt must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Service pages default to the Core Mode pass; core revenue services run Beyond-Elite per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Implementation half (Prompt B) for individual service pages.
 
 ## When to Use

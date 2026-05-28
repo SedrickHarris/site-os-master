@@ -1,5 +1,7 @@
 # Beyond Elite Category Page Template
 
+> Design skill routing: every build using this template must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Category pages default to Core Mode; revenue-critical hubs run Beyond-Elite per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Use this template for category pages that organize related services, topics, locations, or content clusters.
 
 ## Routing and Enforcement

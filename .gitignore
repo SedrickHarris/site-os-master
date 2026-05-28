@@ -1,2 +1,6 @@
 # Claude Code local settings (per-developer permission allowlist, not shared)
-.claude/
+# Private Claude settings stay ignored, but required Site OS Master skill files are tracked.
+.claude/*
+!.claude/skills/
+!.claude/skills/**/
+!.claude/skills/**/SKILL.md

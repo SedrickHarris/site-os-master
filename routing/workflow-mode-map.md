@@ -147,6 +147,41 @@ Do not escalate workflow mode without explicit owner approval.
 
 Once a mode is selected by Prompt 05, Prompts 06, 07, and 08 must preserve that mode. Any escalation must be recorded in writing in the Workflow Mode Gate Reason field or equivalent.
 
+## Required Design Skill Pass per Mode
+
+Every page build, regardless of mode, must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md`. Mode controls the depth of the pass, not whether it runs.
+
+### Fast Mode
+
+Lightweight design skill pass. All five skills (`frontend-design-engineer`, `emil-kowalski-motion-design`, `impeccable-ui-polish`, `ux-ui-conversion-design`, `seo-aeo-llm-page-architecture`) run with minimum required confirmations only:
+
+- Reuse existing components, motion patterns, polish tokens, conversion components, and SEO/AEO structure
+- No new component, motion, polish, conversion, or SEO/AEO patterns
+- Risk: lightweight pass may miss differentiation opportunities
+
+### Core Mode
+
+All required design skills run with standard depth. Each skill produces outputs for the build brief and is verified at Gate 4. Default for standard service pages, location pages, regular blog posts, and standard landing pages.
+
+### Beyond-Elite Mode
+
+All required design skills plus deeper polish and conversion review:
+
+- `impeccable-ui-polish` runs an extended polish pass on hero, primary CTA section, trust block, FAQ block, and final CTA
+- `ux-ui-conversion-design` runs an extended conversion review including objection mapping, form-friction audit, and trust-signal placement audit
+- The other three skills run the standard Core Mode pass
+
+### Full Competitive Build Mode
+
+All required design skills plus competitive SERP, conversion, and UX differentiation review:
+
+- All Beyond-Elite design passes apply
+- `ux-ui-conversion-design` adds a competitor conversion-pattern audit
+- `seo-aeo-llm-page-architecture` adds a competitor SERP and AEO audit
+- `impeccable-ui-polish` adds a competitor visual-polish audit
+
+The full mode-by-mode design pass definition lives in `docs/design/required-website-design-skills.md` § Mode-Specific Design Pass. This routing summary defers to that doc when in conflict.
+
 ## Final Rule
 
 Use the lowest mode that can achieve the page goal.

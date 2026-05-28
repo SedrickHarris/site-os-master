@@ -765,6 +765,8 @@ Before any inspection, Prompt 06 must confirm the Efficiency Governor inputs by 
 9. Validation commands — exact commands and order
 10. Commit/push allowance — allowed / not allowed in this Prompt 06 invocation
 11. Client-side prompt/doc system status — present and complete / partial / missing — per `docs/client-repo-prompt-system-standard.md`. Confirm by listing whether `docs/site-os/prompts/{build,content,seo-aeo,qa,updates}/`, `docs/site-os/reference/`, `docs/site-os/checklists/`, and `docs/site-os/decisions/client-repo-prompt-standard.md` exist in the client repo.
+11a. Required design skill files status — present and complete / partial / missing — per `docs/design/required-website-design-skills.md`. Confirm `.claude/skills/frontend-design-engineer/SKILL.md`, `.claude/skills/emil-kowalski-motion-design/SKILL.md`, `.claude/skills/impeccable-ui-polish/SKILL.md`, `.claude/skills/ux-ui-conversion-design/SKILL.md`, and `.claude/skills/seo-aeo-llm-page-architecture/SKILL.md` exist in the client repo. If missing or partial, stop and request the design skill scaffold be completed before Gate 2.
+11b. Required Design Skill Pass status from the build brief — confirm Prompt 05 declared the design skill pass per `docs/design/required-website-design-skills.md` § Required Design Pass for Every Page Build, including: frontend-design-engineer pass, motion design pass, UI polish pass, conversion UX pass, SEO/AEO/LLM architecture pass. If any skill pass is missing from the build brief, stop and request the missing skill output before Gate 2.
 12. Page-type routing — per `docs/prompt-router-and-ai-depth-standard.md`. Before creating or editing pages, Claude Code must:
     a. Classify the page type (homepage, service, location, service + location, hub, conversion, FAQ, legal, utility)
     b. Select the correct prompt from the router (individual high-value prompts for high-value pages; batch prompt only for setup / scaffolding / legal / utility / low-risk pages)
@@ -772,7 +774,7 @@ Before any inspection, Prompt 06 must confirm the Efficiency Governor inputs by 
     d. Determine whether a batch prompt is allowed for this page or whether an individual prompt must be used
     e. Stop if a high-value page is being handled by a generic batch prompt without explicit approval recorded in the implementation log
 
-If any of items 1–12 are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
+If any of items 1–12 (including 11a and 11b) are missing or contradict the build brief, Prompt 06 must stop before inspection and request clarification.
 
 If item 11 is **missing** or **partial** and the project is a service-based business build, Prompt 06 must stop and recommend running `prompts/client-repo-prompt-system-setup-prompt.md` first to install the client-side system. Implementation should not begin on top of an incomplete client-side foundation — the missing prompts and checklists are what guide the build and QA loops.
 
@@ -1154,6 +1156,16 @@ After Gate 2, report:
 24. Expected `git status` after implementation — exact expected modified / untracked file listing
 25. Carry-forward TODOs and launch blockers — from Prompt 05, Client Intake Gate, and any items surfaced during inspection
 26. Explicit confirmation that no file writes have occurred during Gate 2 and that no file writes will occur until the user approves the Gate 2 plan
+27. Required Design Skill Pass translation per `docs/design/required-website-design-skills.md`, including:
+    a. Design skills used (which of the five required skills produced outputs for this page)
+    b. Layout strategy (from frontend-design-engineer)
+    c. Responsive behavior (from frontend-design-engineer)
+    d. Motion strategy (from emil-kowalski-motion-design)
+    e. UI polish requirements (from impeccable-ui-polish)
+    f. Conversion UX requirements (from ux-ui-conversion-design)
+    g. SEO/AEO structure (from seo-aeo-llm-page-architecture)
+    h. Accessibility requirements (from frontend-design-engineer)
+    i. Design skill carry-forward items — any skill output that requires project-owner confirmation before Gate 3
 
 Stop after Gate 2.
 
@@ -1450,6 +1462,7 @@ Before returning a final Claude Code prompt, confirm that it includes:
 - Gate 2 carry-forward TODO and launch blocker output
 - Scope expansion requirement
 - Gate 5 Efficiency Governor reporting items (workflow mode, compact summary use, intake status, TODOs, launch blockers, final git status, commit/push status, escalation check)
+- Required Design Skill Pass per `docs/design/required-website-design-skills.md` — Gate 1 preflight items 11a and 11b (design skill files present, design skill pass declared in brief), Gate 2 output item 27 (design skill translation), and Gate 4 verification of the five QA checks (responsive layout, motion restraint, polish, conversion path, SEO/AEO architecture)
 
 If any item is missing, revise the prompt before returning it.
 

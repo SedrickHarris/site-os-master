@@ -1,5 +1,7 @@
 # Beyond Elite Service Page Template
 
+> Design skill routing: every build using this template must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Service pages default to the Core Mode pass; core revenue services run Beyond-Elite per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Use this template for service pages designed to rank, answer search intent, support AI and LLM visibility, build trust, and convert visitors into leads.
 
 ## Routing and Enforcement

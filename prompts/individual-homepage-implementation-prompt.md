@@ -1,5 +1,7 @@
 # Individual Homepage Implementation Prompt
 
+> Design skill routing: every build through this prompt must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Homepages run the Beyond-Elite design pass per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 The implementation half (Prompt B) of the two-step Beyond-Elite homepage workflow. Implements the approved plan from `individual-homepage-research-prompt.md`.
 
 ## When to Use

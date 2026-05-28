@@ -1,5 +1,7 @@
 # Beyond Elite Location Page Template
 
+> Design skill routing: every build using this template must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Location pages default to the Core Mode pass; primary location pages run Beyond-Elite per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Use this template for location pages designed to build local relevance, GEO visibility, local SERP performance, AI search clarity, and lead generation.
 
 ## Routing and Enforcement

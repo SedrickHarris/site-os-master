@@ -1,5 +1,7 @@
 # Conversion Page Implementation Prompt
 
+> Design skill routing: every build through this prompt must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Conversion pages run the Beyond-Elite design pass per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Implementation half (Prompt B) for conversion pages: `/free-quote`, `/contact`, booking, offer, landing. Implements the approved plan from `conversion-page-research-prompt.md`.
 
 ## When to Use

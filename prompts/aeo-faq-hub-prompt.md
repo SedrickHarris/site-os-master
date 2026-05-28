@@ -1,5 +1,7 @@
 # AEO FAQ Hub Prompt
 
+> Design skill routing: every build through this prompt must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). FAQ hubs run the Beyond-Elite design pass per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode; seo-aeo-llm-page-architecture carries the heaviest weight here.
+
 Single-step prompt for building or rebuilding the `/faq` page as a comprehensive AEO answer hub. This is the highest AEO-density page on the site.
 
 ## Routing

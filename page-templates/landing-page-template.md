@@ -1,5 +1,7 @@
 # Beyond Elite Landing Page Template
 
+> Design skill routing: every build using this template must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Landing pages default to Beyond-Elite; revenue-critical pillar landing pages run Full Competitive Build per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Use this template for landing pages designed to convert traffic from ads, email, social, local campaigns, or targeted offers.
 
 ## Routing and Enforcement

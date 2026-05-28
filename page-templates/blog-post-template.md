@@ -1,5 +1,7 @@
 # Beyond Elite Blog Post Template
 
+> Design skill routing: every build using this template must complete the Required Design Skill Pass per `docs/design/required-website-design-skills.md` (frontend-design-engineer + emil-kowalski-motion-design + impeccable-ui-polish + ux-ui-conversion-design + seo-aeo-llm-page-architecture). Blog posts default to Core Mode; seo-aeo-llm-page-architecture carries the heaviest weight here per `routing/workflow-mode-map.md` § Required Design Skill Pass per Mode.
+
 Use this template for blog posts designed to answer informational search intent, support topical authority, earn AI visibility, and guide users toward relevant services.
 
 ## Page Strategy

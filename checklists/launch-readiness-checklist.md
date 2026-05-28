@@ -180,7 +180,24 @@ If not local:
 - [ ] Page includes schema planning
 - [ ] Page has a content moat or unique angle
 
-## 14. Final Launch Decision
+## 14. Required Design Skill Pass
+
+Applies to every page build per `docs/design/required-website-design-skills.md`. A page cannot be marked complete until it passes:
+
+- [ ] Responsive layout check (frontend-design-engineer) — every section renders correctly at mobile, tablet, and desktop breakpoints
+- [ ] Visual hierarchy check (impeccable-ui-polish + seo-aeo-llm-page-architecture) — H1 stands out, H2/H3 are distinct, visual anchor section reads as the anchor
+- [ ] Spacing and alignment check (impeccable-ui-polish) — consistent spacing scale; intentional vertical and horizontal alignment
+- [ ] CTA visibility check (ux-ui-conversion-design) — primary CTA visible at every scroll position; appears in hero, mid-page, and final CTA section
+- [ ] Conversion path check (ux-ui-conversion-design) — form fields match the plan; submission connected or TODO-flagged; trust signals placed where objections would block conversion
+- [ ] Motion restraint check (emil-kowalski-motion-design) — every animation has a stated reason; reduced-motion fallback present; no scroll-jacking; no content gating
+- [ ] Accessibility check (frontend-design-engineer) — semantic landmarks, single H1, 44px touch targets (48px primary), visible focus, WCAG AA contrast, keyboard navigability
+- [ ] SEO/AEO heading structure check (seo-aeo-llm-page-architecture) — logical H1/H2/H3 hierarchy; direct-answer block near the top; question-based headings where natural
+- [ ] Internal linking check (seo-aeo-llm-page-architecture) — all internal links resolve to real routes
+- [ ] Schema readiness check (seo-aeo-llm-page-architecture) — schema matches visible content; LocalBusiness uses verified data only; AggregateRating only if verified; FAQPage visible-text match
+
+If any Required Design Skill Pass check fails, the failure carries forward as a launch blocker. Partial passes are TODOs, not completions.
+
+## 15. Final Launch Decision
 
 Overall launch score:
 [Score out of 100]

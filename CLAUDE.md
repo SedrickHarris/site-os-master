@@ -471,6 +471,59 @@ This rule applies to standard static Cloudflare Pages builds. If a future projec
 
 The 702Xchange reference stack (Next.js 14 + `@opennextjs/cloudflare` + Cloudflare Workers) is an example of a documented exception — its deploy procedure lives in `checklists/deploy-workflow-checklist.md` §5 and does not produce `out/`.
 
+## Required Website Design Skill Routing Rule
+
+Every website page build must route through the approved design skill system before implementation. Claude Project must use the required design skills during strategy, page planning, copy structure, UX planning, and build prompt creation. Claude Code must follow the selected design skill instructions during implementation.
+
+The canonical doc is `docs/design/required-website-design-skills.md`. The five required skills live at `.claude/skills/<skill-name>/SKILL.md` inside Site OS Master and must be scaffolded into every client repo per `docs/new-client-startup-workflow.md` Phase B.
+
+### Required design skills
+
+- **frontend-design-engineer** — responsive layout, component structure, semantic HTML, accessibility, scalable UI patterns, clean implementation
+- **emil-kowalski-motion-design** — intentional motion, scroll reveal planning, hover states, microinteractions, page transitions, motion restraint
+- **impeccable-ui-polish** — visual refinement, spacing, alignment, rhythm, typography hierarchy, card polish, section balance, premium finish
+- **ux-ui-conversion-design** — CTA strategy, conversion flow, form placement, trust sections, friction reduction, lead capture, page clarity
+- **seo-aeo-llm-page-architecture** — H1/H2 structure, direct answers, semantic sections, FAQ strategy, schema planning, internal links, metadata, LLM-ready page structure
+
+### Required design pass for every page build
+
+Every page build, regardless of mode, must complete the Required Design Skill Pass:
+
+- frontend-design-engineer pass
+- motion design pass
+- UI polish pass
+- conversion UX pass
+- SEO/AEO/LLM architecture pass
+
+Mode-specific depth (Fast Mode lightweight pass; Core Mode full pass; Beyond-Elite extended polish + conversion review; Full Competitive Build extended polish + competitive SERP/UX review) is defined in `docs/design/required-website-design-skills.md` § Mode-Specific Design Pass and `routing/workflow-mode-map.md`.
+
+### Required Claude Code build prompt fields
+
+Every page build prompt must declare:
+
+- Design skills used
+- Layout strategy
+- Responsive behavior
+- Motion strategy
+- UI polish requirements
+- Conversion UX requirements
+- SEO/AEO structure
+- Accessibility requirements
+- Files likely to touch
+- Files not to touch
+- QA gates before commit
+
+### QA gates
+
+A page cannot be marked complete until it passes the responsive layout, visual hierarchy, spacing and alignment, CTA visibility, conversion path, motion restraint, accessibility, SEO/AEO heading structure, internal linking, and schema readiness checks defined in `checklists/launch-readiness-checklist.md` § Required Design Skill Pass.
+
+### Hard rules
+
+- The five required skills are mandatory. They are not optional based on operator preference or time pressure.
+- The Required Design Skill Pass cannot be partially completed and then marked done. Partial passes are carry-forward TODOs.
+- Claude Code must not improvise outside the patterns the skills define. If a skill output is missing from the build brief, stop at Gate 1.
+- Skill files in client repos must match the canonical Site OS Master copies. Client-specific overrides are documented in `docs/site-os/decisions/` and propagated back to Site OS Master so the master stays the source of truth.
+
 # Site OS Master Claude Code Rules
 
 ## Primary Operating Principle
