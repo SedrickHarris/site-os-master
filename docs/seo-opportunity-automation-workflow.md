@@ -1,13 +1,13 @@
 # SEO Opportunity Automation Workflow
 
-This Site OS module adds automated SEO opportunity discovery, keyword clustering, pillar-page selection, page briefing, Claude Code implementation, and QA.
+Version: v1.0  
+Status: Active workflow extension  
+Purpose: Add low-token SEO opportunity discovery, keyword validation, missing pillar selection, page briefing, Claude Code implementation, and SEO QA to Site OS.
 
-## Purpose
+---
 
-Use Keyword Planner demand data without burning tokens. Scripts handle scanning, parsing, scoring, and audits. Claude handles judgment, briefs, implementation, and focused fixes.
+## Core Principle
 
-## Client Repo Structure
+Do not make Claude or Claude Code rediscover the whole website from scratch every time.
 
-Create these files in each client repo:
-
-```text
+Use scripts and compressed context files for repeatable logic. Use Claude for judgment, page briefs, content structure
