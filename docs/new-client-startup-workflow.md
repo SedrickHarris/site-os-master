@@ -192,6 +192,35 @@ Stage explicitly per file (no `git add .`) per `docs/file-scope-and-git-safety-p
 
 Step 12b is a hard requirement for every client engagement, not just service-based business builds. The first Prompt 06 invocation must stop at Gate 1 if these files are missing (per `prompts/06-claude-code-build-prompt.md` Gate 1 Efficiency Governor Preflight item 11a). If a client engagement updates a skill, propagate the change back to Site OS Master so the master stays the source of truth.
 
+### Phase B Optional Step -- SEO Opportunity Automation Scaffold
+
+When to scaffold: Scaffold this when the client site requires ongoing SEO pillar page discovery and build. Skip it for single-landing-page builds or when keyword research is already fully planned.
+
+What to scaffold into the client repo:
+
+1. Copy the seo-automation/ folder from Site OS Master into the client repo root.
+   - seo-automation/scripts/ contains the four zero-dependency Node scripts.
+   - seo-automation/templates/json-shapes.md documents the JSON data contract.
+   - seo-automation/README.md documents the run order and usage pattern.
+   Note: Site OS Master remains the canonical source. The client repo copy is a scaffold instance. Updates to Site OS Master scripts are opt-in for existing client repos.
+
+2. Create the docs/seo/ context folder in the client repo:
+   - docs/seo/keyword-exports/ (empty, receives Keyword Planner CSV exports)
+   - docs/seo/seo-build-log.md (empty log file, updated after each pillar build)
+
+3. Add these npm scripts to the client repo package.json (if a package.json exists):
+   "seo:scan": "node seo-automation/scripts/scan-routes.mjs",
+   "seo:parse": "node seo-automation/scripts/parse-keyword-csv.mjs",
+   "seo:cluster": "node seo-automation/scripts/cluster-keywords.mjs",
+   "seo:score": "node seo-automation/scripts/score-opportunities.mjs"
+
+4. Run seo:scan immediately after scaffold to generate the first route manifest:
+   node seo-automation/scripts/scan-routes.mjs
+
+Full run order and prompt sequence: see seo-automation/README.md and docs/seo-opportunity-automation-workflow.md.
+
+No-fake-data rule applies. Scripts never invent search volume, CPC, competition, or keyword difficulty. Keyword Planner data is always user-supplied.
+
 ## Prompt Routing and AI Depth Setup
 
 Every client repo must receive the prompt-router and AI-depth standard at startup. Per `docs/prompt-router-and-ai-depth-standard.md`:

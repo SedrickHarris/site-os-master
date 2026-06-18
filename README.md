@@ -121,3 +121,15 @@ Site OS Master includes safe-deploy, post-deploy production verification, standi
 - `docs/client-repo-doc-structure.md` — reusable `docs/site-os/{inputs, outputs, qa, changelog}` folder structure for client repos, with scaffolding commands for PowerShell and Bash and a paste-ready README template.
 
 These templates reduce ad-hoc decisions during multi-session builds and make client handoffs predictable.
+
+## SEO Opportunity Automation Module
+
+The `seo-automation/` module adds a repeatable, low-token SEO pillar page discovery and build workflow to Site OS Master. Zero-dependency Node scripts handle mechanical tasks (route scanning, CSV parsing, keyword clustering, opportunity scoring) so Claude Code spends tokens on judgment and page creation only.
+
+- Workflow overview: `docs/seo-opportunity-automation-workflow.md`
+- Module README and run order: `seo-automation/README.md`
+- JSON data contract: `seo-automation/templates/json-shapes.md`
+- Prompt modules: `prompts/seo-opportunity-*.md` (6 files)
+- Pipeline routing: `routing/task-to-prompt-map.md` (SEO Opportunity Automation section)
+
+Scaffold this module into a client repo during Phase B of the new-client startup workflow when keyword-driven pillar page builds are in scope.

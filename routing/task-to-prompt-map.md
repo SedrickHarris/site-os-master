@@ -93,3 +93,27 @@ Use only the relevant prompt and QA if needed.
 ## Final Rule
 
 Use the fewest prompts needed to complete the task well.
+
+## SEO Opportunity Automation
+
+This workflow runs as an optional Phase B extension during new client site builds. It identifies missing pillar page opportunities using scripts and compressed JSON context files. Claude Code spends tokens on judgment and content only, not on parsing large files.
+
+Pipeline steps:
+
+1. scan-routes.mjs (script) -- generates docs/seo/route-manifest.json
+2. seo-opportunity-seed-keywords-prompt.md -- generates docs/seo/keyword-seeds.json
+3. Manual: export Google Keyword Planner CSV to docs/seo/keyword-exports/
+4. parse-keyword-csv.mjs (script) -- generates docs/seo/normalized-keywords.json
+5. cluster-keywords.mjs (script) -- generates docs/seo/keyword-clusters.json
+6. score-opportunities.mjs (script) -- generates docs/seo/opportunities.json
+7. seo-opportunity-selection-prompt.md -- generates docs/seo/selected-opportunity.json
+8. seo-opportunity-pillar-brief-prompt.md -- generates docs/seo/page-brief.json
+9. seo-opportunity-pillar-build-prompt.md -- builds the page
+10. seo-opportunity-supporting-content-prompt.md -- generates docs/seo/internal-link-plan.json and content-calendar.md
+11. seo-opportunity-qa-prompt.md -- generates docs/seo/seo-qa-report.json
+
+Workflow doc: docs/seo-opportunity-automation-workflow.md
+Module README: seo-automation/README.md
+JSON contract: seo-automation/templates/json-shapes.md
+
+This workflow is additive. It does not replace the existing Site OS prompt chain (Prompts 01 through 20).
