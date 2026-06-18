@@ -73,6 +73,46 @@ A page cannot pass this skill until:
 - [ ] No animation library was introduced beyond what the project already uses
 - [ ] No motion-only signaling (interactive elements still indicate state without motion, for reduced-motion users)
 
+## Design Vision
+
+The best motion on a website is the motion the visitor does not consciously notice.
+They only notice that the page feels alive, smooth, and responsive. If they notice the
+animation, the animation is probably too much.
+
+Motion targets for well-executed non-generic sites:
+- Scroll reveal: opacity 0 to 1 and translateY 16px to 0, duration 400ms ease-out.
+  Apply to section headings, card grids with per-card stagger, and stat blocks.
+  This is the single most impactful motion addition on any marketing site.
+- Card hover: translateY(-2px) duration-200. One behavior. No scale, glow, or shadow spread.
+- Button hover: background color shift to darker brand shade, duration-150.
+  The fastest, most reliable interactive signal.
+- Page load: hero content fades in with a 200-300ms delay after mount.
+  Feels intentional. Never blocks perceived load.
+
+Card grid stagger:
+- Stagger delay: index multiplied by 50ms.
+- Cap at 4 cards maximum in a stagger sequence.
+  Staggering 12 cards looks broken on slower connections and feels gimmicky.
+
+Motion patterns that age well versus patterns that date a site:
+Ages well: fade-up on scroll, subtle hover lifts, smooth color transitions
+Dates quickly: parallax backgrounds, typing text effects, section-to-section slide transitions,
+  elements flying in from alternating sides, loading screen animations
+
+Performance requirement:
+- All animated elements use will-change: transform.
+- Every scroll-triggered animation must be tested for Cumulative Layout Shift.
+  CLS from animation is a Core Web Vitals failure and affects search ranking.
+- prefers-reduced-motion: none of the above runs without this check passing first.
+  The reduced-motion fallback is not optional and is not a future TODO.
+
+Site-type motion calibration:
+- High-energy site types (creative agency, event, product launch): motion can be more
+  expressive. Still within the hard limits. Still restrained relative to the content.
+- Trust-first site types (professional services, legal, medical, financial):
+  motion should be nearly invisible. Smooth, fast, imperceptible.
+- The site type overlay provides the calibration target.
+
 ## Hard Rules
 
 - Do not animate decoratively. Every animation must clarify state, draw attention to the next action, or make a transition feel responsive.

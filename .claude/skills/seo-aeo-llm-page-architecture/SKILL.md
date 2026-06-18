@@ -92,6 +92,58 @@ A page cannot pass this skill until:
 - [ ] Entity map (business, service, location, relationships) is clear in visible content
 - [ ] Page contains at least 2–3 citation-quality factual sentences for LLM consumption
 
+## Design Vision
+
+Pages built under this skill should be structured so that a search engine, an AI assistant,
+and a human reader all reach the same correct understanding of what the page is, what
+question it answers, and what to do next, without needing to read the whole page.
+
+Heading patterns that earn featured snippets and PAA:
+- H2s are either answerable questions or clear declarative topic statements.
+  "How Much Does X Cost?" not "Pricing".
+  "What Is Included in X?" not "Our Process".
+  "Why Choose X?" not "About Us".
+- The first paragraph after every H2 answers the heading directly in 2-3 sentences.
+  This is the featured snippet target. Write it to stand alone out of context.
+
+Direct answer block:
+- Every page should open with a 2-3 sentence direct answer block above the first H2.
+  What is this page about. Who is it for. What should they do.
+- Style it distinctly: bg-neutral-50 border-l-4 border-brand-600 p-6 rounded-r-xl.
+- Write it as a quotable statement. AI assistants cite the clearest, most specific answer
+  they find. This block is the citation target.
+
+FAQ section architecture:
+- Minimum 5 questions per standard page. 8-10 for competitive service or location pages.
+- Questions come from keyword research, not from what the business wants to say.
+- Answers: 2-4 sentences. Specific. No throat-clearing phrases like
+  "Great question" or "It depends on many factors."
+- Accordion UI with visible question text at all times.
+  Search engines and AI crawlers read both open and closed states.
+
+Entity and local signals:
+- Every page has a declared primary entity: the business, service, location, or topic.
+- Supporting entities are woven into headings, body, and FAQ naturally.
+  Entity stuffing is as problematic as keyword stuffing.
+- For local pages: city or region in H1, first paragraph body, and at least one H2.
+  This is a structural requirement, not a suggestion.
+
+Schema priorities (in order of universal applicability):
+- BreadcrumbList: every page, no exceptions
+- FAQPage: every page with a FAQ section, questions must match visible text exactly
+- Service or Product: service and product pages
+- LocalBusiness: homepage and contact page only
+- AggregateRating: only with confirmed real review data, never estimated or invented
+- WebPage or WebSite: homepage
+- The site type overlay specifies additional schema relevant to that vertical.
+
+Metadata standards:
+- Title: primary keyword + brand name, 50-60 characters, unique per page
+- Description: 140-160 characters, includes primary keyword, reads as a complete sentence
+- Canonical: always set, matches the intended indexable URL exactly
+- OG title and description: set independently of meta title and description
+  They serve different rendering contexts.
+
 ## Hard Rules
 
 - Do not ship multiple H1s. Do not skip heading levels.

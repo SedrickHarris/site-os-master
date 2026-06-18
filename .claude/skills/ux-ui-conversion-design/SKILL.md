@@ -81,6 +81,52 @@ A page cannot pass this skill until:
 - [ ] Service-business conversion layout applies where required (per `docs/service-business-conversion-layout.md`)
 - [ ] Service card image placeholder applies where required (per `docs/service-card-image-placeholder-standard.md`)
 
+## Design Vision
+
+The conversion goal determines the page. Every layout decision flows from one question:
+what does this visitor need to see, feel, and understand before they take the next step?
+Design that does not answer that question is decoration.
+
+Hero conversion pattern:
+- The H1 must name what the business does and for whom. Not a tagline. Not a mission
+  statement. A direct description: what, for who, where if local.
+- The subheadline handles the primary objection or concern the target audience arrives with.
+- Primary CTA: solid brand-colored button, large, px-8 py-4, specific label.
+  "Get a Free Estimate" outperforms "Contact Us" on every service site.
+  "Start Free Trial" outperforms "Sign Up" on every SaaS site.
+  The label should complete the sentence "I want to..."
+- Secondary CTA or trust signal: immediately below the primary CTA, not competing with it.
+
+CTA system:
+- One primary CTA per page. Repeated in hero, mid-page, and final section.
+- Primary button: bg-brand-600 hover:bg-brand-700 text-white. Never outline as primary.
+- Button size: px-6 py-3 minimum. px-8 py-4 for hero.
+- Never place a CTA button inside a text paragraph. Give it vertical breathing room.
+- The label must be specific. Vague CTAs signal uncertainty.
+
+Trust architecture:
+- Trust signals belong near the top of the page, not at the bottom.
+- Place social proof within the first two scroll positions after the hero.
+- Match trust signal placement to the objection it answers:
+  Price objection: near pricing or estimate CTA
+  Quality objection: near service descriptions
+  Risk objection: near the primary conversion form
+- Never invent trust signals. A missing trust signal is better than a fake one.
+
+Form friction reduction:
+- Fewer fields convert more. Ask only what is required to follow up.
+- Labels above every field. Placeholder text is not a label.
+- Primary submit button: full width on mobile, brand color, specific label.
+- Success state: replace the form with a confirmation message in place.
+  Never send the user to a blank or generic thank-you page without messaging.
+
+What kills conversion regardless of design quality:
+- Unclear primary action in the hero
+- Social proof below the FAQ
+- A form with more fields than necessary
+- A CTA that requires interpretation
+- Trust signals that cannot be verified
+
 ## Hard Rules
 
 - Do not ship more than one primary CTA per page.

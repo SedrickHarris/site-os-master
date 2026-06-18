@@ -221,6 +221,25 @@ Full run order and prompt sequence: see seo-automation/README.md and docs/seo-op
 
 No-fake-data rule applies. Scripts never invent search volume, CPC, competition, or keyword difficulty. Keyword Planner data is always user-supplied.
 
+### Phase B Optional Step -- Design Vision Overlay Selection
+
+Select and scaffold the site-type design overlay for this client engagement.
+
+1. Confirm the project type from Phase A intake:
+   local service / creative agency / professional services / SaaS / other
+
+2. Open docs/design/design-vision-overlays.md in Site OS Master.
+   Locate the overlay section that matches the project type.
+
+3. Create docs/site-os/inputs/design-overlay.md in the client repo.
+   Copy the relevant overlay section content into that file.
+   If no matching overlay exists, use the Universal Fallback Overlay.
+
+4. Claude Code reads this file at Gate 1 alongside the five canonical SKILL.md files.
+   The overlay is supplemental. It does not replace the universal design vision.
+
+Reference: docs/design/design-vision-overlays.md
+
 ## Prompt Routing and AI Depth Setup
 
 Every client repo must receive the prompt-router and AI-depth standard at startup. Per `docs/prompt-router-and-ai-depth-standard.md`:

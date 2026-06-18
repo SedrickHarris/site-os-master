@@ -73,6 +73,51 @@ A page cannot pass this skill until:
 - [ ] Hover and focus states are visually polished, not default
 - [ ] No premium-looking section ruins the premium feel of the next section (no jarring transitions between polished and unpolished blocks)
 
+## Design Vision
+
+Premium design is mostly spacing and type. Clients and visitors cannot name what makes
+a site feel expensive, but they feel it immediately. It is almost never the components.
+It is the rhythm, the hierarchy, and the restraint.
+
+Spacing rules:
+- Card grids: gap-8 md:gap-12. Never gap-4 for major content grids.
+- Card padding: p-6 or p-8. Never p-4.
+- Between a section heading block and the content grid: mb-10 or mb-12.
+- Between eyebrow and H2: mb-3. Between H2 and subtext: mt-4.
+  These small gaps compound into either rhythm or chaos.
+
+Section heading pattern, required for every non-hero section:
+- Eyebrow label (optional but strongly recommended): all-caps, brand color, small, tracked wide
+- H2: clear, direct, large
+- One-sentence subtext: body size, muted color, max-w-2xl
+- This three-part pattern gives every section visual structure before the content starts.
+
+Card standards:
+- Border radius: rounded-2xl. Softer corners read as more considered.
+- Border: border border-neutral-200. Use border over box-shadow as the primary container signal.
+- Hover: translate-y-[-2px] transition-transform duration-200. One subtle behavior only.
+- Icon containers: rounded-xl bg-brand-100 text-brand-600 p-3 inline-flex.
+  Never drop a raw SVG icon directly into text flow.
+
+Breaking visual monotony:
+- Every page should have at least one section that uses large display numbers, a bold
+  pull quote, or a full-bleed image treatment. Uniform section height top to bottom reads
+  as a template.
+- Stat callouts: text-4xl md:text-5xl font-bold text-brand-600 with a short descriptor label.
+  These are the fastest way to add visual hierarchy without adding complexity.
+
+Section background discipline:
+- Use surface-1 and surface-2 alternation only.
+- One dark or brand-colored section per page maximum, typically the final CTA band.
+- No section should use a background color that does not exist in the defined token set.
+
+Details that separate considered from generic:
+- Replace default bullet lists with icon-prefixed rows in feature and benefit lists.
+- Trust logos: grayscale filter, consistent height, equal spacing.
+- Dividers: whitespace only. No hr elements in content sections.
+- Empty states and placeholder areas should follow the same spacing and type rules
+  as populated content.
+
 ## Hard Rules
 
 - Do not mix spacing scales without intent.

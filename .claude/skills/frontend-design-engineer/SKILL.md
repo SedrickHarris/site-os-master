@@ -72,6 +72,50 @@ A page cannot pass this skill until:
 - [ ] No raw hex values, magic numbers, or off-token spacing in component code
 - [ ] No new component pattern was created without explicit Gate 2 approval
 
+## Design Vision
+
+The target aesthetic is confident, purposeful, and distinctly not templated. Every layout
+decision should feel chosen, not defaulted.
+
+Layout principles:
+- Max content width 1280px. Use consistent container padding: px-4 sm:px-6 lg:px-8.
+- Section vertical rhythm: py-16 md:py-24 as the default for major sections.
+  py-8 or less reads as cramped and low-budget.
+- Generous whitespace between sections signals quality faster than any visual treatment.
+- Grids: 1 col mobile, 2 col tablet, 3 col desktop for content cards.
+  Match the grid to the content density, not to what fills the screen.
+- Hero layout: determined by site type overlay. Do not default to centered text on a
+  background image. That is the most generic pattern in existence.
+
+Typography scale (Tailwind):
+- Display H1: text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight
+- H2: text-2xl md:text-3xl font-semibold tracking-tight
+- H3: text-xl font-semibold
+- Body: text-base md:text-lg leading-relaxed
+- Eyebrow label: text-sm font-semibold uppercase tracking-widest text-brand-600
+
+Font pairing:
+- Headings: Inter or Plus Jakarta Sans loaded from Google Fonts in the root layout.
+- Body: Inter or system-ui.
+- Never leave headings on default system-ui. It reads as unfinished.
+- Font choice is the single fastest way to make a site look intentional.
+
+Color system (defined in tailwind.config.js or CSS variables, never raw hex in components):
+- brand-50 through brand-900: client primary color ramp
+- neutral: warm gray scale (stone or zinc preferred over pure gray)
+- accent: one highlight color for interactive states
+- surface-1: primary background
+- surface-2: alternate section background
+- Alternate sections using only surface-1 and surface-2.
+  Random background color changes per section reads as amateur.
+
+What generic looks like. Avoid these patterns:
+- Full-width dark hero with centered white text and a stock photo
+- Three icon boxes in a row immediately below the hero with no visual weight
+- Sections with identical visual treatment from top to bottom
+- CTAs that say "Learn More" or "Click Here"
+- Cards that look identical to every other Tailwind card tutorial
+
 ## Hard Rules
 
 - Do not invent new component patterns when an existing one fits. Reuse first.
