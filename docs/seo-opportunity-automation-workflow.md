@@ -8,8 +8,4 @@ The goal is to implement a repeatable version of the Claude Code plus Google Key
 
 Do not make Claude or Claude Code rediscover the whole website every time.
 
-Use scripts and compressed context files for scanning, parsing, clustering, scoring, and QA. Use Claude for judgment, page briefs, content structure, implementation decisions, and focused fixes.
-
-## Required Client Repo Structure
-
-Add this
+Use scripts and compressed context
