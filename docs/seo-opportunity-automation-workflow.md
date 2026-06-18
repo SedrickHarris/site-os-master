@@ -1,8 +1,8 @@
 # SEO Opportunity Automation Workflow
 
-Version: v1.0
-Status: Active Site OS workflow extension
+This file is the Site OS extension point for the SEO opportunity automation workflow.
 
-## Purpose
+## Workflow Summary
 
-Add low-token SEO opportunity discovery to the Site OS master workflow. This module helps each client site find missing pillar pages from real keyword demand, then build those pages with metadata, schema, FAQs, internal links, and conversion
+1. Create `/docs/seo/` context files in each generated client repo.
+2. Store the business profile, page map, route manifest, keyword seeds, keyword clusters, opportunity scores, selected opportunities, internal link plan, content calendar, build
