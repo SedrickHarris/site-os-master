@@ -7,11 +7,14 @@
 
 import { promises as fs } from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
 
 const ROOT = process.cwd();
 const INPUT_FILE = path.join(ROOT, "docs", "seo", "normalized-keywords.json");
 const OUTPUT_DIR = path.join(ROOT, "docs", "seo");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "keyword-clusters.json");
+// Synonym map ships with Site OS, resolved relative to this script (not the client cwd).
+const SYNONYMS_FILE = path.join(path.dirname(fileURLToPath(import.meta.url)), "..", "config", "synonyms.json");
 
 const warnings = [];
 
@@ -112,6 +115,146 @@ function buildMetricsSummary(members) {
   };
 }
 
+// --- Synonym and stem merge pass (additive, runs after base-token clustering) ---
+
+async function loadSynonymGroups() {
+  try {
+    const raw = await fs.readFile(SYNONYMS_FILE, "utf8");
+    const parsed = JSON.parse(raw);
+    const groups = Array.isArray(parsed.groups) ? parsed.groups : [];
+    return groups.filter((g) => Array.isArray(g) && g.length);
+  } catch (err) {
+    warnings.push(
+      `Could not read synonym map ${rel(SYNONYMS_FILE)} (${err.code || err.message}). ` +
+        "Skipping the synonym merge pass. Base-token clustering is unaffected."
+    );
+    return [];
+  }
+}
+
+function stemToken(token) {
+  const t = String(token).toLowerCase();
+  if (t.length > 3 && t.endsWith("s")) return t.slice(0, -1);
+  return t;
+}
+
+function buildCanonicalMap(groups) {
+  // Each token in a group maps to the stemmed first word of that group (its canonical form).
+  const map = new Map();
+  for (const group of groups) {
+    const canonical = stemToken(group[0]);
+    for (const word of group) map.set(String(word).toLowerCase(), canonical);
+  }
+  return map;
+}
+
+function normalizeTokens(tokens, canonicalMap) {
+  const out = new Set();
+  for (const raw of tokens || []) {
+    const t = String(raw).toLowerCase();
+    out.add(canonicalMap.has(t) ? canonicalMap.get(t) : stemToken(t));
+  }
+  return out;
+}
+
+function tokenMatchRatio(setA, setB) {
+  if (!setA.size || !setB.size) return 0;
+  let matched = 0;
+  for (const t of setA) if (setB.has(t)) matched++;
+  return matched / Math.min(setA.size, setB.size);
+}
+
+function rebuildMergedCluster(sources, baseCluster) {
+  // Combine member keywords (deduped, case-insensitive) and re-derive every summary.
+  const allMembers = [];
+  const memberSeen = new Set();
+  for (const c of sources) {
+    for (const m of c._members || []) {
+      if (memberSeen.has(m.lower)) continue;
+      memberSeen.add(m.lower);
+      allMembers.push(m);
+    }
+  }
+  const allTokens = [];
+  const tokenSeen = new Set();
+  for (const c of sources) {
+    for (const t of c._tokens || []) {
+      if (tokenSeen.has(t)) continue;
+      tokenSeen.add(t);
+      allTokens.push(t);
+    }
+  }
+  const modifierSet = new Set();
+  const categorySet = new Set();
+  for (const m of allMembers) {
+    const { matched, categories } = detectModifiers(m.lower);
+    matched.forEach((x) => modifierSet.add(x));
+    categories.forEach((c) => categorySet.add(c));
+  }
+  const primaryKeyword = pickPrimary(allMembers);
+  return {
+    clusterId: baseCluster.clusterId,
+    clusterName: allTokens.length ? titleCase(allTokens.join(" ")) : titleCase(primaryKeyword),
+    primaryKeyword,
+    keywords: allMembers.map((m) => m.keyword),
+    modifiers: Array.from(modifierSet),
+    intentHints: intentHintsFromCategories(categorySet),
+    metricsSummary: buildMetricsSummary(allMembers),
+    notes:
+      `Grouped on shared base tokens: ${allTokens.join(", ") || "none"}. ` +
+      "Clustering is a deterministic heuristic, not a semantic model. " +
+      "Synonym and stem merge combined related clusters.",
+    _categories: Array.from(categorySet),
+    _tokens: allTokens,
+    _members: allMembers,
+    synonymMergeApplied: true,
+    mergedFrom: sources.map((c) => c.clusterId),
+  };
+}
+
+function applySynonymMerge(clusters, canonicalMap) {
+  const n = clusters.length;
+  const norm = clusters.map((c) => normalizeTokens(c._tokens, canonicalMap));
+  const parent = clusters.map((_, i) => i);
+  const find = (x) => {
+    while (parent[x] !== x) {
+      parent[x] = parent[parent[x]];
+      x = parent[x];
+    }
+    return x;
+  };
+  const union = (a, b) => {
+    const ra = find(a);
+    const rb = find(b);
+    if (ra !== rb) parent[Math.max(ra, rb)] = Math.min(ra, rb);
+  };
+  // Combine clusters that share 80%+ synonym-matched or stem-matched base tokens.
+  for (let i = 0; i < n; i++) {
+    if (!norm[i].size) continue;
+    for (let j = i + 1; j < n; j++) {
+      if (!norm[j].size) continue;
+      if (tokenMatchRatio(norm[i], norm[j]) >= 0.8) union(i, j);
+    }
+  }
+  const byRoot = new Map();
+  for (let i = 0; i < n; i++) {
+    const r = find(i);
+    if (!byRoot.has(r)) byRoot.set(r, []);
+    byRoot.get(r).push(i);
+  }
+  const merged = [];
+  for (const idxs of byRoot.values()) {
+    if (idxs.length === 1) {
+      merged.push(clusters[idxs[0]]);
+      continue;
+    }
+    idxs.sort((a, b) => a - b);
+    const sources = idxs.map((i) => clusters[i]);
+    merged.push(rebuildMergedCluster(sources, sources[0]));
+  }
+  return merged;
+}
+
 async function main() {
   let parsed;
   try {
@@ -170,28 +313,56 @@ async function main() {
         `Grouped on shared base tokens: ${group.tokens.join(", ") || "none"}. ` +
         "Clustering is a deterministic heuristic, not a semantic model.",
       _categories: Array.from(categorySet),
+      // _tokens and _members are internal plumbing for the synonym merge pass.
+      // They are stripped before the file is written.
+      _tokens: group.tokens,
+      _members: members,
     });
   }
 
-  clusters.sort((a, b) => {
+  // Synonym and stem merge pass: combine clusters that describe the same topic with
+  // different wording (for example "edinburgh breaks" and "edinburgh getaway").
+  let finalClusters = clusters;
+  const synonymGroups = await loadSynonymGroups();
+  if (synonymGroups.length) {
+    const canonicalMap = buildCanonicalMap(synonymGroups);
+    const before = clusters.length;
+    finalClusters = applySynonymMerge(clusters, canonicalMap);
+    const mergedCount = finalClusters.filter((c) => c.synonymMergeApplied).length;
+    if (finalClusters.length < before) {
+      warnings.push(
+        `Synonym merge combined clusters: ${before} -> ${finalClusters.length} ` +
+          `(${mergedCount} merged cluster(s)).`
+      );
+    }
+  }
+
+  finalClusters.sort((a, b) => {
     const av = a.metricsSummary.totalAvgMonthlySearches || 0;
     const bv = b.metricsSummary.totalAvgMonthlySearches || 0;
     if (bv !== av) return bv - av;
     return b.metricsSummary.keywordCount - a.metricsSummary.keywordCount;
   });
 
+  // Strip internal merge plumbing. _categories stays (the scorer reads it); _tokens and
+  // _members are dropped so the output shape is unchanged apart from the optional merge fields.
+  const outputClusters = finalClusters.map((c) => {
+    const { _tokens, _members, ...rest } = c;
+    return rest;
+  });
+
   // _categories is internal scoring context for score-opportunities.mjs; keep it on the record.
   const output = {
     generatedAt: new Date().toISOString(),
-    clusterCount: clusters.length,
-    clusters,
+    clusterCount: outputClusters.length,
+    clusters: outputClusters,
     warnings,
   };
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + "\n", "utf8");
 
-  console.log(`OK: built ${clusters.length} cluster(s) into ${rel(OUTPUT_FILE)}.`);
+  console.log(`OK: built ${outputClusters.length} cluster(s) into ${rel(OUTPUT_FILE)}.`);
   if (warnings.length) {
     console.warn(`WARN: ${warnings.length} warning(s):`);
     for (const w of warnings) console.warn(`  - ${w}`);

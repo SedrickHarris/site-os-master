@@ -18,10 +18,28 @@ const OUTPUT_FILE = path.join(OUTPUT_DIR, "opportunities.json");
 
 const warnings = [];
 const STOPWORDS = new Set(["a", "an", "the", "and", "or", "of", "for", "to", "in", "on", "at", "with"]);
+const DEFAULT_MIN_SCORE = 4;
 
 function rel(p) {
   return path.relative(ROOT, p).split(path.sep).join("/");
 }
+
+// --min-score <n> (or --min-score=<n>) sets the build-priority cutoff. Default is 4.
+function parseMinScore(argv) {
+  for (let i = 0; i < argv.length; i++) {
+    const a = argv[i];
+    if (a === "--min-score") {
+      const n = Number(argv[i + 1]);
+      if (Number.isFinite(n)) return n;
+    } else if (a.startsWith("--min-score=")) {
+      const n = Number(a.slice("--min-score=".length));
+      if (Number.isFinite(n)) return n;
+    }
+  }
+  return DEFAULT_MIN_SCORE;
+}
+
+const MIN_SCORE = parseMinScore(process.argv.slice(2));
 
 function tokenize(text) {
   return String(text || "")
@@ -199,17 +217,33 @@ async function main() {
 
   opportunities.sort((a, b) => b.score - a.score);
 
+  // Apply the min-score cutoff before writing. Filtered opportunities are removed, not hidden.
+  const scoredCount = opportunities.length;
+  const keptOpportunities = opportunities.filter((o) => o.score >= MIN_SCORE);
+  const filteredCount = scoredCount - keptOpportunities.length;
+  if (filteredCount > 0) {
+    warnings.push(
+      `Min-score filter (--min-score ${MIN_SCORE}) removed ${filteredCount} ` +
+        `opportunity/opportunities scoring below ${MIN_SCORE}.`
+    );
+  }
+
   const output = {
     generatedAt: new Date().toISOString(),
-    opportunityCount: opportunities.length,
-    opportunities,
+    minScore: MIN_SCORE,
+    opportunityCount: keptOpportunities.length,
+    filteredCount,
+    opportunities: keptOpportunities,
     warnings,
   };
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(output, null, 2) + "\n", "utf8");
 
-  console.log(`OK: scored ${opportunities.length} opportunity/opportunities into ${rel(OUTPUT_FILE)}.`);
+  console.log(
+    `OK: scored ${scoredCount} opportunity/opportunities, kept ${keptOpportunities.length} ` +
+      `at or above min-score ${MIN_SCORE} into ${rel(OUTPUT_FILE)}.`
+  );
   if (warnings.length) {
     console.warn(`WARN: ${warnings.length} warning(s):`);
     for (const w of warnings) console.warn(`  - ${w}`);

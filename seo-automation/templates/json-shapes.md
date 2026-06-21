@@ -135,8 +135,14 @@ array rather than failing silently.
       - `note` string
     - `notes` string
     - `_categories[]` string array (internal pattern categories used by the scorer)
+    - `synonymMergeApplied` boolean (optional): present and `true` only on a cluster that was
+      combined during the synonym and stem merge pass.
+    - `mergedFrom[]` string array (optional): present only on a merged cluster, listing the
+      original `clusterId` values that were combined into it.
 - Notes: clustering is a deterministic token heuristic, not a semantic embedding model. The
-  `_categories` field is internal plumbing for the scorer and may be ignored by humans.
+  `_categories` field is internal plumbing for the scorer and may be ignored by humans. The
+  optional `synonymMergeApplied` and `mergedFrom` fields appear only on merged clusters; the
+  merge uses `seo-automation/config/synonyms.json` and is skipped if that file is missing.
 - No-fake-data constraint: `metricsSummary` aggregates only supplied volumes. When no volume
   is present, totals are `null` and the note says so.
 
@@ -149,7 +155,9 @@ array rather than failing silently.
 - Consumer: the selection prompt, then the operator.
 - Required fields:
   - `generatedAt` string
-  - `opportunityCount` number
+  - `minScore` number (the `--min-score` cutoff applied; default 4)
+  - `opportunityCount` number (count of opportunities kept at or above `minScore`)
+  - `filteredCount` number (count of opportunities removed by the `minScore` cutoff)
   - `opportunities[]` array, each with:
     - `opportunityId` string (`o-001` form)
     - `clusterId` string
@@ -165,8 +173,10 @@ array rather than failing silently.
     - `rationale` string
     - `recommendedNextAction` string
   - `warnings[]` string array
-- Notes: opportunities are sorted by `score` descending. An opportunity with a high
-  `existingRouteOverlap` is flagged for expansion rather than a new duplicate page.
+- Notes: opportunities are sorted by `score` descending, then filtered by `minScore` before the
+  file is written. An opportunity with a high `existingRouteOverlap` is flagged for expansion
+  rather than a new duplicate page. When the filter removes any opportunities, a warning is added
+  to `warnings[]` stating how many.
 - No-fake-data constraint: `score` and every `scoreBreakdown` value are bounded heuristics.
   They must never be relabeled as keyword difficulty or traffic. Volume context is real only
   when it traces back to the CSV.
@@ -188,6 +198,11 @@ array rather than failing silently.
   - `pageType` string
   - `intent` string
   - `operatorNotes` string
+  - `visibilityAlignmentConfirmed` boolean (required): must be `true` before page-brief.json is
+    produced. It records that the full visibility and conversion alignment pass
+    (`prompts/20-visibility-conversion-alignment-prompt.md`, Prompt 20) was run for this
+    opportunity. When this is `false` or missing, `run-pipeline.mjs` warns loudly and the page
+    brief must not proceed.
 - Notes: this records a human decision so the build is auditable.
 - No-fake-data constraint: the selection cannot introduce keywords that are absent from the
   source cluster without an explicit operator note explaining the real-world source.
