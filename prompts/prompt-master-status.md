@@ -531,6 +531,93 @@ Prompt 20 produces an alignment review report, not a build deliverable. Final pr
 
 ---
 
+## Service Data Layer Build Prompt
+
+Current Version: v1.0
+Status: Active — Awaiting Benchmark Lock
+Benchmark: None yet
+Latest Result: Not tested
+Validation Type: Not yet validated
+Approved For: Scaffolding the TypeScript service data layer pattern in client repos — types, shared components (StatBar, FAQBlock, ServicePage), per-service data files, and thin page wrappers that separate service page content from JSX presentation components
+
+### Position in Workflow
+
+After Prompt 05 Developer Build Brief, before or alongside Prompt 06 Claude Code Build.
+
+For repos where the data layer types and shared components already exist from a prior service page, only Step 3 (data file) and Step 4 (page file) run. Steps 1 and 2 are skipped.
+
+### Mode
+
+Core Mode and Beyond-Elite Mode.
+Do not run in Fast Mode — Fast Mode service pages use Prompt 06 directly.
+Do not run in Full Competitive Build Mode without also running the full Prompt 05 and Prompt 06 chain alongside it.
+
+### Does Not Replace
+
+- Prompt 05 Developer Build Brief — strategy and section planning still required upstream
+- Prompt 06 Claude Code Build — page body content (children slot, AuthorBox, process sections, CTAs) is built by Prompt 06, not this prompt
+- Prompt 07 QA Review — QA is a separate step after this prompt and Prompt 06 complete
+
+### What This Prompt Produces
+
+Six files on first-time setup:
+
+1. `types/service.ts` — ServiceData, StatItem, FAQItem type definitions
+2. `components/StatBar.tsx` — renders confirmed stats with placeholder fallback; never renders `0`
+3. `components/FAQBlock.tsx` — renders accordion FAQ UI and injects FAQPage schema with exact visible-text match
+4. `components/ServicePage.tsx` — shared template composing answer block, StatBar, children slot, and FAQBlock in required order
+5. `data/services/[slug].ts` — per-service data file containing answerBlock, stats, FAQs, lastRefreshed, and nextRefreshDue
+6. `app/services/[slug]/page.tsx` — thin page wrapper exporting metadata, Service schema, BreadcrumbList schema, and rendering ServicePage
+
+On subsequent service pages (types and components already exist):
+
+- `data/services/[slug].ts` only
+- `app/services/[slug]/page.tsx` only
+
+### Key Behavioral Rules Confirmed
+
+- No-fake-data policy inherited from `docs/no-fake-data-policy.md` in full
+- Stats use `value: 0` and `placeholder` string for unconfirmed data; never a non-zero invented number
+- Every FAQ must declare a `source` field: `job-log`, `firsthand`, `business-data`, or `customer-question`; general knowledge answers are not permitted
+- FAQPage schema must match visible FAQ text exactly, character for character
+- FAQ accordion uses `<details>/<summary>` so answer text is in the DOM at load time; state-driven hidden text is not permitted
+- Answer block enforced to 40-65 words by build-time comment if exceeded
+- AggregateRating schema is never emitted without verified owner-confirmed data
+- `ServicePage.tsx` has no hardcoded copy and no AuthorBox; author details go in the page file because they are owner-confirmed per-client content
+- 5-gate flow: Inspect, Plan, Build, Validate, Report — matches Prompt 06 gate pattern
+
+### 90-Day Refresh Protocol
+
+The data file is the refresh target, not JSX. On each 90-day cycle the operator updates stats, adds FAQs, revises the answer block if needed, and bumps `lastRefreshed` and `nextRefreshDue`. No JSX changes required.
+
+### Carry-Forward Behavior
+
+All unconfirmed stats use `value: 0` with `placeholder` strings and TODO comments in code. All unconfirmed FAQ sources are flagged. Unresolved schema fields are omitted, not invented. All TODO items appear in the Gate 5 report with the field name and what confirmation is needed.
+
+### Production Requirement
+
+A page using this data layer cannot be marked production-ready until:
+
+- All `value: 0` stats are either confirmed with real numbers or explicitly approved as placeholder text by the owner
+- All FAQ `source` fields are one of the four permitted values with traceable origin
+- Answer block word count is between 40 and 65 words
+- `npm run build`, `npm run lint`, and `tsc --noEmit` all pass
+
+### Notes
+
+This prompt was added following the June 2026 analysis of chat-session content covering the service data layer pattern, job log system, and content freshness tracking. The service data layer was identified as the highest-priority addition to Site OS Master from that session because it separates content from JSX structurally, enforces the answer block and FAQ count minimums at the architecture level, generates FAQPage schema from a single source of truth, and makes the 90-day refresh cycle operable without touching component code.
+
+The job log system (`docs/content/job-log-system.md`) and content refresh cadence (`docs/content/content-refresh-cadence.md`) are companion additions recommended alongside this prompt. They are tracked separately.
+
+---
+
+Site OS Master — Service Data Layer Build Prompt Registration
+Added: 2026-06-21
+Status: Active — Awaiting Benchmark Lock
+Next step: Run benchmark test against a client service page build to validate the 5-gate flow, no-fake-data enforcement, FAQ schema visible-text match, and 90-day refresh pattern before locking.
+
+---
+
 ## Prompt Change Log Reference
 
 All version changes are recorded in:

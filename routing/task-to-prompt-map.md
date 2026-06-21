@@ -25,6 +25,14 @@ Use prompts/06-claude-code-build-prompt.md
 QA review:
 Use prompts/07-qa-review-prompt.md
 
+## Service Page Architecture
+
+Task: Scaffold service data layer (types, components, data file, page wrapper)
+Prompt: prompts/service-data-layer-build-prompt.md
+Mode: Core, Beyond-Elite
+Position: After Prompt 05, before or alongside Prompt 06
+Skip when: Fast Mode; page is not a service page; data layer already exists and only a data file needs updating
+
 ## Advanced Prompt Routing
 
 SERP competitive analysis:
