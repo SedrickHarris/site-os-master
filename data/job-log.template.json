@@ -1,0 +1,22 @@
+[
+  {
+    "id": "job-001",
+    "date": "YYYY-MM-DD",
+    "jobType": "",
+    "serviceSlug": "",
+    "location": "",
+    "problem": "",
+    "whatWeDid": "",
+    "partsReplaced": [],
+    "laborHours": 0,
+    "totalCost": 0,
+    "customerSituation": "",
+    "outcome": "",
+    "unusualOrNoteworthy": "",
+    "savedFromBiggerRepair": false,
+    "estimatedSavings": 0,
+    "photosTaken": false,
+    "customerQuestion": "",
+    "notes": ""
+  }
+]
